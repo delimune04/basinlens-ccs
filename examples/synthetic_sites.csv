@@ -1,0 +1,4 @@
+site_id,site_name,area_km2_low,area_km2_mode,area_km2_high,net_thickness_m_low,net_thickness_m_mode,net_thickness_m_high,porosity_low,porosity_mode,porosity_high,co2_density_kg_m3_low,co2_density_kg_m3_mode,co2_density_kg_m3_high,storage_efficiency_low,storage_efficiency_mode,storage_efficiency_high,caprock_thickness_m,fault_distance_km,legacy_wells_per_100km2
+AURORA,Aurora Saline Concept,35,50,65,25,35,50,0.16,0.20,0.24,620,680,730,0.015,0.030,0.050,120,8.0,2
+BOREALIS,Borealis Basin Concept,60,75,95,18,28,40,0.12,0.17,0.22,600,660,720,0.010,0.025,0.040,70,3.5,6
+CALDERA,Caldera Deep Concept,20,30,45,45,60,80,0.18,0.22,0.27,630,690,740,0.020,0.040,0.055,35,1.2,12
