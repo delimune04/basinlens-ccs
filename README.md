@@ -1,5 +1,7 @@
 # BasinLens CCS
 
+[![CI](https://github.com/delimune04/basinlens-ccs/actions/workflows/ci.yml/badge.svg)](https://github.com/delimune04/basinlens-ccs/actions/workflows/ci.yml)
+
 **Transparent, uncertainty-aware screening for geologic CO2 storage concepts.**
 
 BasinLens CCS is an early Python prototype that turns uncertain storage-area,
@@ -39,7 +41,7 @@ workflow:
 ## Quick start
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/delimune04/basinlens-ccs.git
 cd basinlens-ccs
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
