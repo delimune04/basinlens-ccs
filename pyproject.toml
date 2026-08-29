@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basinlens-ccs"
+version = "0.1.0"
+description = "Transparent, uncertainty-aware screening for geologic CO2 storage concepts"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [{name = "BasinLens contributors"}]
+keywords = ["ccs", "geoscience", "carbon-storage", "uncertainty", "monte-carlo"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+app = [
+  "plotly>=5.22",
+  "streamlit>=1.35",
+]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+basinlens = "basinlens_ccs.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
