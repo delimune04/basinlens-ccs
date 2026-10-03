@@ -27,4 +27,5 @@ jobs:
         run: >-
           python -m basinlens_ccs.cli examples/synthetic_sites.csv
           --output build/example --samples 2000 --seed 42
-
+      - name: Verify example bundle
+        run: python -m basinlens_ccs.artifacts build/example

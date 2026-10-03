@@ -34,4 +34,8 @@ the owner can explain, test, and extend independently.
 - `v0.4`: literature-backed screening criteria and correlated uncertainty
 - `v0.5`: pressure-limited case study using OPM Flow or MRST
 - `v1.0`: documented validation against a published CCS benchmark
+# Current implementation plan
 
+The 2026-10-03 scope and working sequence are in
+[DEVELOPMENT_PLAN.md](DEVELOPMENT_PLAN.md). Keep the learning exercises below;
+the shared development handoff lives in [HANDOFF.md](HANDOFF.md).

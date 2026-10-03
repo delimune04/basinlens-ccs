@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "basinlens-ccs"
-version = "0.1.0"
+version = "0.2.0"
 description = "Transparent, uncertainty-aware screening for geologic CO2 storage concepts"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -33,6 +33,7 @@ dev = [
 
 [project.scripts]
 basinlens = "basinlens_ccs.cli:main"
+basinlens-verify = "basinlens_ccs.artifacts:verify_main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -40,4 +41,3 @@ where = ["src"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
-

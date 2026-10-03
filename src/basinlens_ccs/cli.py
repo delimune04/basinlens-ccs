@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import argparse
-import json
+from io import BytesIO
 from pathlib import Path
 
+import pandas as pd
+
 from .analysis import analyze_sites
-from .io import load_sites
+from .artifacts import write_run_bundle
+from .io import sites_from_dataframe
 
 
 DISCLAIMER = (
@@ -25,7 +28,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--output",
         default="outputs",
-        help="Directory for summary.csv and run_metadata.json (default: outputs)",
+        help="New directory for the run bundle; existing paths are refused (default: outputs)",
     )
     parser.add_argument(
         "--samples",
@@ -38,41 +41,30 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
-    sites = load_sites(args.input_csv)
-    summary, _, _ = analyze_sites(
-        sites,
-        sample_count=args.samples,
-        seed=args.seed,
-    )
-
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    if args.samples < 100 or args.seed < 0:
+        parser.error("samples must be >= 100 and seed must be >= 0")
     output_dir = Path(args.output)
-    output_dir.mkdir(parents=True, exist_ok=True)
-    summary_path = output_dir / "summary.csv"
-    metadata_path = output_dir / "run_metadata.json"
-    summary.to_csv(summary_path, index=False)
-    metadata_path.write_text(
-        json.dumps(
-            {
-                "input_csv": str(Path(args.input_csv)),
-                "site_count": len(sites),
-                "samples_per_site": args.samples,
-                "random_seed": args.seed,
-                "capacity_quantiles": "Q10/Q50/Q90 are statistical quantiles",
-                "disclaimer": DISCLAIMER,
-            },
-            indent=2,
+    if output_dir.exists():
+        parser.error(f"output already exists; choose a new run directory: {output_dir}")
+    try:
+        # Parse and archive the same bytes, even if the original file changes later.
+        input_bytes = Path(args.input_csv).read_bytes()
+        sites = sites_from_dataframe(pd.read_csv(BytesIO(input_bytes), encoding="utf-8"))
+        summary, capacities, _ = analyze_sites(sites, sample_count=args.samples, seed=args.seed)
+        metadata_path = write_run_bundle(
+            output_dir, input_bytes=input_bytes, input_label=str(Path(args.input_csv)),
+            sites=sites, summary=summary, capacities=capacities,
+            sample_count=args.samples, seed=args.seed, disclaimer=DISCLAIMER,
         )
-        + "\n",
-        encoding="utf-8",
-    )
-
+    except (OSError, ValueError) as exc:
+        parser.error(str(exc))
     print(summary.to_string(index=False))
-    print(f"\nSaved {summary_path} and {metadata_path}")
+    print(f"\nSaved run bundle at {output_dir} (manifest: {metadata_path.name})")
     print(DISCLAIMER)
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

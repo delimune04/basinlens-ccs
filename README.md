@@ -4,6 +4,14 @@
 
 **Transparent, uncertainty-aware screening for geologic CO2 storage concepts.**
 
+**2026-10-03 · v0.2 foundation:** the shared development target is a
+**Subsurface Evaluation Workbench** for CCS screening, reference simulation,
+Sleipner observation comparison, and evaluated NVIDIA acceleration.
+See the [한국어 프로젝트 초안](docs/PROJECT_BRIEF.md),
+[architecture](docs/ARCHITECTURE.md), [NVIDIA plan](docs/NVIDIA_INTEGRATION.md),
+[validation gates](docs/VALIDATION_PLAN.md), and [professor review note](docs/PROFESSOR_REVIEW.md).
+Physical simulation, seismic, GPU and industry-pilot modules remain planned.
+
 BasinLens CCS is an early Python prototype that turns uncertain storage-area,
 thickness, porosity, CO2-density, and efficiency assumptions into a
 reproducible volumetric capacity distribution. It also displays simple,
@@ -34,6 +42,8 @@ workflow:
 - rank-correlation sensitivity analysis;
 - transparent, demonstration-only containment-attention indicators;
 - CSV batch analysis and reproducible run metadata;
+- exact-input run bundles, source/environment fingerprints, artifact checksums,
+  sensitivity CSV and numerical Markdown reports;
 - interactive Streamlit dashboard;
 - synthetic example sites and unit tests; and
 - automated GitHub Actions checks on Python 3.10 and 3.12.
@@ -52,7 +62,13 @@ Run the batch example:
 
 ```bash
 basinlens examples/synthetic_sites.csv --output outputs --samples 20000 --seed 42
+basinlens-verify outputs
 ```
+
+Use a **new output directory for every run**. Existing paths are refused to preserve
+previous results. Bundles contain `input.csv`, `summary.csv`, `sensitivity.csv`,
+`report.md`, and `run_metadata.json`. Integrity checks are separate from scientific
+validation. The existing Streamlit interface does not yet export this bundle.
 
 Launch the dashboard:
 
@@ -121,6 +137,12 @@ The next meaningful step is not a more complicated score. It is replacing a
 synthetic scenario with a well-documented public dataset and validating one
 part of the workflow against a published method. The longer-term milestones
 are listed in [the learning roadmap](docs/LEARNING_ROADMAP.md).
+
+The current implementation sequence is in [DEVELOPMENT_PLAN.md](docs/DEVELOPMENT_PLAN.md).
+For alternating Claude Code/Codex sessions, read [AGENTS.md](AGENTS.md),
+[CLAUDE.md](CLAUDE.md), and [HANDOFF.md](docs/HANDOFF.md).
+The next bounded task strengthens input identity, units and provenance before
+adding optional physics/ML engines.
 
 ## 한국어 프로젝트 방향
 
