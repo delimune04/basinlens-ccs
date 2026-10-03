@@ -32,14 +32,14 @@
 
 | 순서 | 작업 | 예상 집중 작업량 | 인수 기준 |
 |---|---|---|---|
-| T1 | 입력 식별자·범위·오류 전달 보강 | 1일 | NaN/공백 ID 차단, 문자열 ID 보존, 직접 생성 물성 범위, regression |
-| T2 | 단위·출처를 포함한 case/evidence schema | 1–2일 | 버전 계약, synthetic 예시, 관측/가정/미확인 구분, legacy adapter |
-| T3 | Sleipner asset register와 작은 QC | 1–2일 | 허용된 작은 asset, SHA·CRS·datum·라이선스·자료 부족 목록 |
-| T4 | OPM adapter의 첫 CO₂ 사례 실행 | 1–2일 + 환경 준비 | 고정 버전, 명령·입력·로그, 실제 압력/질량 변수, 실패 보존 |
-| T5 | CO₂ 사례의 독립 검증과 수렴 비교 | 1–2일 | no-injection·보존량·시간/격자 refinement 표 |
-| T6 | 4D seismic subset QC·관측 비교 | 1–2일 + 자료 접근 | 시간/좌표/진폭 QC와 threshold 민감도; 포화도 변환 미검증 표시 |
-| T7 | PhysicsNeMo feasibility와 독립 시험 설계 | 1–2일 + GPU 자원 | 요구 메모리 실측, 기준 정확도·비용 표, 학습 자료 누출 점검 |
-| T8 | 제한된 sweep runner와 작업 기록 | 1–2일 | job/time 상한, 실패 상태, 재시도 변경 기록; 이후 planner 연결 |
+| [T1](https://github.com/delimune04/basinlens-ccs/issues/1) | 입력 식별자·범위·오류 전달 보강 | 1일 | NaN/공백 ID 차단, 문자열 ID 보존, 직접 생성 물성 범위, regression |
+| [T2](https://github.com/delimune04/basinlens-ccs/issues/2) | 단위·출처를 포함한 case/evidence schema | 1–2일 | 버전 계약, synthetic 예시, 관측/가정/미확인 구분, legacy adapter |
+| [T3](https://github.com/delimune04/basinlens-ccs/issues/3) | Sleipner asset register와 작은 QC | 1–2일 | 허용된 작은 asset, SHA·CRS·datum·라이선스·자료 부족 목록 |
+| [T4](https://github.com/delimune04/basinlens-ccs/issues/4) | OPM adapter의 첫 CO₂ 사례 실행 | 1–2일 + 환경 준비 | 고정 버전, 명령·입력·로그, 실제 압력/질량 변수, 실패 보존 |
+| [T5](https://github.com/delimune04/basinlens-ccs/issues/5) | CO₂ 사례의 독립 검증과 수렴 비교 | 1–2일 | no-injection·보존량·시간/격자 refinement 표 |
+| [T6](https://github.com/delimune04/basinlens-ccs/issues/6) | 4D seismic subset QC·관측 비교 | 1–2일 + 자료 접근 | 시간/좌표/진폭 QC와 threshold 민감도; 포화도 변환 미검증 표시 |
+| [T7](https://github.com/delimune04/basinlens-ccs/issues/7) | PhysicsNeMo feasibility와 독립 시험 설계 | 1–2일 + GPU 자원 | 요구 메모리 실측, 기준 정확도·비용 표, 학습 자료 누출 점검 |
+| [T8](https://github.com/delimune04/basinlens-ccs/issues/8) | 제한된 sweep runner와 작업 기록 | 1–2일 | job/time 상한, 실패 상태, 재시도 변경 기록; 이후 planner 연결 |
 
 T4 이후 일정은 물리·자료 문제가 확인되면 다시 추정한다. 대형 grid,
 history matching, 다중 사용자 서비스, full RAG stack은 첫 iteration의 목표가 아니다.

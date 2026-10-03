@@ -23,12 +23,17 @@ Updated: 2026-10-03. Baseline upstream before this change:
 - Bundle integrity verifier — passed. Repeat-run equivalence, altered/missing
   artifacts, existing-run refusal, incomplete manifest and invalid input tested.
 - `git diff --check` — passed at the implementation check.
+- Editable package installation and installed `basinlens` / `basinlens-verify`
+  entry points — passed.
+- [Remote CI](https://github.com/delimune04/basinlens-ccs/actions/runs/37098100648)
+  for foundation commit `9544983f8ff47866daafd36a99c7869d1ece57df` — Python 3.10
+  and 3.12 install, unit tests, example run and bundle verification all passed.
 - GPU models, OPM, real Sleipner data, Streamlit UI and industry pilot — not run.
-  Python 3.10 is covered by configured remote CI, not by this local execution.
 
 ## Next task
 
-T1 in `DEVELOPMENT_PLAN.md`: input identity/bounds/errors. Existing gaps include
+[T1 / issue #1](https://github.com/delimune04/basinlens-ccs/issues/1) in
+`DEVELOPMENT_PLAN.md`: input identity/bounds/errors. Existing gaps include
 blank CSV identities becoming string `nan`, numeric-looking IDs losing leading
 zeros, direct construction bypassing fraction bounds, and broad exception handlers
 obscuring field-specific errors. Improve these without changing valid calculations.
