@@ -27,11 +27,13 @@ Additional validation work:
 - Compare Monte Carlo moments against analytical products for independent inputs.
 - Check sample convergence over multiple seeds and budgets; quantify Monte Carlo
   numerical error separately from geological uncertainty.
-- Make fractional bounds mandatory even for direct Python construction.
-- Preserve string IDs and reject blank/NaN identities; retain original field names
-  in errors. The legacy reader is not yet a complete data contract.
-- Audit ties in the current rank-correlation implementation; do not label it a
-  general Sobol analysis or use its values causally.
+- Completed in the 2026-10-05 T1 software regression pass: mandatory direct-Python
+  fractional/non-negative bounds, literal string IDs, blank/NaN rejection,
+  uniqueness, and field-specific errors. The legacy reader still does not capture
+  units/provenance as a versioned data contract.
+- Ties now use average ranks, checked against a hand-calculated `0.5` fixture and
+  every paired permutation. Constant arrays retain the documented legacy zero
+  sentinel. Do not label this general Sobol analysis or use its values causally.
 - Specify whether thickness is gross/net and how efficiency is defined, to prevent
   double counting when another estimation method is introduced.
 

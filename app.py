@@ -13,6 +13,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from basinlens_ccs import analyze_sites, sites_from_dataframe  # noqa: E402
+from basinlens_ccs.io import read_site_dataframe  # noqa: E402
 from basinlens_ccs.models import InputValidationError  # noqa: E402
 
 
@@ -40,9 +41,9 @@ with st.sidebar:
 
 try:
     if uploaded is None:
-        input_frame = pd.read_csv(PROJECT_ROOT / "examples" / "synthetic_sites.csv")
+        input_frame = read_site_dataframe(PROJECT_ROOT / "examples" / "synthetic_sites.csv")
     else:
-        input_frame = pd.read_csv(uploaded)
+        input_frame = read_site_dataframe(uploaded)
     sites = sites_from_dataframe(input_frame)
     summary, capacity_results, attention_results = analyze_sites(
         sites,
