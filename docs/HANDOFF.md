@@ -18,6 +18,8 @@ Changed files: `models.py`, `io.py`, `analysis.py`, `capacity.py`, `cli.py`, `ap
   dictionary entries. Record positions do not depend on DataFrame index labels.
 - Physical fractions are always in `[0,1]`; all physical inputs stay non-negative.
   Type, missing, non-numeric, non-finite and range errors keep field context.
+  Independent review added coverage for direct-Python oversized integers, which
+  now raise the same field-specific validation error rather than `OverflowError`.
 - Sensitivity uses average ranks for ties; a hand calculation and all paired
   permutations verify `r=0.5`. Constant arrays keep the documented zero sentinel.
   Exact summary ties resolve by site ID. Input-order seed assignment is unchanged.

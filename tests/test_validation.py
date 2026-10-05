@@ -110,7 +110,7 @@ class PhysicalValidationTests(unittest.TestCase):
 
     def test_direct_screening_errors_name_field(self):
         for name in ("caprock_thickness_m", "fault_distance_km", "legacy_wells_per_100km2"):
-            for value in (-1, np.nan, np.inf, None, "abc", True):
+            for value in (-1, np.nan, np.inf, None, "abc", True, 10**1000):
                 with self.subTest(field=name, value=value), self.assertRaisesRegex(InputValidationError, name):
                     replace(valid_site(), **{name: value})
 
@@ -138,7 +138,7 @@ class PhysicalValidationTests(unittest.TestCase):
                 SiteScenario.from_mapping(row)
 
     def test_invalid_estimate_numbers_and_bounds(self):
-        for value in (None, "1", np.nan, np.inf, True):
+        for value in (None, "1", np.nan, np.inf, True, 10**1000):
             with self.subTest(value=value), self.assertRaisesRegex(InputValidationError, "porosity_low"):
                 TriangularEstimate(value, 1, 1, name="porosity")
         for kwargs in ({"minimum": np.nan}, {"maximum": np.inf}, {"minimum": 2, "maximum": 1}):

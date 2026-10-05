@@ -17,7 +17,11 @@ class InputValidationError(ValueError):
 def _finite_number(value: Any, name: str) -> None:
     if isinstance(value, (bool, np.bool_)) or not isinstance(value, Real):
         raise InputValidationError(f"{name} must be a finite number")
-    if not isfinite(value):
+    try:
+        finite = isfinite(value)
+    except OverflowError as exc:
+        raise InputValidationError(f"{name} must be a finite number") from exc
+    if not finite:
         raise InputValidationError(f"{name} must be a finite number")
 
 
@@ -159,4 +163,3 @@ class SiteScenario:
             fault_distance_km=numeric("fault_distance_km"),
             legacy_wells_per_100km2=numeric("legacy_wells_per_100km2"),
         )
-
