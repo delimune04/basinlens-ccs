@@ -6,11 +6,9 @@ import argparse
 from io import BytesIO
 from pathlib import Path
 
-import pandas as pd
-
 from .analysis import analyze_sites
 from .artifacts import write_run_bundle
-from .io import sites_from_dataframe
+from .io import read_site_dataframe, sites_from_dataframe
 
 
 DISCLAIMER = (
@@ -51,7 +49,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         # Parse and archive the same bytes, even if the original file changes later.
         input_bytes = Path(args.input_csv).read_bytes()
-        sites = sites_from_dataframe(pd.read_csv(BytesIO(input_bytes), encoding="utf-8"))
+        sites = sites_from_dataframe(read_site_dataframe(BytesIO(input_bytes)))
         summary, capacities, _ = analyze_sites(sites, sample_count=args.samples, seed=args.seed)
         metadata_path = write_run_bundle(
             output_dir, input_bytes=input_bytes, input_label=str(Path(args.input_csv)),

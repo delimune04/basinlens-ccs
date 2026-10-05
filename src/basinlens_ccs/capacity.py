@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 import numpy as np
+import pandas as pd
 
 from .models import InputValidationError, SiteScenario
 
@@ -86,12 +87,12 @@ def volumetric_capacity_mt(
 
 
 def _rank_correlation(x: np.ndarray, y: np.ndarray) -> float:
-    """Spearman-style correlation without requiring SciPy."""
+    """Average-rank correlation; constant inputs use the legacy zero sentinel."""
 
     if np.all(x == x[0]) or np.all(y == y[0]):
         return 0.0
-    x_rank = np.argsort(np.argsort(x, kind="mergesort"), kind="mergesort").astype(float)
-    y_rank = np.argsort(np.argsort(y, kind="mergesort"), kind="mergesort").astype(float)
+    x_rank = pd.Series(x).rank(method="average").to_numpy() - 1.0
+    y_rank = pd.Series(y).rank(method="average").to_numpy() - 1.0
     return float(np.corrcoef(x_rank, y_rank)[0, 1])
 
 

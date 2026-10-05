@@ -48,6 +48,22 @@ workflow:
 - synthetic example sites and unit tests; and
 - automated GitHub Actions checks on Python 3.10 and 3.12.
 
+### Input contract
+
+The CSV reader used by the CLI, file loader, and dashboard preserves textual
+identities such as `001`, `1`, and `NA`. IDs and names must be non-empty strings;
+missing values and case-insensitive `NaN` are rejected. Surrounding whitespace is
+trimmed, and IDs must be unique after trimming. Direct Python/DataFrame callers
+must supply strings themselves; already-inferred numeric IDs cannot recover lost
+leading zeros.
+
+All numerical inputs must be finite. Area, net thickness, CO2 density and screening
+fields are non-negative; porosity and storage efficiency are fractions in `[0, 1]`.
+These bounds also apply to direct `SiteScenario` construction, regardless of an
+estimate's optional bounds. Zero is retained as a valid conceptual boundary case,
+not evidence of site suitability. Validation errors name the field and, for table
+input, its 1-based record position including the header.
+
 ## Quick start
 
 ```bash

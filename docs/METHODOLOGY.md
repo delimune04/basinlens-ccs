@@ -37,6 +37,21 @@ Sensitivity is reported as rank correlation between each sampled input and the
 simulated capacity. This indicates association within the assumed input ranges;
 it does not establish causal importance outside the scenario.
 
+Equal sampled values receive average ranks, following the documented
+[pandas average-rank convention](https://pandas.pydata.org/pandas-docs/version/2.0/reference/api/pandas.Series.rank.html).
+For example, `x=[1,1,2]` and `y=[1,2,2]` have ranks `[1.5,1.5,3]` and
+`[1,2.5,2.5]`; their Pearson rank correlation is `0.5`, independently of paired
+sample order. The prior ordinal tie-break depended on sample order. The fix
+changes tied-input sensitivities only; the existing tie-free synthetic results
+are unchanged. A constant input or output retains the legacy `0.0` sentinel:
+its mathematical correlation is undefined, so do not interpret that sentinel
+as evidence of no influence. This is not Sobol sensitivity analysis.
+
+Summary rows sort by increasing illustrative attention score, decreasing Q50,
+then case-sensitive site ID for an exact tie. This is deterministic presentation,
+not a scientific ranking. Per-site random seeds still follow input-row order;
+reordering uncertain scenarios may change their Monte Carlo draws.
+
 ## Illustrative containment-attention indicators
 
 The prototype deliberately calls these values **attention indicators**, not

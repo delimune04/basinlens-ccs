@@ -1,5 +1,50 @@
 # Development handoff
 
+## 2026-10-05: T1 input validation and deterministic ties
+
+Baseline: `7ab91398e064bcc2fd323150e869fb521be234be`, rebuilt directly from the
+accessible GitHub source. Scope: [issue #1](https://github.com/delimune04/basinlens-ccs/issues/1).
+Plan: unify literal CSV identity parsing, validate direct scenarios and detailed
+errors, correct tied ranks, add boundary/bundle regressions, then verify the
+unchanged synthetic calculations. No equation or attention threshold was changed.
+
+Changed files: `models.py`, `io.py`, `analysis.py`, `capacity.py`, `cli.py`, `app.py`,
+`tests/test_validation.py`, `README.md`, `docs/METHODOLOGY.md`,
+`docs/VALIDATION_PLAN.md`, and this handoff.
+
+- The loader, CLI, and dashboard share literal identity parsing. IDs/names are
+  trimmed strings; empty/missing/NaN identities and duplicate canonical IDs fail.
+  Direct analysis rejects duplicate IDs before simulation instead of overwriting
+  dictionary entries. Record positions do not depend on DataFrame index labels.
+- Physical fractions are always in `[0,1]`; all physical inputs stay non-negative.
+  Type, missing, non-numeric, non-finite and range errors keep field context.
+- Sensitivity uses average ranks for ties; a hand calculation and all paired
+  permutations verify `r=0.5`. Constant arrays keep the documented zero sentinel.
+  Exact summary ties resolve by site ID. Input-order seed assignment is unchanged.
+- Python 3.12.14, NumPy 2.3.5, pandas 2.2.3:
+  `PYTHONPATH=src python -m unittest discover -s tests -v` — 39 tests passed.
+- Editable installation in an isolated virtual environment with existing
+  dependencies (`pip install --no-build-isolation --no-deps -e .`) passed, as did
+  all 39 installed-package tests and the `basinlens` / `basinlens-verify` entry
+  points at 2,000 samples, seed 42. `compileall` and `git diff --check` passed.
+- Synthetic CSV, engine `volumetric-independent-triangular`, 20,000 samples per
+  site, seed 42: CLI and bundle verification passed. `summary.csv`,
+  `sensitivity.csv`, and `report.md` were byte-identical to the baseline run;
+  Q50 remains 7.56, 5.92, and 11.11 Mt rounded for the three example sites.
+- The existing CI only installs/runs tests and the synthetic bundle on standard
+  `ubuntu-latest` Python 3.10/3.12 runners. No deployment, secrets or paid services.
+
+Scientific evidence remains L0/synthetic-only. Streamlit visual flows, GPU, OPM,
+Sleipner and industry pilot checks were not run. This does not validate real-site
+safety. Explicit units/provenance and broader simulation-budget validation remain
+outside this input-contract patch.
+
+Next bounded task: [T2 / issue #2](https://github.com/delimune04/basinlens-ccs/issues/2),
+the versioned case/evidence schema. Start with `python -m unittest discover -s tests -v`
+after installation, then use a fresh directory for the documented CLI check.
+
+## Earlier foundation handoff (retained for history)
+
 Updated: 2026-10-03. Baseline upstream before this change:
 `0f0022888d6464865be6c21fc7690f0b34af3f6c`.
 
