@@ -1,0 +1,1294 @@
+{
+  "actual_examples": 8,
+  "all_commands_exit_zero": true,
+  "execution_received_utc": "2026-10-19T10:09:59.710320+00:00",
+  "original_gms_comparison": false,
+  "records": [
+    {
+      "exit_code": 0,
+      "feature_group": "geology",
+      "output_inventory": {
+        "contacts.json": {
+          "bytes": 1410,
+          "sha256": "556bafc09113d68e952d12fa8f7e8a0042f6e5bcc5a71ff135687f19b1df9e85"
+        },
+        "edited.json": {
+          "bytes": 3231,
+          "sha256": "dbe5cd8fdaf391192e096878bbbc87a2579d32aa6d43c3687203b07bf948900d"
+        },
+        "receipt.json": {
+          "bytes": 328,
+          "sha256": "4370a1af98de10bdd50d916823ce23465d3a567ed8f5396e8b5109547cb3e143"
+        },
+        "roundtrip/csv/assets/synthetic_notes.txt": {
+          "bytes": 107,
+          "sha256": "753f68bed1ffd20d2376736c7ad66f4f15e5bcb17bd71869e90273fc5fe43ce5"
+        },
+        "roundtrip/csv/boreholes.csv": {
+          "bytes": 251,
+          "sha256": "c5020a500c56a6d838782bc1214fce8ef6e6812c9dea11754c1eb685d60723bd"
+        },
+        "roundtrip/csv/horizons.csv": {
+          "bytes": 54,
+          "sha256": "2135d8f4b487210461faa7ad1884d92f14b650c35ab63518f36a4eb4815fd420"
+        },
+        "roundtrip/csv/intervals.csv": {
+          "bytes": 399,
+          "sha256": "c0231bbb8fd07152743045372230765889659522e1a6d7a33606450a974af597"
+        },
+        "roundtrip/csv/manifest.json": {
+          "bytes": 809,
+          "sha256": "acc30cef10ad75e04034d73fd8152445a6ed8bdb9a4347d76d3b93e5e1a05a5e"
+        },
+        "roundtrip/csv/materials.csv": {
+          "bytes": 126,
+          "sha256": "8c47210a18f3dc96f0f0ca7c099b764e446d5eba18bed4ff4ba23815ffe80453"
+        },
+        "roundtrip/csv/metadata.json": {
+          "bytes": 664,
+          "sha256": "1676b57dec81f8a444bce593818418d61d7e7f10461af399cde5e04c9a9cf7a0"
+        },
+        "roundtrip/receipt.json": {
+          "bytes": 876,
+          "sha256": "6a6bfe8e23b2a8ed518c88b66268f92cf933c91994aff0561f50bc3aa80d0d5e"
+        },
+        "roundtrip/roundtrip.json": {
+          "bytes": 2755,
+          "sha256": "00d75af3af8fc1e580503c1a473bd22a76eae20e43e123e1aba165eef54fdee3"
+        },
+        "section.json": {
+          "bytes": 4351,
+          "sha256": "dd9dff6338a42759a52b91d81c5e0521b397041c38c91d0a7442c56f2291d770"
+        }
+      },
+      "parsed_receipt": {
+        "boreholes_in_section": 4,
+        "crs": "unknown",
+        "explicit_contact_count": 2,
+        "json_csv_json_semantics_equal": true,
+        "original_gms_comparison": "not performed",
+        "schema": "basinlens-geology-example-v1",
+        "source_unchanged": true,
+        "synthetic_only": true,
+        "traceable_edit_count": 1,
+        "vertical_datum": "unknown"
+      },
+      "receipt_relative_path": "receipt.json",
+      "scope": "Root integration invocation of the authored executable example; not whole-suite or original GMS evidence",
+      "source_files": {
+        "examples/geology/run_geology_example.py": {
+          "bytes": 2590,
+          "sha256": "1ff301d9d745ddb4317dde3683c3ae4729b3865b22b21b4246fd0d375a2419c6"
+        },
+        "src/basinlens_ccs/subsurface/geology.py": {
+          "bytes": 38329,
+          "sha256": "abef83a6cdc67ae59c1fe2b3e98f57024fdedd9981172493124029830c110437"
+        },
+        "tests/test_geology.py": {
+          "bytes": 20807,
+          "sha256": "2d4f53a42c0ea597497164e773537cfd12acd8de096a3710c46a963affeec8e5"
+        }
+      }
+    },
+    {
+      "exit_code": 0,
+      "feature_group": "scatter",
+      "output_inventory": {
+        "difference.json": {
+          "bytes": 890,
+          "sha256": "a6e54f70c20ab5615274bd86a6e6723f7f904265e3e5c23bd2256002e4ba0df5"
+        },
+        "edited.csv": {
+          "bytes": 656,
+          "sha256": "741c26cff9effeaf8b9ffee8cee827cc31ce2af03bd134a20001b4265d8f1ff1"
+        },
+        "idw.json": {
+          "bytes": 3160,
+          "sha256": "49902d2fd9bbd43d0dcbc201219c4da20892d92b3b4432ebf542b549df449410"
+        },
+        "linear_tin.csv": {
+          "bytes": 276,
+          "sha256": "f501bd719d3cf0e063a6cc7fce1566679a1edb61e188fe207da357aa068beb8d"
+        },
+        "linear_tin.json": {
+          "bytes": 3222,
+          "sha256": "5218708bd3d2860d6a5f2d00db8ad172916598330880387d93a31d55c949249d"
+        },
+        "nearest.json": {
+          "bytes": 2756,
+          "sha256": "eb9ee9187e1252aa87b54a028fa5bccff6a26b1914e2d900aaf9b65709c37b34"
+        },
+        "points.csv": {
+          "bytes": 494,
+          "sha256": "586010249f59474ea79b16c0420fcdae47942eaa1d0fc91bb9a5cc8268973872"
+        },
+        "points.json": {
+          "bytes": 674,
+          "sha256": "ffd9e2dd06dd09cff994e855f8598341ca0a3273cf4706ff75bd259d8619b34e"
+        },
+        "receipt.json": {
+          "bytes": 1776,
+          "sha256": "dd92a5303d2fa7565cfadfd868202c44da5b26a496113ad484c79dae3474cc32"
+        },
+        "roundtrip.json": {
+          "bytes": 649,
+          "sha256": "53f3f347e725f0d2e15878167d3f0d96c8e5cf843f1a444dd20a4a6867c4b71d"
+        }
+      },
+      "parsed_receipt": {
+        "dataset_sha256": "ffd9e2dd06dd09cff994e855f8598341ca0a3273cf4706ff75bd259d8619b34e",
+        "example_script_sha256": "21b92f61d0490a6e75435002a0967c465b6a95b1d81b8ae69ea2d42b0ada2d56",
+        "files": {
+          "difference.json": {
+            "bytes": 890,
+            "sha256": "a6e54f70c20ab5615274bd86a6e6723f7f904265e3e5c23bd2256002e4ba0df5"
+          },
+          "edited.csv": {
+            "bytes": 656,
+            "sha256": "741c26cff9effeaf8b9ffee8cee827cc31ce2af03bd134a20001b4265d8f1ff1"
+          },
+          "idw.json": {
+            "bytes": 3160,
+            "sha256": "49902d2fd9bbd43d0dcbc201219c4da20892d92b3b4432ebf542b549df449410"
+          },
+          "linear_tin.csv": {
+            "bytes": 276,
+            "sha256": "f501bd719d3cf0e063a6cc7fce1566679a1edb61e188fe207da357aa068beb8d"
+          },
+          "linear_tin.json": {
+            "bytes": 3222,
+            "sha256": "5218708bd3d2860d6a5f2d00db8ad172916598330880387d93a31d55c949249d"
+          },
+          "nearest.json": {
+            "bytes": 2756,
+            "sha256": "eb9ee9187e1252aa87b54a028fa5bccff6a26b1914e2d900aaf9b65709c37b34"
+          },
+          "points.csv": {
+            "bytes": 494,
+            "sha256": "586010249f59474ea79b16c0420fcdae47942eaa1d0fc91bb9a5cc8268973872"
+          },
+          "points.json": {
+            "bytes": 674,
+            "sha256": "ffd9e2dd06dd09cff994e855f8598341ca0a3273cf4706ff75bd259d8619b34e"
+          },
+          "roundtrip.json": {
+            "bytes": 649,
+            "sha256": "53f3f347e725f0d2e15878167d3f0d96c8e5cf843f1a444dd20a4a6867c4b71d"
+          }
+        },
+        "max_affine_tin_absolute_error_m": 0.0,
+        "original_gms_comparison": "not_performed",
+        "scatter_module_sha256": "59f6118b0b1e64d49e6c14b9ef01e666094626830941959d2413a860eb7cf36f",
+        "schema": "basinlens-scatter-example-v1",
+        "source_sha256": "ffd9e2dd06dd09cff994e855f8598341ca0a3273cf4706ff75bd259d8619b34e",
+        "source_unchanged": true,
+        "unsupported_query_preserved": true
+      },
+      "receipt_relative_path": "receipt.json",
+      "scope": "Root integration invocation of the authored executable example; not whole-suite or original GMS evidence",
+      "source_files": {
+        "examples/scatter/run_scatter_example.py": {
+          "bytes": 3791,
+          "sha256": "21b92f61d0490a6e75435002a0967c465b6a95b1d81b8ae69ea2d42b0ada2d56"
+        },
+        "src/basinlens_ccs/subsurface/scatter.py": {
+          "bytes": 30490,
+          "sha256": "59f6118b0b1e64d49e6c14b9ef01e666094626830941959d2413a860eb7cf36f"
+        },
+        "tests/test_scatter.py": {
+          "bytes": 21453,
+          "sha256": "39dfab343b3ced942179dbf24fb0499d59ea6cbc4f352622fb8805d25e013926"
+        }
+      }
+    },
+    {
+      "exit_code": 0,
+      "feature_group": "features",
+      "output_inventory": {
+        "edited.json": {
+          "bytes": 1135,
+          "sha256": "eb7059547c809b0a3841d1759b4263cac5bacfd7ff1bf81c925939df7101d8ca"
+        },
+        "local.json": {
+          "bytes": 969,
+          "sha256": "a44dee34b572420bc3b9ff39ddb177d737fbafbb50dd1bfe4d328092854a22db"
+        },
+        "receipt.json": {
+          "bytes": 1927,
+          "sha256": "7bb6b15119180d74cc3542455b4441a82419d60e60e9ade83b31c4f5159b01b4"
+        },
+        "wgs84.geojson": {
+          "bytes": 1852,
+          "sha256": "6afe4fb75715e6a76a32a6ba471ffb6147853ffb00f3ea8007964444ebea03f5"
+        }
+      },
+      "parsed_receipt": {
+        "arc": {
+          "length_m": 20.0
+        },
+        "geojson_exact_noding_metadata_roundtrip": true,
+        "grid_frame": {
+          "crs": "unknown",
+          "height_m": 14.0,
+          "rotation_degrees": 0,
+          "row_axis": "south_to_north",
+          "source": "all coverage nodes and independent points",
+          "width_m": 14.0,
+          "x_origin_m": -2.0,
+          "y_origin_m": -2.0
+        },
+        "inside_hole": false,
+        "inside_region": true,
+        "local_roundtrip": {
+          "canonical_sha256": "a44dee34b572420bc3b9ff39ddb177d737fbafbb50dd1bfe4d328092854a22db",
+          "counts": {
+            "arcs": 1,
+            "nodes": 8,
+            "points": 1,
+            "polygons": 1
+          },
+          "original_gms_comparison": "NOT_OBSERVED",
+          "schema": "basinlens-feature-roundtrip-v1",
+          "semantic_roundtrip": true,
+          "source_sha256": "a44dee34b572420bc3b9ff39ddb177d737fbafbb50dd1bfe4d328092854a22db"
+        },
+        "polygon": {
+          "area_m2": 96.0,
+          "perimeter_m": 48.0
+        },
+        "scatter": {
+          "centroid_may_lie_outside_region": false,
+          "coordinate_system": {
+            "axis_order": "x,y",
+            "crs": "unknown",
+            "units": "m"
+          },
+          "interpolation_performed": false,
+          "provenance": [
+            "Authored synthetic geometry; no measured field values or original GMS session"
+          ],
+          "samples": [
+            {
+              "id": "river:0",
+              "source_feature_id": "river",
+              "value": 9.0,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "id": "river:1",
+              "source_feature_id": "river",
+              "value": 9.0,
+              "x": 10,
+              "y": 0
+            },
+            {
+              "id": "river:2",
+              "source_feature_id": "river",
+              "value": 9.0,
+              "x": 10,
+              "y": 10
+            }
+          ],
+          "sampling": "arc_vertices",
+          "schema": "basinlens-vector-samples-v1",
+          "value_attribute": "head_m",
+          "value_units": "unknown; caller must declare before interpolation/model assignment"
+        },
+        "validation_level": "authored synthetic geometry; original GMS comparison NOT_OBSERVED"
+      },
+      "receipt_relative_path": "receipt.json",
+      "scope": "Root integration invocation of the authored executable example; not whole-suite or original GMS evidence",
+      "source_files": {
+        "examples/features/run_feature_example.py": {
+          "bytes": 1821,
+          "sha256": "e818afbda803f7a3f5edde52df03920abb836b568ff0a0ea1f8d326a2022e83f"
+        },
+        "src/basinlens_ccs/subsurface/features.py": {
+          "bytes": 38745,
+          "sha256": "21e9e8701d610fbb5ce883e98696d8ed4b8abaa0fed4d6e8e6d70cf21b04fbde"
+        },
+        "tests/test_features.py": {
+          "bytes": 19114,
+          "sha256": "477ef2861ccb21280fd4b49d8c13dc6ba493ec45d06ecb9353f9bcafbee08d33"
+        }
+      }
+    },
+    {
+      "exit_code": 0,
+      "feature_group": "mesh",
+      "output_inventory": {
+        "actual_run/native/authored-disv.ims": {
+          "bytes": 273,
+          "sha256": "f316e04e054c59f73eeb7c2b8d7b3c0834e47fe4367c49701546354ad71c0bbb"
+        },
+        "actual_run/native/authored-disv.tdis": {
+          "bytes": 250,
+          "sha256": "872211957fbd11f31ee89aedfb8cf2cdfa4904abb96b2f6da81c762784c1815f"
+        },
+        "actual_run/native/mesh.cbc": {
+          "bytes": 896,
+          "sha256": "72e61884f2529e4ed671ee90a39dd6b949538340258e472900e305c9598ac7ef"
+        },
+        "actual_run/native/mesh.chd": {
+          "bytes": 268,
+          "sha256": "73863d7192d560e9b6163fcd9edb7cb73f9041c619cef97f01696ebdceec48ab"
+        },
+        "actual_run/native/mesh.disv": {
+          "bytes": 3696,
+          "sha256": "7247d694eec34bebeb8e96c24607e14acccfcf3c3969727da8256762b4ce4263"
+        },
+        "actual_run/native/mesh.disv.grb": {
+          "bytes": 3972,
+          "sha256": "c7aa52f6b0795c2f20df1231210e283846be1318d8eb8da9768bda5e3ae9c72c"
+        },
+        "actual_run/native/mesh.hds": {
+          "bytes": 172,
+          "sha256": "08985f46c05e8b784af731e009c40d2f3d0fdf40cb58cc362459fad443543d16"
+        },
+        "actual_run/native/mesh.ic": {
+          "bytes": 172,
+          "sha256": "76da22247d55ce5ed5a77ea09b4db581d71f659e5e1d3bde873c57de4ef3aabd"
+        },
+        "actual_run/native/mesh.lst": {
+          "bytes": 8082,
+          "sha256": "2962f9c593dbf15161309ec30d7aaa28c134b8f1b2bbdd20f214812f2334d224"
+        },
+        "actual_run/native/mesh.nam": {
+          "bytes": 246,
+          "sha256": "b79abe98f75cf11799358a2e1d27893e8e08f2f7e70070a4969ccbedf18df709"
+        },
+        "actual_run/native/mesh.npf": {
+          "bytes": 197,
+          "sha256": "bd9883c19d8f519ed54190a4d4783c5685c103cb81f420d3bd3964a7a7562fca"
+        },
+        "actual_run/native/mesh.oc": {
+          "bytes": 218,
+          "sha256": "6a4c1636ccd0cb0e830f42fbacc5430fd2e951be8acbbfbf3bfc749045e55e35"
+        },
+        "actual_run/native/mfsim.lst": {
+          "bytes": 8926,
+          "sha256": "b5c65d236f3fe866be300059a8992e7e443077248b8f5a6109fdb747161600df"
+        },
+        "actual_run/native/mfsim.nam": {
+          "bytes": 304,
+          "sha256": "1857f6a07890134975ae35c69f65e4f08fa10c9193d48a048706ae43e87b0c58"
+        },
+        "actual_run/native_import.json": {
+          "bytes": 5340,
+          "sha256": "0a68b21730fa0a38a105807ffea28792909f4f9051f9c0cb041a71a5e55a8405"
+        },
+        "actual_run/native_run_metadata.json": {
+          "bytes": 5230,
+          "sha256": "9096d0dbdf2c58297021b8220d352a95a123d95de9764d8cffc40fa476a468e4"
+        },
+        "actual_run/native_summary.json": {
+          "bytes": 1684,
+          "sha256": "b46a5f8f81c2d7a9aa990e9288b43e89e581da6c5c7de2ddd91b3de612d210d0"
+        },
+        "actual_run/solver.stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "actual_run/solver.stdout.log": {
+          "bytes": 1520,
+          "sha256": "79fd662da929812dc7e113f17043bca18b2cd693fdd6893f5f60e3c5e7529df9"
+        },
+        "disv_geometry.json": {
+          "bytes": 3494,
+          "sha256": "c7dec92ddb4fc5d56e349675b78725d2356187b1e0f038d899cb99e9cf39e64c"
+        },
+        "manifest.json": {
+          "bytes": 5134,
+          "sha256": "797ebc6621f455b995134aee35c3ed0106f5d93dc0490c13914fc5b91d58032a"
+        },
+        "native_input/authored-disv.ims": {
+          "bytes": 273,
+          "sha256": "f316e04e054c59f73eeb7c2b8d7b3c0834e47fe4367c49701546354ad71c0bbb"
+        },
+        "native_input/authored-disv.tdis": {
+          "bytes": 250,
+          "sha256": "872211957fbd11f31ee89aedfb8cf2cdfa4904abb96b2f6da81c762784c1815f"
+        },
+        "native_input/mesh.chd": {
+          "bytes": 268,
+          "sha256": "73863d7192d560e9b6163fcd9edb7cb73f9041c619cef97f01696ebdceec48ab"
+        },
+        "native_input/mesh.disv": {
+          "bytes": 3696,
+          "sha256": "7247d694eec34bebeb8e96c24607e14acccfcf3c3969727da8256762b4ce4263"
+        },
+        "native_input/mesh.ic": {
+          "bytes": 172,
+          "sha256": "76da22247d55ce5ed5a77ea09b4db581d71f659e5e1d3bde873c57de4ef3aabd"
+        },
+        "native_input/mesh.nam": {
+          "bytes": 246,
+          "sha256": "b79abe98f75cf11799358a2e1d27893e8e08f2f7e70070a4969ccbedf18df709"
+        },
+        "native_input/mesh.npf": {
+          "bytes": 197,
+          "sha256": "bd9883c19d8f519ed54190a4d4783c5685c103cb81f420d3bd3964a7a7562fca"
+        },
+        "native_input/mesh.oc": {
+          "bytes": 218,
+          "sha256": "6a4c1636ccd0cb0e830f42fbacc5430fd2e951be8acbbfbf3bfc749045e55e35"
+        },
+        "native_input/mfsim.nam": {
+          "bytes": 304,
+          "sha256": "1857f6a07890134975ae35c69f65e4f08fa10c9193d48a048706ae43e87b0c58"
+        },
+        "prisms.json": {
+          "bytes": 37046,
+          "sha256": "c4046066e0457bdbd0830f91602ce853517db23bfef8582cdd2e9249fa611028"
+        },
+        "relocated/mesh.json": {
+          "bytes": 2574,
+          "sha256": "66b2b908fb8b218100288fed04beb308a23b6534c6eb26b749acb79978f3db7e"
+        },
+        "render.json": {
+          "bytes": 7799,
+          "sha256": "a3c37cc05923244197d3bb9614eb39a4c91eb1a1d8834fadb7cbb4ee07b26095"
+        },
+        "roundtrip.json": {
+          "bytes": 3274,
+          "sha256": "977d5b6cbd02ec1613af743065e4a97f607718287ba9a07269af5768f7381d38"
+        },
+        "source.mesh.json": {
+          "bytes": 2574,
+          "sha256": "66b2b908fb8b218100288fed04beb308a23b6534c6eb26b749acb79978f3db7e"
+        },
+        "summary.json": {
+          "bytes": 3253,
+          "sha256": "93625653a9ab1e05c91129323c9f1056dd5398f76ab5a0c5ca3e475c4effbcdf"
+        }
+      },
+      "parsed_receipt": {
+        "files": {
+          "actual_run/native/authored-disv.ims": {
+            "bytes": 273,
+            "sha256": "f316e04e054c59f73eeb7c2b8d7b3c0834e47fe4367c49701546354ad71c0bbb"
+          },
+          "actual_run/native/authored-disv.tdis": {
+            "bytes": 250,
+            "sha256": "872211957fbd11f31ee89aedfb8cf2cdfa4904abb96b2f6da81c762784c1815f"
+          },
+          "actual_run/native/mesh.cbc": {
+            "bytes": 896,
+            "sha256": "72e61884f2529e4ed671ee90a39dd6b949538340258e472900e305c9598ac7ef"
+          },
+          "actual_run/native/mesh.chd": {
+            "bytes": 268,
+            "sha256": "73863d7192d560e9b6163fcd9edb7cb73f9041c619cef97f01696ebdceec48ab"
+          },
+          "actual_run/native/mesh.disv": {
+            "bytes": 3696,
+            "sha256": "7247d694eec34bebeb8e96c24607e14acccfcf3c3969727da8256762b4ce4263"
+          },
+          "actual_run/native/mesh.disv.grb": {
+            "bytes": 3972,
+            "sha256": "c7aa52f6b0795c2f20df1231210e283846be1318d8eb8da9768bda5e3ae9c72c"
+          },
+          "actual_run/native/mesh.hds": {
+            "bytes": 172,
+            "sha256": "08985f46c05e8b784af731e009c40d2f3d0fdf40cb58cc362459fad443543d16"
+          },
+          "actual_run/native/mesh.ic": {
+            "bytes": 172,
+            "sha256": "76da22247d55ce5ed5a77ea09b4db581d71f659e5e1d3bde873c57de4ef3aabd"
+          },
+          "actual_run/native/mesh.lst": {
+            "bytes": 8082,
+            "sha256": "2962f9c593dbf15161309ec30d7aaa28c134b8f1b2bbdd20f214812f2334d224"
+          },
+          "actual_run/native/mesh.nam": {
+            "bytes": 246,
+            "sha256": "b79abe98f75cf11799358a2e1d27893e8e08f2f7e70070a4969ccbedf18df709"
+          },
+          "actual_run/native/mesh.npf": {
+            "bytes": 197,
+            "sha256": "bd9883c19d8f519ed54190a4d4783c5685c103cb81f420d3bd3964a7a7562fca"
+          },
+          "actual_run/native/mesh.oc": {
+            "bytes": 218,
+            "sha256": "6a4c1636ccd0cb0e830f42fbacc5430fd2e951be8acbbfbf3bfc749045e55e35"
+          },
+          "actual_run/native/mfsim.lst": {
+            "bytes": 8926,
+            "sha256": "b5c65d236f3fe866be300059a8992e7e443077248b8f5a6109fdb747161600df"
+          },
+          "actual_run/native/mfsim.nam": {
+            "bytes": 304,
+            "sha256": "1857f6a07890134975ae35c69f65e4f08fa10c9193d48a048706ae43e87b0c58"
+          },
+          "actual_run/native_import.json": {
+            "bytes": 5340,
+            "sha256": "0a68b21730fa0a38a105807ffea28792909f4f9051f9c0cb041a71a5e55a8405"
+          },
+          "actual_run/native_run_metadata.json": {
+            "bytes": 5230,
+            "sha256": "9096d0dbdf2c58297021b8220d352a95a123d95de9764d8cffc40fa476a468e4"
+          },
+          "actual_run/native_summary.json": {
+            "bytes": 1684,
+            "sha256": "b46a5f8f81c2d7a9aa990e9288b43e89e581da6c5c7de2ddd91b3de612d210d0"
+          },
+          "actual_run/solver.stderr.log": {
+            "bytes": 0,
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "actual_run/solver.stdout.log": {
+            "bytes": 1520,
+            "sha256": "79fd662da929812dc7e113f17043bca18b2cd693fdd6893f5f60e3c5e7529df9"
+          },
+          "disv_geometry.json": {
+            "bytes": 3494,
+            "sha256": "c7dec92ddb4fc5d56e349675b78725d2356187b1e0f038d899cb99e9cf39e64c"
+          },
+          "native_input/authored-disv.ims": {
+            "bytes": 273,
+            "sha256": "f316e04e054c59f73eeb7c2b8d7b3c0834e47fe4367c49701546354ad71c0bbb"
+          },
+          "native_input/authored-disv.tdis": {
+            "bytes": 250,
+            "sha256": "872211957fbd11f31ee89aedfb8cf2cdfa4904abb96b2f6da81c762784c1815f"
+          },
+          "native_input/mesh.chd": {
+            "bytes": 268,
+            "sha256": "73863d7192d560e9b6163fcd9edb7cb73f9041c619cef97f01696ebdceec48ab"
+          },
+          "native_input/mesh.disv": {
+            "bytes": 3696,
+            "sha256": "7247d694eec34bebeb8e96c24607e14acccfcf3c3969727da8256762b4ce4263"
+          },
+          "native_input/mesh.ic": {
+            "bytes": 172,
+            "sha256": "76da22247d55ce5ed5a77ea09b4db581d71f659e5e1d3bde873c57de4ef3aabd"
+          },
+          "native_input/mesh.nam": {
+            "bytes": 246,
+            "sha256": "b79abe98f75cf11799358a2e1d27893e8e08f2f7e70070a4969ccbedf18df709"
+          },
+          "native_input/mesh.npf": {
+            "bytes": 197,
+            "sha256": "bd9883c19d8f519ed54190a4d4783c5685c103cb81f420d3bd3964a7a7562fca"
+          },
+          "native_input/mesh.oc": {
+            "bytes": 218,
+            "sha256": "6a4c1636ccd0cb0e830f42fbacc5430fd2e951be8acbbfbf3bfc749045e55e35"
+          },
+          "native_input/mfsim.nam": {
+            "bytes": 304,
+            "sha256": "1857f6a07890134975ae35c69f65e4f08fa10c9193d48a048706ae43e87b0c58"
+          },
+          "prisms.json": {
+            "bytes": 37046,
+            "sha256": "c4046066e0457bdbd0830f91602ce853517db23bfef8582cdd2e9249fa611028"
+          },
+          "relocated/mesh.json": {
+            "bytes": 2574,
+            "sha256": "66b2b908fb8b218100288fed04beb308a23b6534c6eb26b749acb79978f3db7e"
+          },
+          "render.json": {
+            "bytes": 7799,
+            "sha256": "a3c37cc05923244197d3bb9614eb39a4c91eb1a1d8834fadb7cbb4ee07b26095"
+          },
+          "roundtrip.json": {
+            "bytes": 3274,
+            "sha256": "977d5b6cbd02ec1613af743065e4a97f607718287ba9a07269af5768f7381d38"
+          },
+          "source.mesh.json": {
+            "bytes": 2574,
+            "sha256": "66b2b908fb8b218100288fed04beb308a23b6534c6eb26b749acb79978f3db7e"
+          },
+          "summary.json": {
+            "bytes": 3253,
+            "sha256": "93625653a9ab1e05c91129323c9f1056dd5398f76ab5a0c5ca3e475c4effbcdf"
+          }
+        },
+        "schema": "basinlens-mesh-example-inventory-v1"
+      },
+      "receipt_relative_path": "manifest.json",
+      "scope": "Root integration invocation of the authored executable example; not whole-suite or original GMS evidence",
+      "source_files": {
+        "examples/mesh/run_mesh_example.py": {
+          "bytes": 6299,
+          "sha256": "3e776c59fc78529a59d45101f43cf75b6e5d8a71e73b2be9d2289fb8267427a1"
+        },
+        "src/basinlens_ccs/subsurface/mesh.py": {
+          "bytes": 30146,
+          "sha256": "80847027689bb641605ee9afeb6139d82a0defa30a85a4fc1b0ecb9513deec15"
+        },
+        "tests/test_mesh.py": {
+          "bytes": 19787,
+          "sha256": "3f9ea7e74eb83e8bed6ea153f16aef44e117da7edccc8bdbd0d206348b68dc1b"
+        }
+      }
+    },
+    {
+      "exit_code": 0,
+      "feature_group": "surfaces",
+      "output_inventory": {
+        "edited.json": {
+          "bytes": 1057,
+          "sha256": "f3709c3edcefef3c9035010ac0e9e5fdb0349992bd614e5b30619a70b3ad0e2a"
+        },
+        "example_receipt.json": {
+          "bytes": 860,
+          "sha256": "8af8f2fa4a574d7f209998e580ed958a8ee0e236d34b1f3c4fd1083a0fdc2c75"
+        },
+        "queries.json": {
+          "bytes": 1030,
+          "sha256": "79d08a8fd2ecd73a91b4dac0c71194a9fc8694db2c6e94c33f724fe238cfe02d"
+        },
+        "roundtrip/model.json": {
+          "bytes": 806,
+          "sha256": "1c9f066331831d71e0c2632c9b87bd87228ef4d5cbaf5505fc42adf88203c362"
+        },
+        "roundtrip/receipt.json": {
+          "bytes": 383,
+          "sha256": "724ab8dd3d7554526e0c2e2a89aec2be12f5128dad24db9b8eb677118e5bfa9f"
+        },
+        "roundtrip/restored.json": {
+          "bytes": 806,
+          "sha256": "1c9f066331831d71e0c2632c9b87bd87228ef4d5cbaf5505fc42adf88203c362"
+        },
+        "roundtrip/tables/elevations.csv": {
+          "bytes": 122,
+          "sha256": "96db4588c4e9348a5653a2b191d3ecdc5686e7386df1fe796335121c9d0b486f"
+        },
+        "roundtrip/tables/manifest.json": {
+          "bytes": 968,
+          "sha256": "62580815a884a785ccda31f4c8beb788603467c0847742e2f80277de4ddcaf5c"
+        },
+        "roundtrip/tables/triangles.csv": {
+          "bytes": 66,
+          "sha256": "b0d9606d2662b8142446f10ef97d3de3db3dc1463fdda448625a62ab44733b7a"
+        },
+        "roundtrip/tables/vertices.csv": {
+          "bytes": 58,
+          "sha256": "bc3804272bcbc09c4e8e20e43c59624f39d66c9c42b9b0df86d9b83a6295ee2c"
+        },
+        "section.json": {
+          "bytes": 2507,
+          "sha256": "bbe4886cbd31190f627e50076d932c2b40b7ffe70c1500f1ce14a308966d9689"
+        },
+        "solids.json": {
+          "bytes": 2693,
+          "sha256": "a49f29e2905803bc5db1c7b9634f475a0c97b6112961412576ea06af0cc6643e"
+        }
+      },
+      "parsed_receipt": {
+        "actual_volume_m3": 48.0,
+        "expected_volume_m3": 48,
+        "json_csv_roundtrip": {
+          "geometry_scope": "explicit user-authored TIN/horizons/prisms only",
+          "json_and_csv_semantics_equal": true,
+          "model_sha256": "507e4af3a7bf55093ef4f75b5d622c1cf135b45b10e23b00eba9f7d6427f1724",
+          "original_gms_comparison": "NOT_OBSERVED",
+          "schema": "basinlens-surface-roundtrip-v1",
+          "source_bytes_sha256": "7ef19f16da0231f86ae085436bb09d0ddd375a00c076a707b66f2aa92c03768b",
+          "source_unchanged": true
+        },
+        "model_sha256": "507e4af3a7bf55093ef4f75b5d622c1cf135b45b10e23b00eba9f7d6427f1724",
+        "original_gms_comparison": "NOT_OBSERVED",
+        "scope": "authored analytical TIN horizons and prism geometry; no field or solver validation",
+        "source_file_sha256": "7ef19f16da0231f86ae085436bb09d0ddd375a00c076a707b66f2aa92c03768b",
+        "source_unchanged": true
+      },
+      "receipt_relative_path": "example_receipt.json",
+      "scope": "Root integration invocation of the authored executable example; not whole-suite or original GMS evidence",
+      "source_files": {
+        "examples/surfaces/run_surface_example.py": {
+          "bytes": 2260,
+          "sha256": "fe0789a084af48bf1443c09df0210a04133fe8e0cb6e4979e0791a94ac2cadaf"
+        },
+        "src/basinlens_ccs/subsurface/surfaces.py": {
+          "bytes": 34819,
+          "sha256": "f876cb8841ea73296f795442cdd7a11e96878fc8c7bed62c8988231ecff4dde1"
+        },
+        "tests/test_surfaces.py": {
+          "bytes": 16017,
+          "sha256": "4b41329bf3d18eed563f3c1df4c641a4137b30ee3abab8a4b84b2bc05c457d7b"
+        }
+      }
+    },
+    {
+      "exit_code": 0,
+      "feature_group": "raster",
+      "output_inventory": {
+        "ascii/grid.asc": {
+          "bytes": 90,
+          "sha256": "e905012b4c20b7eb0d636afead2b027bb60170a80141511ef9dacb4d31e7b1ac"
+        },
+        "ascii/metadata.json": {
+          "bytes": 552,
+          "sha256": "af5f1042b3e5c1518ee096e80db07024ed2223328f14954fb9ecf5854f141bcf"
+        },
+        "captured_source.json": {
+          "bytes": 465,
+          "sha256": "b7dd57c318b38913fed4b7a335f86de111c71b85c7447048d383dde08a062635"
+        },
+        "catalog.json": {
+          "bytes": 906,
+          "sha256": "112fed134e6a58f1d526fdab508b959ae6e69123acc8d440b4f61f2bd4e35614"
+        },
+        "merged.json": {
+          "bytes": 752,
+          "sha256": "6560b2420b32f87035a80f16ae080a915b1527e0e932166dd6d43803d02c211a"
+        },
+        "receipt.json": {
+          "bytes": 772,
+          "sha256": "d1cee93aff63fe832db12c9f8e609d0fb81c44b465fa8e7e6f44fbf48d779f2c"
+        },
+        "resampled.json": {
+          "bytes": 566,
+          "sha256": "8458cc8a5c4755e7b5b98a837c7a7d4dfeba53753021516fc3518eecf167a117"
+        },
+        "scatter.json": {
+          "bytes": 1128,
+          "sha256": "994c2bc2b5ae027878d9ebacfcc7d366ff30f9b1dd3cdaac3dc19de170445a71"
+        }
+      },
+      "parsed_receipt": {
+        "bilinear_query_values": [
+          10.0,
+          13.75,
+          null
+        ],
+        "catalogue_assets_reopened": 3,
+        "clip_merge_values_extent_equal": true,
+        "constant_resample_exact": true,
+        "linear_resample_exact": true,
+        "original_gms_comparison": "NOT_OBSERVED",
+        "roundtrip": {
+          "ascii_values_and_metadata_equal": true,
+          "asset_id": "linear-head",
+          "canonical_raster_sha256": "b7dd57c318b38913fed4b7a335f86de111c71b85c7447048d383dde08a062635",
+          "cells": 6,
+          "json_equal": true,
+          "original_gms_comparison": "NOT_OBSERVED",
+          "schema": "basinlens-raster-roundtrip-v1"
+        },
+        "scatter_valid_cells": 6,
+        "schema": "basinlens-raster-example-v1",
+        "source_sha256": "b7dd57c318b38913fed4b7a335f86de111c71b85c7447048d383dde08a062635",
+        "source_unchanged": true
+      },
+      "receipt_relative_path": "receipt.json",
+      "scope": "Root integration invocation of the authored executable example; not whole-suite or original GMS evidence",
+      "source_files": {
+        "examples/raster/run_example.py": {
+          "bytes": 3153,
+          "sha256": "75caf2e413bd6470c85c723bda186495129b28e1c7bc383d3227b41730936480"
+        },
+        "src/basinlens_ccs/subsurface/raster.py": {
+          "bytes": 36141,
+          "sha256": "98773665c28a15b73b36c4c9d3f18e01451f705823f98c724ded8588d3022de5"
+        },
+        "tests/test_raster.py": {
+          "bytes": 24496,
+          "sha256": "f565a446a006ec825f80dce8cd08b6f7def0d755b88a5d86cbf7c3c80c1799d9"
+        }
+      }
+    },
+    {
+      "exit_code": 0,
+      "feature_group": "pointcloud",
+      "output_inventory": {
+        "authored.las": {
+          "bytes": 431,
+          "sha256": "fc6d0210f505a9cb041c75a09e2787a09cd0dfc111873a11415e45f5498e37f7"
+        },
+        "class2.json": {
+          "bytes": 1310,
+          "sha256": "1a790a9c039d345e21ba18b82d061dea83e755e4104452af3c85ed06272a9b56"
+        },
+        "class2.las": {
+          "bytes": 329,
+          "sha256": "b60db702de0ea18becbdd866a7fad77b17e692695b8e8282caf2f75f4968874d"
+        },
+        "example_receipt.json": {
+          "bytes": 4650,
+          "sha256": "4e4382b3ab4c0776700b25bf58185f663d447caf78c722300871b45d2a72e0cd"
+        },
+        "grid.json": {
+          "bytes": 1698,
+          "sha256": "6fe357c5b89fd1750933a2985ed722673b76b67593af7c2a5d836a0411a5a313"
+        },
+        "merged.json": {
+          "bytes": 1984,
+          "sha256": "e3ba810d61ee7e2bf0759cf5f1df87a3fd7d87b9ca6774fdf2070a737afa72b6"
+        },
+        "metadata.json": {
+          "bytes": 239,
+          "sha256": "2eee002afedd3bf614fc99480f2093817fb7135d97afbfbd024a501fff2d1dfd"
+        },
+        "points.json": {
+          "bytes": 1582,
+          "sha256": "5d435722279594546784f18639ede1351b4497dca9483c44139fd9bcc865879e"
+        },
+        "roundtrip/points.json": {
+          "bytes": 1582,
+          "sha256": "5d435722279594546784f18639ede1351b4497dca9483c44139fd9bcc865879e"
+        },
+        "roundtrip/points.las": {
+          "bytes": 431,
+          "sha256": "fc6d0210f505a9cb041c75a09e2787a09cd0dfc111873a11415e45f5498e37f7"
+        },
+        "roundtrip/receipt.json": {
+          "bytes": 479,
+          "sha256": "bb5a7f310d685e0c94923dbb24ca209e8fea1bbc5fc711273414c452b1accc30"
+        }
+      },
+      "parsed_receipt": {
+        "grid_known_values_equal": true,
+        "inspect": {
+          "bounds_max_min_xyz": [
+            1003.0,
+            999.0,
+            2003.0,
+            2000.0,
+            125.0,
+            95.0
+          ],
+          "encoded_points_sha256": "8b0de5cf12a22c31380171408f05bab99cf3f6241eda5244cc091310c8567450",
+          "metadata": {
+            "crs": "LOCAL:authored-planar",
+            "horizontal_unit": "m",
+            "provenance": [
+              "Original synthetic six-point LAS; authored example, not survey measurements"
+            ],
+            "vertical_datum": "authored elevation zero",
+            "vertical_unit": "m"
+          },
+          "offsets": [
+            1000.0,
+            2000.0,
+            100.0
+          ],
+          "opaque_prefix_sha256": "9867679e9bad5d0cfb55b56734bc44aac8be49c3ecc640c8de6af64a5c2cc33d",
+          "point_count": 6,
+          "point_format": 3,
+          "scales": [
+            0.01,
+            0.1,
+            0.5
+          ],
+          "schema": "basinlens-pointcloud-v1",
+          "scope": "LAS 1.2 uncompressed formats 0..3, returns 1..5; no GMS equivalence or CRS interpretation",
+          "vlr_count": 0
+        },
+        "merged_all_identities_retained": true,
+        "render": {
+          "decimation": "deterministic index stride; stored encoded points unchanged",
+          "points": [
+            {
+              "classification": 5,
+              "edge_of_flight_line": false,
+              "gps_time": 123456.125,
+              "identity": "fc6d0210f505a9cb041c75a09e2787a09cd0dfc111873a11415e45f5498e37f7:0",
+              "index": 0,
+              "intensity": 100,
+              "key_point": false,
+              "number_of_returns": 1,
+              "point_source_id": 1,
+              "raw_xyz": [
+                -100,
+                0,
+                50
+              ],
+              "return_number": 1,
+              "rgb": [
+                65535,
+                0,
+                1024
+              ],
+              "scan_angle_rank": 0,
+              "scan_direction": false,
+              "synthetic": false,
+              "user_data": 0,
+              "withheld": false,
+              "x": 999.0,
+              "y": 2000.0,
+              "z": 125.0
+            },
+            {
+              "classification": 2,
+              "edge_of_flight_line": false,
+              "gps_time": 123457.125,
+              "identity": "fc6d0210f505a9cb041c75a09e2787a09cd0dfc111873a11415e45f5498e37f7:1",
+              "index": 1,
+              "intensity": 101,
+              "key_point": false,
+              "number_of_returns": 1,
+              "point_source_id": 1,
+              "raw_xyz": [
+                0,
+                0,
+                0
+              ],
+              "return_number": 1,
+              "rgb": [
+                65535,
+                1,
+                1024
+              ],
+              "scan_angle_rank": 0,
+              "scan_direction": false,
+              "synthetic": false,
+              "user_data": 0,
+              "withheld": false,
+              "x": 1000.0,
+              "y": 2000.0,
+              "z": 100.0
+            },
+            {
+              "classification": 2,
+              "edge_of_flight_line": false,
+              "gps_time": 123459.125,
+              "identity": "fc6d0210f505a9cb041c75a09e2787a09cd0dfc111873a11415e45f5498e37f7:3",
+              "index": 3,
+              "intensity": 103,
+              "key_point": false,
+              "number_of_returns": 1,
+              "point_source_id": 1,
+              "raw_xyz": [
+                100,
+                10,
+                10
+              ],
+              "return_number": 1,
+              "rgb": [
+                65535,
+                3,
+                1024
+              ],
+              "scan_angle_rank": 0,
+              "scan_direction": false,
+              "synthetic": false,
+              "user_data": 0,
+              "withheld": false,
+              "x": 1001.0,
+              "y": 2001.0,
+              "z": 105.0
+            },
+            {
+              "classification": 5,
+              "edge_of_flight_line": false,
+              "gps_time": 123460.125,
+              "identity": "fc6d0210f505a9cb041c75a09e2787a09cd0dfc111873a11415e45f5498e37f7:4",
+              "index": 4,
+              "intensity": 104,
+              "key_point": false,
+              "number_of_returns": 1,
+              "point_source_id": 1,
+              "raw_xyz": [
+                200,
+                20,
+                20
+              ],
+              "return_number": 1,
+              "rgb": [
+                65535,
+                4,
+                1024
+              ],
+              "scan_angle_rank": 0,
+              "scan_direction": false,
+              "synthetic": false,
+              "user_data": 0,
+              "withheld": false,
+              "x": 1002.0,
+              "y": 2002.0,
+              "z": 110.0
+            }
+          ],
+          "rendered_count": 4,
+          "stored_count": 6
+        },
+        "roundtrip": {
+          "encoded_point_bytes_equal": true,
+          "json_sha256": "5d435722279594546784f18639ede1351b4497dca9483c44139fd9bcc865879e",
+          "las_identity_note": "LAS has no field for the retained per-point source identities; points.json preserves them",
+          "las_sha256": "fc6d0210f505a9cb041c75a09e2787a09cd0dfc111873a11415e45f5498e37f7",
+          "native_json_identities_equal": true,
+          "opaque_prefix_bytes_equal": true,
+          "original_gms_comparison": "NOT_OBSERVED",
+          "point_count": 6,
+          "schema": "basinlens-pointcloud-roundtrip-v1"
+        },
+        "source_unchanged": true
+      },
+      "receipt_relative_path": "example_receipt.json",
+      "scope": "Root integration invocation of the authored executable example; not whole-suite or original GMS evidence",
+      "source_files": {
+        "examples/pointcloud/run_pointcloud_example.py": {
+          "bytes": 3157,
+          "sha256": "31cb33108eef346f170ae15e65c5368408f1671d24ee8b1366205d71b57bcf38"
+        },
+        "src/basinlens_ccs/subsurface/pointcloud.py": {
+          "bytes": 27382,
+          "sha256": "ac3deefe30a7c2978b74c82fc6facc5194bc2bd234645404a37c8e9b265b74f6"
+        },
+        "tests/test_pointcloud.py": {
+          "bytes": 17043,
+          "sha256": "61b5f48c9374694390d318ee4e3e6f2f15af9498d342bda1c415a9b9907041fb"
+        }
+      }
+    },
+    {
+      "exit_code": 0,
+      "feature_group": "analysis",
+      "output_inventory": {
+        "clip/analysis.json": {
+          "bytes": 5167,
+          "sha256": "b05d69a104208a6463856cf31c43924f15760706a5d6e7d55c38052a96809d7c"
+        },
+        "clip/manifest.json": {
+          "bytes": 3006,
+          "sha256": "0c9c26e589dc9f3c04e9b3a184b818d81a5777c9771b7917c13d9899962f99c7"
+        },
+        "clip/samples.csv": {
+          "bytes": 468,
+          "sha256": "4f42ca4bc9fe05a3a162dadc0dd3a8aa79793db5be0ee3f3745e2dc43629a724"
+        },
+        "comparison/analysis.json": {
+          "bytes": 4331,
+          "sha256": "de93731ee252afa4b3a47d90de168ab9fd0f89ea74ff43e0241774fe4e97c6d1"
+        },
+        "comparison/manifest.json": {
+          "bytes": 3006,
+          "sha256": "4e8ef7e6b240aa4c74bc1c1743088a3ac22af8cf0b9c4b73718f3f0d0ea811aa"
+        },
+        "comparison/samples.csv": {
+          "bytes": 325,
+          "sha256": "201b84423635cbff25b6685ff7710ce8619c3f156c11ff3fa9c20a0868c7acf4"
+        },
+        "example.json": {
+          "bytes": 3151,
+          "sha256": "5be600374edf9ba819643edf7dc1c0447e12568f86639c4c69e59801a3232431"
+        },
+        "section-frames.json": {
+          "bytes": 38009,
+          "sha256": "1be8264d61b252580336ab5bafbf76fe5ba43fef39ecdd49eb1641a4a0fd1e2d"
+        },
+        "section/analysis.json": {
+          "bytes": 8142,
+          "sha256": "534dfe5b6724337563770c0dc37665eaddf35b4fa3c74c2454021e1a67d558c9"
+        },
+        "section/manifest.json": {
+          "bytes": 3007,
+          "sha256": "f00cc8df091b9cb007814a79cf3016dbd875f6297f68bf098d80dbe1717f3c51"
+        },
+        "section/samples.csv": {
+          "bytes": 1017,
+          "sha256": "a31a402ae69516e5b24d9b063ac6879ee5ef514e5dd73e31caa846707cf8e66e"
+        },
+        "synthetic-observations.json": {
+          "bytes": 655,
+          "sha256": "02ce8fb2b5be0e226307e519be961ee8d39783736893163ba193ac2c6bc9ce3a"
+        },
+        "water-run/native/flow-budget.csv": {
+          "bytes": 1058,
+          "sha256": "8388b9d399822db080a1be7fcc549fa6cbafc94a589f579f31e2b3db27d6c2f0"
+        },
+        "water-run/native/flow.cbc": {
+          "bytes": 4224,
+          "sha256": "3200ebe7ce257bc16674031a2cff7985c9d7d320877d5b21274728f5858d1f34"
+        },
+        "water-run/native/flow.chd": {
+          "bytes": 490,
+          "sha256": "f53ff9b28461f33ac29c8880fe0bce3db9cfb280b3cfee3f1c4ce290ea9aacd7"
+        },
+        "water-run/native/flow.dis": {
+          "bytes": 750,
+          "sha256": "e0e1aef789d38f3df3473138484dd567e14d9e0b5032628f7f1671aead6c6408"
+        },
+        "water-run/native/flow.dis.grb": {
+          "bytes": 2280,
+          "sha256": "8777528e05b691bc057b843f7085bafc58510d92f5d8c860f91178f8310380e5"
+        },
+        "water-run/native/flow.hds": {
+          "bytes": 920,
+          "sha256": "8a90d2f3ffe948df91e215590691973a5b217f21d6a36d9c5048653c35739284"
+        },
+        "water-run/native/flow.ic": {
+          "bytes": 384,
+          "sha256": "a426ca489ced6b0088e3cda0f143ae3a580c5c48684814588b38cbf3cf62ed3f"
+        },
+        "water-run/native/flow.ims": {
+          "bytes": 273,
+          "sha256": "cc615944f771f39ec7e5b7ecda4aeed926f85f37849c89d8d309597aa2dd0460"
+        },
+        "water-run/native/flow.lst": {
+          "bytes": 15128,
+          "sha256": "262b6eb7c967f679303ba3ea1cbb672bc451f866143cbcef0ad3f2ba63cc9724"
+        },
+        "water-run/native/flow.nam": {
+          "bytes": 217,
+          "sha256": "f84de6e7a9383353987197f7cd96ea2af130d60a84e8e44daed276cbb39cfdfa"
+        },
+        "water-run/native/flow.npf": {
+          "bytes": 1063,
+          "sha256": "f0d242e96bf7b6beb66b5e2a286d07df30b1bdc44105e7f0892b92bf3b43919c"
+        },
+        "water-run/native/flow.oc": {
+          "bytes": 188,
+          "sha256": "5e92674f39856826779dedd402f5b98574a9e7218c63a8e5be7d420e8a5b8092"
+        },
+        "water-run/native/flow.sto": {
+          "bytes": 544,
+          "sha256": "01dc0816665c6f2fedca95306395439954eb86b812cd938616efbf7de4f5dcd6"
+        },
+        "water-run/native/flow.wel": {
+          "bytes": 213,
+          "sha256": "3e87bf78d439d7a6062c57bda7237998c49a74c0696c4c5d26272d39e6e6c67e"
+        },
+        "water-run/native/mfsim.lst": {
+          "bytes": 9138,
+          "sha256": "e6c2f3fb1bbe6be5251082323a25bddde78d65fc5874b80aee0a768075449c6d"
+        },
+        "water-run/native/mfsim.nam": {
+          "bytes": 222,
+          "sha256": "7000ad92145020ca02012a9491be81f47f4fc16a69ce5fae4e17b2b47e873702"
+        },
+        "water-run/native/workflow.tdis": {
+          "bytes": 230,
+          "sha256": "9a9ef42bddb7a30af04c859faa78d2858ddb9318c1e929a24909cc487ef29414"
+        },
+        "water-run/native_import.json": {
+          "bytes": 6486,
+          "sha256": "2cf6fcd877406a3ece2beec5fc5d582e9b1aa61c65d11f2b984f05b398732267"
+        },
+        "water-run/native_run_metadata.json": {
+          "bytes": 6175,
+          "sha256": "aa9ad65aff329c619799da7e6274ecd60ae98addb0537c5367cb61de28bca51c"
+        },
+        "water-run/native_summary.json": {
+          "bytes": 1840,
+          "sha256": "81360e959cb759e22efe2a0851acd0e1669dcdcaa22ba29b0e0c14ace2744ea0"
+        },
+        "water-run/solver.stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "water-run/solver.stdout.log": {
+          "bytes": 1740,
+          "sha256": "e9b628d28fb6c57dbdcad85369f9d273f126f5ca5f64bc7977606c558125dff7"
+        },
+        "water-run/source_sidecars/settings.json": {
+          "bytes": 6789,
+          "sha256": "370e76fc33269f35e27ca2c320b4ba37605af511ff45f0598c986f8ce369c3c0"
+        }
+      },
+      "parsed_receipt": {
+        "field_validation_established": false,
+        "frame_count": 5,
+        "frames_sha256": "1be8264d61b252580336ab5bafbf76fe5ba43fef39ecdd49eb1641a4a0fd1e2d",
+        "gms_parity_established": false,
+        "manual_comparison": {
+          "bias_m": 0.5,
+          "count": 1,
+          "mae_m": 0.5,
+          "normalized_rmse": 2.0,
+          "objective_chi_square": 4.0,
+          "rmse_m": 0.5,
+          "weighted_rmse_m": 0.5
+        },
+        "schema": "basinlens-analysis-example-v1",
+        "scope": "authored synthetic confined water, source-bound postprocessing, known manual residual",
+        "section_rows": 18,
+        "source": {
+          "captured_settings_sha256": "370e76fc33269f35e27ca2c320b4ba37605af511ff45f0598c986f8ce369c3c0",
+          "case_sha256": "983f753a21a3e14536919419f2077a2bdb4640784a98856037d8d08a2b53f1a3",
+          "gms_parity_established": false,
+          "heads_array_sha256": "087de39551ac92dbce2be81d5322a93c86996522926511381bfa2093f1ccaa95",
+          "kind": "VERIFIED_WORKFLOW_RUN",
+          "model_validation_scope": "synthetic confined single-phase water; case-specific analytic tests only",
+          "native_head_sha256": "8a90d2f3ffe948df91e215590691973a5b217f21d6a36d9c5048653c35739284",
+          "native_inputs": {
+            "flow.chd": {
+              "bytes": 490,
+              "sha256": "f53ff9b28461f33ac29c8880fe0bce3db9cfb280b3cfee3f1c4ce290ea9aacd7"
+            },
+            "flow.dis": {
+              "bytes": 750,
+              "sha256": "e0e1aef789d38f3df3473138484dd567e14d9e0b5032628f7f1671aead6c6408"
+            },
+            "flow.ic": {
+              "bytes": 384,
+              "sha256": "a426ca489ced6b0088e3cda0f143ae3a580c5c48684814588b38cbf3cf62ed3f"
+            },
+            "flow.ims": {
+              "bytes": 273,
+              "sha256": "cc615944f771f39ec7e5b7ecda4aeed926f85f37849c89d8d309597aa2dd0460"
+            },
+            "flow.nam": {
+              "bytes": 217,
+              "sha256": "f84de6e7a9383353987197f7cd96ea2af130d60a84e8e44daed276cbb39cfdfa"
+            },
+            "flow.npf": {
+              "bytes": 1063,
+              "sha256": "f0d242e96bf7b6beb66b5e2a286d07df30b1bdc44105e7f0892b92bf3b43919c"
+            },
+            "flow.oc": {
+              "bytes": 188,
+              "sha256": "5e92674f39856826779dedd402f5b98574a9e7218c63a8e5be7d420e8a5b8092"
+            },
+            "flow.sto": {
+              "bytes": 544,
+              "sha256": "01dc0816665c6f2fedca95306395439954eb86b812cd938616efbf7de4f5dcd6"
+            },
+            "flow.wel": {
+              "bytes": 213,
+              "sha256": "3e87bf78d439d7a6062c57bda7237998c49a74c0696c4c5d26272d39e6e6c67e"
+            },
+            "mfsim.nam": {
+              "bytes": 222,
+              "sha256": "7000ad92145020ca02012a9491be81f47f4fc16a69ce5fae4e17b2b47e873702"
+            },
+            "workflow.tdis": {
+              "bytes": 230,
+              "sha256": "9a9ef42bddb7a30af04c859faa78d2858ddb9318c1e929a24909cc487ef29414"
+            }
+          },
+          "run_metadata_sha256": "aa9ad65aff329c619799da7e6274ecd60ae98addb0537c5367cb61de28bca51c",
+          "solver": {
+            "name": "mf6",
+            "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+            "version": "mf6: 6.7.0 02/05/2026"
+          },
+          "solver_execution_verified": true,
+          "times_day": [
+            1.0,
+            1.5,
+            2.0,
+            2.5,
+            3.0
+          ],
+          "workspace": "/workspace/scratch/96bcf7ec787f/research/integration-v4-analysis/water-run"
+        },
+        "visible_clip_cells": 3
+      },
+      "receipt_relative_path": "example.json",
+      "scope": "Root integration invocation of the authored executable example; not whole-suite or original GMS evidence",
+      "source_files": {
+        "examples/analysis/run_analysis_example.py": {
+          "bytes": 3306,
+          "sha256": "da2d4fd13524d0d18db2655525db24f22f6fefec983a842d5969b85eafb36b98"
+        },
+        "src/basinlens_ccs/subsurface/analysis.py": {
+          "bytes": 32461,
+          "sha256": "7f080a8e7c335fc540d3e1b24b102f991f0d9b2e678ea04aac1ede1b83c2dcef"
+        },
+        "tests/test_results_analysis.py": {
+          "bytes": 21752,
+          "sha256": "517bd6f150fbf1f483dfc371be7390a5d98a9046e25c794ca1293dbde120a2f3"
+        }
+      }
+    }
+  ],
+  "schema": "basinlens-geoscience-examples-v4",
+  "whole_gms_complete": false
+}

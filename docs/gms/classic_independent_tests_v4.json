@@ -1,0 +1,11 @@
+{
+  "tests_run": 26,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "passed": true,
+  "duration_seconds": 4.546843931006151,
+  "source_sha256": "90a1c3aa1a4983171d644f6e9f36de31686464cf86153bc502666aa126c3a968",
+  "source_unchanged": true,
+  "test_sha256": "43b70fdaa7dfe8f0f6ee4cbcaa8f2b23f2f2d267245e7674b1811a5b37d89ac5"
+}

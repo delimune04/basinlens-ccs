@@ -1,5 +1,10 @@
 # Groundwater module: completed checks
 
+The 265-test snapshot below is historical and applies to its own recorded source.
+See [GEOSCIENCE_CHECKPOINT.md](GEOSCIENCE_CHECKPOINT.md) for later code and strict
+integrated regression, and [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md)
+for current feature scope. No snapshot establishes whole-GMS equivalence.
+
 ## Expanded implementation check
 
 The integrated groundwater/transport/GPR workbench snapshot passed **265 tests with zero skips** using real

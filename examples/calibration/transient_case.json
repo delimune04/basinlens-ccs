@@ -1,0 +1,135 @@
+{
+  "assignments": [
+    {
+      "cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "material_id": "sand",
+      "stratum_id": "aquifer"
+    }
+  ],
+  "boundaries": [
+    {
+      "cell": [
+        0,
+        0,
+        0
+      ],
+      "kind": "CHD",
+      "label": "fixed_head",
+      "period": 0,
+      "values": {
+        "head_m": 10.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        2
+      ],
+      "kind": "CHD",
+      "label": "fixed_head",
+      "period": 0,
+      "values": {
+        "head_m": 10.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        1
+      ],
+      "kind": "WEL",
+      "label": "known_extraction",
+      "period": 0,
+      "values": {
+        "rate_m3_day": -10.0
+      }
+    }
+  ],
+  "grid": {
+    "dx_m": 1.0,
+    "dy_m": 1.0,
+    "layer_surfaces_m": [
+      0.0,
+      -10.0
+    ],
+    "ncol": 3,
+    "nrow": 1,
+    "rotation_degrees": 0.0,
+    "row_axis": "south_to_north",
+    "x_origin_m": 100.0,
+    "y_origin_m": 200.0
+  },
+  "initial_head_m": [
+    10.0,
+    10.0,
+    10.0
+  ],
+  "materials": [
+    {
+      "id": "sand",
+      "kx_m_day": 1.0,
+      "ky_m_day": 1.0,
+      "kz_m_day": 1.0,
+      "name": "Synthetic sand",
+      "porosity": 0.25,
+      "ss_per_m": 0.02
+    }
+  ],
+  "periods": [
+    {
+      "duration_day": 0.1,
+      "nsteps": 2,
+      "steady": false
+    }
+  ],
+  "project": {
+    "crs": "LOCAL:synthetic-metre",
+    "domain": "groundwater",
+    "flow_role": "background_water",
+    "id": "calibration-synthetic",
+    "name": "Authored analytic calibration fixture",
+    "provenance": [
+      "Authored confined-water analytic calibration fixture; no observations or GMS source"
+    ],
+    "units": {
+      "conductance": "m2/day",
+      "conductivity": "m/day",
+      "head": "m",
+      "length": "m",
+      "porosity": "1",
+      "recharge": "m/day",
+      "specific_storage": "1/m",
+      "time": "day",
+      "water_rate": "m3/day"
+    },
+    "vertical_datum": "synthetic-z=0"
+  },
+  "schema": "basinlens-model-workflow-v1",
+  "strata": [
+    {
+      "id": "aquifer",
+      "layer_indices": [
+        0
+      ],
+      "name": "Synthetic aquifer"
+    }
+  ]
+}

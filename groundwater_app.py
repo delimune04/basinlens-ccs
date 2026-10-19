@@ -70,12 +70,8 @@ def case_fingerprint(case_dict: dict[str, Any]) -> str:
 
 def zip_directory(directory: Path) -> bytes:
     """Archive only ordinary files produced inside this run workspace."""
-    buffer = io.BytesIO()
-    with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for path in sorted(directory.rglob("*")):
-            if path.is_file() and not path.is_symlink():
-                archive.write(path, path.relative_to(directory).as_posix())
-    return buffer.getvalue()
+    from basinlens_ccs.subsurface.workspace_archive import create_workspace_zip
+    return create_workspace_zip(directory)
 
 
 def layer_values(value: float | list[float], count: int) -> list[float]:
@@ -1117,6 +1113,10 @@ def main() -> None:
     st.divider()
     from model_workspace import render_model_workspace
     render_model_workspace()
+    from geoscience_workspace import render_geoscience_workspace
+    render_geoscience_workspace()
+    from inference_workspace import render_inference_workspace
+    render_inference_workspace()
 
 
 if __name__ == "__main__":

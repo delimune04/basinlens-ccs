@@ -31,7 +31,7 @@ jobs:
         run: python -m basinlens_ccs.artifacts build/example
 
   groundwater:
-    name: Groundwater, transport and UI with pinned real MF6
+    name: Groundwater, transport and UI with pinned real MF6, MF2005 and NWT
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
@@ -39,7 +39,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Set the explicit real-engine path before test discovery
-        run: echo "MF6_EXE=$RUNNER_TEMP/basinlens-mf6/mf6" >> "$GITHUB_ENV"
+        run: |
+          echo "MF6_EXE=$RUNNER_TEMP/basinlens-mf6/mf6" >> "$GITHUB_ENV"
+          echo "MF2005_EXE=$RUNNER_TEMP/basinlens-mf6/mf2005dbl" >> "$GITHUB_ENV"
+          echo "MFNWT_EXE=$RUNNER_TEMP/basinlens-mf6/mfnwtdbl" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -49,7 +52,7 @@ jobs:
           python -m pip install -e ".[groundwater,app,gms]"
           numpy==2.3.5 pandas==2.2.3 flopy==3.11.0 h5py==3.16.0
           streamlit==1.66.0 plotly==7.1.0
-      - name: Prepare and verify the exact public MODFLOW 6 binary
+      - name: Prepare and verify exact public MF6 and classic double-precision engines
         run: python tools/ci_real_mf6.py prepare
       - name: Check all tests with actual MF6 and refuse every skip
         run: python tools/ci_real_mf6.py test
@@ -61,6 +64,27 @@ jobs:
         run: >-
           python examples/workflow/run_project_example.py
           --output build/ci-real-mf6/project-workflow-example --exe "$MF6_EXE"
+      - name: Load, rewrite and execute both classic groundwater engines
+        run: >-
+          python examples/classic/run_classic_example.py
+          --output build/ci-real-mf6/classic-example
+          --mf2005-exe "$MF2005_EXE" --mfnwt-exe "$MFNWT_EXE"
+      - name: Execute authored geoscience file and geometry examples
+        run: |
+          python examples/geology/run_geology_example.py --output build/ci-real-mf6/examples/geology
+          python examples/scatter/run_scatter_example.py --output build/ci-real-mf6/examples/scatter
+          python examples/features/run_feature_example.py --output build/ci-real-mf6/examples/features
+          python examples/mesh/run_mesh_example.py --output build/ci-real-mf6/examples/mesh --exe "$MF6_EXE"
+          python examples/surfaces/run_surface_example.py --output build/ci-real-mf6/examples/surfaces
+          python examples/raster/run_example.py build/ci-real-mf6/examples/raster
+          python examples/pointcloud/run_pointcloud_example.py --output build/ci-real-mf6/examples/pointcloud
+          python examples/analysis/run_analysis_example.py --output build/ci-real-mf6/examples/analysis --exe "$MF6_EXE"
+          python examples/geoscience_project/run_geoscience_project_example.py --output build/ci-real-mf6/examples/portable-collections
+          python examples/geostatistics/run_geostatistics_example.py --output build/ci-real-mf6/examples/geostatistics
+      - name: Fit authored conductivity and storage using actual MF6 and reject flat data
+        run: >-
+          python examples/calibration/run_example.py
+          build/ci-real-mf6/examples/calibration --exe "$MF6_EXE"
       - name: Retain real-engine evidence even when a check fails
         if: always()
         run: python tools/ci_real_mf6.py finalize

@@ -81,6 +81,16 @@ python -m streamlit run groundwater_app.py
 ```
 
 Install MODFLOW 6 separately and provide its executable path in the app.
+The same app also exposes bounded borehole logs, conceptual geometry, scatter
+interpolation, grid generation and captured-result analysis. Dedicated tools add
+explicit TIN horizons/prisms, raster/ASCII exchange, LAS point clouds and pinned
+MODFLOW-2005/NWT adapters. See the [current geoscience checkpoint](docs/gms/GEOSCIENCE_CHECKPOINT.md)
+for exact supported operations, tests and remaining work. Each module has its
+own declared reference/units and refuses unsupported transformations.
+The [inference panel](docs/INFERENCE_WORKSPACE_UI.md) adds bounded kriging,
+Gaussian/LHS sampling and an authored actual-MF6 conductivity/storage search
+with separate training/withheld observations. It does not implement PEST or
+establish field calibration.
 For an explicit optional download:
 
 ```bash
@@ -90,7 +100,7 @@ python tools/install_mf6.py --accept-download --destination build/mf6-bin
 This is a **constant-density, confined groundwater module** for reference studies,
 not a complete GMS clone or a CO2 multiphase simulator. No native GMS project
 round-trip compatibility or complete numerical equivalence to GMS has been established. Existing
-capacity/attention outputs remain separate. See the [feature matrix](docs/gms/FEATURE_MATRIX.md),
+capacity/attention outputs remain separate. See the [official-catalogue status](docs/gms/IMPLEMENTATION_STATUS.md),
 [run instructions](docs/gms/REPRODUCE.md), [REA findings](docs/gms/REA_FINDINGS.md),
 and [actual numerical checks](docs/gms/VALIDATION.md).
 
@@ -185,7 +195,8 @@ python -m unittest discover -s tests -v
 ```
 
 The required [real-engine CI](docs/gms/CI_VALIDATION.md) runs the full optional
-workbench suite with a hash-pinned MF6 binary and rejects any skipped test.
+workbench suite with hash-pinned MF6, MF2005 and NWT binaries and rejects any
+skipped test. Ordinary core-only test jobs report optional skips separately.
 
 With the bundled synthetic inputs, 20,000 samples per site, and random seed 42,
 the current prototype produces:

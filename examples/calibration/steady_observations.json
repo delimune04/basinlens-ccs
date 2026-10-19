@@ -1,0 +1,52 @@
+{
+  "case_sha256": "87577a39f3735d990a8c251323ba28a3dce354652c9a120586f47a8152d08b1c",
+  "crs": "LOCAL:synthetic-metre",
+  "observations": [
+    {
+      "basis": "synthetic",
+      "cell": [
+        0,
+        0,
+        1
+      ],
+      "head_m": 9.875,
+      "id": "train-left",
+      "provenance": "Authored independent finite-volume/backward-Euler calculation; not field data",
+      "sigma_m": 0.01,
+      "time_day": 1.0
+    },
+    {
+      "basis": "synthetic",
+      "cell": [
+        0,
+        0,
+        2
+      ],
+      "head_m": 9.75,
+      "id": "train-middle",
+      "provenance": "Authored independent finite-volume/backward-Euler calculation; not field data",
+      "sigma_m": 0.01,
+      "time_day": 1.0
+    },
+    {
+      "basis": "synthetic",
+      "cell": [
+        0,
+        0,
+        3
+      ],
+      "head_m": 9.875,
+      "id": "withheld-right",
+      "provenance": "Authored independent finite-volume/backward-Euler calculation; not field data",
+      "sigma_m": 0.01,
+      "time_day": 1.0
+    }
+  ],
+  "project_id": "calibration-synthetic",
+  "schema": "basinlens-head-observations-v1",
+  "units": {
+    "head": "m",
+    "time": "day"
+  },
+  "vertical_datum": "synthetic-z=0"
+}

@@ -1,0 +1,127 @@
+{
+  "actual_example_exit_code": 0,
+  "gms_parity_established": false,
+  "output_inventory": {
+    "conditional.csv": {
+      "bytes": 3409,
+      "sha256": "9f6e0902874bafed8166120002c40a9d87e6b7e427737265c76974554f78a482"
+    },
+    "conditional.json": {
+      "bytes": 3226,
+      "sha256": "14af294e8ae6d7a71d4a1acc1a3b5e1c054dbddf39a1e5a47b1ad4b3f27ea7e0"
+    },
+    "covariance.json": {
+      "bytes": 272,
+      "sha256": "6fbd67471dfa24c919d3fd68ada1fbe6bb0907018873e657b744005b5d8c80c4"
+    },
+    "example_receipt.json": {
+      "bytes": 2028,
+      "sha256": "de85c4410e46543718ba041517ab49ba40674baa1f9c410fec8c6a0bf149415a"
+    },
+    "lhs.csv": {
+      "bytes": 2374,
+      "sha256": "589b4f2273cd13b590c9e626d87660072ed9b620af54fc91a1a3e03ddacf9fb6"
+    },
+    "lhs.json": {
+      "bytes": 2379,
+      "sha256": "1e7ee247dbc3917df7f78e7b844d3543cf9dc98894d2c186d6d51d8ff06b9a8e"
+    },
+    "observations.json": {
+      "bytes": 523,
+      "sha256": "e7a89bf0eccb7a4da74078e44413529310979b2903adc030c2c95ae9bcca7dc8"
+    },
+    "ordinary.csv": {
+      "bytes": 2693,
+      "sha256": "d2316e322dbdc05dc1db79c16ab826c01548b19af2b6389ab23168ca886c5699"
+    },
+    "ordinary.json": {
+      "bytes": 2606,
+      "sha256": "3359572f5965cf332234553c5fb31569a6c327ee0d51805f32ab5fa1b336c243"
+    },
+    "predicted_head.csv": {
+      "bytes": 761,
+      "sha256": "a2c388fe5513c2563f8fc8413da6b308aeff9aafdfeab5f43af2403b9357a682"
+    },
+    "predicted_head.json": {
+      "bytes": 943,
+      "sha256": "e862aede239191a51cd8883128d6fd042551b6cf93a54136385e6aade90ae72f"
+    },
+    "queries.json": {
+      "bytes": 33,
+      "sha256": "4234103315f5e2cbfa6f3b63ed8b0884789fd3504ad82c9a51806e24e630de22"
+    },
+    "settings.json": {
+      "bytes": 226,
+      "sha256": "7d51a83f72207d7c42aa310b1fc85b6d1416900fef8b89afe499a315d7f8dcdf"
+    },
+    "variogram.csv": {
+      "bytes": 1439,
+      "sha256": "914743849a54fcd0a3ba11e13e13181b16a083118fefcb6ea124bf0beb614bd2"
+    },
+    "variogram.json": {
+      "bytes": 1360,
+      "sha256": "1360c9fc3d58f2af36e3990f91fdaa6768793699a19234747e0153742d9f662a"
+    }
+  },
+  "parsed_example": {
+    "conditional_original_values_exact": true,
+    "hand_matrix_passed": true,
+    "ordinary_midpoint_expected_head_m": 3,
+    "ordinary_midpoint_expected_variance_m2": 0.8319087592754217,
+    "original_gms_comparison": "NOT_OBSERVED",
+    "roundtrips": {
+      "conditional": {
+        "file_sha256": {
+          "csv": "9f6e0902874bafed8166120002c40a9d87e6b7e427737265c76974554f78a482",
+          "json": "14af294e8ae6d7a71d4a1acc1a3b5e1c054dbddf39a1e5a47b1ad4b3f27ea7e0"
+        },
+        "json_csv_semantic_equal": true,
+        "operation": "gaussian_field",
+        "original_gms_comparison": "NOT_OBSERVED",
+        "rows": 3,
+        "schema": "basinlens-geostatistics-roundtrip-v1"
+      },
+      "lhs": {
+        "file_sha256": {
+          "csv": "589b4f2273cd13b590c9e626d87660072ed9b620af54fc91a1a3e03ddacf9fb6",
+          "json": "1e7ee247dbc3917df7f78e7b844d3543cf9dc98894d2c186d6d51d8ff06b9a8e"
+        },
+        "json_csv_semantic_equal": true,
+        "operation": "latin_hypercube",
+        "original_gms_comparison": "NOT_OBSERVED",
+        "rows": 32,
+        "schema": "basinlens-geostatistics-roundtrip-v1"
+      },
+      "ordinary": {
+        "file_sha256": {
+          "csv": "d2316e322dbdc05dc1db79c16ab826c01548b19af2b6389ab23168ca886c5699",
+          "json": "3359572f5965cf332234553c5fb31569a6c327ee0d51805f32ab5fa1b336c243"
+        },
+        "json_csv_semantic_equal": true,
+        "operation": "kriging",
+        "original_gms_comparison": "NOT_OBSERVED",
+        "rows": 4,
+        "schema": "basinlens-geostatistics-roundtrip-v1"
+      },
+      "variogram": {
+        "file_sha256": {
+          "csv": "914743849a54fcd0a3ba11e13e13181b16a083118fefcb6ea124bf0beb614bd2",
+          "json": "1360c9fc3d58f2af36e3990f91fdaa6768793699a19234747e0153742d9f662a"
+        },
+        "json_csv_semantic_equal": true,
+        "operation": "experimental_variogram",
+        "original_gms_comparison": "NOT_OBSERVED",
+        "rows": 2,
+        "schema": "basinlens-geostatistics-roundtrip-v1"
+      }
+    },
+    "schema": "basinlens-geostatistics-example-v1",
+    "unsupported_query_remains_missing": true
+  },
+  "schema": "basinlens-geostatistics-example-validation-v4",
+  "source_sha256": {
+    "examples/geostatistics/run_geostatistics_example.py": "b03b75992ce21c35ab5f5aa7feea4ae1f7a8776761f9a148be94922c8cd0fef7",
+    "src/basinlens_ccs/subsurface/geostatistics.py": "0973fdff5cc8b0b044f1ac3bd7d094a98c8485b46f294636e831a56d223be01a",
+    "tests/test_geostatistics.py": "ab84cd25d72fe5c9e86198f1c0a5c9fce6afe155ee27f7fc188a2ea41b64b8de"
+  }
+}

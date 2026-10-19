@@ -1,0 +1,176 @@
+{
+  "schema": "basinlens-geology-v1",
+  "id": "synthetic-geology",
+  "name": "Synthetic vertical borehole sections",
+  "length_unit": "m",
+  "crs": "unknown",
+  "vertical_datum": "unknown",
+  "depth_reference": "vertical_depth_below_collar",
+  "assets": [
+    {
+      "id": "notes",
+      "relative_path": "assets/synthetic_notes.txt",
+      "sha256": "753f68bed1ffd20d2376736c7ad66f4f15e5bcb17bd71869e90273fc5fe43ce5",
+      "media_type": "text/plain",
+      "license": "CC0-1.0; authored synthetic fixture"
+    }
+  ],
+  "provenance": [
+    {
+      "id": "authored",
+      "description": "Authored illustrative geometry and log assumptions, not measurements.",
+      "basis": "synthetic",
+      "source_asset_ids": [
+        "notes"
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "id": "sand",
+      "name": "Sand",
+      "description": "Illustrative sand interval",
+      "provenance_id": "authored"
+    },
+    {
+      "id": "clay",
+      "name": "Clay",
+      "description": "Illustrative clay interval",
+      "provenance_id": "authored"
+    }
+  ],
+  "horizons": [
+    {
+      "id": "H1",
+      "name": "Declared contact H1",
+      "provenance_id": "authored"
+    }
+  ],
+  "boreholes": [
+    {
+      "id": "A",
+      "name": "Synthetic borehole A",
+      "x_m": 3,
+      "y_m": 4,
+      "z_m": 100,
+      "total_depth_m": 12,
+      "provenance_id": "authored",
+      "intervals": [
+        {
+          "id": "a1",
+          "top_depth_m": 0,
+          "bottom_depth_m": 2.5,
+          "kind": "logged",
+          "material_id": "clay",
+          "top_horizon_id": null,
+          "bottom_horizon_id": "H1",
+          "provenance_id": "authored"
+        },
+        {
+          "id": "a2",
+          "top_depth_m": 2,
+          "bottom_depth_m": 6,
+          "kind": "logged",
+          "material_id": "sand",
+          "top_horizon_id": "H1",
+          "bottom_horizon_id": null,
+          "provenance_id": "authored"
+        },
+        {
+          "id": "a-gap",
+          "top_depth_m": 6,
+          "bottom_depth_m": 8,
+          "kind": "gap",
+          "material_id": null,
+          "top_horizon_id": null,
+          "bottom_horizon_id": null,
+          "provenance_id": "authored"
+        },
+        {
+          "id": "a3",
+          "top_depth_m": 8,
+          "bottom_depth_m": 12,
+          "kind": "logged",
+          "material_id": "sand",
+          "top_horizon_id": null,
+          "bottom_horizon_id": null,
+          "provenance_id": "authored"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "Synthetic borehole B",
+      "x_m": 12,
+      "y_m": 8,
+      "z_m": 110,
+      "total_depth_m": 9,
+      "provenance_id": "authored",
+      "intervals": [
+        {
+          "id": "b1",
+          "top_depth_m": 0,
+          "bottom_depth_m": 4,
+          "kind": "logged",
+          "material_id": "clay",
+          "top_horizon_id": null,
+          "bottom_horizon_id": "H1",
+          "provenance_id": "authored"
+        },
+        {
+          "id": "b2",
+          "top_depth_m": 4,
+          "bottom_depth_m": 9,
+          "kind": "logged",
+          "material_id": "sand",
+          "top_horizon_id": "H1",
+          "bottom_horizon_id": null,
+          "provenance_id": "authored"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "Synthetic borehole C",
+      "x_m": -3,
+      "y_m": 0,
+      "z_m": 95,
+      "total_depth_m": 3,
+      "provenance_id": "authored",
+      "intervals": [
+        {
+          "id": "c1",
+          "top_depth_m": 0,
+          "bottom_depth_m": 3,
+          "kind": "logged",
+          "material_id": "sand",
+          "top_horizon_id": null,
+          "bottom_horizon_id": null,
+          "provenance_id": "authored"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "name": "Synthetic borehole D",
+      "x_m": 10,
+      "y_m": 0,
+      "z_m": 102,
+      "total_depth_m": 5,
+      "provenance_id": "authored",
+      "intervals": [
+        {
+          "id": "d1",
+          "top_depth_m": 0,
+          "bottom_depth_m": 5,
+          "kind": "logged",
+          "material_id": "clay",
+          "top_horizon_id": null,
+          "bottom_horizon_id": null,
+          "provenance_id": "authored"
+        }
+      ]
+    }
+  ],
+  "history": []
+}

@@ -1,0 +1,22 @@
+{
+  "dimension": 2,
+  "kind": "exponential",
+  "nugget": 0.0,
+  "partial_sill": 1.0,
+  "ranges_m": [
+    1.0,
+    1.0
+  ],
+  "rotation": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "schema": "basinlens-covariance-v1",
+  "value_unit": "m"
+}

@@ -64,6 +64,21 @@ def verify_solver(path):
             "version_stderr": version.stderr, "version_returncode": version.returncode}
 
 
+def verify_classic_solvers():
+    from basinlens_ccs.subsurface.classic import PINNED
+    result = {}
+    for engine, variable in (("mf2005", "MF2005_EXE"), ("mfnwt", "MFNWT_EXE")):
+        value = os.environ.get(variable)
+        if not value or not Path(value).is_absolute():
+            raise RuntimeError(f"{variable} must explicitly name an absolute pinned executable")
+        path, spec = Path(value), PINNED[engine]
+        if (path.is_symlink() or not path.is_file() or path.stat().st_size != spec["bytes"]
+                or sha(path) != spec["sha256"]):
+            raise RuntimeError(f"{engine} binary differs from the exact study executable")
+        result[engine] = {**spec, "resolved_path": str(path.resolve())}
+    return result
+
+
 def prepare(report):
     path = solver_path()
     if platform.system() != "Linux" or platform.machine() not in ("x86_64", "AMD64"):
@@ -101,6 +116,8 @@ def prepare(report):
                 target.write(chunk)
     path.chmod(0o755)
     identity = verify_solver(path)
+    from ci_classic_engines import prepare as prepare_classic
+    write_json(report / "classic-solvers.json", prepare_classic(archive, path.parent))
     archive.unlink()
     write_json(report / "solver.json", {"schema": "basinlens-ci-solver-v1",
         "release_url": "https://github.com/MODFLOW-ORG/executables/releases/tag/29.0",
@@ -132,12 +149,13 @@ def run_tests(report):
     with (report / "tests.log").open("w", encoding="utf-8") as log:
         try:
             summary["solver"] = verify_solver(solver_path())
+            summary["classic_solvers"] = verify_classic_solvers()
             summary["packages"] = {name: importlib.metadata.version(name) for name in
                 ("numpy", "pandas", "flopy", "h5py", "streamlit", "plotly")}
             files = subprocess.check_output(["git", "ls-files", "-z"], cwd=PROJECT).decode().split("\0")
             selected = [p for p in files if p and (p.endswith((".py", ".toml", ".yml", ".json", ".csv")))
                         and (p.startswith(("src/", "tests/", "tools/", "examples/", ".github/workflows/"))
-                             or p in ("groundwater_app.py", "model_workspace.py", "app.py", "pyproject.toml"))]
+                             or p in ("groundwater_app.py", "model_workspace.py", "geoscience_workspace.py", "inference_workspace.py", "app.py", "pyproject.toml"))]
             summary["source_sha256"] = {p: sha(PROJECT / p) for p in selected}
             summary["checkout_commit"] = subprocess.check_output(
                 ["git", "rev-parse", "HEAD"], cwd=PROJECT, text=True).strip()
@@ -170,6 +188,10 @@ def run_tests(report):
                        and not result.expectedFailures and not result.shouldStop)
             # Recheck after actual execution, not just before it.
             verify_solver(solver_path())
+            verify_classic_solvers()
+            summary["source_sha256_after"] = {p: sha(PROJECT / p) for p in selected}
+            if summary["source_sha256_after"] != summary["source_sha256"]:
+                raise RuntimeError("Checkout source bytes changed during strict test execution")
         except BaseException as error:
             success = False
             summary["runner_error_type"] = type(error).__name__

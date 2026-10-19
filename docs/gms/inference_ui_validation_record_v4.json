@@ -1,0 +1,64 @@
+{
+  "field_validation_established": false,
+  "gms_parity_established": false,
+  "independent_review": {
+    "parsed_record": {
+      "elapsed_seconds": 44.695,
+      "engine": {
+        "path": "/workspace/scratch/96bcf7ec787f/research/bin/mf6",
+        "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4"
+      },
+      "errors": 0,
+      "executed_test_ids": [
+        "test_inference_workspace_ui.InferenceWorkspaceTests.test_actual_mf6_k4_recovery_history_download_and_native_tamper_invalidation",
+        "test_inference_workspace_ui.InferenceWorkspaceTests.test_expired_deadline_retains_verified_failure_then_explicit_budget_limited_run",
+        "test_inference_workspace_ui.InferenceWorkspaceTests.test_idle_explicit_import_and_bad_upload_preserve_last_valid",
+        "test_inference_workspace_ui.InferenceWorkspaceTests.test_known_ordinary_simple_kriging_mask_roundtrip_and_draft_invalidation",
+        "test_inference_workspace_ui.InferenceWorkspaceTests.test_missing_engine_source_mismatch_and_invalid_draft_are_recoverable",
+        "test_inference_workspace_ui.InferenceWorkspaceTests.test_variogram_conditioned_gaussian_seed_and_independent_lhs"
+      ],
+      "failures": 0,
+      "log_sha256": "8e384f2c59d41b664be816a66ad3552cc9472ae401ee014803a73ad6aa051081",
+      "passed": true,
+      "python": "3.12.14",
+      "schema": "basinlens-independent-inference-ui-review-v1",
+      "scope": "Final independent inference UI regressions: bounded read/archive, actual synthetic MF6 K4 fit, withheld support, deadlines/native and valid-bundle cache invalidation, LHS name and calibration history authority; no original GMS or field validation",
+      "skips": 0,
+      "source_and_fixture_bytes_unchanged": true,
+      "source_hashes": {
+        "examples/calibration/expected_receipt.json": "f266da04a8aab0ebec67f0acdf2715230b77340b123158c3d001274f067cf9a4",
+        "examples/calibration/flat_case.json": "87577a39f3735d990a8c251323ba28a3dce354652c9a120586f47a8152d08b1c",
+        "examples/calibration/flat_observations.json": "075ee92adc18395fb2c3cd6085ab116028400b91fb0ec0a32e28e7f722af3726",
+        "examples/calibration/flat_settings.json": "8647c532410d6890a35c40bedbb67796538b0ab06c012fbbfc44946dd9c7f41b",
+        "examples/calibration/steady_case.json": "87577a39f3735d990a8c251323ba28a3dce354652c9a120586f47a8152d08b1c",
+        "examples/calibration/steady_observations.json": "f1422a9dd3c3838e5333fa7da598fd19cb3edde7efae477bef76e8f5e65248a4",
+        "examples/calibration/steady_settings.json": "ae1ff98e9c55cb1e604ea884c9e8358404c8e7ed4b891776a14d77665187eea2",
+        "examples/calibration/transient_case.json": "517c4c8d0634bce3e03f41d2264f9fe9ff9f71cec2781feafb0c9791ac0fe5fa",
+        "examples/calibration/transient_observations.json": "9f1c10c07a6a7b4ea95f7e80700127b43715b5870cbba6192f194848d6cc7452",
+        "examples/calibration/transient_settings.json": "f84d2dfa698bbc056bf88dfb2187a24d59a883fa4c14100aa973bafa7c6284a8",
+        "examples/geostatistics/covariance.json": "6fbd67471dfa24c919d3fd68ada1fbe6bb0907018873e657b744005b5d8c80c4",
+        "examples/geostatistics/queries.json": "4234103315f5e2cbfa6f3b63ed8b0884789fd3504ad82c9a51806e24e630de22",
+        "examples/geostatistics/settings.json": "7d51a83f72207d7c42aa310b1fc85b6d1416900fef8b89afe499a315d7f8dcdf",
+        "examples/geostatistics/synthetic_observations.json": "e7a89bf0eccb7a4da74078e44413529310979b2903adc030c2c95ae9bcca7dc8",
+        "inference_workspace.py": "03e6561df464f2168b8323177c0336e80b7e0635c60f67e03bb1ef2e8a4cbf8d",
+        "src/basinlens_ccs/subsurface/analysis.py": "7f080a8e7c335fc540d3e1b24b102f991f0d9b2e678ea04aac1ede1b83c2dcef",
+        "src/basinlens_ccs/subsurface/calibration.py": "2c1a405ba8eff300d08a60a6eccec1dd6792c4bb4e48e91e31e6b2cbc223f249",
+        "src/basinlens_ccs/subsurface/geostatistics.py": "0973fdff5cc8b0b044f1ac3bd7d094a98c8485b46f294636e831a56d223be01a",
+        "src/basinlens_ccs/subsurface/model_workflow.py": "c64debe5ab7214d91ca4f859abcf68ea0569c285d076a25d97ba2602b98f6fe4",
+        "src/basinlens_ccs/subsurface/project_package.py": "1c2037c8458e7e549a21da933b79d43442c3c8c4820c1416875117721663abf2",
+        "src/basinlens_ccs/subsurface/scatter.py": "59f6118b0b1e64d49e6c14b9ef01e666094626830941959d2413a860eb7cf36f",
+        "src/basinlens_ccs/subsurface/schema.py": "72857b4d634c54453f4233fbab64e6c6418fbe8c366e109e76634532496cdd99",
+        "tests/test_inference_workspace_ui.py": "155f0f95245310d3fe650cbbc7f58ca9018846f2d5bf1558902e0fbed56de8c5"
+      },
+      "tests_run": 6
+    },
+    "sha256": "2efc7fef5e6d0d470816f9d530f1bec23aafcecad363b34d6333d0d51f81b98b"
+  },
+  "recorded_utc": "2026-10-19T10:39:26.856768+00:00",
+  "schema": "basinlens-inference-ui-validation-v4",
+  "scope": "Six actualMF6/geostatistical AppTests; a scoped independent interface review, not full repository regression or GMS/field parity",
+  "source_sha256": {
+    "inference_workspace.py": "03e6561df464f2168b8323177c0336e80b7e0635c60f67e03bb1ef2e8a4cbf8d",
+    "tests/test_inference_workspace_ui.py": "155f0f95245310d3fe650cbbc7f58ca9018846f2d5bf1558902e0fbed56de8c5"
+  }
+}

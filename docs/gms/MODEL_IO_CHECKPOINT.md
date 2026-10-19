@@ -1,5 +1,13 @@
 # Model loading and workflow checkpoint — 2026-10-19
 
+**Historical 352-test snapshot.** Later scoped borehole, TIN/solid, statistics,
+classic-engine, calibration and portable-collection implementations are recorded
+in [GEOSCIENCE_CHECKPOINT.md](GEOSCIENCE_CHECKPOINT.md). The current status and
+remaining operations are in [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md)
+and [FULL_IMPLEMENTATION_BACKLOG.md](FULL_IMPLEMENTATION_BACKLOG.md). Remaining
+implementation statements and next priorities below describe this older source
+tree, not the current implementation.
+
 The whole GMS reconstruction remains unfinished. This checkpoint implements
 the requested model/file and geology-to-results priorities within explicit
 confined single-phase water contracts. It does not close the 577 genuine REA

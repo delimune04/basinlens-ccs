@@ -1,0 +1,50 @@
+{
+  "gms_parity_established": false,
+  "independent_review": {
+    "parsed_record": {
+      "accepted": true,
+      "caller_wiring_read_and_ast_checked": {
+        "geoscience_workspace.py::_archive": true,
+        "groundwater_app.py::zip_directory": true,
+        "model_workspace.py::_archive": true
+      },
+      "cwd": "/workspace/scratch/96bcf7ec787f/basinlens-ccs",
+      "elapsed_seconds": 0.8780901432037354,
+      "errors": 0,
+      "expected_failures": 0,
+      "failures": 0,
+      "python": "3.12.14",
+      "reviewer": "geology_surfaces_v4",
+      "schema": "basinlens-independent-workspace-archive-review-v1",
+      "scope": "unchanged bounded directory bytes; not model validity or GMS parity",
+      "skips": 0,
+      "source_sha256_after": {
+        "geoscience_workspace.py": "9d8bc8b69a16f8765d6dc2386aaed4ef023426e8d56687c0c8c7c92642a05a1b",
+        "groundwater_app.py": "2364243c1073c30c3c31127ad0dc3c4e4e99108ea3e12432b23d3dc81da517f3",
+        "model_workspace.py": "59e386453f65145c19cee86f146aad9b4d4bf04dfb38a9505170b57130857d11",
+        "src/basinlens_ccs/subsurface/workspace_archive.py": "8c03bcc7ffc1c6e660107d2c99514dc217c5d1555b036aafd962399209d58e26",
+        "tests/test_workspace_archive.py": "712a1db8fb1c8f6f5f85e43b945e60ec473d75b33309e49a52853b3db09f91be"
+      },
+      "source_sha256_before": {
+        "geoscience_workspace.py": "9d8bc8b69a16f8765d6dc2386aaed4ef023426e8d56687c0c8c7c92642a05a1b",
+        "groundwater_app.py": "2364243c1073c30c3c31127ad0dc3c4e4e99108ea3e12432b23d3dc81da517f3",
+        "model_workspace.py": "59e386453f65145c19cee86f146aad9b4d4bf04dfb38a9505170b57130857d11",
+        "src/basinlens_ccs/subsurface/workspace_archive.py": "8c03bcc7ffc1c6e660107d2c99514dc217c5d1555b036aafd962399209d58e26",
+        "tests/test_workspace_archive.py": "712a1db8fb1c8f6f5f85e43b945e60ec473d75b33309e49a52853b3db09f91be"
+      },
+      "source_unchanged": true,
+      "tests_run": 6,
+      "unexpected_successes": 0
+    },
+    "sha256": "49023be097f14b6d7375d8ef05b027ef3157db6ba896055dfd554ac9f8fd90a3"
+  },
+  "schema": "basinlens-workspace-archive-validation-v4",
+  "scope": "Six independent bounded ZIP tests and read-only inspection of the three integrated UI wrappers; final full UI regressions remain separate",
+  "source_sha256": {
+    "geoscience_workspace.py": "9d8bc8b69a16f8765d6dc2386aaed4ef023426e8d56687c0c8c7c92642a05a1b",
+    "groundwater_app.py": "2364243c1073c30c3c31127ad0dc3c4e4e99108ea3e12432b23d3dc81da517f3",
+    "model_workspace.py": "59e386453f65145c19cee86f146aad9b4d4bf04dfb38a9505170b57130857d11",
+    "src/basinlens_ccs/subsurface/workspace_archive.py": "8c03bcc7ffc1c6e660107d2c99514dc217c5d1555b036aafd962399209d58e26",
+    "tests/test_workspace_archive.py": "712a1db8fb1c8f6f5f85e43b945e60ec473d75b33309e49a52853b3db09f91be"
+  }
+}

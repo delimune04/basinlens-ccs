@@ -114,22 +114,8 @@ def _diagnose(stage: str, error: Exception, output: str | None = None) -> None:
 
 def _archive(directory: Path) -> bytes:
     """Bounded archive after a backend verifier has established run integrity."""
-    entries, total = [], 0
-    for path in sorted(Path(directory).rglob("*")):
-        if path.is_symlink():
-            raise ValueError("다운로드 묶음에 심볼릭 링크를 포함할 수 없습니다.")
-        if path.is_file():
-            total += path.stat().st_size
-            if total > MAX_DOWNLOAD_BYTES or len(entries) >= 5000:
-                raise ValueError("다운로드 묶음은 128 MiB / 5000개 파일 제한을 넘을 수 없습니다.")
-            entries.append(path)
-    buffer = io.BytesIO()
-    with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-        for path in entries:
-            archive.write(path, path.relative_to(directory).as_posix())
-    if buffer.tell() > MAX_DOWNLOAD_BYTES:
-        raise ValueError("압축한 다운로드 묶음이 128 MiB 제한을 초과합니다.")
-    return buffer.getvalue()
+    from basinlens_ccs.subsurface.workspace_archive import create_workspace_zip
+    return create_workspace_zip(directory, max_bytes=MAX_DOWNLOAD_BYTES)
 
 
 def _cell_table(preview: dict) -> pd.DataFrame:

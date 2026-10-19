@@ -69,7 +69,7 @@ def selected_run(modules: list[str], output: Path) -> dict:
             listed = subprocess.check_output(['git', 'ls-files', '-z', '--cached', '--others', '--exclude-standard'], cwd=PROJECT).decode().split('\0')
             sources = sorted({name for name in listed if name and (
                 name.startswith(('src/', 'tests/', 'tools/', 'examples/', '.github/workflows/')) and name.endswith(('.py', '.json', '.csv', '.yml', '.toml'))
-                or name in ('groundwater_app.py', 'model_workspace.py', 'app.py', 'pyproject.toml'))})
+                or name in ('groundwater_app.py', 'model_workspace.py', 'geoscience_workspace.py', 'inference_workspace.py', 'app.py', 'pyproject.toml'))})
             if any((PROJECT / name).is_symlink() or not (PROJECT / name).is_file() for name in sources):
                 raise ValueError('Source snapshot requires regular files')
             record['source_sha256'] = {name: sha(PROJECT / name) for name in sources}

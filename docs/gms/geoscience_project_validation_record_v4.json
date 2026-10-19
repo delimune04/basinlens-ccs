@@ -1,0 +1,314 @@
+{
+  "independent_review": {
+    "parsed_record": {
+      "accepted": true,
+      "cwd": "/workspace/scratch/96bcf7ec787f/gms-geoscience-project-v5",
+      "elapsed_seconds": 3.3109729290008545,
+      "errors": 0,
+      "expected_failures": 0,
+      "extra_checks": {
+        "inert_archive_never_restores_live_state": true,
+        "inert_archive_performs_no_native_verification": true,
+        "inert_archive_preserves_external_source_as_literal_metadata": true,
+        "postpublication_source_deletion_raises": true,
+        "postpublication_source_deletion_removes_owned_destination": true
+      },
+      "failures": 0,
+      "original_gms_comparison": "NOT_OBSERVED",
+      "python": "3.12.14",
+      "reviewer": "geology_surfaces_v4",
+      "schema": "basinlens-independent-geoscience-project-review-v1",
+      "skips": 0,
+      "source_sha256_after": {
+        "src/basinlens_ccs/subsurface/geoscience_project.py": "bc1e0efaf3d42f174faae157763688ca345ce38fda5a0c2241e879427cbedd72",
+        "tests/test_geoscience_project.py": "ce37b444917344ed21795862392b9a9a63c585e98c7eddaca9c452f9d2c2b3ac"
+      },
+      "source_sha256_before": {
+        "src/basinlens_ccs/subsurface/geoscience_project.py": "bc1e0efaf3d42f174faae157763688ca345ce38fda5a0c2241e879427cbedd72",
+        "tests/test_geoscience_project.py": "ce37b444917344ed21795862392b9a9a63c585e98c7eddaca9c452f9d2c2b3ac"
+      },
+      "source_unchanged": true,
+      "tests_run": 26,
+      "unexpected_successes": 0
+    },
+    "sha256": "fe08e119a4ef59ec57aba607a9f1095e91ce752e9ba87648f5ab0eccce190ddd"
+  },
+  "original_gms_comparison": false,
+  "recorded_utc": "2026-10-19T10:19:31.832936+00:00",
+  "root_example_receipt": {
+    "parsed_record": {
+      "additional_matching_contract_projects": {
+        "analysis_archive": {
+          "archive_bytes_equal": true,
+          "gms_parity_established": false,
+          "live_engine_state_restored": false,
+          "object_count": 1,
+          "original_file_sha256": {
+            "analysis.json": "dcdbabad7b7d854a25dcb439f6b9bdbbd6141cfb10e62d8c6d038907d5aa33a7",
+            "manifest.json": "892a071f97a220d13153e258748da9180134be33d21c8d1f72e33265c6803804",
+            "samples.csv": "f9bd0461734878eb8f11b3ce6bef032a2f634d5e363771d42d26b5afdcd0a5b7"
+          },
+          "original_gms_comparison": "not_performed",
+          "project_metadata_equal": true,
+          "registered_asset_bytes_equal": true,
+          "repacked_archive_sha256": "446dc43c7bd288cf6e539f37f7b3016cb0de2d66344ebc76631b9f6260424e34",
+          "roundtrip_verified": true,
+          "schema": "basinlens-geoscience-roundtrip-v1",
+          "solver_executed": false,
+          "source_archive_sha256": "446dc43c7bd288cf6e539f37f7b3016cb0de2d66344ebc76631b9f6260424e34",
+          "source_unchanged": true,
+          "typed_objects_equal": true,
+          "view_state_equal": true
+        },
+        "pointcloud": {
+          "archive_bytes_equal": true,
+          "gms_parity_established": false,
+          "object_count": 1,
+          "original_gms_comparison": "not_performed",
+          "project_metadata_equal": true,
+          "registered_asset_bytes_equal": true,
+          "repacked_archive_sha256": "0529534cb7203f3efd67876f42ad35eca7a5afa4b100ee1a0b4bfa74b1e1136b",
+          "roundtrip_verified": true,
+          "schema": "basinlens-geoscience-roundtrip-v1",
+          "solver_executed": false,
+          "source_archive_sha256": "0529534cb7203f3efd67876f42ad35eca7a5afa4b100ee1a0b4bfa74b1e1136b",
+          "source_unchanged": true,
+          "typed_objects_equal": true,
+          "view_state_equal": true
+        },
+        "raster": {
+          "archive_bytes_equal": true,
+          "gms_parity_established": false,
+          "object_count": 1,
+          "original_gms_comparison": "not_performed",
+          "project_metadata_equal": true,
+          "registered_asset_bytes_equal": true,
+          "repacked_archive_sha256": "7d2c2ddb7895d5e256beadafec06c8d947fe76c04ee9201e01d44c087360e4ab",
+          "roundtrip_verified": true,
+          "schema": "basinlens-geoscience-roundtrip-v1",
+          "solver_executed": false,
+          "source_archive_sha256": "7d2c2ddb7895d5e256beadafec06c8d947fe76c04ee9201e01d44c087360e4ab",
+          "source_unchanged": true,
+          "typed_objects_equal": true,
+          "view_state_equal": true
+        },
+        "surfaces": {
+          "archive_bytes_equal": true,
+          "gms_parity_established": false,
+          "object_count": 1,
+          "original_gms_comparison": "not_performed",
+          "project_metadata_equal": true,
+          "registered_asset_bytes_equal": true,
+          "repacked_archive_sha256": "2e16ae0415684885592b130cfaa7ae76039cde1d6672178c070814de1427a61a",
+          "roundtrip_verified": true,
+          "schema": "basinlens-geoscience-roundtrip-v1",
+          "solver_executed": false,
+          "source_archive_sha256": "2e16ae0415684885592b130cfaa7ae76039cde1d6672178c070814de1427a61a",
+          "source_unchanged": true,
+          "typed_objects_equal": true,
+          "view_state_equal": true
+        }
+      },
+      "artifacts": {
+        "analysis-restored/assets/geoscience/analysis/authored/analysis.json": {
+          "bytes": 2846,
+          "sha256": "dcdbabad7b7d854a25dcb439f6b9bdbbd6141cfb10e62d8c6d038907d5aa33a7"
+        },
+        "analysis-restored/assets/geoscience/analysis/authored/manifest.json": {
+          "bytes": 813,
+          "sha256": "892a071f97a220d13153e258748da9180134be33d21c8d1f72e33265c6803804"
+        },
+        "analysis-restored/assets/geoscience/analysis/authored/samples.csv": {
+          "bytes": 378,
+          "sha256": "f9bd0461734878eb8f11b3ce6bef032a2f634d5e363771d42d26b5afdcd0a5b7"
+        },
+        "analysis-restored/assets/geoscience/objects.json": {
+          "bytes": 2177,
+          "sha256": "05e52d4f6b284fa5106d2b35df162830438af0b2de869cf1c47d8041f06f30e1"
+        },
+        "analysis-restored/assets/geoscience/objects/authored.json": {
+          "bytes": 1064,
+          "sha256": "657925714aea1cc3fa6ccce0918aa41031d6309738278e0f567f8b7029242031"
+        },
+        "analysis-restored/manifest.json": {
+          "bytes": 2170,
+          "sha256": "c3cd5da21f9f3d71a326670b13b3d5ede1901a50c9390884bafde6a7f27e6eb3"
+        },
+        "analysis-restored/project.json": {
+          "bytes": 3287,
+          "sha256": "00e5128b2d6cdb9a63652efe8bb65f227cbf1a18c70895a6e4afd138cac7b348"
+        },
+        "analysis-restored/view_state.json": {
+          "bytes": 81,
+          "sha256": "86dd3a84e20d0de18babda996c4983931a3dfdb8e8ccb5cb1baa1ba07e87b674"
+        },
+        "analysis.blproj": {
+          "bytes": 5868,
+          "sha256": "446dc43c7bd288cf6e539f37f7b3016cb0de2d66344ebc76631b9f6260424e34"
+        },
+        "mixed.blproj": {
+          "bytes": 6022,
+          "sha256": "b0f82f35ea0a013ff75ff74ed457893f1f72384a63d1a662a96d8437bd08d5dd"
+        },
+        "pointcloud-restored/assets/geoscience/objects.json": {
+          "bytes": 972,
+          "sha256": "c7aca2381432f5f6a9e2bff2cd126bf69692d5487b656eaa68d8783c7f4c14b2"
+        },
+        "pointcloud-restored/assets/geoscience/objects/authored.json": {
+          "bytes": 1582,
+          "sha256": "5d435722279594546784f18639ede1351b4497dca9483c44139fd9bcc865879e"
+        },
+        "pointcloud-restored/manifest.json": {
+          "bytes": 1174,
+          "sha256": "58f12b28e56aaabd4ffd9154ed033b9306be098a5564085e00eeb00fc59e250a"
+        },
+        "pointcloud-restored/project.json": {
+          "bytes": 2174,
+          "sha256": "c4b2cb2882a8d4666f0bdccae53afc05afe3d3ce241610a509413760e9fb71c7"
+        },
+        "pointcloud-restored/view_state.json": {
+          "bytes": 81,
+          "sha256": "86dd3a84e20d0de18babda996c4983931a3dfdb8e8ccb5cb1baa1ba07e87b674"
+        },
+        "pointcloud.blproj": {
+          "bytes": 3097,
+          "sha256": "0529534cb7203f3efd67876f42ad35eca7a5afa4b100ee1a0b4bfa74b1e1136b"
+        },
+        "raster-restored/assets/geoscience/objects.json": {
+          "bytes": 963,
+          "sha256": "805c230c0bd7ef4e6384d8f455ffda9002d2dc740bcf859c9de9cda75210f2a0"
+        },
+        "raster-restored/assets/geoscience/objects/authored.json": {
+          "bytes": 465,
+          "sha256": "b7dd57c318b38913fed4b7a335f86de111c71b85c7447048d383dde08a062635"
+        },
+        "raster-restored/manifest.json": {
+          "bytes": 1172,
+          "sha256": "4ba17145cbe9271fdc347b0d85607f15cf601897b81c395b778fd6da23177393"
+        },
+        "raster-restored/project.json": {
+          "bytes": 2160,
+          "sha256": "3f7983d2e74a266ad39e94037e6992c1bbdea8b0406c7eea0661969443736700"
+        },
+        "raster-restored/view_state.json": {
+          "bytes": 81,
+          "sha256": "86dd3a84e20d0de18babda996c4983931a3dfdb8e8ccb5cb1baa1ba07e87b674"
+        },
+        "raster.blproj": {
+          "bytes": 2880,
+          "sha256": "7d2c2ddb7895d5e256beadafec06c8d947fe76c04ee9201e01d44c087360e4ab"
+        },
+        "relocated.blproj": {
+          "bytes": 6022,
+          "sha256": "b0f82f35ea0a013ff75ff74ed457893f1f72384a63d1a662a96d8437bd08d5dd"
+        },
+        "repacked.blproj": {
+          "bytes": 6022,
+          "sha256": "b0f82f35ea0a013ff75ff74ed457893f1f72384a63d1a662a96d8437bd08d5dd"
+        },
+        "restored/assets/assets/synthetic_notes.txt": {
+          "bytes": 107,
+          "sha256": "753f68bed1ffd20d2376736c7ad66f4f15e5bcb17bd71869e90273fc5fe43ce5"
+        },
+        "restored/assets/geoscience/objects.json": {
+          "bytes": 3247,
+          "sha256": "621624e1b5437a5d284b8e6d362dcb3691465a3e679dc44698788633422a9683"
+        },
+        "restored/assets/geoscience/objects/boreholes.json": {
+          "bytes": 2755,
+          "sha256": "00d75af3af8fc1e580503c1a473bd22a76eae20e43e123e1aba165eef54fdee3"
+        },
+        "restored/assets/geoscience/objects/coverage.json": {
+          "bytes": 969,
+          "sha256": "a44dee34b572420bc3b9ff39ddb177d737fbafbb50dd1bfe4d328092854a22db"
+        },
+        "restored/assets/geoscience/objects/mesh.json": {
+          "bytes": 690,
+          "sha256": "007ea2418c823c00e7eb1d8da5b576cff37d0a953af7d310b5cc90e33c59cb73"
+        },
+        "restored/assets/geoscience/objects/samples.json": {
+          "bytes": 606,
+          "sha256": "081862c0a3d5f6303525a39c7d12d3613b91b1e87df3e27443bccc3792c603bf"
+        },
+        "restored/manifest.json": {
+          "bytes": 2375,
+          "sha256": "a83bffd0447bb777d04f66b2b703eac2428e258e600354c7f638878a6c14e2df"
+        },
+        "restored/project.json": {
+          "bytes": 3455,
+          "sha256": "9f119b2178d6496af6663d236f806565027b7f21ce8cb600b65991a30e1d91c7"
+        },
+        "restored/view_state.json": {
+          "bytes": 86,
+          "sha256": "a649ceb8a336ee1899f5be6d918b15a47ec33c53b7db2cb18efb412fd8784d9e"
+        },
+        "surfaces-restored/assets/geoscience/objects.json": {
+          "bytes": 990,
+          "sha256": "3a1c879d6bd4d799bbbdd0b2ad4a4d39295ec3f41a0d42915701e256cd529a96"
+        },
+        "surfaces-restored/assets/geoscience/objects/authored.json": {
+          "bytes": 806,
+          "sha256": "1c9f066331831d71e0c2632c9b87bd87228ef4d5cbaf5505fc42adf88203c362"
+        },
+        "surfaces-restored/manifest.json": {
+          "bytes": 1172,
+          "sha256": "4501f31ffe8fc6202d1fa0c2a7dcd04c454c5314aa1e63657dc13df9633d6cab"
+        },
+        "surfaces-restored/project.json": {
+          "bytes": 2180,
+          "sha256": "0db823c26f511434956761541377209c066c9f603d42694183d9b22dcb91fcbb"
+        },
+        "surfaces-restored/view_state.json": {
+          "bytes": 81,
+          "sha256": "86dd3a84e20d0de18babda996c4983931a3dfdb8e8ccb5cb1baa1ba07e87b674"
+        },
+        "surfaces.blproj": {
+          "bytes": 2980,
+          "sha256": "2e16ae0415684885592b130cfaa7ae76039cde1d6672178c070814de1427a61a"
+        }
+      },
+      "gms_parity_established": false,
+      "input_sha256": {
+        "examples/features/local_coverage.json": "63604ac1c328f6a473999c965bbe484b984b7dcdf21dfb812942b5f7df71d7e7",
+        "examples/geology/assets/synthetic_notes.txt": "753f68bed1ffd20d2376736c7ad66f4f15e5bcb17bd71869e90273fc5fe43ce5",
+        "examples/geology/synthetic_boreholes.json": "ce17d12ed149d2fe207144dbcc40eb6b6a9f1215fb532597786551345a38cdbf",
+        "examples/geoscience_project/project.json": "eedbde5bbdd358110f043fa4d1b45e3e6139582a5aea291c6b1ac77edb116211",
+        "examples/geoscience_project/run_geoscience_project_example.py": "dbf650e72e5a3f1130271584ce6396214a90588e176e6765cb098f4e3be169b0",
+        "examples/geoscience_project/scatter.json": "081862c0a3d5f6303525a39c7d12d3613b91b1e87df3e27443bccc3792c603bf",
+        "examples/pointcloud/synthetic_points.json": "5d435722279594546784f18639ede1351b4497dca9483c44139fd9bcc865879e",
+        "examples/raster/linear_head.json": "b7dd57c318b38913fed4b7a335f86de111c71b85c7447048d383dde08a062635",
+        "examples/surfaces/tilted_planes.json": "7ef19f16da0231f86ae085436bb09d0ddd375a00c076a707b66f2aa92c03768b",
+        "examples/workflow/layered_background_water.json": "983f753a21a3e14536919419f2077a2bdb4640784a98856037d8d08a2b53f1a3",
+        "src/basinlens_ccs/subsurface/geoscience_project.py": "bc1e0efaf3d42f174faae157763688ca345ce38fda5a0c2241e879427cbedd72"
+      },
+      "mixed_roundtrip": {
+        "archive_bytes_equal": true,
+        "gms_parity_established": false,
+        "object_count": 4,
+        "original_gms_comparison": "not_performed",
+        "project_metadata_equal": true,
+        "registered_asset_bytes_equal": true,
+        "repacked_archive_sha256": "b0f82f35ea0a013ff75ff74ed457893f1f72384a63d1a662a96d8437bd08d5dd",
+        "roundtrip_verified": true,
+        "schema": "basinlens-geoscience-roundtrip-v1",
+        "solver_executed": false,
+        "source_archive_sha256": "b0f82f35ea0a013ff75ff74ed457893f1f72384a63d1a662a96d8437bd08d5dd",
+        "source_unchanged": true,
+        "typed_objects_equal": true,
+        "view_state_equal": true
+      },
+      "original_inputs_unchanged": true,
+      "schema": "basinlens-geoscience-project-example-v1",
+      "scope": "Unknown metadata labels stay unknown; no spatial registration or object-to-model mapping; incompatible fixtures use separate explicitly matching projects",
+      "solver_executed": false
+    },
+    "sha256": "31a447283d3b26e923de585b7f84ddee2956118e0419e53d1a316f469f4c71b9"
+  },
+  "schema": "basinlens-geoscience-project-validation-v4",
+  "source_sha256": {
+    "examples/geoscience_project/run_geoscience_project_example.py": "dbf650e72e5a3f1130271584ce6396214a90588e176e6765cb098f4e3be169b0",
+    "src/basinlens_ccs/subsurface/geoscience_project.py": "bc1e0efaf3d42f174faae157763688ca345ce38fda5a0c2241e879427cbedd72",
+    "tests/test_geoscience_project.py": "ce37b444917344ed21795862392b9a9a63c585e98c7eddaca9c452f9d2c2b3ac"
+  },
+  "whole_gms_complete": false
+}

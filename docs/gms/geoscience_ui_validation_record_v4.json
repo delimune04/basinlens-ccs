@@ -1,0 +1,110 @@
+{
+  "gms_parity_established": false,
+  "independent_reviews": [
+    {
+      "parsed_record": {
+        "accepted": true,
+        "cwd": "/workspace/scratch/96bcf7ec787f/gms-geoscience-extensions-ui-v4",
+        "elapsed_seconds": 27.88348078727722,
+        "engines": {
+          "MF2005_EXE": {
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+            "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+          },
+          "MF6_EXE": {
+            "path": "/workspace/scratch/96bcf7ec787f/research/bin/mf6",
+            "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4"
+          },
+          "MFNWT_EXE": {
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+            "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+          }
+        },
+        "errors": 0,
+        "expected_failures": 0,
+        "failures": 0,
+        "original_gms_comparison": "NOT_OBSERVED",
+        "python": "3.12.14",
+        "reviewer": "geology_surfaces_v4",
+        "schema": "basinlens-independent-extended-ui-review-v1",
+        "skips": 0,
+        "source_sha256_after": {
+          "geoscience_workspace.py": "9c8bdb524aba2091a6fd1314f80d288830eec7e6c61e558c69424da39915a7d1",
+          "src/basinlens_ccs/subsurface/classic.py": "90a1c3aa1a4983171d644f6e9f36de31686464cf86153bc502666aa126c3a968",
+          "src/basinlens_ccs/subsurface/geoscience_project.py": "bc1e0efaf3d42f174faae157763688ca345ce38fda5a0c2241e879427cbedd72",
+          "src/basinlens_ccs/subsurface/pointcloud.py": "ac3deefe30a7c2978b74c82fc6facc5194bc2bd234645404a37c8e9b265b74f6",
+          "src/basinlens_ccs/subsurface/raster.py": "98773665c28a15b73b36c4c9d3f18e01451f705823f98c724ded8588d3022de5",
+          "src/basinlens_ccs/subsurface/surfaces.py": "f876cb8841ea73296f795442cdd7a11e96878fc8c7bed62c8988231ecff4dde1",
+          "tests/test_geoscience_workspace_ui.py": "f331f49a695f8ee27607c1d6d0fc08fc423dd4e6e5bf38c75e20a1814695fd28"
+        },
+        "source_sha256_before": {
+          "geoscience_workspace.py": "9c8bdb524aba2091a6fd1314f80d288830eec7e6c61e558c69424da39915a7d1",
+          "src/basinlens_ccs/subsurface/classic.py": "90a1c3aa1a4983171d644f6e9f36de31686464cf86153bc502666aa126c3a968",
+          "src/basinlens_ccs/subsurface/geoscience_project.py": "bc1e0efaf3d42f174faae157763688ca345ce38fda5a0c2241e879427cbedd72",
+          "src/basinlens_ccs/subsurface/pointcloud.py": "ac3deefe30a7c2978b74c82fc6facc5194bc2bd234645404a37c8e9b265b74f6",
+          "src/basinlens_ccs/subsurface/raster.py": "98773665c28a15b73b36c4c9d3f18e01451f705823f98c724ded8588d3022de5",
+          "src/basinlens_ccs/subsurface/surfaces.py": "f876cb8841ea73296f795442cdd7a11e96878fc8c7bed62c8988231ecff4dde1",
+          "tests/test_geoscience_workspace_ui.py": "f331f49a695f8ee27607c1d6d0fc08fc423dd4e6e5bf38c75e20a1814695fd28"
+        },
+        "source_unchanged": true,
+        "tests_run": 14,
+        "unexpected_successes": 0
+      },
+      "receipt_sha256": "38e8da6761e308e2e3d0c8e5d40e4f1f219eb3ce82578d1152abf4134e22d217"
+    },
+    {
+      "parsed_record": {
+        "elapsed_seconds": 23.466,
+        "engines": {
+          "MF2005_EXE": {
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+            "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+          },
+          "MF6_EXE": {
+            "path": "/workspace/scratch/96bcf7ec787f/research/bin/mf6",
+            "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4"
+          },
+          "MFNWT_EXE": {
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+            "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+          }
+        },
+        "errors": 0,
+        "failures": 0,
+        "log_sha256": "6df6dc0b7594d1b6027dc0d2a9f1d547e1c1427c2a226be3cfd10f131b5bf712",
+        "passed": true,
+        "python": "3.12.14",
+        "schema": "basinlens-independent-ui-review-v1",
+        "scope": "Independent bounded geoscience and mixed project UI regressions; no original GMS or field validation",
+        "skips": 0,
+        "source_hashes": {
+          "geoscience_workspace.py": "9c8bdb524aba2091a6fd1314f80d288830eec7e6c61e558c69424da39915a7d1",
+          "src/basinlens_ccs/subsurface/analysis.py": "7f080a8e7c335fc540d3e1b24b102f991f0d9b2e678ea04aac1ede1b83c2dcef",
+          "src/basinlens_ccs/subsurface/classic.py": "90a1c3aa1a4983171d644f6e9f36de31686464cf86153bc502666aa126c3a968",
+          "src/basinlens_ccs/subsurface/features.py": "21e9e8701d610fbb5ce883e98696d8ed4b8abaa0fed4d6e8e6d70cf21b04fbde",
+          "src/basinlens_ccs/subsurface/geology.py": "abef83a6cdc67ae59c1fe2b3e98f57024fdedd9981172493124029830c110437",
+          "src/basinlens_ccs/subsurface/geoscience_project.py": "bc1e0efaf3d42f174faae157763688ca345ce38fda5a0c2241e879427cbedd72",
+          "src/basinlens_ccs/subsurface/mesh.py": "80847027689bb641605ee9afeb6139d82a0defa30a85a4fc1b0ecb9513deec15",
+          "src/basinlens_ccs/subsurface/pointcloud.py": "ac3deefe30a7c2978b74c82fc6facc5194bc2bd234645404a37c8e9b265b74f6",
+          "src/basinlens_ccs/subsurface/project_package.py": "1c2037c8458e7e549a21da933b79d43442c3c8c4820c1416875117721663abf2",
+          "src/basinlens_ccs/subsurface/raster.py": "98773665c28a15b73b36c4c9d3f18e01451f705823f98c724ded8588d3022de5",
+          "src/basinlens_ccs/subsurface/scatter.py": "59f6118b0b1e64d49e6c14b9ef01e666094626830941959d2413a860eb7cf36f",
+          "src/basinlens_ccs/subsurface/schema.py": "72857b4d634c54453f4233fbab64e6c6418fbe8c366e109e76634532496cdd99",
+          "src/basinlens_ccs/subsurface/surfaces.py": "f876cb8841ea73296f795442cdd7a11e96878fc8c7bed62c8988231ecff4dde1",
+          "tests/test_geoscience_workspace_ui.py": "f331f49a695f8ee27607c1d6d0fc08fc423dd4e6e5bf38c75e20a1814695fd28"
+        },
+        "source_unchanged": true,
+        "tests_run": 14
+      },
+      "receipt_sha256": "4cd7bcfd746b55ec8e06c85756e4fd4df8c84c386b7e4a336722a9f515062b5c"
+    }
+  ],
+  "integration_after_review": "The reviewed snapshots below predate consolidation of the three ZIP wrappers into workspace_archive.py. Its six independent core tests and the final selected/full integration receipts bind the final caller bytes; old source hashes remain historical.",
+  "recorded_utc": "2026-10-19T10:22:14.333652+00:00",
+  "schema": "basinlens-geoscience-ui-validation-v4",
+  "source_sha256": {
+    "geoscience_workspace.py": "9c8bdb524aba2091a6fd1314f80d288830eec7e6c61e558c69424da39915a7d1",
+    "tests/test_geoscience_workspace_ui.py": "f331f49a695f8ee27607c1d6d0fc08fc423dd4e6e5bf38c75e20a1814695fd28"
+  },
+  "whole_gms_complete": false
+}

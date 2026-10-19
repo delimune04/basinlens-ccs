@@ -1,0 +1,98 @@
+{
+  "assets": [],
+  "domain": "ccs",
+  "geometry": {
+    "delc_m": 20.0,
+    "delr_m": 10.0,
+    "kind": "structured",
+    "layer_bottoms_m": [
+      80.0,
+      50.0
+    ],
+    "ncol": 3,
+    "nlay": 2,
+    "nrow": 2,
+    "origin_x_m": 0.0,
+    "origin_y_m": 0.0,
+    "top_m": 100.0
+  },
+  "model": {
+    "engine_id": "geoscience_collection",
+    "options": {
+      "mapping": "No automatic object-to-model mapping or multiphase physics"
+    },
+    "physics": "reference_data_only",
+    "role": "no_solver"
+  },
+  "name": "Authored portable geoscience collection",
+  "observations": [
+    {
+      "basis": "synthetic",
+      "kind": "head",
+      "observation_id": "synthetic-head",
+      "quantity": {
+        "unit": "m",
+        "value": 12.0
+      },
+      "source_asset_ids": [],
+      "support": {
+        "indices": [],
+        "kind": "global"
+      },
+      "time": {
+        "unit": "day",
+        "value": 1.0
+      }
+    }
+  ],
+  "project_id": "portable-geoscience",
+  "provenance": {
+    "assumptions": [
+      "Unknown CRS and datum remain unknown; no coordinate conversion or registration is inferred."
+    ],
+    "source": "Authored portable object collection; no field data"
+  },
+  "reference_mesh_asset_ids": [],
+  "rock_properties": [
+    {
+      "basis": "synthetic",
+      "name": "porosity",
+      "quantity": {
+        "unit": "1",
+        "value": 0.25
+      },
+      "source_asset_ids": [],
+      "support": {
+        "indices": [],
+        "kind": "global"
+      }
+    }
+  ],
+  "schema_version": 1,
+  "spatial_reference": {
+    "crs": "unknown",
+    "length_unit": "m",
+    "local_axes": "x increases with column; y increases with row; z increases upward",
+    "time_unit": "day",
+    "vertical_datum": "unknown"
+  },
+  "stratigraphy": [
+    {
+      "layer_indices": [
+        0
+      ],
+      "name": "Authored upper interval",
+      "source_asset_ids": [],
+      "unit_id": "upper"
+    },
+    {
+      "layer_indices": [
+        1
+      ],
+      "name": "Authored lower interval",
+      "source_asset_ids": [],
+      "unit_id": "lower"
+    }
+  ],
+  "wells": []
+}

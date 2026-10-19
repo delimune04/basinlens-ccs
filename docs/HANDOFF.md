@@ -1,6 +1,98 @@
 # Development handoff
 
-## Latest model loading and workflow checkpoint — 2026-10-19
+## Current geoscience implementation wave — 2026-10-19
+
+The whole GMS objective remains unfinished. Every selected catalogue/unmapped
+source item stays in the dependency-ordered [full backlog](gms/FULL_IMPLEMENTATION_BACKLOG.md).
+The 163 selected rows and 223 observed official-page items are partial inventories,
+not a product denominator. No original-GMS feature equivalence is newly verified;
+the genuine REA ledger remains 577 open obligations and zero verified closures.
+
+This wave adds actual independently authored borehole/material/section I/O,
+scatter interpolation/math, conceptual geometry/GeoJSON, conforming quadtree and
+prism meshes, explicit TIN horizons/solids/sections, raster/ASCII, LAS1.2 point
+clouds, captured result queries/clips/observation residuals, portable mixed typed
+collections, classic MF2005/NWT native roundtrips, stationary geostatistics and
+bounded actual-MF6 K/Ss parameter search. The main workbench now connects these
+with geoscience and inference panels. See the exact operations and remaining
+scope in [GEOSCIENCE_CHECKPOINT.md](gms/GEOSCIENCE_CHECKPOINT.md).
+
+Implementation/test source freeze is local `55429eb6f2e9c97e9e36e098a21808b82f5c2f56`,
+tree `89e4f486bdca1f70f77d5242b316c8fe854fcb7f`. Publication may use a different
+GitHub API commit checked against the final local publication tree; its remote
+source/CI identities are recorded separately, including the unchanged code hashes. Source code is frozen during integration runs. The
+selected bootstrap deliberately excludes the 16 registry tests so actual feature
+evidence can be rebound before the complete suite. The final-source bootstrap
+ran **631 tests in 49 selected modules with zero skips/errors/failures**, in
+266.185s; all 185 recorded source hashes were rechecked. It is explicitly not full
+CI. Registry validation and all 16 registry tests passed after rebinding. Current
+counts are **91 NONE / 72 PARTIAL / 0 SCOPED_COMPLETE**, original comparison
+**160 NOT_OBSERVED / 3 OBSERVED_PARTIAL / 0 VERIFIED**; 55 official details remain
+UNMAPPED_OPEN. The final strict integrated suite ran **647 tests with zero skips/errors/failures** in 382.444s; all 185 source hashes were identical before/after and match the selected bootstrap. Exact receipts/log/environment are retained in `gms/geoscience_full_tests_v4.json`, `.log` and `geoscience_full_environment_v4.txt`; `gms/geoscience_validation_record_v4.json` also records the fresh 2,000-sample/seed-42 capacity CLI and successful artifact verifier. Public CI remains pending publication at this checkpoint.
+
+Dedicated evidence already retained:
+
+- `geoscience_examples_record_v4.json`: eight actual file/geometry/analysis examples.
+- `classic_validation_record_v4.json`: 26 dedicated tests, eight independent
+  analytic cases and eight actual native example runs; exact PCG/XMD/GMRES choice.
+- `classic_solver_recovery_record_v4.json`: original failed one-cell, zero-RHS
+  GMRES and fractional-CHD XMD diagnostics remain available, with solver-only trials.
+- `geoscience_project_validation_record_v4.json`: 26 focused tests and actual
+  source-deleted/relocated mixed save/reopen/re-save, preserving registered bytes.
+- `geoscience_ui_validation_record_v4.json`: two independent 14-AppTest reviews
+  of the bounded spatial UI, qualified for their exact pre-consolidation source.
+- `geostatistics_validation_record_v4.json`: hand kriging value/variance,
+  conditional value preservation and four actual JSON/CSV roundtrips.
+- `calibration_validation_record_v4.json`: exact final 17-test actual-MF6 peer
+  run and 51-evaluation authored example. K=4 recovered as 4.0004798815; Ss=.05
+  as .0500136966. Flat fixed-head-only data stay unidentifiable despite a strong prior.
+- `inference_ui_validation_record_v4.json`: six actual geostatistical/MF6
+  AppTests, including a fully valid replacement bundle, budget/deadline and stale results.
+- `workspace_archive_validation_record_v4.json`: six independent archive checks
+  and all three callers; growth, source changes and entry/byte/depth budgets are checked.
+
+The initial bare calibration unittest log reported no complete 17-test summary;
+it was not counted as evidence. The independently counted 17-test runner retained
+all discovered/executed IDs and source before/after hashes. Earlier inference
+review runs with changed source are also explicitly not final acceptance; the
+last frozen six-test review is the accepted one. A first inference UI expectation
+used a different unit spelling; the test was corrected to preserve backend
+`(m)^2`, without changing the formula. Reviews also fixed source-file disappearance
+cleanup, asset preflight/read bounds, duplicate inert-analysis restoration IDs,
+reserved output column names and source/cached-ZIP binding. Final whole-suite
+receipts supersede old caller byte identities while retaining their history.
+
+Reproduce after installing the optional app/groundwater/GPR dependencies:
+
+```bash
+python -m streamlit run groundwater_app.py
+python examples/geoscience_project/run_geoscience_project_example.py --output build/new-collection
+python examples/geostatistics/run_geostatistics_example.py --output build/new-statistics
+python examples/classic/run_classic_example.py --output build/new-classic --mf2005-exe /absolute/mf2005dbl --mfnwt-exe /absolute/mfnwtdbl
+mkdir -p build
+python examples/calibration/run_example.py build/new-calibration --exe /absolute/mf6
+python -m basinlens_ccs.reconstruction.status validate
+```
+
+Fresh output paths preserve previous attempts. Final strict CI requires explicit
+absolute `MF6_EXE`, `MF2005_EXE` and `MFNWT_EXE` pointing to the pinned Linux binaries;
+`python tools/ci_real_mf6.py test` rejects every skip and rechecks source hashes.
+The explicit CI prepare step extracts the exact three public binaries from one
+pinned archive; normal application actions never download one. Failed calibration
+outputs intentionally require inspection and a new explicit run rather than auto-resume.
+
+Original comparison still needs authorized applicable GMS modules and a successful
+witnessed model load beyond the retained owned eight-control error-classified
+dialog (run 39218744781), then fresh input/solver/output evidence. Cause and actual
+entitlement remain unknown. Native REA run 39210146753 timed out after 1202.736s
+without overview/analyzer-phase diagnostics; the guard remains enabled. No
+licensing/access/provider restriction was bypassed. These comparison obstacles
+do not block the ordered independent code work still remaining: native GPR
+writing, further GIS/meshing/rendering, remaining flow/transport/PEST families,
+and CO2/oil multiphase implementations. Standalone LHS/Gaussian fields do not
+implement a flow-risk ensemble; the authored optimizer does not implement PEST.
+
+## Previous model loading and workflow checkpoint — 2026-10-19
 
 The whole GMS objective remains unfinished. The new integrated model/file scope
 is described in [MODEL_IO_CHECKPOINT.md](gms/MODEL_IO_CHECKPOINT.md); the older
@@ -14,7 +106,7 @@ compiler reverses native rows to preserve physical XY.
 
 Official-feature accounting now validates every one of the unchanged 163
 selected investigation rows against exact source/test identities and actual
-executed test IDs. Current counts are **147 NONE / 16 PARTIAL / 0 SCOPED_COMPLETE**;
+executed test IDs. At that historical checkpoint the counts were **147 NONE / 16 PARTIAL / 0 SCOPED_COMPLETE**;
 three saved-original-file observations and **zero VERIFIED**. The official six
 pages' 223 observed items include 55 UNMAPPED_OPEN items. These are separate
 partial inventories; no whole-product completion percentage exists. The genuine
@@ -55,7 +147,7 @@ python -m streamlit run groundwater_app.py
 python -m basinlens_ccs.reconstruction.status validate
 ```
 
-Next independent code priority: explicit borehole/log import and portable
+At that historical checkpoint the next independent code priority was explicit borehole/log import and portable
 roundtrip, then geological interpretation and grid support mapping. Native GPR
 writing, arbitrary geology/mesh construction, most engines/packages, complete
 object/UI behavior and CO2/oil multiphase physics remain absent. Original GMS
@@ -286,7 +378,7 @@ Changed files: `models.py`, `io.py`, `analysis.py`, `capacity.py`, `cli.py`, `ap
   `sensitivity.csv`, and `report.md` were byte-identical to the baseline run;
   Q50 remains 7.56, 5.92, and 11.11 Mt rounded for the three example sites.
 - The existing CI only installs/runs tests and the synthetic bundle on standard
-  `ubuntu-latest` Python 3.10/3.12 runners. No deployment, secrets or paid services.
+  `ubuntu-latest` Python 3.10/ 3.12 runners. No deployment, secrets or paid services.
 
 Scientific evidence remains L0/synthetic-only. Streamlit visual flows, GPU, OPM,
 Sleipner and industry pilot checks were not run. This does not validate real-site
@@ -324,7 +416,7 @@ Updated: 2026-10-03. Baseline upstream before this change:
 - `git diff --check` — passed at the implementation check.
 - Editable package installation and installed `basinlens` / `basinlens-verify`
   entry points — passed.
-- [Remote CI](https://github.com/delimune04/basinlens-ccs/actions/runs/37098100648)
+- [Remote CI](https://github.com/delimune04/basinlens-ccs/actions/runs/ 37098100648)
   for foundation commit `9544983f8ff47866daafd36a99c7869d1ece57df` — Python 3.10
   and 3.12 install, unit tests, example run and bundle verification all passed.
 - GPU models, OPM, real Sleipner data, Streamlit UI and industry pilot — not run.

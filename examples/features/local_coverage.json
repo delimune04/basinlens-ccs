@@ -1,0 +1,120 @@
+{
+  "schema": "basinlens-feature-coverage-v1",
+  "id": "synthetic-map",
+  "name": "Synthetic local conceptual coverage",
+  "coordinate_system": {
+    "units": "m",
+    "crs": "unknown",
+    "axis_order": "x,y"
+  },
+  "provenance": [
+    "Authored synthetic geometry; no measured field values or original GMS session"
+  ],
+  "nodes": [
+    {
+      "id": "a",
+      "x": 0,
+      "y": 0,
+      "attributes": {}
+    },
+    {
+      "id": "b",
+      "x": 10,
+      "y": 0,
+      "attributes": {}
+    },
+    {
+      "id": "c",
+      "x": 10,
+      "y": 10,
+      "attributes": {}
+    },
+    {
+      "id": "d",
+      "x": 0,
+      "y": 10,
+      "attributes": {}
+    },
+    {
+      "id": "e",
+      "x": 4,
+      "y": 4,
+      "attributes": {}
+    },
+    {
+      "id": "f",
+      "x": 6,
+      "y": 4,
+      "attributes": {}
+    },
+    {
+      "id": "g",
+      "x": 6,
+      "y": 6,
+      "attributes": {}
+    },
+    {
+      "id": "h",
+      "x": 4,
+      "y": 6,
+      "attributes": {}
+    }
+  ],
+  "points": [
+    {
+      "id": "observation",
+      "x": 1,
+      "y": 1,
+      "attributes": {
+        "head_m": 10,
+        "label": "synthetic",
+        "nested": {
+          "preserve": [
+            1,
+            true,
+            null
+          ]
+        }
+      }
+    }
+  ],
+  "arcs": [
+    {
+      "id": "river",
+      "node_ids": [
+        "a",
+        "b",
+        "c"
+      ],
+      "attributes": {
+        "head_m": 9,
+        "boundary_kind": "RIV"
+      }
+    }
+  ],
+  "polygons": [
+    {
+      "id": "aquifer",
+      "shell": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "a"
+      ],
+      "holes": [
+        [
+          "e",
+          "f",
+          "g",
+          "h",
+          "e"
+        ]
+      ],
+      "attributes": {
+        "kx_m_day": 5,
+        "material": "illustrative"
+      }
+    }
+  ]
+}

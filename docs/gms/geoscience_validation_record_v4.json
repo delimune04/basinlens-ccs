@@ -1,0 +1,211 @@
+{
+  "capacity": {
+    "command": "python -m basinlens_ccs.cli examples/synthetic_sites.csv --output /fresh/output --samples 2000 --seed 42",
+    "exit_code": 0,
+    "files": {
+      "input.csv": {
+        "bytes": 671,
+        "sha256": "90602b92d7d1ad84a6a1cb32184a27f5d174adccd2ad1ec34142d6df39dbe27c"
+      },
+      "report.md": {
+        "bytes": 1807,
+        "sha256": "d35476d334f5c5ff7d53b83a704a568ae20e2e223ec16704f15bea5c5cfd07ab"
+      },
+      "run_metadata.json": {
+        "bytes": 1910,
+        "sha256": "e4954a9c122c57e63ef2a0349dae97a7b068aba545302faac2f6d505865e2880"
+      },
+      "sensitivity.csv": {
+        "bytes": 645,
+        "sha256": "af5cd2cb5228d1dc26ce12c538b7533b0fa4382f0833c0c35b46dabd57b77df3"
+      },
+      "summary.csv": {
+        "bytes": 687,
+        "sha256": "4cfdfdbcfed9b8b6f541e9a69f6b9125663f347785417025054cfc037b9f183c"
+      }
+    },
+    "metadata": {
+      "artifacts": {
+        "input.csv": {
+          "bytes": 671,
+          "sha256": "90602b92d7d1ad84a6a1cb32184a27f5d174adccd2ad1ec34142d6df39dbe27c"
+        },
+        "report.md": {
+          "bytes": 1807,
+          "sha256": "d35476d334f5c5ff7d53b83a704a568ae20e2e223ec16704f15bea5c5cfd07ab"
+        },
+        "sensitivity.csv": {
+          "bytes": 645,
+          "sha256": "af5cd2cb5228d1dc26ce12c538b7533b0fa4382f0833c0c35b46dabd57b77df3"
+        },
+        "summary.csv": {
+          "bytes": 687,
+          "sha256": "4cfdfdbcfed9b8b6f541e9a69f6b9125663f347785417025054cfc037b9f183c"
+        }
+      },
+      "assessment_level": "concept-screening",
+      "assumptions": [
+        "independent triangular inputs",
+        "volumetric resource estimate"
+      ],
+      "capacity_quantiles": "Q10/Q50/Q90 are statistical quantiles",
+      "created_at_utc": "2026-10-19T10:51:54.137464+00:00",
+      "disclaimer": "Research and educational prototype only. Results are not a site-suitability, safety, regulatory, engineering, or investment determination.",
+      "engine": "volumetric-independent-triangular",
+      "environment": {
+        "machine": "x86_64",
+        "numpy": "2.3.5",
+        "os": "Linux",
+        "pandas": "2.2.3",
+        "python": "3.12.14"
+      },
+      "input_csv": "examples/synthetic_sites.csv",
+      "manifest_schema_version": 1,
+      "package_source_sha256": "377d6e83c589ede7fcda8fb9fe46a61b7a179a00ab488ec660f1de79dc2e13dd",
+      "package_version": "0.2.0",
+      "random_seed": 42,
+      "rng": "numpy.random.default_rng / PCG64",
+      "run_id": "72ecc3bd-b9b3-4c8e-b765-23c81ffa8b20",
+      "samples_per_site": 2000,
+      "site_count": 3,
+      "site_seeds": {
+        "AURORA": 42,
+        "BOREALIS": 43,
+        "CALDERA": 44
+      },
+      "status": "completed",
+      "unmodeled": [
+        "injectivity and pressure buildup",
+        "CO2 plume migration and multiphase flow",
+        "caprock integrity, fault reactivation and well integrity",
+        "seismic inversion, leakage probability and economics"
+      ],
+      "validation_status": "synthetic-regression-only"
+    },
+    "verifier_command": "python -m basinlens_ccs.artifacts /fresh/output",
+    "verifier_exit_code": 0,
+    "verifier_output": "Bundle complete; artifact checksums match the manifest."
+  },
+  "created_utc": "2026-10-19T10:58:23.171339+00:00",
+  "dedicated_evidence": {
+    "calibration_validation_record_v4.json": {
+      "bytes": 32431,
+      "sha256": "ad96570c12b08f83a87a1a32623043a3a53f6ae1e2f336572a12f80cc2b36be3"
+    },
+    "classic_solver_recovery_record_v4.json": {
+      "bytes": 96641,
+      "sha256": "f78d010ca6a196a08775ad4ef58e3096b712d11c23d9802e486d4876b9febf88"
+    },
+    "classic_validation_record_v4.json": {
+      "bytes": 46520,
+      "sha256": "96fa25045053e8138c80c6bc4264ee6b23066bc77e6e0938db1c18a0cccbc89a"
+    },
+    "feature_test_record_v4.json": {
+      "bytes": 47826,
+      "sha256": "eb67ad2e3828ad87e863602d0bea30066dd6f24f8eceddd916de8bba6e4c844a"
+    },
+    "geoscience_examples_record_v4.json": {
+      "bytes": 49443,
+      "sha256": "a4885da1f38b7b9d80b568a29465b2c4440012c69f60303e379e9267d5db4bc2"
+    },
+    "geoscience_project_validation_record_v4.json": {
+      "bytes": 14908,
+      "sha256": "f7b51fa1ae00b2e1026e0f5a37bf3647972d73e94fe289c1a1957c63fbf7a7ed"
+    },
+    "geoscience_ui_validation_record_v4.json": {
+      "bytes": 6837,
+      "sha256": "4fdcb7de450ce17e53489b4e20dac92b0e25a7ad41926af131c3ccf99d14acb8"
+    },
+    "geostatistics_validation_record_v4.json": {
+      "bytes": 4713,
+      "sha256": "5af3e0baddf2e720e23ca6f65a4fee19938f4ea46cb088190dacabd2b08bb642"
+    },
+    "inference_ui_validation_record_v4.json": {
+      "bytes": 5151,
+      "sha256": "7eebb0d7475c536b693afd711a6b9c5f6aa569127a79b2e23e492ce90eb1f9b0"
+    },
+    "workspace_archive_validation_record_v4.json": {
+      "bytes": 2820,
+      "sha256": "a9938482f45703da765f1ebfacb5db5a0aa3d1ec91115c8b2fd52245264111c5"
+    }
+  },
+  "implementation_freeze": {
+    "local_commit": "55429eb6f2e9c97e9e36e098a21808b82f5c2f56",
+    "tree": "89e4f486bdca1f70f77d5242b316c8fe854fcb7f"
+  },
+  "interpretation": "Full executed local software regression and authored synthetic numerical checks. Core-only CI is separate. Original GMS behavior, field calibration and CO2/oil multiphase physics are not established. Byte hashes provide integrity, not operator authentication.",
+  "original_gms_equivalence_established": false,
+  "public_ci": "Pending publication; tracked separately by exact GitHub source and tree identities.",
+  "schema": "basinlens-geoscience-integrated-validation-v4",
+  "status": {
+    "NONE": 91,
+    "PARTIAL": 72,
+    "REA_open_obligations": 577,
+    "REA_verified_closures": 0,
+    "SCOPED_COMPLETE": 0,
+    "UNMAPPED_OPEN": 55,
+    "observed_official_page_items": 223,
+    "original_NOT_OBSERVED": 160,
+    "original_OBSERVED_PARTIAL": 3,
+    "original_VERIFIED": 0,
+    "selected_catalogue_entries": 163
+  },
+  "status_scope_clarification": {
+    "changed_fields": "36 remaining_scope wording fields plus generated Markdown/backlog qualifiers; IDs, states, evidence bindings and program sources unchanged.",
+    "errors": 0,
+    "failures": 0,
+    "log": "docs/gms/status_scope_correction_tests_v5.log",
+    "record": "docs/gms/status_scope_correction_tests_v5.json",
+    "registry_sha256": "0ce099b1d235a7ee3b7a039169607ce8ff9465c5f7b9e96d7445e69acab4fea2",
+    "scoped_tests_run": 16,
+    "skips": 0
+  },
+  "strict_command": "MF6_EXE=/absolute/mf6 MF2005_EXE=/absolute/mf2005dbl MFNWT_EXE=/absolute/mfnwtdbl CI_SOLVER_REPORT=/fresh/report python tools/ci_real_mf6.py test",
+  "strict_local_test_checkout": "9f1e20d3b15e12f4b8720870a4239f6699dd9d24",
+  "strict_tests": {
+    "all_source_hashes_rechecked": true,
+    "bootstrap_source_bytes_equal": true,
+    "classic_solvers": {
+      "mf2005": {
+        "bytes": 7546544,
+        "member": "mf2005dbl",
+        "resolved_path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+        "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+      },
+      "mfnwt": {
+        "bytes": 8259552,
+        "member": "mfnwtdbl",
+        "resolved_path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+        "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+      }
+    },
+    "duration_seconds": 382.4439143729978,
+    "errors": 0,
+    "failures": 0,
+    "full_suite": true,
+    "log": "docs/gms/geoscience_full_tests_v4.log",
+    "packages": {
+      "flopy": "3.11.0",
+      "h5py": "3.16.0",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "plotly": "7.1.0",
+      "streamlit": "1.66.0"
+    },
+    "python": "3.12.14",
+    "record": "docs/gms/geoscience_full_tests_v4.json",
+    "skips": 0,
+    "solver": {
+      "bytes": 49182760,
+      "resolved_path": "/workspace/scratch/96bcf7ec787f/research/bin/mf6",
+      "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+      "version": "mf6: 6.7.0 02/05/2026",
+      "version_returncode": 0,
+      "version_stderr": "",
+      "version_stdout": " \nmf6: 6.7.0 02/05/2026\n \n"
+    },
+    "source_files": 185,
+    "tests_run": 647
+  },
+  "whole_product_complete": false
+}

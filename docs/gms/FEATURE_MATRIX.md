@@ -2,11 +2,17 @@
 
 The requested objective is the complete GMS workbench with extensible CCS and
 oil-exploration interfaces. That objective is **unfinished**. The current
-BasinLens implementation contains the working components below, separate from
-conceptual CCS capacity. The [reconstruction plan](RECONSTRUCTION_PLAN.md)
-records the remaining product and evidence work.
+BasinLens implementation is tracked in the current
+[official-catalogue status](IMPLEMENTATION_STATUS.md),
+[geoscience checkpoint](GEOSCIENCE_CHECKPOINT.md) and
+[complete selected/unmapped backlog](FULL_IMPLEMENTATION_BACKLOG.md).
+The table below is the **historical initial workbench boundary**, retained for
+the older numerical records. Its "not implemented" cells do not describe the
+later independently implemented borehole, mesh, raster, statistics or calibration
+subsets. Conceptual CCS capacity remains separate. The
+[reconstruction plan](RECONSTRUCTION_PLAN.md) records the whole objective.
 
-## Feature boundary
+## Historical initial workbench boundary
 
 | GMS workflow | This implementation | Verification / limitation |
 |---|---|---|
