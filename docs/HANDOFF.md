@@ -14,7 +14,11 @@ MF6 6.7.0, FloPy 3.11.0 and the optional UI/HDF5 dependencies. Required capacity
 CLI/verifier, compilation, diff checks and actionlint also passed. This exact
 265-test implementation is published within `5c62acf9` / tree `5ef3ae2f`; both
 remote CI runs `39215889617` and `39215883507` passed all three jobs. Later
-Windows probe source/check bindings are separate.
+Windows probe source/check bindings are separate. The required numerical/UI
+CI job now pins the exact public MF6 archive/binary and direct dependencies,
+rejects every skip or incomplete discovery, and retains JSON/log/source identity
+evidence. Its new strict runner passed 265/265 locally in 47.560s; public CI
+results are recorded separately. See [CI_VALIDATION.md](gms/CI_VALIDATION.md).
 
 Current components:
 
@@ -103,7 +107,13 @@ preserves the exact scope and historical wording qualifications. No provider
 guard or licensing mechanism was bypassed. The official10.9 edition table
 marks the MF6 interface in paid MODFLOW and higher columns, with Community
 blank; this is separate documented scope, not the dialog cause or observed
-entitlement. See [RUNTIME_DIAGNOSTICS.md](gms/RUNTIME_DIAGNOSTICS.md).
+entitlement. The passive diagnostic run `39218744781` then observed licensing,
+file-operation and generic-error keyword flags in one complete eight-control
+dialog. The diagnostic added zero UI actions; source identities stayed unchanged
+and cause/module availability/project loading remain unverified.
+[windows_tutorial_diagnostic_receipt.json](gms/windows_tutorial_diagnostic_receipt.json)
+retains the exact artifact/source binding. See
+[RUNTIME_DIAGNOSTICS.md](gms/RUNTIME_DIAGNOSTICS.md).
 
 Reproduction:
 

@@ -31,18 +31,40 @@ jobs:
         run: python -m basinlens_ccs.artifacts build/example
 
   groundwater:
-    runs-on: ubuntu-latest
+    name: Groundwater, transport and UI with pinned real MF6
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CI_SOLVER_REPORT: build/ci-real-mf6
     steps:
       - uses: actions/checkout@v4
+      - name: Set the explicit real-engine path before test discovery
+        run: echo "MF6_EXE=$RUNNER_TEMP/basinlens-mf6/mf6" >> "$GITHUB_ENV"
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
           cache: pip
       - name: Install optional groundwater and UI dependencies
-        run: python -m pip install -e ".[groundwater,app,gms]"
-      - name: Check input contracts, portable export, and UI flows
-        run: python -m unittest discover -s tests -v
+        run: >-
+          python -m pip install -e ".[groundwater,app,gms]"
+          numpy==2.3.5 pandas==2.2.3 flopy==3.11.0 h5py==3.16.0
+          streamlit==1.66.0 plotly==7.1.0
+      - name: Prepare and verify the exact public MODFLOW 6 binary
+        run: python tools/ci_real_mf6.py prepare
+      - name: Check all tests with actual MF6 and refuse every skip
+        run: python tools/ci_real_mf6.py test
       - name: Export and verify a portable groundwater model
         run: |
           python -m basinlens_ccs.groundwater export examples/groundwater/demo.json --output build/groundwater-export
           python -m basinlens_ccs.groundwater verify build/groundwater-export
+      - name: Retain real-engine evidence even when a check fails
+        if: always()
+        run: python tools/ci_real_mf6.py finalize
+      - name: Upload real-engine evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-mf6-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build/ci-real-mf6/
+          if-no-files-found: error
+          retention-days: 14

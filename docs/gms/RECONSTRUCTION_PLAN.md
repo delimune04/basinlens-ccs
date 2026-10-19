@@ -65,10 +65,12 @@ owned standard Open dialog have been observed in separate exact-build runs.
 The pinned filename write/readback and Open confirmation then completed, but a
 later eight-control dialog was heuristically classified as an error. Cause and
 complete project loading are unverified. These observations have not verified
-edition entitlement, input translation or numerical execution. The next
-reference gate is bounded passive diagnosis of that dialog, followed by
-independent evidence of the loaded model and captured native inputs/outputs
-before any numerical equivalence claim.
+edition entitlement, input translation or numerical execution. A subsequent
+passive diagnostic observed licensing/file-operation/error keywords
+without establishing a cause or active entitlement. The next reference gate is
+independently established MF6 module availability and successful model loading,
+followed by captured native inputs/outputs before any numerical equivalence
+claim.
 
 For an original numerical comparison, bind the exact project and input graph,
 record declared engine/version/units/time/support, retain pre/post file hashes
@@ -89,7 +91,7 @@ has been completed.
 The exact static resource catalogue does not identify MF6-specific Save/Run
 Simulation commands. Its classic MODFLOW command IDs cannot be substituted.
 This is a catalogue limitation, not evidence that the product lacks MF6.
-The official [MODFLOW6 Grid Approach tutorial, section14](https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW6-GridApproach.pdf)
+The official [MODFLOW6 Grid Approach tutorial, section 14](https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW6-GridApproach.pdf)
 describes saving and running the simulation from its Project Explorer node,
 then using the simulation queue and loading the completed solution. The selected
 simulation node and its dynamic context must therefore be observed first.
@@ -98,6 +100,6 @@ The pinned GPR already contains a saved Head dataset. Displaying that dataset
 does not establish a fresh original run. Before/after input and existing-output
 snapshots, selected simulation identity, actual solver image/version, fresh
 queue/process/log evidence and output time/shape/budget checks are required.
-The saved-native corpus declares feet/seconds and one86400-second step; GPR
+The saved-native corpus declares feet/seconds and one 86400-second step; GPR
 display-time semantics remain unresolved. Use explicit normalized support and
 preserve those unknowns in any later comparison.

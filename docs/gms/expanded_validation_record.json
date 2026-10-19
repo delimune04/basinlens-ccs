@@ -546,5 +546,69 @@
     "all_577_reconstruction_obligations_remain_open": true,
     "record": "windows_tutorial_open_receipt.json",
     "workflow_run_id": 39216983932
+  },
+  "additional_post_confirmation_diagnostic_check": {
+    "implementation_local_commit": "27d9df7009dc50060b0d6198331c9773350fe43a",
+    "public_commit": "d831f9161102c49cc8d79d81cc68d8bb23b12064",
+    "public_tree": "e7408bebc3db9e72994a886ed95b87fb6d670e30",
+    "independent_source_review_candidate": "6c2093380a231332c66448e436c610dbea99a5b8",
+    "source_sha256": {
+      "tools/probe_gms_community.ps1": "2ad51ee37299812803cbf9b7bb3cbaf7e3a05a2ce7e4a7f5eed5d06d3099d54c",
+      ".github/workflows/gms-community-probe.yml": "50d4fffe68b2e7103be784ffb8aa1de1d7f95f2fac712c45050cd848ee43e9b2"
+    },
+    "Python_sources_unchanged_since_265_test_run": true,
+    "workflow_run_id": 39218744781,
+    "independent_source_review": "passed",
+    "actionlint": "passed",
+    "git_diff_check": "passed",
+    "Windows_compilation_and_pure_policy_selftests": "passed before installer download in run39218744781",
+    "actual_observation": "Completed:4counted UI attempts on first target,0on second; one fresh complete8-control diagnostic classified licensing/file-operation/generic-error keywords only; cause/entitlement/load unknown. No new diagnostic UI action.",
+    "qualification": "Separate exact Windows probe source/check binding. Original four mutating action sites are unchanged; the new diagnostic reads only a later fresh owned visible/enabled dialog. The265-test Python suite does not compile this helper.",
+    "remote_ci": [
+      {
+        "run_id": 39218749355,
+        "status": "success",
+        "jobs_passed": 3
+      },
+      {
+        "run_id": 39218744725,
+        "status": "success",
+        "jobs_passed": 3
+      }
+    ],
+    "actual_receipt": "windows_tutorial_diagnostic_receipt.json"
+  },
+  "actual_Windows_post_confirmation_diagnostic": {
+    "Windows_parse_compile_and_pure_policy_tests": "passed before download/target startup",
+    "target_count": 2,
+    "target_ui_actions": 4,
+    "first_target_ui_actions": 4,
+    "second_target_ui_actions": 0,
+    "free_community_attempts": 1,
+    "file_open_menu_attempts": 1,
+    "filename_text_attempts": 1,
+    "file_confirm_attempts": 1,
+    "additional_diagnostic_UI_actions": 0,
+    "GPR_sources_unchanged": true,
+    "executables_unchanged": true,
+    "post_tutorial_main_window_observed": false,
+    "project_basename_title_observed": false,
+    "project_load_verified": false,
+    "edition_entitlement_established": false,
+    "probe_solver_actions": 0,
+    "numerical_execution_monitored": false,
+    "genuine_original_numerical_comparisons": 0,
+    "all_577_reconstruction_obligations_remain_open": true,
+    "record": "windows_tutorial_diagnostic_receipt.json",
+    "workflow_run_id": 39218744781,
+    "diagnostic_inspected_controls": 8,
+    "diagnostic_read_errors": 0,
+    "diagnostic_text_classified": true,
+    "diagnostic_observed_category_fields": [
+      "LicenseKeywordsObserved",
+      "FileOperationKeywordsObserved",
+      "GenericErrorKeywordsObserved"
+    ],
+    "diagnostic_cause_inferred": false
   }
 }

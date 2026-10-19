@@ -184,6 +184,9 @@ Run the tests without additional test dependencies:
 python -m unittest discover -s tests -v
 ```
 
+The required [real-engine CI](docs/gms/CI_VALIDATION.md) runs the full optional
+workbench suite with a hash-pinned MF6 binary and rejects any skipped test.
+
 With the bundled synthetic inputs, 20,000 samples per site, and random seed 42,
 the current prototype produces:
 

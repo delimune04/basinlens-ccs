@@ -238,3 +238,11 @@ and numerical execution was not monitored. See
 [RUNTIME_DIAGNOSTICS.md](RUNTIME_DIAGNOSTICS.md) for exact counts and retained
 historical wording qualifications. No genuine original numerical comparison or
 obligation closure is established.
+
+
+The subsequent passive diagnostic run `39218744781` passed Windows gates and
+observed licensing/file-operation/generic-error keyword flags in one complete
+owned eight-control dialog. It added no UI action; counts remained4/0 per target,
+with unchanged executable/GPR identities. Cause, entitlement and project loading
+remain unknown. See
+[windows_tutorial_diagnostic_receipt.json](windows_tutorial_diagnostic_receipt.json).

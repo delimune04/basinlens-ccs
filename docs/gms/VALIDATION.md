@@ -7,8 +7,9 @@ MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 47.999s.
 Exact source hashes, versions, commands and additional checks are in
 [expanded_validation_record.json](expanded_validation_record.json). The earlier
 published 173-test, 190-test, 203-test, 237-test and 249-test snapshots and their successful remote CI are
-retained there as history. Missing solver tests are skips in ordinary CI, separate from this local
-zero-skip result. The matching published snapshot `5c62acf9` / tree
+retained there as history. The lightweight matrix can skip optional tests; the
+required [real-engine job](CI_VALIDATION.md) now pins MF6 and rejects any skip.
+Earlier ordinary-CI outcomes are separate from the local zero-skip result. The matching published snapshot `5c62acf9` / tree
 `5ef3ae2f` passed all three jobs in each remote CI run `39215889617` and
 `39215883507`; later Windows probe changes have separate source/check bindings.
 
@@ -168,3 +169,11 @@ and numerical execution was not monitored. See
 [RUNTIME_DIAGNOSTICS.md](RUNTIME_DIAGNOSTICS.md) for exact counts and retained
 historical wording qualifications. No genuine original numerical comparison or
 obligation closure is established.
+
+
+The subsequent passive diagnostic run `39218744781` passed Windows gates and
+observed licensing/file-operation/generic-error keyword flags in one complete
+owned eight-control dialog. It added no UI action; counts remained4/0 per target,
+with unchanged executable/GPR identities. Cause, entitlement and project loading
+remain unknown. See
+[windows_tutorial_diagnostic_receipt.json](windows_tutorial_diagnostic_receipt.json).

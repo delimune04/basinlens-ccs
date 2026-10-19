@@ -303,3 +303,25 @@ Pure category/refusal/hash/privacy tests run immediately after Windows Add-Type
 and before downloads. Source review and local actionlint/diff checks passed;
 actual Windows compilation/policy checks and observations are recorded separately
 when available. The earlier four mutating action sites are unchanged.
+
+
+## Actual post-confirmation diagnostic result
+
+Run [39218744781](https://github.com/delimune04/basinlens-ccs/actions/runs/39218744781)
+passed all Windows gates and completed the same four counted attempts on target1;
+target2 received zero. One fresh owned visible/enabled standard dialog had eight
+controls, no read errors/truncation and consistent exact process/image identity.
+Three visible owned controls were included. Exactly the licensing, file-operation
+and generic-error keyword flags were true. The remaining flags were false, which
+does not exclude their causes. The length metadata is 83 UTF-16 code units and
+123 bytes of framed UTF8 input; the observed text fingerprint is retained without
+publishing its raw inputs, so its content cannot be rehashed from public data.
+
+The diagnostic performed no additional UI action and inferred no cause. Both
+GPR/executable identities stayed unchanged. Project loading, active module
+availability and numerical results remain unverified. The probe issued no
+solver action and did not monitor automatic numerical execution. The exact
+artifact/source identities, unchanged parsed public records and passive-observer
+wording qualifications are in
+[windows_tutorial_diagnostic_receipt.json](windows_tutorial_diagnostic_receipt.json).
+These facts do not establish that licensing caused the earlier dialog.
