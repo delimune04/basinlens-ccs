@@ -22,7 +22,6 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
-      GHIDRA_INSTALL_DIR: ${{ runner.temp }}/ghidra_12.1.4_PUBLIC
       GHIDRA_HEADLESS_MAXMEM: 4G
       REA_GHIDRA_STARTUP_TIMEOUT_MS: "1200000"
     steps:
@@ -66,6 +65,8 @@ jobs:
             --sevenzip "$RUNNER_TEMP/rea-tools/node_modules/7zip-bin/linux/x64/7za"
           rm "$RUNNER_TEMP/gms-installer.exe"
       - name: Run actual REA doctor and Ghidra native overview
+        env:
+          GHIDRA_INSTALL_DIR: ${{ runner.temp }}/ghidra_12.1.4_PUBLIC
         run: >-
           python tools/native_rea_probe.py
           --target "$RUNNER_TEMP/gms-target/gms10_9.exe"
