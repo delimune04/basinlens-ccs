@@ -196,7 +196,7 @@ class NativeProbeTests(unittest.TestCase):
         collector.text("INFO (HeadlessAnalyzer) SCRIPT: PRIVATE_NATIVE_BODY\n")
         public = collector.public()
         self.assertEqual(public["analyzer_timings_seconds"], {"Disassemble Entry Points": 753.416})
-        self.assertEqual(public["last_observed_stage"], "post_analysis_script_observed")
+        self.assertEqual(public["last_observed_stage"], "headless_script_observed")
         self.assertTrue(public["auto_analysis_timeout_reported"])
         self.assertNotIn("PRIVATE_NATIVE_BODY", json.dumps(public))
 

@@ -44,9 +44,12 @@ recorded in [TUTORIAL_INTEROPERABILITY.md](TUTORIAL_INTEROPERABILITY.md). This i
 shipped-input interoperability, not a witnessed original GMS numerical execution
 or full product equivalence. The saved-tree reader independently found 29 nodes, 21 relationships and 16
 unresolved items in the unchanged tutorial, without reading numeric payloads;
-see [GPR_PROJECT.md](GPR_PROJECT.md). Normal Windows startup did display two original
-windows, but both stopped at unclassified blocking dialogs; no model run or
-active edition was established. See [windows_runtime_receipt.json](windows_runtime_receipt.json).
+see [GPR_PROJECT.md](GPR_PROJECT.md). Earlier Windows probes stopped at blocking
+dialogs. The reviewed sixth probe delivered one exact free Community choice,
+then observed an enabled main window and 134 materialized menu items; the
+second target remained at an unknown dialog. No original model run or edition
+entitlement was established. See
+[windows_free_choice_receipt.json](windows_free_choice_receipt.json).
 
 The remaining text retains the initial 57-test confined-module snapshot and
 its independent physical checks. Its source fingerprints describe that earlier

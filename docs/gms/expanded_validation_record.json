@@ -114,7 +114,8 @@
     "static_dialog_templates": "passed: 429 templates, 6853 static controls, zero failures; actual menu observations and genuine REA ledger replay unchanged",
     "Windows_passive_helper_compilation_and_synthetic_guards": "passed in actual Windows run 39208615776 before installer download",
     "GPR_project_tree_and_raw_chunk_storage": "passed: 12 project tests, 10 storage tests, 3 explicit tree UI tests; actual corpus graph in project_validation_record.json",
-    "free_Community_selection_review": "independent source review passed after exact parent/dialog/root freshness and title truncation fixes; Windows compile and policy self-tests required before action"
+    "free_Community_selection_review": "independent source review passed after exact parent/dialog/root freshness and title truncation fixes; Windows compile and policy self-tests required before action",
+    "free_Community_Windows_helper_compilation_and_policy_selftests": "passed in Windows run39211459223 before download/target execution"
   },
   "native_official_run": {
     "source_files": 15,
@@ -139,7 +140,7 @@
     "shipped_head_and_budget_binary_hashes_equal": true,
     "gms_runtime_witness": false
   },
-  "ci_scope": "237-test local integration used actual MF6 without skips. Remote checks for this new snapshot have not completed; ordinary CI skips unavailable solver tests.",
+  "ci_scope": "Both remote CI runs passed for the exact 237-test source snapshot. Solver checks are skips in ordinary CI; the local integration used actual MF6 with zero skips.",
   "equivalence": {
     "genuine_original_GMS_output_matches": 0,
     "whole_product_parity": false,
@@ -149,7 +150,7 @@
   },
   "publication_boundary": "No original vendor executables, resources, source, tutorial inputs, GPR payloads or native pseudocode are included.",
   "tested_local_implementation_commit": "9ae17e23d738fef816350cc75e1c50dd24f1d0e6",
-  "publication_binding": "Source hashes bind the tested implementation; exact public commit/tree and remote CI will be attached after publishing this snapshot.",
+  "publication_binding": "Exact published 237-test project-tree/storage snapshot; later documentation binds its immutable source tree.",
   "geometry_validation": {
     "nodes": 1536,
     "cells": 1125,
@@ -283,6 +284,73 @@
     },
     "provider_budget_seconds": 1200,
     "outer_watchdog_seconds": 1290,
-    "actual_corrected_probe_result": "in progress: workflow 39210146753; no returned overview or successful analysis claimed"
+    "actual_corrected_probe_result": "failed: provider_timeout after1202.736s, no overview; native_rea_diagnostic_run.json"
+  },
+  "tested_public_commit": "8dec98bacac067716a1248d4c6e4cc0f31ee04a7",
+  "tested_public_tree": "1477e2e66bc9fc3f2c08bcf05cfa65a8ebbb3722",
+  "remote_ci": [
+    {
+      "run_id": 39211462668,
+      "status": "success"
+    },
+    {
+      "run_id": 39211459252,
+      "status": "success"
+    }
+  ],
+  "actual_GPR_project_tree_UI": {
+    "record": "project_ui_validation_record.json",
+    "tree_nodes": 29,
+    "relationships": 21,
+    "unresolved": 16,
+    "anonymous_export": true,
+    "source_unchanged": true,
+    "app_errors": 0,
+    "rendered_saved_cells": 1125,
+    "original_GMS_runtime": false
+  },
+  "actual_Windows_free_choice": {
+    "record": "windows_free_choice_receipt.json",
+    "workflow_run_id": 39211459223,
+    "free_choice_attempts": 1,
+    "target_ui_actions": 1,
+    "activation_requests": 0,
+    "post_choice_enabled_main_window": true,
+    "materialized_menu_items_per_snapshot": 134,
+    "reported_numeric_ids": 102,
+    "static_REA_id_overlap": 85,
+    "community_entitlement_established": false,
+    "original_numerical_runs": 0
+  },
+  "additional_GPR_corpus": {
+    "record": "gpr_corpus_validation_record.json",
+    "archives": 3,
+    "distinct_additional_projects": 5,
+    "all_tree_grammar_inspections_succeeded": true,
+    "semantic_coverage_partial": true,
+    "original_GMS_runtime": false,
+    "original_inputs_distributed": false
+  },
+  "native_REA_corrected_diagnostics": {
+    "record": "native_rea_diagnostic_run.json",
+    "workflow_run_id": 39210146753,
+    "analysis_success": false,
+    "error_code": "provider_timeout",
+    "elapsed_seconds": 1202.736,
+    "overview_returned": false,
+    "analyzer_timings_available": false,
+    "active_delaying_analyzer": "unknown"
+  },
+  "later_native_stage_label_check": {
+    "tests_run": 13,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 3.32,
+    "qualification": "Later source-label correction; the exact237-test published snapshot remains bound separately.",
+    "source_sha256": {
+      "tools/native_rea_probe.py": "74efa164ffe9217d30648fc9106591f7e95b45680c85b75ec29cc84350252c28",
+      "tests/test_native_rea_probe.py": "1c839aed033c30f6fb6510a6a7fcee5e0c22aaea709fe1af7e4f6c156bbea300"
+    }
   }
 }

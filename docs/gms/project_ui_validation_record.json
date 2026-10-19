@@ -1,0 +1,50 @@
+{
+  "application_source": {
+    "app_sha256": "414bd7a552cf3b168dd229dd2b0d4eaa91fee15946c9016eff1448c065431570",
+    "commit": "b776b1a",
+    "commit_qualification": "Local implementation commit; matching public application bytes are bound by SHA-256 below.",
+    "public_commit_with_same_application": "8dec98bacac067716a1248d4c6e4cc0f31ee04a7"
+  },
+  "checks": {
+    "anonymous_download_present": true,
+    "anonymous_export_excludes_original_hdf5_paths": true,
+    "anonymous_export_excludes_original_labels": true,
+    "anonymous_export_excludes_original_uuids": true,
+    "bounded_case_unchanged": true,
+    "explicit_tree_action_required": true,
+    "geometry_errors": 0,
+    "initialization_errors": 0,
+    "inventory_errors": 0,
+    "inventory_tree_geometry_same_source_sha256": true,
+    "private_label_and_parent_table_exact": true,
+    "project_tree_errors": 0
+  },
+  "project_counts": {
+    "entities": 10,
+    "module_envelopes": 2,
+    "relationships": 21,
+    "tree_nodes": 29,
+    "unresolved": 16
+  },
+  "saved_geometry": {
+    "coordinate_units": null,
+    "field_units": null,
+    "new_solver_result": false,
+    "rendered_cells": 1125,
+    "sampled_cells": 1125,
+    "saved_data_only": true,
+    "shape_kij": [
+      5,
+      15,
+      15
+    ],
+    "time_units": null
+  },
+  "schema": "basinlens-gpr-project-ui-check-v1",
+  "scope": "Read-only private tutorial UI interoperability check; no original GMS runtime, project writer, synchronization, or full product equivalence.",
+  "source": {
+    "bytes": 3071450,
+    "original_bytes_unchanged": true,
+    "sha256": "afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467"
+  }
+}

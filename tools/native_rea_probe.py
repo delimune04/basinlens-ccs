@@ -108,7 +108,9 @@ class DiagnosticCollector:
                     self.analysis_timeout = True
                     self.stage("auto_analysis_timeout_reported")
                 if "SCRIPT:" in line:
-                    self.stage("post_analysis_script_observed")
+                    # HeadlessAnalyzer also reports pre-analysis configuration
+                    # scripts here; this is not proof of a completed analysis.
+                    self.stage("headless_script_observed")
             if "AutoAnalysisManager" in line and "ANALYSIS REPORT" in line:
                 self.stage("analyzer_timing_report_observed")
             match = re.fullmatch(r"\s*([A-Za-z][A-Za-z0-9 ()_.-]{0,119}?)\s{2,}([0-9]+(?:\.[0-9]+)?) secs\s*", line)
@@ -212,7 +214,7 @@ class DiagnosticCollector:
 
     def public(self):
         order = ["import_started", "auto_analysis_started", "analyzer_timing_report_observed",
-                 "post_analysis_script_observed", "auto_analysis_timeout_reported"]
+                 "headless_script_observed", "auto_analysis_timeout_reported"]
         stages = [name for name in order if name in self.stages]
         return {"stages_observed": stages, "last_observed_stage": self.last_stage,
             "analyzer_timings_seconds": dict(sorted(self.timings.items())),

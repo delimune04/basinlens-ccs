@@ -163,3 +163,43 @@ hashes and original prose specifications. It contains no GMS installer,
 executable, extracted artwork/resource payloads, native pseudocode or copied
 proprietary source. Raw vendor tutorials, projects and detailed analysis remain
 private pending their redistribution terms. No license bypass is implemented.
+
+## Original free Community choice and materialized menus
+
+Windows run [39211459223](https://github.com/delimune04/basinlens-ccs/actions/runs/39211459223)
+passed source parsing, C# compilation and synthetic policy cases before normal
+installation/execution. One verified exact free Community click was delivered
+to the first target. Subsequent passive observation saw an enabled main window
+and four identical complete standard-menu snapshots of 134 items. Their 102
+reported nonseparator numeric IDs overlap 85 static REA menu IDs. The remaining
+17 IDs are unclassified and may include Windows system or generated entries;
+they are not automatically new GMS capabilities. The second target had no
+eligible exact choice and received no UI action. Total target/licence UI actions
+were one; probe activation requests and original numerical runs were zero.
+
+[windows_free_choice_receipt.json](windows_free_choice_receipt.json) binds the
+artifact digest, raw public metadata and derived numeric intersection. A title,
+click delivery and enabled window do not establish edition entitlement or
+handler behavior. The original 577 reconstruction obligations remain open.
+
+## Corrected-deadline native REA diagnostic result
+
+Run [39210146753](https://github.com/delimune04/basinlens-ccs/actions/runs/39210146753)
+returned REA’s actual `provider_timeout` error after 1,202.736 seconds, within
+the 1,290-second outer watchdog. Doctor passed; no native overview returned.
+Two owned logs supplied 27,600 bytes showing import and auto-analysis start.
+The reported heap was 4G, no out-of-memory marker was observed, and no analyzer
+timing report was available. The provider reported incomplete/truncated
+diagnostics; cleanup and the delaying analyzer remain unknown.
+
+The historical receipt’s `post_analysis_script_observed` label was too specific:
+HeadlessAnalyzer also prints `SCRIPT:` for pre-analysis configuration. It is
+now named `headless_script_observed`, with a targeted regression pass; the raw
+historical receipt remains unchanged. Neither that marker nor the last
+collected stage establishes completed analysis or an execution timeline.
+[native_rea_diagnostic_run.json](native_rea_diagnostic_run.json) binds the run,
+artifact digest and unchanged [receipt](native_rea_diagnostic_receipt.json).
+No provider ownership guard was bypassed and no function recovery is claimed.
+A separate local REA objdump attempt returned `capability_unavailable` /
+`unsupported_provider` because its configured command could not be run; this
+is not a successful metadata extraction or a demonstrated target limitation.

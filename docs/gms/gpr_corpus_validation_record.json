@@ -1,0 +1,422 @@
+{
+  "schema": "basinlens-small-official-gpr-corpus-v1",
+  "archives": [
+    {
+      "id": "archive_001",
+      "source_url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/mf6_conceptual.zip",
+      "status": "bounded_private_extraction_complete",
+      "bytes": 10236139,
+      "sha256": "950934c78d4fde477ae346b8a34e1f81f4477a8dd66228538616b8ae9e00c0c7",
+      "member_count": 150,
+      "expanded_file_bytes": 26892253,
+      "gpr_members": 2
+    },
+    {
+      "id": "archive_002",
+      "source_url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/modfgrid.zip",
+      "status": "bounded_private_extraction_complete",
+      "bytes": 366633,
+      "sha256": "1de46a87e400ec75d1462b1ccfbe248a530abbd6b91d89708e6e0a1fc1e30034",
+      "member_count": 25,
+      "expanded_file_bytes": 3392861,
+      "gpr_members": 1
+    },
+    {
+      "id": "archive_003",
+      "source_url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/modfmap1.zip",
+      "status": "bounded_private_extraction_complete",
+      "bytes": 4413657,
+      "sha256": "d00c1fefc1060ecd3c6c68b7325e9be73a7f02ceddb753720ba2f3348c4f3336",
+      "member_count": 41,
+      "expanded_file_bytes": 12191290,
+      "gpr_members": 2
+    }
+  ],
+  "projects": [
+    {
+      "id": "archive_001_project_001",
+      "archive_id": "archive_001",
+      "bytes": 2104862,
+      "sha256": "d5bae80e0159127316388e53652dceba4069e7b6ba099e31f691d55305e509e6",
+      "observations": {
+        "inventory": {
+          "status": "supported",
+          "object_count": 1732,
+          "object_categories": {
+            "group": 293,
+            "dataset": 1439
+          }
+        },
+        "project": {
+          "status": "supported_observed_subset",
+          "counts": {
+            "tree_nodes": 63,
+            "module_envelopes": 5,
+            "entities": 10,
+            "relationships": 21,
+            "unresolved": 49,
+            "node_categories": {
+              "component": 13,
+              "dataset": 4,
+              "dataset_pointer": 1,
+              "folder": 2,
+              "grid": 1,
+              "grid_pointer": 1,
+              "module_root": 3,
+              "project": 1,
+              "simulation": 1,
+              "simulation_collection": 1,
+              "solution_folder": 2,
+              "unknown": 33
+            },
+            "entity_categories": {
+              "declared_geometry_field": 3,
+              "grid": 1,
+              "project": 1,
+              "reference": 3,
+              "saved_dataset": 1,
+              "solution": 1
+            }
+          },
+          "read_audit": {
+            "string_vectors_read": 11,
+            "string_payload_bytes": 17919,
+            "stored_string_bytes_read": 2609,
+            "raw_chunks_read": 10,
+            "decoded_string_chunk_bytes": 17919,
+            "hdf5_filter_decode_invoked": false,
+            "numeric_dataset_payloads_read": false,
+            "external_files_followed": false,
+            "indirect_hdf5_links_followed": false
+          },
+          "unresolved_categories": {
+            "unknown_tree_type": 33,
+            "simulation_component_mapping": 1,
+            "external_component_payload": 13,
+            "grid_pointer_target": 1,
+            "serialized_identity": 1
+          },
+          "tree_grammar_supported": true,
+          "semantic_coverage": "partial_with_explicit_unknown_node_types"
+        },
+        "geometry": [
+          {
+            "id": "geometry_001",
+            "status": "unsupported",
+            "reason_category": "unsupported_geometry_header_or_control_record",
+            "observed_fixed_header_category": "unsupported_quadtree_grid_3d_v1",
+            "declared_protocol_counts_only": {
+              "dimensions": 3,
+              "axis_location_counts": [
+                219,
+                104,
+                2
+              ],
+              "num_levels": 0,
+              "quad_grid_cell_array": 22454,
+              "quad_grid_point_array": 45552,
+              "embedded_node_count": 20684,
+              "embedded_cell_stream_int_count": 319232,
+              "cell_elevation_and_layer_count": 9976,
+              "encoded_array_blocks": 75
+            },
+            "declared_counts_establish_verified_topology": false
+          }
+        ]
+      },
+      "stored_GMS_version_attribute": {
+        "status": "stored_numeric_version_attribute",
+        "value": "10.7.0",
+        "establishes_original_creator_or_observed_runtime": false
+      },
+      "source_bytes_unchanged_after_inspection": true
+    },
+    {
+      "id": "archive_001_project_002",
+      "archive_id": "archive_001",
+      "bytes": 4414958,
+      "sha256": "8129a3038f4821eb7ab7b39f8a3b47d727e56f55e584d7e198dfed7b92fbb459",
+      "observations": {
+        "inventory": {
+          "status": "supported",
+          "object_count": 3088,
+          "object_categories": {
+            "group": 480,
+            "dataset": 2608
+          }
+        },
+        "project": {
+          "status": "supported_observed_subset",
+          "counts": {
+            "tree_nodes": 35,
+            "module_envelopes": 3,
+            "entities": 1,
+            "relationships": 1,
+            "unresolved": 33,
+            "node_categories": {
+              "module_root": 1,
+              "project": 1,
+              "unknown": 33
+            },
+            "entity_categories": {
+              "project": 1
+            }
+          },
+          "read_audit": {
+            "string_vectors_read": 2,
+            "string_payload_bytes": 9541,
+            "stored_string_bytes_read": 1276,
+            "raw_chunks_read": 2,
+            "decoded_string_chunk_bytes": 9541,
+            "hdf5_filter_decode_invoked": false,
+            "numeric_dataset_payloads_read": false,
+            "external_files_followed": false,
+            "indirect_hdf5_links_followed": false
+          },
+          "unresolved_categories": {
+            "unknown_tree_type": 33
+          },
+          "tree_grammar_supported": true,
+          "semantic_coverage": "partial_with_explicit_unknown_node_types"
+        },
+        "geometry": [
+          {
+            "status": "not_present_in_supported_hdf5_path"
+          }
+        ]
+      },
+      "stored_GMS_version_attribute": {
+        "status": "stored_numeric_version_attribute",
+        "value": "10.8.2",
+        "establishes_original_creator_or_observed_runtime": false
+      },
+      "source_bytes_unchanged_after_inspection": true
+    },
+    {
+      "id": "archive_002_project_001",
+      "archive_id": "archive_002",
+      "bytes": 3078440,
+      "sha256": "ec74e7467a28ae5bb2b663d3b4269b0a6d1e4a425813d1d5d2fea18c62fc3d2d",
+      "observations": {
+        "inventory": {
+          "status": "supported",
+          "object_count": 1808,
+          "object_categories": {
+            "group": 272,
+            "dataset": 1536
+          }
+        },
+        "project": {
+          "status": "supported_observed_subset",
+          "counts": {
+            "tree_nodes": 23,
+            "module_envelopes": 1,
+            "entities": 1,
+            "relationships": 1,
+            "unresolved": 21,
+            "node_categories": {
+              "module_root": 1,
+              "project": 1,
+              "unknown": 21
+            },
+            "entity_categories": {
+              "project": 1
+            }
+          },
+          "read_audit": {
+            "string_vectors_read": 2,
+            "string_payload_bytes": 5933,
+            "stored_string_bytes_read": 794,
+            "raw_chunks_read": 2,
+            "decoded_string_chunk_bytes": 5933,
+            "hdf5_filter_decode_invoked": false,
+            "numeric_dataset_payloads_read": false,
+            "external_files_followed": false,
+            "indirect_hdf5_links_followed": false
+          },
+          "unresolved_categories": {
+            "unknown_tree_type": 21
+          },
+          "tree_grammar_supported": true,
+          "semantic_coverage": "partial_with_explicit_unknown_node_types"
+        },
+        "geometry": [
+          {
+            "status": "not_present_in_supported_hdf5_path"
+          }
+        ]
+      },
+      "stored_GMS_version_attribute": {
+        "status": "stored_numeric_version_attribute",
+        "value": "10.8.6",
+        "establishes_original_creator_or_observed_runtime": false
+      },
+      "source_bytes_unchanged_after_inspection": true
+    },
+    {
+      "id": "archive_003_project_001",
+      "archive_id": "archive_003",
+      "bytes": 3866251,
+      "sha256": "42b80bfb4f7d8025c09874445d17ea440a0e3b684b30df7458d0fe2bef66b630",
+      "observations": {
+        "inventory": {
+          "status": "supported",
+          "object_count": 2471,
+          "object_categories": {
+            "group": 378,
+            "dataset": 2093
+          }
+        },
+        "project": {
+          "status": "supported_observed_subset",
+          "counts": {
+            "tree_nodes": 30,
+            "module_envelopes": 3,
+            "entities": 1,
+            "relationships": 1,
+            "unresolved": 28,
+            "node_categories": {
+              "module_root": 1,
+              "project": 1,
+              "unknown": 28
+            },
+            "entity_categories": {
+              "project": 1
+            }
+          },
+          "read_audit": {
+            "string_vectors_read": 2,
+            "string_payload_bytes": 8265,
+            "stored_string_bytes_read": 1124,
+            "raw_chunks_read": 2,
+            "decoded_string_chunk_bytes": 8265,
+            "hdf5_filter_decode_invoked": false,
+            "numeric_dataset_payloads_read": false,
+            "external_files_followed": false,
+            "indirect_hdf5_links_followed": false
+          },
+          "unresolved_categories": {
+            "unknown_tree_type": 28
+          },
+          "tree_grammar_supported": true,
+          "semantic_coverage": "partial_with_explicit_unknown_node_types"
+        },
+        "geometry": [
+          {
+            "status": "not_present_in_supported_hdf5_path"
+          }
+        ]
+      },
+      "stored_GMS_version_attribute": {
+        "status": "stored_numeric_version_attribute",
+        "value": "10.9.0",
+        "establishes_original_creator_or_observed_runtime": false
+      },
+      "source_bytes_unchanged_after_inspection": true
+    },
+    {
+      "id": "archive_003_project_002",
+      "archive_id": "archive_003",
+      "bytes": 281541,
+      "sha256": "25e642d77a9a5060768e3097d0d8b016fe6704b66c37b19ec7faa966eeec968a",
+      "observations": {
+        "inventory": {
+          "status": "supported",
+          "object_count": 321,
+          "object_categories": {
+            "group": 57,
+            "dataset": 264
+          }
+        },
+        "project": {
+          "status": "supported_observed_subset",
+          "counts": {
+            "tree_nodes": 3,
+            "module_envelopes": 1,
+            "entities": 1,
+            "relationships": 1,
+            "unresolved": 2,
+            "node_categories": {
+              "project": 1,
+              "unknown": 2
+            },
+            "entity_categories": {
+              "project": 1
+            }
+          },
+          "read_audit": {
+            "string_vectors_read": 2,
+            "string_payload_bytes": 1049,
+            "stored_string_bytes_read": 276,
+            "raw_chunks_read": 2,
+            "decoded_string_chunk_bytes": 1049,
+            "hdf5_filter_decode_invoked": false,
+            "numeric_dataset_payloads_read": false,
+            "external_files_followed": false,
+            "indirect_hdf5_links_followed": false
+          },
+          "unresolved_categories": {
+            "unknown_tree_type": 2
+          },
+          "tree_grammar_supported": true,
+          "semantic_coverage": "partial_with_explicit_unknown_node_types"
+        },
+        "geometry": [
+          {
+            "status": "not_present_in_supported_hdf5_path"
+          }
+        ]
+      },
+      "stored_GMS_version_attribute": {
+        "status": "stored_numeric_version_attribute",
+        "value": "10.4.8",
+        "establishes_original_creator_or_observed_runtime": false
+      },
+      "source_bytes_unchanged_after_inspection": true
+    }
+  ],
+  "limits": {
+    "archive_stream_bytes": 20971520,
+    "aggregate_stream_bytes": 41943040,
+    "aggregate_expanded_bytes": 104857600,
+    "aggregate_members": 1000
+  },
+  "source_code_commit_at_start": "75fff8dc43ef9a35b7a95372a21b7b688158ced0",
+  "raw_vendor_inputs_redistributed": false,
+  "original_labels_text_uuids_or_paths_included": false,
+  "parser_expanded": false,
+  "solver_or_vendor_executable_run": false,
+  "scope": "Independent official file-format observations only; no REA native-body recovery or GMS runtime parity.",
+  "aggregate_downloaded_bytes": 15016429,
+  "aggregate_expanded_bytes": 42476404,
+  "aggregate_archive_members": 216,
+  "distinct_project_sha256_count": 5,
+  "source_code_commit_at_finish": "75fff8dc43ef9a35b7a95372a21b7b688158ced0",
+  "official_link_source_url": "https://aquaveo.com/software/gms/learning-tutorials",
+  "summary": {
+    "distinct_new_GPR_inputs": 5,
+    "hdf5_inventories_supported": 5,
+    "tree_grammar_supported": 5,
+    "semantic_coverage": "partial; unknown node types and unresolved relations preserved",
+    "unknown_node_count_by_project": [
+      33,
+      33,
+      21,
+      28,
+      2
+    ],
+    "supported_rectilinear_geometry_decodes": 0,
+    "explicitly_unsupported_geometry_packets": 1,
+    "projects_without_supported_geometry_dataset_path": 4,
+    "all_source_bytes_unchanged": true
+  },
+  "archive_extraction_policy": {
+    "non_traversal_paths_verified": true,
+    "symlink_and_special_member_types_disallowed": true,
+    "casefold_duplicate_paths_disallowed": true,
+    "preflight_and_streaming_size_limits_enforced": true,
+    "external_code_executed": false
+  },
+  "source_implementation_public_commit": "8dec98bacac067716a1248d4c6e4cc0f31ee04a7",
+  "source_implementation_public_tree": "1477e2e66bc9fc3f2c08bcf05cfa65a8ebbb3722"
+}

@@ -60,13 +60,21 @@ Validation records:
 source/input/engine identities and distinguish software checks from physics.
 [REA_FINDINGS.md](gms/REA_FINDINGS.md) records default native-analysis timeout,
 auxiliary partial Ghidra work and original-runtime investigation outcomes.
+Native REA diagnostic run `39210146753` returned `provider_timeout` after
+1,202.736s with no overview; exact logs yielded no analyzer timing or verified
+delaying analyzer. The historical generic SCRIPT marker is not post-analysis
+completion. The collector naming correction passed 13 targeted tests. See
+[native_rea_diagnostic_run.json](gms/native_rea_diagnostic_run.json).
 Normal Windows startup displayed both hash-identical registered GMS targets;
 both stopped at unclassified blocking dialogs. A subsequent passive observation
-verified one actual exact free Community button, without selecting it. A
-reviewed, explicit opt-in probe now permits one normal free choice per target
-(maximum four), conditional on Windows compilation/self-tests; no result from
-that new probe is yet claimed. No active edition, standard
-menu state or original numerical run was established. No provider guard or
+verified one actual exact free Community button, without selecting it. The reviewed opt-in run `39211459223` then delivered one exact free Community
+choice and observed an enabled main window with four identical complete
+134-item standard-menu snapshots. Their 102 reported numeric IDs overlap
+85 static REA IDs; other IDs are unclassified, including possible system/generated
+entries. The second target remained at an unknown dialog with no action.
+Edition entitlement and original numerical execution remain unverified;
+[windows_free_choice_receipt.json](gms/windows_free_choice_receipt.json) preserves
+the actual metadata and exact action counts. No provider guard or
 licensing mechanism was bypassed.
 
 Reproduction:

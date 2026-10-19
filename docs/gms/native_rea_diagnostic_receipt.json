@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "target_sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+  "target_size_bytes": 145479264,
+  "probe_sha256": "49f9139fd41c5dc37f26d1788111c5a8b932f419df3c8d9a596c2e51dba34ff5",
+  "tool_versions": {
+    "rea": "6.7.0",
+    "ghidra": "12.1.4",
+    "jdk": "21.0.12.1"
+  },
+  "provider": "ghidra",
+  "provider_health": "healthy",
+  "doctor": {
+    "status": "passed",
+    "exit_code": 0,
+    "elapsed_seconds": 1.707,
+    "retained_json_status": "result_envelope",
+    "diagnostics": {
+      "stages_observed": [],
+      "last_observed_stage": "unknown",
+      "analyzer_timings_seconds": {},
+      "reported_total_analyzer_seconds": null,
+      "auto_analysis_timeout_reported": false,
+      "jvm_out_of_memory_reported": false,
+      "configured_jvm_max_heap": null,
+      "provider_reported_cleanup": "unknown",
+      "provider_output_incomplete": null,
+      "provider_diagnostic_truncated": null,
+      "profile_digest": null,
+      "owned_log_capture": {
+        "enabled": false,
+        "files_observed": 0,
+        "bytes_read": 0,
+        "byte_limit": 4194304,
+        "truncated": false,
+        "unsafe_entries_ignored": 0
+      },
+      "limitations": [
+        "Only observed log and provider-reported facts are retained; missing timings are unmeasured",
+        "A last observed stage is not a verified active analyzer or proof of progress",
+        "Leader exit alone does not establish descendant cleanup"
+      ]
+    }
+  },
+  "analysis": {
+    "status": "tool_error",
+    "exit_code": 1,
+    "elapsed_seconds": 1202.736,
+    "error_code": "provider_timeout",
+    "retained_json_status": "provider_error",
+    "diagnostics": {
+      "stages_observed": [
+        "import_started",
+        "auto_analysis_started",
+        "post_analysis_script_observed"
+      ],
+      "last_observed_stage": "auto_analysis_started",
+      "analyzer_timings_seconds": {},
+      "reported_total_analyzer_seconds": null,
+      "auto_analysis_timeout_reported": false,
+      "jvm_out_of_memory_reported": false,
+      "configured_jvm_max_heap": "4G",
+      "provider_reported_cleanup": "unknown",
+      "provider_output_incomplete": true,
+      "provider_diagnostic_truncated": true,
+      "profile_digest": "b6631fdb0e5196537e71062aaa46963b9f348026fb6db87c43768f31e33a9693",
+      "owned_log_capture": {
+        "enabled": true,
+        "files_observed": 2,
+        "bytes_read": 27600,
+        "byte_limit": 4194304,
+        "truncated": false,
+        "unsafe_entries_ignored": 0
+      },
+      "limitations": [
+        "Only observed log and provider-reported facts are retained; missing timings are unmeasured",
+        "A last observed stage is not a verified active analyzer or proof of progress",
+        "Leader exit alone does not establish descendant cleanup"
+      ]
+    }
+  },
+  "overview": null,
+  "deadlines": {
+    "provider_startup_seconds": 1200,
+    "outer_watchdog_seconds": 1290,
+    "cleanup_grace_seconds": 90,
+    "doctor_watchdog_seconds": 120
+  },
+  "limitations": [
+    "Static analysis only; target code is never executed",
+    "Only aggregate inventory and tool-health metadata are public; raw evidence and snapshots remain private",
+    "Procedure/string counts do not establish algorithmic equivalence or complete reconstruction",
+    "No native pseudocode, native strings, procedure names, paths, or error messages are exported",
+    "A timeout remains a failure even when a retained result or provider diagnostic can be parsed",
+    "Observed stages and timings do not establish completed coverage; unobserved timings are unknown"
+  ],
+  "analysis_profile": {
+    "disabled_analyzers": [
+      "Call-Fixup Installer",
+      "Non-Returning Functions - Discovered"
+    ],
+    "unrecognized_analyzer_name_count": 0
+  }
+}

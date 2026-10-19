@@ -128,6 +128,30 @@ numeric reads, multidimensional/endian/edge chunks, filter masks, stream
 boundaries, sparse/filter rejection, expansion/count limits, custom numeric
 file precision, string padding, and empty arrays. No tutorial bytes are fixtures.
 
+The explicit tree UI was also exercised on that unchanged private tutorial:
+29 nodes, 21 relationships and 16 unresolved items appeared without app errors.
+The anonymous summary excludes original label values, UUID strings and HDF5
+paths; the saved-geometry view still renders 1,125 cells with unknown units.
+[project_ui_validation_record.json](project_ui_validation_record.json) records
+the source/application hashes and checks.
+
 This graph is evidence of partial file interoperability. It does not establish
 a complete persistence model, project round trip, runtime synchronization,
 recovered GMS execution logic, or full product equivalence.
+
+## Additional bounded official corpus
+
+Three other official tutorial archives supplied five distinct additional GPR
+files (15,016,429 downloaded bytes; 42,476,404 extracted bytes; 216 members).
+All five passed HDF5 inventory and the current balanced tree grammar. Their
+semantic coverage remains partial: unknown node counts are 33, 33, 21, 28 and 2.
+One file contains a quadtree packet outside the current rectilinear decoder;
+four have no geometry at the supported HDF5 path. No parser meaning, geometry
+transformation or native synchronization was invented to make them pass.
+
+[gpr_corpus_validation_record.json](gpr_corpus_validation_record.json) binds
+source URLs, archive/project hashes, numeric counts and explicit unsupported
+results to the published implementation. All input hashes stayed unchanged;
+no original GPR, external component or numerical runtime was executed or
+distributed. Stored version attributes describe file metadata, without proving
+a creator identity or observed original session.
