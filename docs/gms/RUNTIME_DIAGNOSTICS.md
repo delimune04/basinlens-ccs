@@ -3,8 +3,9 @@
 `tools/probe_gms_community.ps1` starts only a normally installed executable whose
 size and SHA256 match the pinned original GMS 10.9.7 target. It observes the
 process tree it started and stops that tree after a bounded interval or a
-blocking dialog. It does not select controls, send keyboard input, request a
-trial, activate a licence, or run a model.
+blocking dialog. By default it does not select controls. An explicit option
+allows the single verified free Community choice described below. It never sends
+keyboard input, requests a trial, activates a licence, or runs a model.
 
 The optional Windows workflow keeps screenshots, dialog text, native class
 names, control IDs, process IDs and window handles in its private temporary
@@ -46,8 +47,8 @@ Aquaveo's [registration guidance](https://aquaveo.com/blog/post/changes-aquaveo-
 describes selecting Community Edition when a no-licence dialog appears; that
 article was written for the GMS 10.5 generation. These documents explain the
 fixed observation label. They do not establish the actual labels or state of an
-unobserved GMS 10.9.7 control. A subsequent action would require its own reviewed
-implementation and actual compatible control observations.
+unobserved GMS 10.9.7 control. The optional action below has a separate policy and is based on the later
+actual compatible control observation; the old phrase guard remains unchanged.
 
 ## Checks before an expensive run
 
@@ -58,3 +59,52 @@ process ownership, parent/root relationship, non-push and nonstandard controls,
 missing context, incomplete snapshots and public metadata isolation. These tests
 call no native selection API and do not start GMS. They are software guard checks,
 not observations of original GMS behavior.
+
+## Optional single free Community choice
+
+The default remains passive. `-SelectFreeCommunityEdition`, the explicit workflow
+boolean `select_free_community`, or the commit marker
+`[gms-free-community-choice-probe]` opts into one documented free Community choice
+per normally started target (at most four normally registered targets per
+workflow; it is not a single global click budget). This option refuses document launches. It is not
+an activation, trial request, purchase, terms acceptance or licence modification.
+
+The fifth original Windows probe (`39208615776`, 2026-10-19) observed one actual
+GMS 10.9.7 standard `Community Edition` push button in an owned, visible, enabled
+dialog. Its complete four-control snapshot had one exact label, verified process
+ownership and parent/root relations, and no read errors. It did **not** observe
+the older documented `no license found` phrase. The passive guard preserves that
+unknown result. The separate opt-in selection policy uses the actually observed
+unique free-choice button plus normal startup and the vendor's documented free
+Community path; it does not manufacture missing wording or treat the old guard
+as having passed.
+
+Before any selection, the helper verifies the pinned executable bytes again,
+reads all visible owned windows and their bounded native controls, checks global
+button and dialog uniqueness, verifies the candidate process's exact executable
+path and fresh image hash, and takes a second complete live snapshot. Changed
+handles/processes, incomplete reads, multiple dialogs/buttons, unverified button
+relations, document launches and terms-acceptance text observed in the candidate
+dialog stop the action. A normal chooser may mention paid keys or trials as alternatives; those
+mentions are recorded separately and cannot make any button except the exact
+free Community choice eligible. No key entry, payment, registration or trial
+API is invoked. No unknown label becomes a selection candidate.
+
+Only the exact verified button can receive one `BM_CLICK`, with a one-second
+message timeout. The sole attempt is reserved before delivery; timeout or failure
+is counted as one action and never retried. There is no keyboard, coordinate,
+foreground-window, alternate button or legacy-licensing fallback. Microsoft
+[documents](https://learn.microsoft.com/en-us/windows/win32/controls/bm-click) that
+an inactive dialog may ignore `BM_CLICK`; this probe records that uncertainty
+without activating the window or trying another action. The receipt
+reports one target UI action and one licence UI action whenever delivery was
+attempted, with zero probe-initiated activation requests. Target application
+network activity is not monitored or inferred.
+
+After the attempt, the helper observes passively and stops at any later observed
+dialog, including an unchanged startup dialog. A sent click, a title or an enabled
+window does not prove Community entitlement or successful workspace operation;
+`community_mode_confirmed` remains false. No solver is invoked. Raw UI evidence
+remains private, and public policy decisions contain only fixed categories,
+counts and booleans. Workflow self-tests exercise this separate policy without
+calling its native selection method.

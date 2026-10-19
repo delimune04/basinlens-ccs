@@ -1,7 +1,8 @@
 """Bounded read-only HDF5 inspection for GMS .gpr project containers.
 
 Inventory never reads dataset payloads or follows soft/external links. Explicit
-numeric reads support hard-linked fixed-width arrays with built-in HDF5 filters;
+numeric reads support hard-linked fixed-width arrays with unfiltered storage or
+a single deflate filter decoded through bounded raw chunks;
 they do not decode GMS tree semantics, geometry packets, or GUI behavior.
 """
 from __future__ import annotations
@@ -12,10 +13,12 @@ import json
 import math
 from pathlib import Path
 
+from .gpr_storage import StorageReadError, read_fixed_array
+
 
 MAX_GPR_BYTES = 512 * 1024 * 1024
 MAX_ARRAY_BYTES = 32 * 1024 * 1024
-BUILTIN_READ_FILTERS = {1, 2, 3}  # Deflate, shuffle, Fletcher32; no plugin filters.
+BUILTIN_READ_FILTERS = {1, 2, 3}  # Preliminary allowlist; storage reader narrows payload support to []/[1].
 
 
 class GprInspectionError(ValueError):
@@ -150,9 +153,12 @@ def read_gpr_numeric_array(path: str | Path, dataset_path: str, *, max_bytes: in
             raise GprInspectionError("Requested array exceeds the explicit read budget")
         if dataset.chunks is not None and math.prod(dataset.chunks) * dataset.dtype.itemsize > max_bytes:
             raise GprInspectionError("HDF5 chunk exceeds the explicit read budget")
-        array = dataset[()]
+        try:
+            array, storage_receipt = read_fixed_array(dataset, max_bytes=max_bytes)
+        except StorageReadError as error:
+            raise GprInspectionError(str(error)) from error
     return array, {"path": dataset_path, "logical_bytes": byte_count, **description,
-                   "units_converted": False}
+                   "units_converted": False, "storage_read": storage_receipt}
 
 
 def main() -> None:

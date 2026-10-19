@@ -129,7 +129,10 @@ objective and its remaining evidence gates.
 Experimental [native MF6 import](docs/gms/MF6_NATIVE_IMPORT.md) preserves general
 native packages and units without narrowing them to the confined case schema.
 The [GPR reader](docs/gms/GPR_HDF5_READ.md) inventories HDF5 metadata and reads
-explicitly selected numeric arrays. A [bounded geometry decoder](docs/gms/GPR_GEOMETRY.md)
+explicitly selected numeric arrays with bounded raw deflate decoding. The
+[partial project reader](docs/gms/GPR_PROJECT.md) also recovers saved tree
+hierarchy and literal UUID relationships; its UI exports an anonymous summary.
+Unresolved references remain explicit. A [bounded geometry decoder](docs/gms/GPR_GEOMETRY.md)
 also recovers a verified rectilinear hexahedral representation; its physical
 cell centers and elevations match one official tutorial's native DIS export
 exactly. Project writing and complete format compatibility remain open.

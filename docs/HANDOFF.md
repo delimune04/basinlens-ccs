@@ -9,7 +9,7 @@ current scope or a replacement definition of completion. Public work is in
 [PR #10](https://github.com/delimune04/basinlens-ccs/pull/10), branch
 `feat/gms-groundwater-workbench`; main baseline remains `f17934e`.
 
-The final integrated run passed **203 tests with zero skips** using actual
+The latest integrated run passed **237 tests with zero skips** using actual
 MF6 6.7.0, FloPy 3.11.0 and the optional UI/HDF5 dependencies. Required capacity
 CLI/verifier, compilation, diff checks and actionlint also passed.
 
@@ -25,7 +25,11 @@ Current components:
   archived; they are not synchronized into solver inputs.
 - Bounded GPR/HDF5 inventory and explicit array reads; a narrow rectilinear
   geometry decoder with all-cell connectivity/elevation checks and a read-only
-  saved-data viewer. Unknown units/CRS/datum/time semantics stay unknown.
+  saved-data viewer. The explicit saved project-tree UI reads hierarchy/literal
+  UUID relationships and exports anonymous metadata. Actual tutorial: 29 nodes,
+  21 relationships, 16 unresolved. Bounded raw-chunk decoding prevents HDF5
+  decompression from exceeding the declared read budget. Unknown
+  units/CRS/datum/time semantics stay unknown.
 - A comparison/replay harness separates synthetic fixtures, shipped tutorial
   output and witnessed original GMS output. No witnessed original GMS numerical
   comparison has passed. No full GPR writer/round trip or complete UI exists.
@@ -57,7 +61,11 @@ source/input/engine identities and distinguish software checks from physics.
 [REA_FINDINGS.md](gms/REA_FINDINGS.md) records default native-analysis timeout,
 auxiliary partial Ghidra work and original-runtime investigation outcomes.
 Normal Windows startup displayed both hash-identical registered GMS targets;
-both stopped at unclassified blocking dialogs. No active edition, standard
+both stopped at unclassified blocking dialogs. A subsequent passive observation
+verified one actual exact free Community button, without selecting it. A
+reviewed, explicit opt-in probe now permits one normal free choice per target
+(maximum four), conditional on Windows compilation/self-tests; no result from
+that new probe is yet claimed. No active edition, standard
 menu state or original numerical run was established. No provider guard or
 licensing mechanism was bypassed.
 

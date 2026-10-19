@@ -7,6 +7,7 @@ case contract. It does not reproduce a proprietary application's code or assets.
 from __future__ import annotations
 
 import copy
+from collections import Counter
 from dataclasses import replace
 import hashlib
 import io
@@ -37,6 +38,7 @@ from basinlens_ccs.subsurface import (  # noqa: E402
 from basinlens_ccs.groundwater.native_run import _preflight, run_native_simulation  # noqa: E402
 from basinlens_ccs.groundwater.gpr_hdf5 import MAX_GPR_BYTES, inventory_gpr, read_gpr_numeric_array  # noqa: E402
 from basinlens_ccs.groundwater.gpr_geometry import read_gpr_rectilinear  # noqa: E402
+from basinlens_ccs.groundwater.gpr_project import read_gpr_project  # noqa: E402
 
 MAX_UPLOAD_BYTES = 2_000_000
 MAX_CELLS = 100_000
@@ -755,6 +757,50 @@ def gpr_saved_figure(path: str, geometry_path: str, scalar_path: str, axis_index
     return fig, receipt
 
 
+def gpr_project_tree(source: str, inventory: dict, datasets: list[dict]) -> None:
+    """Inspect the saved tree only after an explicit action, apart from geometry."""
+    if not any(record["path"] == "/Tree/Tree" for record in datasets):
+        return
+    st.markdown("**저장 프로젝트 트리 · 읽기 전용**")
+    st.caption("원본 파일의 이름을 현재 화면에 표시합니다. 다운로드에는 이름·UUID·HDF5 경로가 없는 익명 요약만 포함합니다.")
+    if st.button("저장 프로젝트 트리 읽기", key="gw_gpr_tree_load"):
+        for key in ("gw_gpr_tree_rows", "gw_gpr_tree_summary", "gw_gpr_tree_summary_json"):
+            st.session_state.pop(key, None)
+        try:
+            graph = read_gpr_project(source)
+            if graph.source["sha256"] != inventory["sha256"] or _gpr_sha(source) != inventory["sha256"]:
+                raise ValueError("GPR 파일이 목록 검사 이후 변경되었습니다. 자료 목록을 다시 여세요.")
+            summary = graph.public_summary()
+            st.session_state.gw_gpr_tree_rows = [
+                {"ID": node.id, "부모 ID": node.parent_id, "이름 (원본 파일)": node.label,
+                 "분류": node.category} for node in graph.nodes[:500]
+            ]
+            st.session_state.gw_gpr_tree_summary = summary
+            st.session_state.gw_gpr_tree_summary_json = case_bytes(summary)
+        except (OSError, ValueError) as error:
+            st.error(f"GPR 프로젝트 트리 오류: {error}")
+    if "gw_gpr_tree_summary" not in st.session_state:
+        return
+    summary = st.session_state.gw_gpr_tree_summary
+    counts = summary["counts"]
+    a, b, c, d = st.columns(4)
+    a.metric("저장 트리 노드", counts["tree_nodes"])
+    b.metric("저장 엔티티", counts["entities"])
+    c.metric("관측 UUID 관계", counts["relationships"])
+    d.metric("미해결 관계", counts["unresolved"])
+    st.dataframe(pd.DataFrame(st.session_state.gw_gpr_tree_rows),
+        use_container_width=True, hide_index=True, key="gw_gpr_tree_table")
+    st.caption(f"부모/자식 구조는 저장된 Tree 레코드 기준입니다. 최대 500행 표시 · 원본 SHA-256 {summary['source']['sha256']}")
+    unresolved = Counter((item["kind"], item["reason"]) for item in summary["unresolved"])
+    if unresolved:
+        st.dataframe(pd.DataFrame([{"범주": kind, "사유": reason, "개수": count}
+            for (kind, reason), count in sorted(unresolved.items())]),
+            use_container_width=True, hide_index=True)
+    st.download_button("익명 프로젝트 트리 요약 JSON 다운로드", st.session_state.gw_gpr_tree_summary_json,
+        "gpr_project_summary.json", "application/json", key="gw_gpr_tree_download")
+    st.caption("부분적인 저장 트리와 문자 그대로 일치하는 UUID 관계입니다. 포인터 대상·외부 파일·자료 저장 위치를 추정하지 않으며, GPR 쓰기·동기화·새 계산·전체 GMS 동등성은 제공하지 않습니다.")
+
+
 def gpr_workbench() -> None:
     st.subheader("GPR 저장 기하 · 원시 셀 자료 보기")
     st.caption("읽기 전용입니다. 지원되는 비회전·원점 0 직교 육면체 패킷만 해독하며, 저장 자료를 새 계산 결과로 취급하지 않습니다.")
@@ -762,10 +808,12 @@ def gpr_workbench() -> None:
         source = st.text_input("읽기 전용 GPR 파일 (서버 경로)", key="gw_gpr_source")
         opened = st.form_submit_button("GPR 자료 목록 열기")
     if st.session_state.get("gw_gpr_open_source") != source.strip():
-        for key in ("gw_gpr_inventory", "gw_gpr_figure", "gw_gpr_receipt"):
+        for key in ("gw_gpr_inventory", "gw_gpr_figure", "gw_gpr_receipt",
+                    "gw_gpr_tree_rows", "gw_gpr_tree_summary", "gw_gpr_tree_summary_json"):
             st.session_state.pop(key, None)
     if opened:
-        for key in ("gw_gpr_inventory", "gw_gpr_figure", "gw_gpr_receipt"):
+        for key in ("gw_gpr_inventory", "gw_gpr_figure", "gw_gpr_receipt",
+                    "gw_gpr_tree_rows", "gw_gpr_tree_summary", "gw_gpr_tree_summary_json"):
             st.session_state.pop(key, None)
         try:
             if not source.strip():
@@ -782,6 +830,7 @@ def gpr_workbench() -> None:
     st.caption(f"객체 {inventory['object_count']:,}개 · 데이터셋 {len(datasets):,}개 · 원본 SHA-256 {inventory['sha256']}")
     with st.expander("HDF5 자료 목록 (최대 500행 표시)"):
         st.dataframe(pd.DataFrame(datasets[:500]), use_container_width=True, hide_index=True)
+    gpr_project_tree(source.strip(), inventory, datasets)
     if not grids:
         st.error("지원되는 Geometry.xmsgrid 데이터셋을 찾지 못했습니다. 다른 패킷이나 격자는 자동 추측하지 않습니다.")
         return

@@ -2,11 +2,11 @@
 
 ## Expanded implementation check
 
-The published dialog/guard snapshot passed **203 tests with zero skips** using real
-MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 34.282s.
+The integrated project-tree/storage snapshot passed **237 tests with zero skips** using real
+MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 27.657s.
 Exact source hashes, versions, commands and additional checks are in
 [expanded_validation_record.json](expanded_validation_record.json). The earlier
-published 173-test and 190-test snapshots and their successful remote CI are
+published 173-test, 190-test and 203-test snapshots and their successful remote CI are
 retained there as history. Missing solver tests are skips in ordinary CI, separate from this local
 zero-skip result.
 
@@ -15,7 +15,10 @@ execution, native unconfined feet/seconds execution, native file boundaries and
 byte preservation, complete run-inventory verification, SQLite snapshots,
 GPR link/filter/read limits, geometry topology and coordinate mapping,
 comparison provenance/tolerance failures, PE evidence binding, genuine REA
-open-obligation generation and 23 workbench UI/viewer tests. Normal termination
+open-obligation generation and 26 workbench UI/viewer tests.
+The added project/storage checks cover strict tree grammar, literal identity
+joins, missing payloads, anonymous projection, raw deflate expansion, canonical
+file datatypes and explicit tree UI source binding. Normal termination
 of an arbitrary native model does not validate its physical assumptions.
 
 Thirteen additional dialog tests cover standard/extended format differences,
@@ -39,7 +42,9 @@ byte-identical to shipped results. Its older creator/solver identities, native
 feet/seconds units, independent controls and unresolved GPR unit metadata are
 recorded in [TUTORIAL_INTEROPERABILITY.md](TUTORIAL_INTEROPERABILITY.md). This is
 shipped-input interoperability, not a witnessed original GMS numerical execution
-or full product equivalence. Normal Windows startup did display two original
+or full product equivalence. The saved-tree reader independently found 29 nodes, 21 relationships and 16
+unresolved items in the unchanged tutorial, without reading numeric payloads;
+see [GPR_PROJECT.md](GPR_PROJECT.md). Normal Windows startup did display two original
 windows, but both stopped at unclassified blocking dialogs; no model run or
 active edition was established. See [windows_runtime_receipt.json](windows_runtime_receipt.json).
 

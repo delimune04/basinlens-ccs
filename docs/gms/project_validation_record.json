@@ -1,0 +1,686 @@
+{
+  "schema": "basinlens-gpr-project-graph-v1",
+  "source": {
+    "bytes": 3071450,
+    "sha256": "afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467",
+    "identity_verified_after_read": true
+  },
+  "tree_records_sha256": "7e7f3e79388693107f4747638949f965759463f972dfad5040f770b3944c2d70",
+  "counts": {
+    "tree_nodes": 29,
+    "module_envelopes": 2,
+    "entities": 10,
+    "relationships": 21,
+    "unresolved": 16,
+    "node_categories": {
+      "component": 13,
+      "dataset": 4,
+      "dataset_pointer": 1,
+      "folder": 2,
+      "grid": 1,
+      "grid_pointer": 1,
+      "module_root": 2,
+      "project": 1,
+      "simulation": 1,
+      "simulation_collection": 1,
+      "solution_folder": 2
+    },
+    "entity_categories": {
+      "declared_geometry_field": 3,
+      "grid": 1,
+      "project": 1,
+      "reference": 3,
+      "saved_dataset": 1,
+      "solution": 1
+    }
+  },
+  "nodes": [
+    {
+      "id": "node_0001",
+      "parent_id": null,
+      "module_id": null,
+      "category": "project",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0002",
+      "parent_id": "node_0001",
+      "module_id": "module_0001",
+      "category": "module_root",
+      "uuid_present": false,
+      "label_present": true
+    },
+    {
+      "id": "node_0003",
+      "parent_id": "node_0002",
+      "module_id": "module_0001",
+      "category": "grid",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0004",
+      "parent_id": "node_0003",
+      "module_id": "module_0001",
+      "category": "dataset",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0005",
+      "parent_id": "node_0003",
+      "module_id": "module_0001",
+      "category": "dataset",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0006",
+      "parent_id": "node_0003",
+      "module_id": "module_0001",
+      "category": "dataset",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0007",
+      "parent_id": "node_0003",
+      "module_id": "module_0001",
+      "category": "solution_folder",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0008",
+      "parent_id": "node_0007",
+      "module_id": "module_0001",
+      "category": "folder",
+      "uuid_present": false,
+      "label_present": true
+    },
+    {
+      "id": "node_0009",
+      "parent_id": "node_0008",
+      "module_id": "module_0001",
+      "category": "dataset",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0010",
+      "parent_id": "node_0001",
+      "module_id": "module_0002",
+      "category": "module_root",
+      "uuid_present": false,
+      "label_present": true
+    },
+    {
+      "id": "node_0011",
+      "parent_id": "node_0010",
+      "module_id": "module_0002",
+      "category": "simulation_collection",
+      "uuid_present": false,
+      "label_present": true
+    },
+    {
+      "id": "node_0012",
+      "parent_id": "node_0011",
+      "module_id": "module_0002",
+      "category": "simulation",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0013",
+      "parent_id": "node_0012",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0014",
+      "parent_id": "node_0012",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0015",
+      "parent_id": "node_0012",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0016",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0017",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0018",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0019",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0020",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0021",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0022",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0023",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "grid_pointer",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0024",
+      "parent_id": "node_0015",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0025",
+      "parent_id": "node_0012",
+      "module_id": "module_0002",
+      "category": "solution_folder",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0026",
+      "parent_id": "node_0025",
+      "module_id": "module_0002",
+      "category": "folder",
+      "uuid_present": false,
+      "label_present": true
+    },
+    {
+      "id": "node_0027",
+      "parent_id": "node_0026",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0028",
+      "parent_id": "node_0026",
+      "module_id": "module_0002",
+      "category": "dataset_pointer",
+      "uuid_present": true,
+      "label_present": true
+    },
+    {
+      "id": "node_0029",
+      "parent_id": "node_0026",
+      "module_id": "module_0002",
+      "category": "component",
+      "uuid_present": true,
+      "label_present": true
+    }
+  ],
+  "modules": [
+    {
+      "id": "module_0001",
+      "parent_id": "node_0001"
+    },
+    {
+      "id": "module_0002",
+      "parent_id": "node_0001"
+    }
+  ],
+  "entities": [
+    {
+      "id": "entity_0001",
+      "category": "project",
+      "role": "project_identity",
+      "storage": null
+    },
+    {
+      "id": "entity_0002",
+      "category": "grid",
+      "role": "grid_identity",
+      "storage": {
+        "geometry_packet": {
+          "shape": [
+            23979
+          ],
+          "dtype": "int8",
+          "payload_read": false
+        }
+      }
+    },
+    {
+      "id": "entity_0003",
+      "category": "declared_geometry_field",
+      "role": "point_elevation",
+      "storage": null
+    },
+    {
+      "id": "entity_0004",
+      "category": "declared_geometry_field",
+      "role": "cell_top",
+      "storage": null
+    },
+    {
+      "id": "entity_0005",
+      "category": "declared_geometry_field",
+      "role": "cell_bottom",
+      "storage": null
+    },
+    {
+      "id": "entity_0006",
+      "category": "saved_dataset",
+      "role": "saved_dataset_identity_record",
+      "storage": {
+        "values": {
+          "shape": [
+            1,
+            1125
+          ],
+          "dtype": "float32",
+          "payload_read": false
+        },
+        "times": {
+          "shape": [
+            1
+          ],
+          "dtype": "float64",
+          "payload_read": false
+        },
+        "active": {
+          "shape": [
+            1,
+            1125
+          ],
+          "dtype": "uint8",
+          "payload_read": false
+        }
+      }
+    },
+    {
+      "id": "entity_0007",
+      "category": "solution",
+      "role": "serialized_solution_record",
+      "storage": null
+    },
+    {
+      "id": "entity_0008",
+      "category": "reference",
+      "role": "solution_dataset_reference",
+      "storage": null
+    },
+    {
+      "id": "entity_0009",
+      "category": "reference",
+      "role": "solution_component_reference",
+      "storage": null
+    },
+    {
+      "id": "entity_0010",
+      "category": "reference",
+      "role": "solution_component_reference",
+      "storage": null
+    }
+  ],
+  "relationships": [
+    {
+      "source": "entity_0001",
+      "target": "node_0001",
+      "kind": "project_identity_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0002",
+      "target": "node_0003",
+      "kind": "grid_identity_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0002",
+      "target": "entity_0002",
+      "kind": "grid_dataset_container_identity_agrees",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0002",
+      "target": "entity_0003",
+      "kind": "declares_geometry_field",
+      "basis": "explicit_property",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0003",
+      "target": "node_0004",
+      "kind": "declared_geometry_field_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0002",
+      "target": "entity_0004",
+      "kind": "declares_geometry_field",
+      "basis": "explicit_property",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0004",
+      "target": "node_0005",
+      "kind": "declared_geometry_field_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0002",
+      "target": "entity_0005",
+      "kind": "declares_geometry_field",
+      "basis": "explicit_property",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0005",
+      "target": "node_0006",
+      "kind": "declared_geometry_field_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0002",
+      "target": "entity_0006",
+      "kind": "contains_saved_dataset",
+      "basis": "hdf5_containment",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0006",
+      "target": "node_0009",
+      "kind": "saved_dataset_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 2
+    },
+    {
+      "source": "entity_0006",
+      "target": "node_0028",
+      "kind": "saved_dataset_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 2
+    },
+    {
+      "source": "entity_0007",
+      "target": "node_0007",
+      "kind": "solution_identity_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0007",
+      "target": "entity_0008",
+      "kind": "solution_dataset_reference",
+      "basis": "explicit_uuid_vector",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0008",
+      "target": "node_0009",
+      "kind": "solution_dataset_reference_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 2
+    },
+    {
+      "source": "entity_0008",
+      "target": "node_0028",
+      "kind": "solution_dataset_reference_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 2
+    },
+    {
+      "source": "entity_0008",
+      "target": "entity_0006",
+      "kind": "reference_to_saved_dataset",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0007",
+      "target": "entity_0009",
+      "kind": "solution_component_reference",
+      "basis": "explicit_uuid_vector",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0009",
+      "target": "node_0027",
+      "kind": "solution_component_reference_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0007",
+      "target": "entity_0010",
+      "kind": "solution_component_reference",
+      "basis": "explicit_uuid_vector",
+      "target_count": 1
+    },
+    {
+      "source": "entity_0010",
+      "target": "node_0029",
+      "kind": "solution_component_reference_matches_tree",
+      "basis": "uuid_equality",
+      "target_count": 1
+    }
+  ],
+  "unresolved": [
+    {
+      "source": "node_0012",
+      "kind": "simulation_component_mapping",
+      "reason": "editor_component_mapping_not_established"
+    },
+    {
+      "source": "node_0013",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0014",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0015",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0016",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0017",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0018",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0019",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0020",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0021",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0022",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0023",
+      "kind": "grid_pointer_target",
+      "reason": "pointer_target_encoding_not_established"
+    },
+    {
+      "source": "node_0024",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0025",
+      "kind": "serialized_identity",
+      "reason": "uuid_not_found_in_supported_identity_inventory"
+    },
+    {
+      "source": "node_0027",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    },
+    {
+      "source": "node_0029",
+      "kind": "external_component_payload",
+      "reason": "external_component_files_not_inspected"
+    }
+  ],
+  "read_audit": {
+    "string_vectors_read": 11,
+    "string_payload_bytes": 8767,
+    "stored_string_bytes_read": 1562,
+    "raw_chunks_read": 10,
+    "decoded_string_chunk_bytes": 8767,
+    "hdf5_filter_decode_invoked": false,
+    "numeric_dataset_payloads_read": false,
+    "external_files_followed": false,
+    "indirect_hdf5_links_followed": false
+  },
+  "original_labels_included": false,
+  "raw_uuids_included": false,
+  "original_hdf5_paths_included": false,
+  "coordinate_units": null,
+  "crs": null,
+  "vertical_datum": null,
+  "units_converted": false,
+  "gms_runtime_executed": false,
+  "scope": "Partial serialized tree and UUID equality relationships only; no project writer, external component synchronization or full GMS equivalence.",
+  "provenance": {
+    "source_url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/mf6_grid.zip",
+    "zip_sha256": "ad5d7684e9c6270a9a2a129430b04cc0c6bd39ba03a73f1c21825e3fa3e87dd4",
+    "vendor_input_redistributed": false,
+    "h5py_version": "3.16.0",
+    "hdf5_version": "2.0.0",
+    "stored_GMS_version_attribute": "10.8.2",
+    "version_attribute_establishes_original_creator_or_observed_runtime": false
+  },
+  "shared_storage_actual_check": {
+    "geometry_nodes": 1536,
+    "geometry_cells": 1125,
+    "native_dis_comparison": {
+      "shape_kij": [
+        5,
+        15,
+        15
+      ],
+      "compared_cells": 1125,
+      "compared_xy_nodes": 1536,
+      "compared_face_corner_elevations": 9000,
+      "max_absolute_coordinate_error": {
+        "center_x": 0.0,
+        "center_y": 0.0,
+        "center_z": 0.0,
+        "top": 0.0,
+        "bottom": 0.0,
+        "vertex_x": 0.0,
+        "vertex_y": 0.0,
+        "upper_corner_z_vs_cell_top": 0.0,
+        "lower_corner_z_vs_cell_bottom": 0.0
+      },
+      "exact_coordinate_match": true,
+      "vertical_comparison": "Each physical GPR face corner versus the native cell top/bottom scalar; flat-cell-face interpretation.",
+      "native_shared_vertex_z_constructed": false,
+      "gpr_coordinate_units": null,
+      "native_length_units": "feet",
+      "units_converted": false,
+      "scope": "Literal centers, XY vertices, and flat-cell face-elevation comparison; no unique native shared-node Z surface or GMS runtime parity claim."
+    },
+    "saved_head_shape": [
+      1,
+      1125
+    ],
+    "saved_head_payload_read_only_for_separate_storage_regression": true,
+    "geometry_input_sha256": "afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467",
+    "gms_runtime_executed": false,
+    "saved_heads_equal_shipped_float32": true,
+    "max_absolute_saved_head_float32_difference": 0.0
+  },
+  "checks": {
+    "project_tests_passed": 12,
+    "storage_tests_passed": 10,
+    "skipped": 0,
+    "fixtures": "independently constructed synthetic only",
+    "shared_geometry_actual_rerun": true,
+    "original_gms_execution": false,
+    "combined_GPR_tests_passed": 45,
+    "includes_existing_geometry_HDF5_UI_tests": true
+  }
+}

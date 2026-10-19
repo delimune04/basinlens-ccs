@@ -10,6 +10,10 @@ on:
         type: choice
         options: [none, classic_grid, mf6_grid]
         default: none
+      select_free_community:
+        description: 'Optional single verified free Community Edition choice during normal startup; no activation or model run'
+        type: boolean
+        default: false
   push:
     branches: ["feat/gms-groundwater-workbench"]
 
@@ -25,7 +29,8 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       contains(github.event.head_commit.message, '[gms-community-probe]') ||
-      contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]')
+      contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]') ||
+      contains(github.event.head_commit.message, '[gms-free-community-choice-probe]')
     runs-on: windows-2022
     timeout-minutes: 25
     steps:
@@ -85,7 +90,47 @@ jobs:
           Assert-PassiveGuard $false
           $json=[GmsPassiveWindows]::AssessCommunityButton($window,$snapshot) | ConvertTo-Json -Depth 8
           if ($json.Contains('PRIVATE_UNKNOWN') -or $json.Contains('Handle') -or $json.Contains('ControlId') -or $json.Contains('ProcessId')) { throw 'Private native metadata leaked into a public guard.' }
-          Write-Output 'Passive fixed-label guard cases passed; no target or user interface action was invoked.'
+          # Test the separate opt-in policy WITHOUT calling the native action
+          # method. Missing old no-license wording must remain missing.
+          $button.Label='Community Edition'; $button.ClassName='Button'
+          $window.VisibleText='Unknown startup wording'
+          function Assert-FreeSelection([bool]$expected,[bool]$optIn=$true,[bool]$normal=$true,[bool]$identity=$true,[int]$used=0,[int]$labels=1,[int]$dialogs=1,[bool]$complete=$true) {
+            $decision=[GmsPassiveWindows]::AssessFreeSelection($window,$snapshot,$optIn,$normal,$identity,$used,$labels,$dialogs,$complete)
+            if ($decision.PolicyPermitsOneAttempt -ne $expected -or $decision.Attempted -or $decision.NoLicensePhraseRequiredByThisPolicy) { throw 'Separate free-choice policy regression.' }
+            if ($decision.NoLicenseContext -ne 'not_recognized_or_unavailable') { throw 'Missing original phrase was promoted to observed.' }
+          }
+          Assert-FreeSelection $true
+          Assert-PassiveGuard $false
+          Assert-FreeSelection $false $false
+          Assert-FreeSelection $false $true $false
+          Assert-FreeSelection $false $true $true $false
+          Assert-FreeSelection $false $true $true $true 1
+          Assert-FreeSelection $false $true $true $true 0 2
+          Assert-FreeSelection $false $true $true $true 0 1 2
+          Assert-FreeSelection $false $true $true $true 0 1 1 $false
+          foreach ($field in @('Visible','Enabled','OwnedProcess','SameProcessAsWindow','ParentRelationVerified','IsStandardButton','IsPushButton')) {
+            $button.$field=$false; Assert-FreeSelection $false; $button.$field=$true
+          }
+          foreach ($field in @('OwnedProcess','Visible','Enabled','IsDialog')) {
+            $window.$field=$false; Assert-FreeSelection $false; $window.$field=$true
+          }
+          $snapshot.Controls=@($button,$button); Assert-FreeSelection $false
+          $snapshot.Controls=@($button); $snapshot.Truncated=$true; Assert-FreeSelection $false
+          $snapshot.Truncated=$false; $snapshot.ReadErrors=1; Assert-FreeSelection $false
+          $snapshot.ReadErrors=0
+          foreach ($text in @('EULA','Terms and Conditions','End user license','Accept this agreement','License Agreement','Licence Agreement','Terms of Use','I agree to these terms','By clicking Community Edition you agree to the license agreement')) {
+            $window.VisibleText=$text; Assert-FreeSelection $false
+          }
+          foreach ($text in @('Purchase a licence or use Community Edition','An evaluation licence was not found','Enter a license key or select Community Edition','Trial options are also available')) {
+            $window.VisibleText=$text; Assert-FreeSelection $true
+            $alternatives=[GmsPassiveWindows]::AssessFreeSelection($window,$snapshot,$true,$true,$true,0,1,1,$true)
+            if (-not $alternatives.OtherLicenceOptionsTextObserved -or $alternatives.TermsAcceptanceContextObserved) { throw 'Alternative licensing text was confused with a free-button action or terms acceptance.' }
+          }
+          $window.VisibleText='Unknown startup wording'
+          $decision=[GmsPassiveWindows]::AssessFreeSelection($window,$snapshot,$true,$true,$true,0,1,1,$true)
+          $json=$decision | ConvertTo-Json -Depth 8
+          if ($json.Contains('Unknown startup wording') -or $json.Contains('Handle') -or $json.Contains('ControlId') -or $json.Contains('ProcessId')) { throw 'Private native metadata leaked into a free-choice policy result.' }
+          Write-Output 'Passive guard and separate opt-in policy cases passed; no target or native selection method was invoked.'
       - name: Download and verify pinned official GMS installer
         shell: pwsh
         run: |
@@ -140,9 +185,11 @@ jobs:
           if ($projects.Count -eq 0) { throw 'No native GMS project found; project opening was not attempted.' }
           if ($env:SELECTED_DOCUMENT -eq 'mf6_grid' -and (Get-FileHash -LiteralPath $projects[0].FullName -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467') { throw 'Pinned MF6 tutorial GPR differs.' }
           'GMS_RUNTIME_PROJECT=' + $projects[0].FullName | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-      - name: Observe each identical normal launch target passively and stop its process tree
+      - name: Observe each target with an optional single free Community choice
         timeout-minutes: 6
         shell: pwsh
+        env:
+          SELECT_FREE_COMMUNITY: ${{ inputs.select_free_community == true || contains(github.event.head_commit.message, '[gms-free-community-choice-probe]') }}
         run: |
           $ErrorActionPreference='Stop'
           $result=Get-Content -LiteralPath $env:GMS_RUNTIME_PRIVATE_RESULT -Raw | ConvertFrom-Json
@@ -162,11 +209,12 @@ jobs:
               AllowStart=$true
             }
             if ($env:GMS_RUNTIME_PROJECT) { $arguments.ProjectPath=$env:GMS_RUNTIME_PROJECT }
+            if ($env:SELECT_FREE_COMMUNITY -eq 'true') { $arguments.SelectFreeCommunityEdition=$true }
             $code=2
             try { & ./tools/probe_gms_community.ps1 @arguments; $code=$LASTEXITCODE }
             catch { $code=2 }
             $observation=if (Test-Path -LiteralPath $receiptPath) { Get-Content -LiteralPath $receiptPath -Raw | ConvertFrom-Json } else { $null }
-            $reports += @(@{index=$index;receipt=$receiptName;exit_code=$code;status=$observation.status;target_started=$observation.target_started;visible_window_observed=$observation.visible_window_observed})
+            $reports += @(@{index=$index;receipt=$receiptName;exit_code=$code;status=$observation.status;target_started=$observation.target_started;visible_window_observed=$observation.visible_window_observed;target_ui_actions=$observation.target_ui_actions;licence_ui_actions=$observation.licence_ui_actions;free_community_selection_attempted=$observation.free_community_selection_attempted})
           }
           $summary=@{
             probe_schema_version=2
@@ -177,8 +225,12 @@ jobs:
             targets_with_visible_window=@($reports | Where-Object { $_.visible_window_observed -eq $true }).Count
             numerical_run_observed=$false
             paired_gms_comparisons=0
+            free_community_selection_requested=($env:SELECT_FREE_COMMUNITY -eq 'true')
+            target_ui_actions=(@($reports | ForEach-Object { [int]$_.target_ui_actions }) | Measure-Object -Sum).Sum
+            licence_ui_actions=(@($reports | ForEach-Object { [int]$_.licence_ui_actions }) | Measure-Object -Sum).Sum
+            activation_requests_initiated_by_probe=0
             observations=$reports
-            qualification='Each normal registered target was observed independently after the exact identity gate. No claim that one duplicate installation is canonical, no licence UI actions, and no new solver run.'
+            qualification='Each normal registered target was observed independently after the exact identity gate. Optional explicit single free Community choice per target only, with actual action counts. No canonical preference, activation or new solver run.'
           }
           $summary | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json') -Encoding utf8
       - name: Record an unavailable runtime result if installation or observation stopped early

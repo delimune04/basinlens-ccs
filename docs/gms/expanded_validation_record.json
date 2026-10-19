@@ -3,13 +3,12 @@
   "date": "2026-10-19",
   "test_result": {
     "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest discovery with dedicated TextTestRunner log)",
-    "tests_run": 203,
+    "tests_run": 237,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
     "passed": true,
-    "duration_seconds": 34.282,
-    "test_duration_seconds": 33.505
+    "duration_seconds": 27.657
   },
   "environment": {
     "numpy": "2.3.5",
@@ -27,11 +26,11 @@
   },
   "source_sha256": {
     ".github/workflows/ci.yml": "ffb2f74d374d8f14cde406d1fe49372db83c73015c08503f1a8034e9eb5da010",
-    ".github/workflows/gms-community-probe.yml": "7bbbc8df4fb105267c9bf95ad9659557c09cdc6de0420ea87047f1713ee8c409",
-    ".github/workflows/gms-native-analysis.yml": "3e3cd3bdfcb35b8fe3b2e04eefc5fa51e2e5825a4d533ba4d9df867c9a5c4860",
+    ".github/workflows/gms-community-probe.yml": "64d26cd6550e7bdc4b443a7a042f71eb6c9c0ce68e0c32c624167f2f104c7c24",
+    ".github/workflows/gms-native-analysis.yml": "b0b3d14d36f48f518e8f83e704d3641e29ef491068dc5e6572cf19b64b9e8b1f",
     "app.py": "3ce6008b53d6496369e5241a29237252aaaa42fdd31a578c99b0e29ac5af8e57",
     "examples/parity/generate_synthetic.py": "eebb0be20f91faf58c321276716c9db9ddb60b17cc0c4e742b99decdf684fb88",
-    "groundwater_app.py": "1dc09d1d74c6c2f4b793626e292298ab4f926bcb21b8fffbeecb21f715c21612",
+    "groundwater_app.py": "414bd7a552cf3b168dd229dd2b0d4eaa91fee15946c9016eff1448c065431570",
     "pyproject.toml": "d39ac5d655232c448fe22e358d2281180b8233e94b2da11d9e447a8f95a7c13b",
     "src/basinlens_ccs/__init__.py": "b2227353e610a15d222927a336b2bcf4db9a0b25f27e4723aa3b5dadd919eade",
     "src/basinlens_ccs/analysis.py": "0c8a9a8b11a75149425e4a0dfec6c1185f56e0048d4150b826ef1c950866ded1",
@@ -43,7 +42,9 @@
     "src/basinlens_ccs/groundwater/adapter.py": "04abf4bcf5a1dbcf669e6aa63430b940ae23d55983bed61903aee6b13fe3baae",
     "src/basinlens_ccs/groundwater/gms_native.py": "854f7610175c3ce51b82bd60e9f6eac5e6d3f683710af41f26ed36a9e668bcb2",
     "src/basinlens_ccs/groundwater/gpr_geometry.py": "72c3893bbbf49487c026d7ebd6ddc20ad08994fd584d88acb59b75d6c9afc555",
-    "src/basinlens_ccs/groundwater/gpr_hdf5.py": "fc9b6fd912a19e452ffd88c7b8ac19c7bb37b2e9f7068007d5caec59d687f9f1",
+    "src/basinlens_ccs/groundwater/gpr_hdf5.py": "bcc89895e8df39d33426d2d0a19d9b168ff187873638c87cc968f0d82a505414",
+    "src/basinlens_ccs/groundwater/gpr_project.py": "688f17facca3ad38c0daa0f6a3db0a55ec60ffbaf86209f6cadddc15ae2bdff7",
+    "src/basinlens_ccs/groundwater/gpr_storage.py": "5b9678eaf84b364a2451900790216555ce3921fb351394c5299a61b1c3530ad8",
     "src/basinlens_ccs/groundwater/native_run.py": "6141221cee3dc5988f13c9cfd3c7823faebcc7fe07ab7400bae70b2472245643",
     "src/basinlens_ccs/groundwater/schema.py": "912341aa0f6f10c84120013e80242adfa67a3ceff66a9b1289f79aefdaba6205",
     "src/basinlens_ccs/io.py": "2fde1edb648211312f2215f39c4f6cb955a34570632f3e6b07f92271c852a1e2",
@@ -69,13 +70,16 @@
     "tests/test_gms_native_import.py": "7bda57d181064920b06aeb9a25cac48c27945c8a113f03824449faeef5a73225",
     "tests/test_gpr_geometry.py": "5eb0af979341b9e2f33aee49847f8b487b35a987ad8f5fef4f9c5d8f71463938",
     "tests/test_gpr_hdf5.py": "44ea1052a75846dbba4a60f5b8e7bcaaa0da45b4cbba6803daa9221542fa64e1",
+    "tests/test_gpr_project.py": "e14e2ecd5a9882c21ca8d4517ff85804c8a21c3eaffedcbad195a221aff0bc84",
+    "tests/test_gpr_project_ui.py": "c8552bfae606d6d1dd761dc7c8b3bdf408811aa27937ec9324662690312fd057",
+    "tests/test_gpr_storage.py": "320acdab0fb8e0821ca56c3e51594214685eaa37f5e5bc29892de2e09e94abc5",
     "tests/test_gpr_ui.py": "e45cb09d218c0e5d9ecd4b8658a9af55782847fd26c5b09e88ff027726ae5bcb",
     "tests/test_groundwater.py": "3f3d949e3929f0524f8b67439a56f5e428d7aa9f6e1631be8fa9a16920b75caa",
     "tests/test_groundwater_ui.py": "c6e506707b06685c94f16802f7e384efcc0b90ecaa584c758e8ae3bfb4874d6d",
     "tests/test_installer_extraction.py": "93bc71cf3d22a3b8d5a0b447c56ffd40948005e80176054f47f8209e6de46478",
     "tests/test_io.py": "e7a04f43938b2ad0cb4a1cdb7ad7258602fd4cb6dee65f1e729f68461da0759e",
     "tests/test_models.py": "f857143874f304d105507e25d1c6df81b1d1bbf93bf1e637ce5bb31a51b64643",
-    "tests/test_native_rea_probe.py": "180db37023ace874e34c3fd2f0b266670a069f6353ee0d93edabfa2f5dd72545",
+    "tests/test_native_rea_probe.py": "a6925cbf4bff9d3f2a5faa8613f2d2c28223dd4726072f200b6d0a730241bde8",
     "tests/test_native_run.py": "c494141fd056af067a858f4a7f2cd949988bdaca09151840feac75b84dc7568c",
     "tests/test_native_ui.py": "13f39b3ac156b7bb2cc345c9563336d15ebf0fa48d752e2b6049ca3a31395857",
     "tests/test_parity.py": "4277fda33ba417b3ca6df87495cb0ee85c3c80ae02467b682665feffd3bd6075",
@@ -91,8 +95,8 @@
     "tools/find_gms_runtime.ps1": "e8c7e2426fb5c68a3cf97e9166bdc3eb277a03778a716b80117f916acb62558f",
     "tools/inspect_gms.py": "8b0a5d3b46145f9f76afc43a2c524dc5619bdad618dfa0369dd361ac8be0f8c9",
     "tools/install_mf6.py": "64e178f8cafbf8fa50c94e773926e5775290b0ef72c4d96e38cb666d71c12ca5",
-    "tools/native_rea_probe.py": "a4ebd603ba6399568272a138bbfb7b965e3507e62ca781346cd7d66bd017c94d",
-    "tools/probe_gms_community.ps1": "a031ec4a0d09b6756d98d5baf6a6074322f48c508c0252b7adef4246ad8e069e"
+    "tools/native_rea_probe.py": "49f9139fd41c5dc37f26d1788111c5a8b932f419df3c8d9a596c2e51dba34ff5",
+    "tools/probe_gms_community.ps1": "b398e7e49241c690b358859d3287f3160534f01ea55078b13ecbe0adc62cda80"
   },
   "checks": {
     "editable_install": "passed",
@@ -108,7 +112,9 @@
     "actual_saved_tutorial_GPR_viewer": "passed: 1125 cells, no app errors, unchanged source, unknown units retained",
     "independent_geometry_review": "passed after fixing same-centers/different-footprints and same-mean/sloped-corner false positives",
     "static_dialog_templates": "passed: 429 templates, 6853 static controls, zero failures; actual menu observations and genuine REA ledger replay unchanged",
-    "Windows_passive_helper_compilation_and_synthetic_guards": "passed in actual Windows run 39208615776 before installer download"
+    "Windows_passive_helper_compilation_and_synthetic_guards": "passed in actual Windows run 39208615776 before installer download",
+    "GPR_project_tree_and_raw_chunk_storage": "passed: 12 project tests, 10 storage tests, 3 explicit tree UI tests; actual corpus graph in project_validation_record.json",
+    "free_Community_selection_review": "independent source review passed after exact parent/dialog/root freshness and title truncation fixes; Windows compile and policy self-tests required before action"
   },
   "native_official_run": {
     "source_files": 15,
@@ -133,7 +139,7 @@
     "shipped_head_and_budget_binary_hashes_equal": true,
     "gms_runtime_witness": false
   },
-  "ci_scope": "Both CI runs passed for the exact 203-test public snapshot. Solver tests are skips in ordinary CI; local recorded integration checks used actual MF6 without skips.",
+  "ci_scope": "237-test local integration used actual MF6 without skips. Remote checks for this new snapshot have not completed; ordinary CI skips unavailable solver tests.",
   "equivalence": {
     "genuine_original_GMS_output_matches": 0,
     "whole_product_parity": false,
@@ -142,8 +148,8 @@
     "field_validation": false
   },
   "publication_boundary": "No original vendor executables, resources, source, tutorial inputs, GPR payloads or native pseudocode are included.",
-  "tested_local_implementation_commit": "41e04cdcf27ad33b6c9137cf317de226105d74de",
-  "publication_binding": "Exact published 203-test snapshot; later probe changes have separately recorded checks until the next full-source publication.",
+  "tested_local_implementation_commit": "9ae17e23d738fef816350cc75e1c50dd24f1d0e6",
+  "publication_binding": "Source hashes bind the tested implementation; exact public commit/tree and remote CI will be attached after publishing this snapshot.",
   "geometry_validation": {
     "nodes": 1536,
     "cells": 1125,
@@ -223,6 +229,30 @@
           "status": "success"
         }
       ]
+    },
+    {
+      "tested_public_commit": "c6f04dc5c1709cab03a0777e8449dc8a938b772e",
+      "tested_public_tree": "aabf41e3542646a5f0754be01a1d06fe73690bcf",
+      "test_result": {
+        "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest discovery with dedicated TextTestRunner log)",
+        "tests_run": 203,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": true,
+        "duration_seconds": 34.282,
+        "test_duration_seconds": 33.505
+      },
+      "remote_ci": [
+        {
+          "run_id": 39208622899,
+          "status": "success"
+        },
+        {
+          "run_id": 39208615712,
+          "status": "success"
+        }
+      ]
     }
   ],
   "static_dialog_validation_record": "dialog_layout_validation_record.json",
@@ -235,18 +265,6 @@
     "workflow_run_id": 39204176129,
     "receipt": "native_rea_bounded_receipt.json"
   },
-  "tested_public_commit": "c6f04dc5c1709cab03a0777e8449dc8a938b772e",
-  "tested_public_tree": "aabf41e3542646a5f0754be01a1d06fe73690bcf",
-  "remote_ci": [
-    {
-      "run_id": 39208622899,
-      "status": "success"
-    },
-    {
-      "run_id": 39208615712,
-      "status": "success"
-    }
-  ],
   "additional_native_probe_check": {
     "targeted_tests_run": 13,
     "targeted_failures": 0,
@@ -265,6 +283,6 @@
     },
     "provider_budget_seconds": 1200,
     "outer_watchdog_seconds": 1290,
-    "actual_corrected_probe_result": "not yet run"
+    "actual_corrected_probe_result": "in progress: workflow 39210146753; no returned overview or successful analysis claimed"
   }
 }

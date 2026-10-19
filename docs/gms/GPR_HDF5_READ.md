@@ -13,8 +13,18 @@ python -m basinlens_ccs.groundwater.gpr_hdf5 /path/project.gpr
 `read_gpr_numeric_array(path, "/explicit/dataset/path")` returns one selected
 numeric array and its storage descriptor. Reads are bounded to 32 MiB and reject
 indirect links, virtual datasets, external raw storage, variable-width objects,
-and plugin filters. Deflate, shuffle and Fletcher32 are supported. No unit or
+and plugin filters. Payload reads support unfiltered storage or a single deflate
+filter. Shuffle, Fletcher32, mixed filters, sparse/unallocated storage, and
+noncanonical numeric file datatypes are explicitly unsupported. No unit or
 coordinate transformation is inferred.
+
+Chunked payloads are assembled from bounded raw chunks and decoded with an
+output-limited zlib stream, rather than HDF5's decompressor. The reader checks
+stored chunk bytes/count/masks, full edge-chunk and aggregate decoded bytes,
+coordinate coverage, and exact stream completion. This rejects chunks that
+inflate beyond their advertised size. The descriptor includes a storage-read
+receipt. See [GPR_PROJECT.md](GPR_PROJECT.md) for the shared storage limits and
+independent malformed-chunk regressions.
 
 ## Original format observations
 
@@ -37,8 +47,8 @@ The `File Type` dataset identifies XMDF. The observed top-level groups include
 | `<grid>/Datasets/<field>/Values` | Numeric time-by-location array. |
 | `<grid>/Datasets/<field>/Active` | Active-state time-by-location array. |
 | `<grid>/Datasets/<field>/Times` | Numeric time coordinates. |
-| `Tree/Tree` | String records describing a project tree; semantics are not reconstructed. |
-| `SimSolutions/<model-family>/<simulation>` | UUID references to solution datasets/components. |
+| `Tree/Tree` | String records; the separate [partial project reader](GPR_PROJECT.md) supports balanced observed hierarchy and anonymous node categories. |
+| `SimSolutions/<model-family>/<simulation>` | UUID references; the partial reader reports literal equality edges and explicit unresolved relationships. |
 
 The sample head data is `float32` with shape `(1, 1125)` and exactly equals the
 shipped native `float64` head output converted to `float32`. The maximum

@@ -10,7 +10,7 @@ records the remaining product and evidence work.
 
 | GMS workflow | This implementation | Verification / limitation |
 |---|---|---|
-| Model/project management | Versioned JSON case import, edit, export | Limited GPR/HDF5 inspection and selected array reads; no native save/reopen round trip |
+| Model/project management | Versioned JSON case import, edit, export | Partial saved GPR tree/UUID graph, bounded array reads and anonymous summary; no native save/reopen round trip |
 | Structured groundwater case builder | Uniform horizontal spacing, multiple flat layers | All cells active, confined aquifer only; native-input execution has a separate, broader contract |
 | Hydraulic properties | Per-layer anisotropic K and specific storage | Constant within each layer |
 | Case-builder boundary conditions | Left/right constant head; other outside faces no-flow | General GIS boundary editing is absent; existing native packages are retained by the native runner |
@@ -26,6 +26,7 @@ records the remaining product and evidence work.
 | REA reconstruction accounting | Exact main executable/resource observation and source-linked capability catalogue | Static structure is distinct from observed behavior |
 | Static dialog templates | All 429 listed standard/extended templates decoded into 6,853 numeric control layouts | Dialog units and stored styles only; no original captions, dynamic UI or handler reproduction |
 | Native MF6 / GPR data | General MF6 reference graph, opaque sidecars, bounded HDF5 metadata/array reads | Actual official tutorial import and native-input rerun; no GMS UI/translation witness |
+| Saved GPR project relationships | Explicit tree inspection and literal UUID graph | One actual tutorial: 29 nodes, 21 relationships, 16 unresolved; no external component synchronization |
 | Native GPR geometry | Physical nodes, hexahedra and cell elevations for one verified rectilinear representation | All 1,125 tutorial cell coordinates match native DIS; units/CRS/datum remain unknown, no GPR writing |
 | GIS / CAD / boreholes | Not implemented | No shapefile/CAD/CRS transformation claims |
 | Unstructured meshes / solids | Not implemented | No grid refinement or stratigraphic interpolation |

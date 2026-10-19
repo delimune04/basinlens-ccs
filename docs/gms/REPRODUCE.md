@@ -92,6 +92,19 @@ The view shows saved data with unknown units/CRS/datum and no inferred time
 conversion. It renders at most 20,000 cell centers and reads at most 8 MiB for
 the selected field; it does not run a solver or save a GPR project.
 
+When `/Tree/Tree` is present, select **저장 프로젝트 트리 읽기** to inspect the
+saved parent/child hierarchy. This explicit action is independent of geometry
+decoding. Original labels appear only in the local view; the download contains
+an anonymous graph without labels, UUID strings or HDF5 paths. Unresolved
+references are counted rather than guessed. The CLI equivalent is:
+
+```bash
+python -m basinlens_ccs.groundwater.gpr_project /absolute/path/project.gpr
+```
+
+See [GPR_PROJECT.md](GPR_PROJECT.md) for supported grammar and raw-chunk read
+limits. Unsupported filter/storage representations are refused.
+
 The app's separate native-model section can execute an existing resolved MF6
 model and download its verified bundle. The CLI equivalent and its disjoint
 source/output rule are in [MF6_NATIVE_IMPORT.md](MF6_NATIVE_IMPORT.md).

@@ -1,11 +1,13 @@
 #Requires -Version 7.0
 <#
 .SYNOPSIS
-Bounded normal GMS launch and passive UI capture. No activation or solver run.
+Bounded normal GMS launch, passive capture and optional one free Community choice.
 .DESCRIPTION
 Use an already normally installed GMS. Only the process started here and its
 descendants are inspected. Screenshots, titles and UIA text stay private. The
-public receipt contains metadata/counts/hashes only. A visible window does not
+public receipt contains metadata/counts/hashes only. Default behavior is passive;
+-SelectFreeCommunityEdition permits at most one verified Community Edition button
+click during normal startup. No activation, trial or solver action is performed. A visible window does not
 prove Community entitlement, successful model import, or numerical execution.
 #>
 [CmdletBinding()]
@@ -17,11 +19,14 @@ param(
     [long]$ExpectedTargetSize = 145479264,
     [string]$ProjectPath,
     [ValidateRange(10,120)][int]$ObservationSeconds = 30,
-    [switch]$AllowStart
+    [switch]$AllowStart,
+    [switch]$SelectFreeCommunityEdition
 )
 $ErrorActionPreference = 'Stop'
 if (-not $IsWindows) { throw 'This passive runtime probe requires Windows.' }
 if (-not $AllowStart) { throw 'Normal target execution requires the explicit -AllowStart flag.' }
+if ($SelectFreeCommunityEdition -and $ProjectPath) { throw 'The optional free Community choice is allowed only on normal startup without a project argument.' }
+if ($SelectFreeCommunityEdition -and ($ExpectedTargetSha256 -ne 'd69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2' -or $ExpectedTargetSize -ne 145479264)) { throw 'The optional free Community choice requires the exact originally observed GMS 10.9.7 image identity.' }
 $exe = (Resolve-Path -LiteralPath $ExecutablePath).Path
 if (-not (Test-Path -LiteralPath $exe -PathType Leaf)) { throw 'Select an installed regular GMS executable.' }
 $actualHash = (Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -50,13 +55,16 @@ $receipt = [ordered]@{
     reported_mode_category = 'unknown'; possible_community_option_text_observed = $false
     main_window_enabled_observed = $null; menu_observations = @()
     community_button_guard_observations = @(); community_button_guard_actions_enabled = $false
+    free_community_selection_requested = [bool]$SelectFreeCommunityEdition
+    free_community_selection_observations = @(); free_community_selection_attempted = $false
+    post_selection_dialog_observed = $false; post_selection_window_observed = $false
     standard_menu_items_observed = $false
     classification_basis = 'Conservative passive visible-window and bounded child-control text; original text stays private.'
     activation_requests_initiated_by_probe = 0; licence_ui_actions = 0; target_ui_actions = 0
     target_network_activity_monitored = $false
     observation_seconds = $ObservationSeconds; screenshot_count = 0; private_observation_sha256 = $null
     probe_phase = 'initializing'
-    qualification = 'Passive startup/document-window observation only. Screenshots and UI text are private; no numerical or full-product equivalence claim.'
+    qualification = 'Bounded startup/document observation. Optional explicitly requested single documented free Community choice only; no activation or numerical/full-product equivalence claim. UI text and screenshots stay private.'
 }
 $owned = $null
 $ownedIds = [Collections.Generic.HashSet[uint]]::new()
@@ -84,12 +92,18 @@ public static class GmsPassiveWindows {
   [DllImport("user32.dll")] public static extern IntPtr GetAncestor(IntPtr h, uint flags);
   [DllImport("user32.dll")] public static extern bool IsChild(IntPtr parent, IntPtr child);
   [DllImport("user32.dll")] public static extern int GetDlgCtrlID(IntPtr h);
-  [DllImport("user32.dll", EntryPoint="GetWindowLongPtrW")] private static extern IntPtr GetWindowLongPtr64(IntPtr h,int index);
-  [DllImport("user32.dll", EntryPoint="GetWindowLongW")] private static extern int GetWindowLong32(IntPtr h,int index);
+  [StructLayout(LayoutKind.Sequential)] private struct WindowInfo {
+    public uint Size;
+    public Rect Window,Client;
+    public uint Style,ExStyle,Status,BorderX,BorderY;
+    public ushort WindowType,CreatorVersion;
+  }
+  [DllImport("user32.dll")] private static extern bool GetWindowInfo(IntPtr h,ref WindowInfo info);
   [DllImport("user32.dll")] public static extern IntPtr GetWindow(IntPtr h, uint command);
   [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out Rect r);
   [DllImport("user32.dll")] public static extern bool EnumChildWindows(IntPtr h, EnumProc callback, IntPtr l);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern IntPtr SendMessageTimeout(IntPtr h,uint m,UIntPtr w,StringBuilder text,uint flags,uint milliseconds,out UIntPtr result);
+  [DllImport("user32.dll", EntryPoint="SendMessageTimeoutW", SetLastError=true)] private static extern IntPtr SendButtonMessageTimeout(IntPtr h,uint m,UIntPtr w,IntPtr l,uint flags,uint milliseconds,out UIntPtr result);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetWindowText(IntPtr h, StringBuilder text, int count);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetClassName(IntPtr h, StringBuilder text, int count);
   [DllImport("user32.dll")] public static extern IntPtr GetMenu(IntPtr h);
@@ -199,6 +213,110 @@ public static class GmsPassiveWindows {
     else guard.Status="passive_candidate_observed_review_required_no_action";
     return guard;
   }
+  public class FreeCommunitySelection {
+    public string Policy="documented_free_community_normal_startup_v1",Status="not_checked";
+    public string NoLicenseContext="not_recognized_or_unavailable";
+    public bool ExplicitOptIn,NormalStartup,TargetIdentityVerified,LiveImagePathVerified,CompleteLiveSnapshots;
+    public bool TermsAcceptanceContextObserved,OtherLicenceOptionsTextObserved,PolicyPermitsOneAttempt,Attempted,MessageCompleted;
+    public int ExactLabelControlCount,VisibleDialogCount,AttemptBudgetUsed;
+    public bool NoLicensePhraseRequiredByThisPolicy=false;
+    public string Qualification="A unique actual free Community choice may be selected once; no activation or entitlement/numerical inference. Unknown no-license phrase remains unknown.";
+  }
+  public static FreeCommunitySelection AssessFreeSelection(WindowContext window,ControlSnapshot snapshot,bool optIn,bool normalStartup,bool identityVerified,int attemptsUsed,int globalLabels,int dialogs,bool complete) {
+    var guard=AssessCommunityButton(window,snapshot);
+    var selection=new FreeCommunitySelection { ExplicitOptIn=optIn,NormalStartup=normalStartup,TargetIdentityVerified=identityVerified,
+      AttemptBudgetUsed=attemptsUsed,ExactLabelControlCount=globalLabels,VisibleDialogCount=dialogs,CompleteLiveSnapshots=complete,NoLicenseContext=guard.NoLicenseContext };
+    // A normal licence chooser can mention paid keys or trials as alternatives.
+    // The only eligible action remains the exact free Community button; those
+    // mentions do not turn that action into registration or a trial request.
+    // A separate terms-acceptance context still refuses automated selection.
+    selection.TermsAcceptanceContextObserved=System.Text.RegularExpressions.Regex.IsMatch(window.VisibleText ?? "",@"\beula\b|\bterms\s+(?:and|&)\s+conditions\b|\bend[ -]user\s+licen[cs]e\b|\blicen[cs]e\s+agreement\b|\bterms\s+of\s+(?:use|service)\b|\b(?:agree|consent|accept)\b.{0,80}\b(?:agreement|terms)\b",System.Text.RegularExpressions.RegexOptions.IgnoreCase|System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+    selection.OtherLicenceOptionsTextObserved=System.Text.RegularExpressions.Regex.IsMatch(window.VisibleText ?? "",@"\b(evaluation|trial|billing|checkout|payment|purchase)\b|\blicen[cs]e\s+(?:key|code)\b|\blegacy\s+licensing\b",System.Text.RegularExpressions.RegexOptions.IgnoreCase|System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+    if(!optIn) selection.Status="passive_default_no_action";
+    else if(!normalStartup) selection.Status="document_launch_disallows_free_choice";
+    else if(attemptsUsed!=0) selection.Status="single_attempt_budget_already_used";
+    else if(!identityVerified) selection.Status="fresh_target_identity_not_verified";
+    else if(!complete || snapshot.Truncated || snapshot.ReadErrors>0) selection.Status="incomplete_live_snapshot_no_action";
+    else if(globalLabels!=1 || dialogs!=1) selection.Status="global_dialog_or_exact_button_uniqueness_not_verified";
+    else if(!window.OwnedProcess || !window.Visible || !window.Enabled || !window.IsDialog || !guard.UniqueFullyVerifiedCandidate) selection.Status="live_owned_enabled_standard_button_relation_not_verified";
+    else if(selection.TermsAcceptanceContextObserved) selection.Status="terms_acceptance_context_no_action";
+    else { selection.PolicyPermitsOneAttempt=true; selection.Status="one_documented_free_choice_attempt_permitted"; }
+    return selection;
+  }
+  private class LiveSelectionState {
+    public WindowContext Window=new WindowContext();
+    public ControlSnapshot Snapshot=new ControlSnapshot();
+    public IntPtr Button=IntPtr.Zero;
+    public IntPtr Dialog=IntPtr.Zero,ButtonParent=IntPtr.Zero,ButtonRoot=IntPtr.Zero;
+    public uint ProcessId;
+    public int Labels,Dialogs;
+    public bool Complete=true;
+  }
+  private static LiveSelectionState ReadSelectionState(HashSet<uint> pids) {
+    var state=new LiveSelectionState(); var windows=ForPids(pids);
+    if(windows.Length>8) { state.Complete=false; return state; }
+    foreach(var window in windows) {
+      uint pid; GetWindowThreadProcessId(window,out pid);
+      var title=new StringBuilder(2048); GetWindowText(window,title,title.Capacity);
+      if(title.Length>=title.Capacity-1) state.Complete=false;
+      var nativeClass=new StringBuilder(256);
+      if(GetClassName(window,nativeClass,nativeClass.Capacity)==0) state.Complete=false;
+      var owner=GetWindow(window,4);
+      bool dialog=nativeClass.ToString()=="#32770" || (owner!=IntPtr.Zero && !IsWindowEnabled(owner));
+      if(dialog) state.Dialogs++;
+      var snapshot=BoundedControls(window,pids);
+      if(snapshot.Truncated || snapshot.ReadErrors>0) state.Complete=false;
+      var text=new StringBuilder(title.ToString());
+      foreach(var c in snapshot.Controls) if(c.Visible) text.Append(" ").Append(c.Label);
+      var context=new WindowContext { VisibleText=text.ToString(),OwnedProcess=pids.Contains(pid),Visible=IsWindowVisible(window),Enabled=IsWindowEnabled(window),IsDialog=dialog };
+      var guard=AssessCommunityButton(context,snapshot);
+      state.Labels+=guard.ExactLabelControlCount;
+      if(guard.UniqueFullyVerifiedCandidate && dialog) {
+        state.Window=context; state.Snapshot=snapshot; state.ProcessId=pid;
+        state.Dialog=window;
+        foreach(var c in snapshot.Controls) if(IsDocumentedCommunityLabel(c.Label)) {
+          state.Button=new IntPtr(c.Handle); state.ButtonParent=new IntPtr(c.ParentHandle);
+          state.ButtonRoot=new IntPtr(c.TopLevelHandle);
+        }
+      }
+    }
+    return state;
+  }
+  private static bool VerifyPinnedImage(string path,string expectedHash,long expectedSize) {
+    var info=new System.IO.FileInfo(path);
+    if(!info.Exists || info.Length!=expectedSize) return false;
+    using(var stream=System.IO.File.OpenRead(path)) using(var sha=System.Security.Cryptography.SHA256.Create()) {
+      string hash=BitConverter.ToString(sha.ComputeHash(stream)).Replace("-","").ToLowerInvariant();
+      return String.Equals(hash,expectedHash,StringComparison.OrdinalIgnoreCase);
+    }
+  }
+  public static FreeCommunitySelection SelectFreeCommunityOnce(HashSet<uint> pids,string imagePath,string expectedHash,long expectedSize,bool optIn,bool normalStartup,int attemptsUsed) {
+    var selection=new FreeCommunitySelection { ExplicitOptIn=optIn,NormalStartup=normalStartup,AttemptBudgetUsed=attemptsUsed };
+    if(!optIn || !normalStartup || attemptsUsed!=0) return AssessFreeSelection(new WindowContext(),new ControlSnapshot(),optIn,normalStartup,false,attemptsUsed,0,0,false);
+    try {
+      bool identity=VerifyPinnedImage(imagePath,expectedHash,expectedSize);
+      var first=ReadSelectionState(pids);
+      selection=AssessFreeSelection(first.Window,first.Snapshot,optIn,normalStartup,identity,attemptsUsed,first.Labels,first.Dialogs,first.Complete);
+      if(!selection.PolicyPermitsOneAttempt || first.Button==IntPtr.Zero) return selection;
+      string liveImage=Process.GetProcessById((int)first.ProcessId).MainModule.FileName;
+      bool sameImage=String.Equals(System.IO.Path.GetFullPath(liveImage),System.IO.Path.GetFullPath(imagePath),StringComparison.OrdinalIgnoreCase);
+      selection.LiveImagePathVerified=sameImage;
+      // Fresh exact-byte verification precedes a second complete live snapshot.
+      if(!sameImage || !VerifyPinnedImage(liveImage,expectedHash,expectedSize)) { selection.PolicyPermitsOneAttempt=false; selection.Status="live_process_exact_image_not_verified"; return selection; }
+      var fresh=ReadSelectionState(pids);
+      selection=AssessFreeSelection(fresh.Window,fresh.Snapshot,optIn,normalStartup,true,attemptsUsed,fresh.Labels,fresh.Dialogs,fresh.Complete);
+      selection.LiveImagePathVerified=true;
+      if(!selection.PolicyPermitsOneAttempt || fresh.Button==IntPtr.Zero) return selection;
+      if(fresh.Button!=first.Button || fresh.ProcessId!=first.ProcessId || fresh.Dialog!=first.Dialog || fresh.ButtonParent!=first.ButtonParent || fresh.ButtonRoot!=first.ButtonRoot) { selection.PolicyPermitsOneAttempt=false; selection.Status="candidate_changed_during_fresh_checks_no_action"; return selection; }
+      // Reserve the sole attempt BEFORE the only control-selection call. A
+      // timeout can still mean delivery, so it is counted and never retried.
+      selection.Attempted=true; selection.AttemptBudgetUsed=1;
+      UIntPtr ignored;
+      selection.MessageCompleted=SendButtonMessageTimeout(fresh.Button,0x00F5,UIntPtr.Zero,IntPtr.Zero,3,1000,out ignored)!=IntPtr.Zero; // BM_CLICK
+      selection.Status=selection.MessageCompleted ? "single_free_community_click_sent" : "single_free_community_click_timeout_or_failure_no_retry";
+    } catch { selection.PolicyPermitsOneAttempt=false; selection.Status=selection.Attempted ? "single_attempt_exception_no_retry" : "fresh_selection_check_failed_no_action"; }
+    return selection;
+  }
   public static ControlSnapshot BoundedControls(IntPtr window,HashSet<uint> pids) {
     var snapshot=new ControlSnapshot(); var result=new List<ControlRecord>(); var watch=Stopwatch.StartNew();
     uint windowPid; GetWindowThreadProcessId(window,out windowPid);
@@ -216,7 +334,11 @@ public static class GmsPassiveWindows {
       if(visible && sameOwnedProcess) { UIntPtr ignored; if(SendMessageTimeout(h,13,new UIntPtr(512),text,3,100,out ignored)==IntPtr.Zero || text.Length>=511) snapshot.ReadErrors++; }
       bool standard=String.Equals(nativeClass.ToString(),"Button",StringComparison.OrdinalIgnoreCase);
       int type=-1;
-      if(standard) { long style=IntPtr.Size==8 ? GetWindowLongPtr64(h,-16).ToInt64() : GetWindowLong32(h,-16); type=(int)(style & 15); }
+      if(standard) {
+        var info=new WindowInfo { Size=(uint)Marshal.SizeOf(typeof(WindowInfo)) };
+        if(GetWindowInfo(h,ref info)) type=(int)(info.Style & 15);
+        else snapshot.ReadErrors++;
+      }
       result.Add(new ControlRecord { Handle=h.ToInt64(),ParentHandle=parent.ToInt64(),TopLevelHandle=root.ToInt64(),
         ProcessId=pid,ControlId=GetDlgCtrlID(h),ButtonType=type,ClassName=nativeClass.ToString(),Label=text.ToString(),
         Visible=visible,Enabled=IsWindowEnabled(h),OwnedProcess=pids.Contains(pid),SameProcessAsWindow=pid==windowPid,
@@ -285,6 +407,8 @@ public static class GmsPassiveWindows {
     $deadline = [DateTime]::UtcNow.AddSeconds($ObservationSeconds)
     $iteration = 0
     $stopObservation = $false
+    $selectionChecked = $false
+    $continueAfterSelection = $false
     while ([DateTime]::UtcNow -lt $deadline) {
         $iteration++
         $pids = [Collections.Generic.HashSet[uint]]::new()
@@ -361,13 +485,34 @@ public static class GmsPassiveWindows {
                 $receipt.dialog_categories_observed = @($receipt.dialog_categories_observed + $category | Select-Object -Unique)
                 $receipt.startup_classification = if ($category -eq 'unknown') { 'unclassified_dialog_observed' } else { 'blocking_' + $category + '_dialog_observed' }
                 $stopObservation = $true
+                if ($receipt.free_community_selection_attempted) {
+                    $receipt.post_selection_dialog_observed=$true
+                } elseif ($SelectFreeCommunityEdition -and -not $selectionChecked) {
+                    $selectionChecked=$true
+                    $receipt.probe_phase='fresh_optional_free_community_choice_checks'
+                    $selection=[GmsPassiveWindows]::SelectFreeCommunityOnce($pids,$exe,$ExpectedTargetSha256,$ExpectedTargetSize,$true,($receipt.launch_method -eq 'normal_process_start'),[int]$receipt.target_ui_actions)
+                    $receipt.free_community_selection_observations += @($selection)
+                    $entry.free_community_selection=$selection
+                    if ($selection.Attempted) {
+                        $receipt.free_community_selection_attempted=$true
+                        $receipt.licence_ui_actions=1
+                        $receipt.target_ui_actions=1
+                        $receipt.startup_classification='free_community_choice_attempted_workspace_unverified'
+                        $stopObservation=$false
+                        $continueAfterSelection=$true
+                    }
+                    $receipt.probe_phase='passive_post_choice_observation'
+                }
             } elseif ($receipt.startup_classification -eq 'unknown' -and $entry.title -match '(?i)\bGMS\b') {
                 $receipt.startup_classification = 'application_window_observed_mode_unknown'
+            }
+            if ($receipt.free_community_selection_attempted -and -not $isDialog) {
+                $receipt.post_selection_window_observed=$true
             }
             # Capture only this target window's visible rectangle. Any blank or
             # occluded frame remains evidence of that limitation, never a fake UI.
             $width = $rect.Right - $rect.Left; $height = $rect.Bottom - $rect.Top
-            if ($width -gt 0 -and $height -gt 0 -and $width -le 4096 -and $height -le 4096 -and $receipt.screenshot_count -lt 4) {
+            if (-not $continueAfterSelection -and $width -gt 0 -and $height -gt 0 -and $width -le 4096 -and $height -le 4096 -and $receipt.screenshot_count -lt 4) {
                 $bitmap = [Drawing.Bitmap]::new($width,$height)
                 $graphics = [Drawing.Graphics]::FromImage($bitmap)
                 try {
@@ -379,8 +524,9 @@ public static class GmsPassiveWindows {
                 } finally { $graphics.Dispose(); $bitmap.Dispose() }
             }
             $observations.Add($entry)
-            if ($stopObservation) { break }
+            if ($stopObservation -or $continueAfterSelection) { break }
         }
+        $continueAfterSelection=$false
         if ($stopObservation) { break }
         $owned.Refresh()
         if ($owned.HasExited -and ([GmsPassiveWindows]::ForPids($pids)).Count -eq 0) { break }
@@ -396,8 +542,8 @@ public static class GmsPassiveWindows {
     $receipt.failure_phase = $receipt.probe_phase
 } finally {
     if ($owned) {
-        # End only this bounded probe's process tree. Do not interact with licence
-        # dialogs, try alternate keys, request evaluation, or touch registration.
+        # End only this bounded probe's process tree. No further UI interaction,
+        # alternate keys, evaluation request or registration action is allowed.
         $owned.Refresh()
         if (-not $owned.HasExited) { & taskkill.exe /PID $owned.Id /T /F 2>&1 | Out-Null }
         foreach ($id in $ownedIds) {
