@@ -71,6 +71,7 @@ jobs:
           --mf2005-exe "$MF2005_EXE" --mfnwt-exe "$MFNWT_EXE"
       - name: Execute authored geoscience file and geometry examples
         run: |
+          mkdir -p "$CI_SOLVER_REPORT/examples"
           python examples/geology/run_geology_example.py --output build/ci-real-mf6/examples/geology
           python examples/scatter/run_scatter_example.py --output build/ci-real-mf6/examples/scatter
           python examples/features/run_feature_example.py --output build/ci-real-mf6/examples/features

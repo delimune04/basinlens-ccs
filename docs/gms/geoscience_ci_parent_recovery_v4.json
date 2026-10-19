@@ -1,0 +1,568 @@
+{
+  "schema": "basinlens-geoscience-ci-parent-recovery-v4",
+  "source_commit": "b2ebc651c4f362a185312ca863e3511c6a614dae",
+  "source_tree": "1a92e1c122102f83c71345f43f9e75b8fd547beb",
+  "failed_runs": [
+    {
+      "run": 39241430315,
+      "jobs": [
+        {
+          "id": 118022940741,
+          "name": "Groundwater, transport and UI with pinned real MF6, MF2005 and NWT",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_id": 39241430315,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Set the explicit real-engine path before test discovery",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install optional groundwater and UI dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Prepare and verify exact public MF6 and classic double-precision engines",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Check all tests with actual MF6 and refuse every skip",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Export and verify a portable groundwater model",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Save, relocate and rerun the spatial project roundtrip example",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Load, rewrite and execute both classic groundwater engines",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Execute authored geoscience file and geometry examples",
+              "status": "completed",
+              "conclusion": "failure",
+              "number": 11
+            },
+            {
+              "name": "Fit authored conductivity and storage using actual MF6 and reject flat data",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 12
+            },
+            {
+              "name": "Retain real-engine evidence even when a check fails",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Upload real-engine evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 27
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 28
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 29
+            }
+          ]
+        },
+        {
+          "id": 118022941138,
+          "name": "test (3.10)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 39241430315,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install package",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run unit tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run example analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Verify example bundle",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 118022941227,
+          "name": "test (3.12)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 39241430315,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install package",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run unit tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run example analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Verify example bundle",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 12181687436,
+          "name": "real-mf6-checks-39241430315-1",
+          "size_in_bytes": 271941,
+          "url": "https://api.github.com/repos/delimune04/basinlens-ccs/actions/artifacts/12181687436",
+          "archive_download_url": "https://api.github.com/repos/delimune04/basinlens-ccs/actions/artifacts/12181687436/zip",
+          "expired": false,
+          "created_at": "2026-10-19T11:05:58Z",
+          "expires_at": "2026-11-02T11:05:57Z",
+          "updated_at": "2026-10-19T11:05:58Z",
+          "digest": "sha256:5a40f7ac56ff957a015563a68e03f9284d2bfff2d6a6a2371db23c2ed6a6ee25",
+          "workflow_run": {
+            "id": 39241430315,
+            "repository_id": 1350358361,
+            "head_repository_id": 1350358361,
+            "head_branch": "feat/gms-groundwater-workbench",
+            "head_sha": "b2ebc651c4f362a185312ca863e3511c6a614dae"
+          }
+        }
+      ]
+    },
+    {
+      "run": 39241434599,
+      "jobs": [
+        {
+          "id": 118022954547,
+          "name": "Groundwater, transport and UI with pinned real MF6, MF2005 and NWT",
+          "status": "completed",
+          "conclusion": "failure",
+          "run_id": 39241434599,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Set the explicit real-engine path before test discovery",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Install optional groundwater and UI dependencies",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Prepare and verify exact public MF6 and classic double-precision engines",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Check all tests with actual MF6 and refuse every skip",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Export and verify a portable groundwater model",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Save, relocate and rerun the spatial project roundtrip example",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Load, rewrite and execute both classic groundwater engines",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 10
+            },
+            {
+              "name": "Execute authored geoscience file and geometry examples",
+              "status": "completed",
+              "conclusion": "failure",
+              "number": 11
+            },
+            {
+              "name": "Fit authored conductivity and storage using actual MF6 and reject flat data",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 12
+            },
+            {
+              "name": "Retain real-engine evidence even when a check fails",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Upload real-engine evidence",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 27
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 28
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 29
+            }
+          ]
+        },
+        {
+          "id": 118022954701,
+          "name": "test (3.10)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 39241434599,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install package",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run unit tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run example analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Verify example bundle",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        },
+        {
+          "id": 118022954727,
+          "name": "test (3.12)",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 39241434599,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Install package",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run unit tests",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run example analysis",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Verify example bundle",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 13
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 14
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 15
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 12180654874,
+          "name": "real-mf6-checks-39241434599-1",
+          "size_in_bytes": 271937,
+          "url": "https://api.github.com/repos/delimune04/basinlens-ccs/actions/artifacts/12180654874",
+          "archive_download_url": "https://api.github.com/repos/delimune04/basinlens-ccs/actions/artifacts/12180654874/zip",
+          "expired": false,
+          "created_at": "2026-10-19T11:05:56Z",
+          "expires_at": "2026-11-02T11:05:54Z",
+          "updated_at": "2026-10-19T11:05:56Z",
+          "digest": "sha256:a9838f64c223bf1f14744dfb6e891a02d24764393952b8790badac97cd2658d7",
+          "workflow_run": {
+            "id": 39241434599,
+            "repository_id": 1350358361,
+            "head_repository_id": 1350358361,
+            "head_branch": "feat/gms-groundwater-workbench",
+            "head_sha": "b2ebc651c4f362a185312ca863e3511c6a614dae"
+          }
+        }
+      ]
+    }
+  ],
+  "diagnosis": "Strict 647-test step, portable project roundtrip and classic eight-native-run example passed. The first new geology example calls output.mkdir(parents=False); the workflow did not create build/ci-real-mf6/examples. FileNotFoundError stopped the ten-command step before any new example output; calibration was skipped. These CI runs are failed, not accepted.",
+  "fix": "Create the explicit CI_SOLVER_REPORT/examples parent before the authored example commands. Application, test and example code is unchanged.",
+  "failure_log_excerpt": "2026-10-19T11:05:53.7222657Z ##[endgroup]\n2026-10-19T11:05:56.5035064Z {\"actual_native_runs\": 8, \"all_passed\": true}\n2026-10-19T11:05:56.6669175Z ##[group]Run python examples/geology/run_geology_example.py --output build/ci-real-mf6/examples/geology\n2026-10-19T11:05:56.6669956Z \u001b[36;1mpython examples/geology/run_geology_example.py --output build/ci-real-mf6/examples/geology\u001b[0m\n2026-10-19T11:05:56.6670629Z \u001b[36;1mpython examples/scatter/run_scatter_example.py --output build/ci-real-mf6/examples/scatter\u001b[0m\n2026-10-19T11:05:56.6671292Z \u001b[36;1mpython examples/features/run_feature_example.py --output build/ci-real-mf6/examples/features\u001b[0m\n2026-10-19T11:05:56.6671987Z \u001b[36;1mpython examples/mesh/run_mesh_example.py --output build/ci-real-mf6/examples/mesh --exe \"$MF6_EXE\"\u001b[0m\n2026-10-19T11:05:56.6672675Z \u001b[36;1mpython examples/surfaces/run_surface_example.py --output build/ci-real-mf6/examples/surfaces\u001b[0m\n2026-10-19T11:05:56.6673288Z \u001b[36;1mpython examples/raster/run_example.py build/ci-real-mf6/examples/raster\u001b[0m\n2026-10-19T11:05:56.6673939Z \u001b[36;1mpython examples/pointcloud/run_pointcloud_example.py --output build/ci-real-mf6/examples/pointcloud\u001b[0m\n2026-10-19T11:05:56.6675440Z \u001b[36;1mpython examples/analysis/run_analysis_example.py --output build/ci-real-mf6/examples/analysis --exe \"$MF6_EXE\"\u001b[0m\n2026-10-19T11:05:56.6676323Z \u001b[36;1mpython examples/geoscience_project/run_geoscience_project_example.py --output build/ci-real-mf6/examples/portable-collections\u001b[0m\n2026-10-19T11:05:56.6677186Z \u001b[36;1mpython examples/geostatistics/run_geostatistics_example.py --output build/ci-real-mf6/examples/geostatistics\u001b[0m\n2026-10-19T11:05:56.6740614Z shell: /usr/bin/bash -e {0}\n2026-10-19T11:05:56.6740881Z env:\n2026-10-19T11:05:56.6741104Z   CI_SOLVER_REPORT: build/ci-real-mf6\n2026-10-19T11:05:56.6741429Z   MF6_EXE: /home/runner/work/_temp/basinlens-mf6/mf6\n2026-10-19T11:05:56.6741802Z   MF2005_EXE: /home/runner/work/_temp/basinlens-mf6/mf2005dbl\n2026-10-19T11:05:56.6742185Z   MFNWT_EXE: /home/runner/work/_temp/basinlens-mf6/mfnwtdbl\n2026-10-19T11:05:56.6742568Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:56.6743002Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig\n2026-10-19T11:05:56.6743418Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:56.6743786Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:56.6744386Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:56.6745120Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib\n2026-10-19T11:05:56.6745450Z ##[endgroup]\n2026-10-19T11:05:57.1015848Z Traceback (most recent call last):\n2026-10-19T11:05:57.1017356Z   File \"/home/runner/work/basinlens-ccs/basinlens-ccs/examples/geology/run_geology_example.py\", line 49, in <module>\n2026-10-19T11:05:57.1018875Z     raise SystemExit(main())\n2026-10-19T11:05:57.1019412Z                      ^^^^^^\n2026-10-19T11:05:57.1020457Z   File \"/home/runner/work/basinlens-ccs/basinlens-ccs/examples/geology/run_geology_example.py\", line 23, in main\n2026-10-19T11:05:57.1021652Z     arguments.output.mkdir(parents=False, exist_ok=False)\n2026-10-19T11:05:57.1022437Z   File \"/opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/pathlib.py\", line 1311, in mkdir\n2026-10-19T11:05:57.1088692Z     os.mkdir(self, mode)\n2026-10-19T11:05:57.1089645Z FileNotFoundError: [Errno 2] No such file or directory: 'build/ci-real-mf6/examples/geology'\n2026-10-19T11:05:57.1775610Z ##[error]Process completed with exit code 1.\n2026-10-19T11:05:57.1834909Z ##[group]Run python tools/ci_real_mf6.py finalize\n2026-10-19T11:05:57.1835332Z \u001b[36;1mpython tools/ci_real_mf6.py finalize\u001b[0m\n2026-10-19T11:05:57.1898020Z shell: /usr/bin/bash -e {0}\n2026-10-19T11:05:57.1898289Z env:\n2026-10-19T11:05:57.1898510Z   CI_SOLVER_REPORT: build/ci-real-mf6\n2026-10-19T11:05:57.1898831Z   MF6_EXE: /home/runner/work/_temp/basinlens-mf6/mf6\n2026-10-19T11:05:57.1899213Z   MF2005_EXE: /home/runner/work/_temp/basinlens-mf6/mf2005dbl\n2026-10-19T11:05:57.1899598Z   MFNWT_EXE: /home/runner/work/_temp/basinlens-mf6/mfnwtdbl\n2026-10-19T11:05:57.1899986Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:57.1900426Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig\n2026-10-19T11:05:57.1900850Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:57.1901299Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:57.1901755Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:57.1902160Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib\n2026-10-19T11:05:57.1902493Z ##[endgroup]\n2026-10-19T11:05:57.3089048Z ##[group]Run actions/upload-artifact@v4\n2026-10-19T11:05:57.3089402Z with:\n2026-10-19T11:05:57.3089624Z   name: real-mf6-checks-39241430315-1\n2026-10-19T11:05:57.3089913Z   path: build/ci-real-mf6/\n2026-10-19T11:05:57.3090172Z   if-no-files-found: error\n2026-10-19T11:05:57.3090419Z   retention-days: 14\n2026-10-19T11:05:57.3090647Z   compression-level: 6\n2026-10-19T11:05:57.3090875Z   overwrite: false\n2026-10-19T11:05:57.3091096Z   include-hidden-files: false\n2026-10-19T11:05:57.3091337Z env:\n2026-10-19T11:05:57.3091551Z   CI_SOLVER_REPORT: build/ci-real-mf6\n2026-10-19T11:05:57.3091864Z   MF6_EXE: /home/runner/work/_temp/basinlens-mf6/mf6\n2026-10-19T11:05:57.3092259Z   MF2005_EXE: /home/runner/work/_temp/basinlens-mf6/mf2005dbl\n2026-10-19T11:05:57.3092659Z   MFNWT_EXE: /home/runner/work/_temp/basinlens-mf6/mfnwtdbl\n2026-10-19T11:05:57.3093063Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:57.3093553Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib/pkgconfig\n2026-10-19T11:05:57.3093998Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:57.3094391Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:57.3095181Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.15/x64\n2026-10-19T11:05:57.3095588Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.15/x64/lib\n2026-10-19T11:05:57.3095929Z ##[endgroup]\n2026-10-19T11:05:57.4903864Z (node:3729) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n2026-10-19T11:05:57.4904893Z (Use `node --trace-deprecation ...` to show where the warning was created)\n2026-10-19T11:05:57.5712092Z With the provided path, there will be 316 files uploaded\n2026-10-19T11:05:57.5719933Z Artifact name is valid!\n2026-10-19T11:05:57.5720517Z Root directory input is valid!\n2026-10-19T11:05:57.7749147Z Beginning upload of artifact content to blob storage\n2026-10-19T11:05:58.0672417Z (node:3729) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.\n2026-10-19T11:05:58.1032146Z Uploaded bytes 271941\n2026-10-19T11:05:58.1171596Z Finished uploading artifact content to blob storage!\n2026-10-19T11:05:58.1172813Z SHA256 digest of uploaded artifact zip is 5a40f7ac56ff957a015563a68e03f9284d2bfff2d6a6a2371db23c2ed6a6ee25\n2026-10-19T11:05:58.1174322Z Finalizing artifact upload\n2026-10-19T11:05:58.3329911Z Artifact real-mf6-checks-39241430315-1.zip successfully finalized. Artifact ID 12181687436\n2026-10-19T11:05:58.3331043Z Artifact real-mf6-checks-39241430315-1 has been successfully uploaded! Final size is 271941 bytes. Artifact ID is 12181687436\n2026-10-19T11:05:58.3337862Z Artifact download URL: https://github.com/delimune04/basinlens-ccs/actions/runs/39241430315/artifacts/12181687436\n2026-10-19T11:05:58.3543625Z Post job cleanup.\n2026-10-19T11:05:58.4455347Z [command]/usr/bin/git version\n2026-10-19T11:05:58.4486475Z git version 2.55.0\n2026-10-19T11:05:58.4531598Z Temporarily overriding HOME='/home/runner/work/_temp/92be4b62-d9b3-4862-bde2-9f7b9de2be66' before making global git config changes\n2026-10-19T11:05:58.4532630Z Adding repository directory to the temporary git global config as a safe directory\n2026-10-19T11:05:58.4538001Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/basinlens-ccs/basinlens-ccs\n2026-10-19T11:05:58.4581659Z [command]/usr/bin/git config --local --name-only --get-regexp core\\.sshCommand\n2026-10-19T11:05:58.4619095Z [command]/usr/bin/git submodule foreach --recursive sh -c \"git config --local --name-only --get-regexp 'core\\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\"\n2026-10-19T11:05:58.4877632Z [command]/usr/bin/git config --local --name-only --get-regexp http\\.https\\:\\/\\/github\\.com\\/\\.extraheader\n2026-10-19T11:05:58.4903813Z http.https://github.com/.extraheader\n2026-10-19T11:05:58.4925474Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader\n2026-10-19T11:05:58.4975817Z [command]/usr/bin/git submodule foreach --recursive sh -c \"git config --local --name-only --get-regexp 'http\\.https\\:\\/\\/github\\.com\\/\\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\"\n2026-10-19T11:05:58.5234444Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\\.gitdir:\n2026-10-19T11:05:58.5275721Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url\n2026-10-19T11:05:58.5756551Z Cleaning up orphan processes\n2026-10-19T11:05:58.6072354Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/\n",
+  "full_job_log_sha256": "pending local digest",
+  "recovery_status": "Local reproduction and corrected-source public CI pending; no whole-product or original-equivalence closure."
+}
