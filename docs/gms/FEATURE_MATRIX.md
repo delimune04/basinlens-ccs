@@ -24,6 +24,7 @@ records the remaining product and evidence work.
 | CCS / oil extension | Capability-gated registry and working MODFLOW background-water adapter | CO2, black-oil and seismic adapters explicitly unavailable |
 | Reference comparison | Hashed CSV/NPZ evidence, strict alignment, tolerance metrics and replay verification | Synthetic harness tests; no genuine GMS runtime matches |
 | REA reconstruction accounting | Exact main executable/resource observation and source-linked capability catalogue | Static structure is distinct from observed behavior |
+| Static dialog templates | All 429 listed standard/extended templates decoded into 6,853 numeric control layouts | Dialog units and stored styles only; no original captions, dynamic UI or handler reproduction |
 | Native MF6 / GPR data | General MF6 reference graph, opaque sidecars, bounded HDF5 metadata/array reads | Actual official tutorial import and native-input rerun; no GMS UI/translation witness |
 | Native GPR geometry | Physical nodes, hexahedra and cell elevations for one verified rectilinear representation | All 1,125 tutorial cell coordinates match native DIS; units/CRS/datum remain unknown, no GPR writing |
 | GIS / CAD / boreholes | Not implemented | No shapefile/CAD/CRS transformation claims |

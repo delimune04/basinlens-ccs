@@ -110,6 +110,18 @@ payloads. Do not add it to the repository. `--native-provider ghidra` optionally
 requests actual native static analysis when that engine is already configured.
 Failure records remain failures; installing REA alone does not reconstruct GMS.
 
+The [dialog decoder](DIALOG_LAYOUTS.md) reads numeric layouts using the same
+exact REA evidence and independently checked PE ranges:
+
+```bash
+python -m basinlens_ccs.reconstruction.dialogs /private/path/gms10_9.exe --evidence /private/path/rea-resources.json --output /private/path/new-dialog-layouts.json
+```
+
+The optional normal Windows startup workflow and its passive control guards
+are described in [RUNTIME_DIAGNOSTICS.md](RUNTIME_DIAGNOSTICS.md). It performs
+no control selection or activation. Its Windows helper compiles and runs
+synthetic guard checks before the explicit installer download.
+
 For the pinned official installer, `python tools/extract_gms_target.py --help`
 shows the explicit download/extraction interface. This is a roughly 2 GB opt-in
 research operation; it is not part of normal installation or tests. Keep its

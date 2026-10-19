@@ -39,6 +39,15 @@ inventoried**, zero menu-decoder failures. Dialog layout and command handlers
 were not established by this operation. Static resources can be unused,
 edition-dependent, disabled or dynamically replaced.
 
+The separate original [dialog-template decoder](DIALOG_LAYOUTS.md) subsequently
+decoded all 429 listed dialog resources: 113 standard and 316 extended,
+containing 6,853 static controls, with zero failures. Its numeric projection
+preserves dialog-unit rectangles, style bits, ordinal classes, IDs and numeric
+font metadata while discarding captions, registered names and creation bytes.
+The [derived receipt](dialog_layout_validation_record.json) binds the exact
+target and REA inventory. These templates do not establish displayed dialogs,
+dynamic controls, pixel layouts or event-handler behavior.
+
 The installer also contains Python interface files. REA imported a private source
 inventory as **historical reference**, with partial inventory authority and zero
 semantic relationships. This establishes neither semantic Python analysis nor
@@ -77,6 +86,15 @@ disabling the latter two analyzers through REA's supported environment setting.
 This weakens call/pcode semantics and is not full semantic analysis. The exact
 requested profile is recorded in the versioned workflow; its result is separate
 from the default timeout. No owned-process guard was changed.
+
+The bounded-profile retry also reached its deadline: doctor passed in 2.906s,
+analysis timed out after 1,200.857s, and no native overview was returned.
+The unmodified [bounded-profile receipt](native_rea_bounded_receipt.json) came
+from [run 39204176129](https://github.com/delimune04/basinlens-ccs/actions/runs/39204176129)
+at source `26b330a384247a8ffed787808c9927f9d319a475`. Its workflow explicitly
+set the two disabled analyzers above. Both actual remote attempts failed to
+complete native REA analysis; the separate partial auxiliary Ghidra project is
+not substituted for either result.
 
 The normal Windows installation/startup probe subsequently completed in
 [run 39205004553](https://github.com/delimune04/basinlens-ccs/actions/runs/39205004553).

@@ -41,6 +41,51 @@ jobs:
             [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path -LiteralPath $path).Path,[ref]$tokens,[ref]$syntaxErrors)
             if ($syntaxErrors.Count) { throw ($syntaxErrors.Message -join [Environment]::NewLine) }
           }
+      - name: Compile passive Windows helper and check fixed-label observation guards
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          $tokens=$null; $errors=$null
+          $ast=[System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path 'tools/probe_gms_community.ps1').Path,[ref]$tokens,[ref]$errors)
+          if ($errors.Count) { throw 'PowerShell parser rejected the passive probe.' }
+          $sources=@($ast.FindAll({param($node) $node -is [System.Management.Automation.Language.StringConstantExpressionAst] -and $node.Value.StartsWith('using System;') -and $node.Value.Contains('public static class GmsPassiveWindows')},$true))
+          if ($sources.Count -ne 1) { throw 'Expected one passive native helper source.' }
+          Add-Type -TypeDefinition $sources[0].Value
+          foreach ($label in @('Community Edition','&Community Edition',"  COMMUNITY `t Edition  ")) {
+            if (-not [GmsPassiveWindows]::IsDocumentedCommunityLabel($label)) { throw 'Documented-label normalization regression.' }
+          }
+          foreach ($label in @('Community','Community Edition Trial','Select Community Edition','Community Edition...','Community-Edition','Edition Community','CommunityEdition','Com munity Edition','Community && Edition','')) {
+            if ([GmsPassiveWindows]::IsDocumentedCommunityLabel($label)) { throw 'Undocumented label became a candidate.' }
+          }
+          $window=[GmsPassiveWindows+WindowContext]::new()
+          $window.OwnedProcess=$true; $window.Visible=$true; $window.Enabled=$true; $window.IsDialog=$true
+          $window.VisibleText='No license found.'
+          $button=[GmsPassiveWindows+ControlRecord]::new()
+          $button.Label='&Community Edition'; $button.ClassName='Button'; $button.IsStandardButton=$true; $button.IsPushButton=$true
+          $button.Visible=$true; $button.Enabled=$true; $button.OwnedProcess=$true; $button.SameProcessAsWindow=$true; $button.ParentRelationVerified=$true
+          $snapshot=[GmsPassiveWindows+ControlSnapshot]::new(); $snapshot.Controls=@($button)
+          function Assert-PassiveGuard([bool]$expected) {
+            $guard=[GmsPassiveWindows]::AssessCommunityButton($window,$snapshot)
+            if (($guard.Status -eq 'passive_candidate_observed_review_required_no_action') -ne $expected) { throw 'Passive candidate guard regression.' }
+            if ($guard.ActionsEnabled -or -not $guard.RequiresReviewBeforeAnyAction) { throw 'Passive guard exposed action authorization.' }
+          }
+          Assert-PassiveGuard $true
+          foreach ($field in @('Visible','Enabled','OwnedProcess','SameProcessAsWindow','ParentRelationVerified','IsStandardButton','IsPushButton')) {
+            $button.$field=$false; Assert-PassiveGuard $false; $button.$field=$true
+          }
+          foreach ($field in @('OwnedProcess','Visible','Enabled','IsDialog')) {
+            $window.$field=$false; Assert-PassiveGuard $false; $window.$field=$true
+          }
+          $window.VisibleText='Unknown startup dialog'; Assert-PassiveGuard $false
+          $window.VisibleText='No licence found.'; Assert-PassiveGuard $true
+          $snapshot.Controls=@($button,$button); Assert-PassiveGuard $false
+          $snapshot.Controls=@($button); $snapshot.Truncated=$true; Assert-PassiveGuard $false
+          $snapshot.Truncated=$false; $snapshot.ReadErrors=1; Assert-PassiveGuard $false
+          $snapshot.ReadErrors=0; $button.Label='PRIVATE_UNKNOWN_LABEL'; $button.ClassName='PRIVATE_UNKNOWN_CLASS'
+          Assert-PassiveGuard $false
+          $json=[GmsPassiveWindows]::AssessCommunityButton($window,$snapshot) | ConvertTo-Json -Depth 8
+          if ($json.Contains('PRIVATE_UNKNOWN') -or $json.Contains('Handle') -or $json.Contains('ControlId') -or $json.Contains('ProcessId')) { throw 'Private native metadata leaked into a public guard.' }
+          Write-Output 'Passive fixed-label guard cases passed; no target or user interface action was invoked.'
       - name: Download and verify pinned official GMS installer
         shell: pwsh
         run: |

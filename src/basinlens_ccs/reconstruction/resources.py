@@ -109,11 +109,22 @@ def decode_menu(data: bytes) -> dict:
     return result
 
 
-def _sha(path: Path):
+def _sha(path: Path, *, expected_bytes=None, limit=512 * 1024 * 1024):
+    size = path.stat().st_size
+    if size > limit or (expected_bytes is not None and size != expected_bytes):
+        raise ResourceError("Input size changed during resource verification or exceeds its byte limit")
+    expected = size if expected_bytes is None else expected_bytes
     result = hashlib.sha256()
+    read_bytes = 0
     with path.open("rb") as stream:
-        for block in iter(lambda: stream.read(1024 * 1024), b""):
+        while read_bytes <= expected:
+            block = stream.read(min(1024 * 1024, expected + 1 - read_bytes))
+            if not block:
+                break
+            read_bytes += len(block)
             result.update(block)
+    if read_bytes != expected:
+        raise ResourceError("Input size changed during resource verification")
     return result.hexdigest()
 
 
@@ -153,7 +164,7 @@ def _range(value, expected_offset, expected_bytes):
         raise ResourceError("REA resource location differs from the actual PE directory")
 
 
-def _resource_catalogue(target, evidence, *, include_labels=False) -> dict:
+def _resource_catalogue(target, evidence, *, include_labels=False, decode_menus=True) -> dict:
     """Bind a REA inventory to unchanged target bytes and decode its menus.
 
     No icons, bitmaps, audio, original resource bytes or recovered native source
@@ -162,6 +173,8 @@ def _resource_catalogue(target, evidence, *, include_labels=False) -> dict:
     """
     if type(include_labels) is not bool:
         raise ResourceError("include_labels must be an explicit boolean")
+    if type(decode_menus) is not bool:
+        raise ResourceError("decode_menus must be a boolean")
     target, evidence = Path(target), Path(evidence)
     if target.is_symlink() or not target.is_file():
         raise ResourceError("Target must be a regular file, not a symlink")
@@ -169,11 +182,13 @@ def _resource_catalogue(target, evidence, *, include_labels=False) -> dict:
         raise ResourceError("Target exceeds 512 MiB analysis limit")
     if evidence.is_symlink() or not evidence.is_file():
         raise ResourceError("REA evidence must be a regular file, not a symlink")
-    if evidence.stat().st_size > 16 * 1024 * 1024:
+    evidence_size = evidence.stat().st_size
+    if evidence_size > 16 * 1024 * 1024:
         raise ResourceError("REA evidence exceeds 16 MiB")
-    evidence_bytes = evidence.read_bytes()
-    if len(evidence_bytes) > 16 * 1024 * 1024:
-        raise ResourceError("REA evidence exceeds 16 MiB")
+    with evidence.open("rb") as stream:
+        evidence_bytes = stream.read(evidence_size + 1)
+    if len(evidence_bytes) != evidence_size:
+        raise ResourceError("REA evidence changed during bounded reading")
     evidence_sha256 = hashlib.sha256(evidence_bytes).hexdigest()
     try:
         data = json.loads(evidence_bytes.decode("utf-8"), object_pairs_hook=_unique_pairs)
@@ -196,6 +211,7 @@ def _resource_catalogue(target, evidence, *, include_labels=False) -> dict:
 
     counts = Counter()
     menus, dialogs, failures = [], [], []
+    skipped_menus = 0
     commands = set()
     with target.open("rb") as stream:
         actual = inspect_resource_tree(stream, artifact["bytes"])
@@ -261,6 +277,11 @@ def _resource_catalogue(target, evidence, *, include_labels=False) -> dict:
                 raise ResourceError(f"Resource payload identity mismatch: {name}")
             if kind not in (4, 5) or resource_key[0][0] != "id":
                 continue
+            if kind == 4 and not decode_menus:
+                # Inventory-only callers still verify this PE leaf and exact
+                # payload above, without allocating/decoding unrelated menus.
+                skipped_menus += 1
+                continue
             if length > 2_000_000:
                 failures.append({"resource": name, "type": kind, "reason": "payload exceeds 2 MB decoder limit"})
                 continue
@@ -290,11 +311,11 @@ def _resource_catalogue(target, evidence, *, include_labels=False) -> dict:
             raise ResourceError("Complete REA coverage omits actual PE resource leaves")
         if coverage["status"] == "complete" and coverage.get("examined_entries") != actual["examined_entries"]:
             raise ResourceError("Complete REA entry count differs from the actual PE resource tree")
-    if _sha(target) != artifact["sha256"]:
+    if _sha(target, expected_bytes=artifact["bytes"]) != artifact["sha256"]:
         raise ResourceError("Target changed during resource decoding")
-    if evidence.is_symlink() or _sha(evidence) != evidence_sha256:
+    if evidence.is_symlink() or _sha(evidence, expected_bytes=evidence_size, limit=16 * 1024 * 1024) != evidence_sha256:
         raise ResourceError("REA evidence changed during resource decoding")
-    return {
+    result = {
         "schema_version": 1, "analysis": "static Windows PE menu observations",
         "target": {"sha256": artifact["sha256"], "size_bytes": artifact["bytes"]},
         "rea_evidence_id": evidence_id, "rea_evidence_sha256": evidence_sha256,
@@ -311,12 +332,16 @@ def _resource_catalogue(target, evidence, *, include_labels=False) -> dict:
                         "Receipt bytes and PE structure are cross-checked; REA receipt authorship is not authenticated",
                         "Resource count is not a feature count; complete product coverage remains unknown"],
     }
+    if not decode_menus:
+        result["analysis"] = "static Windows PE resource inventory; menu decoding not requested"
+        result["menu_decoding"] = {"requested": False, "resources_skipped": skipped_menus}
+    return result
 
 
-def resource_catalogue(target, evidence, *, include_labels=False) -> dict:
+def resource_catalogue(target, evidence, *, include_labels=False, decode_menus=True) -> dict:
     """Validate and decode an exact REA inventory; malformed records fail cleanly."""
     try:
-        return _resource_catalogue(target, evidence, include_labels=include_labels)
+        return _resource_catalogue(target, evidence, include_labels=include_labels, decode_menus=decode_menus)
     except ResourceError:
         raise
     except (KeyError, TypeError, AttributeError, struct.error, PEFormatError, RecursionError) as error:

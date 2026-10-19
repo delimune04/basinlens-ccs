@@ -2,12 +2,12 @@
 
 ## Expanded implementation check
 
-The current implementation passed **190 tests with zero skips** using real
-MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 22.512s.
+The current implementation passed **203 tests with zero skips** using real
+MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 34.282s.
 Exact source hashes, versions, commands and additional checks are in
 [expanded_validation_record.json](expanded_validation_record.json). The earlier
-published 173-test snapshot and its successful remote CI are retained there as
-history. Missing solver tests are skips in ordinary CI, separate from this local
+published 173-test and 190-test snapshots and their successful remote CI are
+retained there as history. Missing solver tests are skips in ordinary CI, separate from this local
 zero-skip result.
 
 Checks cover strict shared-project/engine contracts, actual CCS background-water
@@ -17,6 +17,12 @@ GPR link/filter/read limits, geometry topology and coordinate mapping,
 comparison provenance/tolerance failures, PE evidence binding, genuine REA
 open-obligation generation and 23 workbench UI/viewer tests. Normal termination
 of an arbitrary native model does not validate its physical assumptions.
+
+Thirteen additional dialog tests cover standard/extended format differences,
+UTF-16, IDs, alignment, creation data, alias budgets, skipped-menu verification,
+metadata redaction and fresh outputs. All 429 actual templates decode into
+6,853 static controls. Their captions and names remain omitted; neither stored
+layouts nor a passing synthetic guard test establish dynamic UI behavior.
 
 Independent geometry review found that equal cell centers can hide different
 cell edges, and equal face means can hide different corner elevations. Both

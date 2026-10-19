@@ -49,6 +49,7 @@ $receipt = [ordered]@{
     startup_classification = 'unknown'; dialog_categories_observed = @(); blocking_dialog_observed = $false
     reported_mode_category = 'unknown'; possible_community_option_text_observed = $false
     main_window_enabled_observed = $null; menu_observations = @()
+    community_button_guard_observations = @(); community_button_guard_actions_enabled = $false
     standard_menu_items_observed = $false
     classification_basis = 'Conservative passive visible-window and bounded child-control text; original text stays private.'
     activation_requests_initiated_by_probe = 0; licence_ui_actions = 0; target_ui_actions = 0
@@ -79,6 +80,12 @@ public static class GmsPassiveWindows {
   [DllImport("user32.dll")] public static extern uint GetWindowThreadProcessId(IntPtr h, out uint p);
   [DllImport("user32.dll")] public static extern bool IsWindowVisible(IntPtr h);
   [DllImport("user32.dll")] public static extern bool IsWindowEnabled(IntPtr h);
+  [DllImport("user32.dll")] public static extern IntPtr GetParent(IntPtr h);
+  [DllImport("user32.dll")] public static extern IntPtr GetAncestor(IntPtr h, uint flags);
+  [DllImport("user32.dll")] public static extern bool IsChild(IntPtr parent, IntPtr child);
+  [DllImport("user32.dll")] public static extern int GetDlgCtrlID(IntPtr h);
+  [DllImport("user32.dll", EntryPoint="GetWindowLongPtrW")] private static extern IntPtr GetWindowLongPtr64(IntPtr h,int index);
+  [DllImport("user32.dll", EntryPoint="GetWindowLongW")] private static extern int GetWindowLong32(IntPtr h,int index);
   [DllImport("user32.dll")] public static extern IntPtr GetWindow(IntPtr h, uint command);
   [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out Rect r);
   [DllImport("user32.dll")] public static extern bool EnumChildWindows(IntPtr h, EnumProc callback, IntPtr l);
@@ -114,18 +121,111 @@ public static class GmsPassiveWindows {
     EnumWindows((h,l) => { uint p; GetWindowThreadProcessId(h,out p); if(pids.Contains(p) && IsWindowVisible(h)) result.Add(h); return true; },IntPtr.Zero);
     return result.ToArray();
   }
-  public static string[] VisibleControlText(IntPtr window) {
-    var result = new List<string>(); var watch = Stopwatch.StartNew();
+  // Raw handles, IDs, native class names and labels are PRIVATE evidence only.
+  public class ControlRecord {
+    public long Handle,ParentHandle,TopLevelHandle;
+    public uint ProcessId;
+    public int ControlId,ButtonType;
+    public string ClassName="",Label="";
+    public bool Visible,Enabled,OwnedProcess,SameProcessAsWindow,ParentRelationVerified,IsStandardButton,IsPushButton;
+  }
+  public class ControlSnapshot {
+    public ControlRecord[] Controls=new ControlRecord[0];
+    public bool Truncated;
+    public int ReadErrors;
+  }
+  public class WindowContext {
+    public string VisibleText="";
+    public bool OwnedProcess,Visible,Enabled,IsDialog;
+  }
+  // This is an observation guard, NOT permission to select a control. It has
+  // no invocation API. Its fixed label is documented in older official guidance;
+  // an actual 10.9.7 observation is still required, and unknown labels stay private.
+  public class CommunityCandidateEvidence {
+    public bool StandardButton,PushButton,Enabled,Visible,OwnedProcess,SameProcessAsWindow,ParentRelationVerified;
+  }
+  public class CommunityGuard {
+    public string FixedLabelCategory="community_edition";
+    public string Status="unknown";
+    public string NoLicenseContext="not_recognized_or_unavailable";
+    public bool WindowOwnedProcess,WindowVisible,WindowEnabled,WindowIsDialog;
+    public bool SnapshotTruncated;
+    public int SnapshotReadErrors,InspectedControls,ExactLabelControlCount,ExactLabelStandardButtonCount,EnabledVisibleStandardButtonCount,FullyVerifiedCandidateCount;
+    public bool UniqueExactLabelStandardButton,UniqueFullyVerifiedCandidate;
+    public bool ActionsEnabled=false,RequiresReviewBeforeAnyAction=true;
+    public CommunityCandidateEvidence[] MatchingControls=new CommunityCandidateEvidence[0];
+  }
+  public static bool IsDocumentedCommunityLabel(string label) {
+    // Remove single mnemonic markers, preserving escaped && as a literal &.
+    // Trim/collapse whitespace, but never join words or accept substrings,
+    // punctuation changes, localization, synonyms or fuzzy matching.
+    if(label==null) return false;
+    var visibleLabel=new StringBuilder();
+    for(int i=0;i<label.Length;i++) {
+      if(label[i]!='&') visibleLabel.Append(label[i]);
+      else if(i+1<label.Length && label[i+1]=='&') { visibleLabel.Append('&'); i++; }
+    }
+    string canonical=System.Text.RegularExpressions.Regex.Replace(visibleLabel.ToString(),@"\s+"," ").Trim();
+    return String.Equals(canonical,"Community Edition",StringComparison.OrdinalIgnoreCase);
+  }
+  public static CommunityGuard AssessCommunityButton(WindowContext window,ControlSnapshot snapshot) {
+    var guard=new CommunityGuard {
+      WindowOwnedProcess=window.OwnedProcess,WindowVisible=window.Visible,WindowEnabled=window.Enabled,WindowIsDialog=window.IsDialog,
+      SnapshotTruncated=snapshot.Truncated,SnapshotReadErrors=snapshot.ReadErrors,InspectedControls=snapshot.Controls.Length
+    };
+    bool context=System.Text.RegularExpressions.Regex.IsMatch(window.VisibleText ?? "",@"\bno\s+licen[cs]e\s+found\b",System.Text.RegularExpressions.RegexOptions.IgnoreCase|System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+    if(context) guard.NoLicenseContext="fixed_no_license_found_phrase_observed_context_unverified";
+    var matches=new List<CommunityCandidateEvidence>();
+    foreach(var control in snapshot.Controls) {
+      if(!IsDocumentedCommunityLabel(control.Label)) continue;
+      guard.ExactLabelControlCount++;
+      matches.Add(new CommunityCandidateEvidence { StandardButton=control.IsStandardButton,PushButton=control.IsPushButton,
+        Enabled=control.Enabled,Visible=control.Visible,OwnedProcess=control.OwnedProcess,
+        SameProcessAsWindow=control.SameProcessAsWindow,ParentRelationVerified=control.ParentRelationVerified });
+      if(!control.IsStandardButton || !control.IsPushButton) continue;
+      guard.ExactLabelStandardButtonCount++;
+      if(control.Enabled && control.Visible) guard.EnabledVisibleStandardButtonCount++;
+      if(control.Enabled && control.Visible && control.OwnedProcess && control.SameProcessAsWindow && control.ParentRelationVerified) guard.FullyVerifiedCandidateCount++;
+    }
+    guard.MatchingControls=matches.ToArray();
+    guard.UniqueExactLabelStandardButton=guard.ExactLabelStandardButtonCount==1;
+    guard.UniqueFullyVerifiedCandidate=guard.FullyVerifiedCandidateCount==1 && guard.ExactLabelStandardButtonCount==1 && guard.ExactLabelControlCount==1;
+    if(snapshot.Truncated || snapshot.ReadErrors>0) guard.Status="incomplete_control_snapshot_unknown";
+    else if(!window.OwnedProcess || !window.Visible || !window.Enabled || !window.IsDialog) guard.Status="owned_visible_enabled_dialog_not_verified";
+    else if(!context) guard.Status="fixed_no_license_found_context_not_observed";
+    else if(guard.ExactLabelControlCount==0) guard.Status="exact_documented_label_not_observed";
+    else if(guard.ExactLabelControlCount!=1 || guard.ExactLabelStandardButtonCount!=1) guard.Status="unique_standard_push_button_not_verified";
+    else if(!guard.UniqueFullyVerifiedCandidate) guard.Status="candidate_enabled_visibility_or_ownership_relation_not_verified";
+    else guard.Status="passive_candidate_observed_review_required_no_action";
+    return guard;
+  }
+  public static ControlSnapshot BoundedControls(IntPtr window,HashSet<uint> pids) {
+    var snapshot=new ControlSnapshot(); var result=new List<ControlRecord>(); var watch=Stopwatch.StartNew();
+    uint windowPid; GetWindowThreadProcessId(window,out windowPid);
     EnumChildWindows(window,(h,l) => {
-      if(result.Count >= 100 || watch.ElapsedMilliseconds >= 1500) return false;
-      if(IsWindowVisible(h)) {
-        var text = new StringBuilder(512); UIntPtr ignored;
-        SendMessageTimeout(h,13,new UIntPtr(512),text,3,100,out ignored);
-        if(text.Length > 0) result.Add(text.ToString());
-      }
+      if(result.Count>=128 || watch.ElapsedMilliseconds>=1500) { snapshot.Truncated=true; return false; }
+      uint pid; GetWindowThreadProcessId(h,out pid);
+      var parent=GetParent(h); var root=GetAncestor(h,2);
+      bool sameOwnedProcess=pids.Contains(pid) && pid==windowPid;
+      var nativeClass=new StringBuilder(256);
+      // Do not retrieve text from a foreign-process child attached to this window.
+      if(!sameOwnedProcess) snapshot.ReadErrors++;
+      else if(GetClassName(h,nativeClass,nativeClass.Capacity)==0) snapshot.ReadErrors++;
+      bool visible=IsWindowVisible(h);
+      var text=new StringBuilder(512);
+      if(visible && sameOwnedProcess) { UIntPtr ignored; if(SendMessageTimeout(h,13,new UIntPtr(512),text,3,100,out ignored)==IntPtr.Zero || text.Length>=511) snapshot.ReadErrors++; }
+      bool standard=String.Equals(nativeClass.ToString(),"Button",StringComparison.OrdinalIgnoreCase);
+      int type=-1;
+      if(standard) { long style=IntPtr.Size==8 ? GetWindowLongPtr64(h,-16).ToInt64() : GetWindowLong32(h,-16); type=(int)(style & 15); }
+      result.Add(new ControlRecord { Handle=h.ToInt64(),ParentHandle=parent.ToInt64(),TopLevelHandle=root.ToInt64(),
+        ProcessId=pid,ControlId=GetDlgCtrlID(h),ButtonType=type,ClassName=nativeClass.ToString(),Label=text.ToString(),
+        Visible=visible,Enabled=IsWindowEnabled(h),OwnedProcess=pids.Contains(pid),SameProcessAsWindow=pid==windowPid,
+        ParentRelationVerified=parent!=IntPtr.Zero && IsChild(window,h) && root==window && (parent==window || GetAncestor(parent,2)==window),
+        IsStandardButton=standard,IsPushButton=standard && (type==0 || type==1) });
       return true;
     },IntPtr.Zero);
-    return result.ToArray();
+    if(watch.ElapsedMilliseconds>=1500) snapshot.Truncated=true;
+    snapshot.Controls=result.ToArray(); return snapshot;
   }
   public static MenuSnapshot MaterializedMenu(IntPtr window) {
     var snapshot = new MenuSnapshot(); var menu = GetMenu(window);
@@ -206,9 +306,11 @@ public static class GmsPassiveWindows {
             [void][GmsPassiveWindows]::GetWindowRect($handle,[ref]$rect)
             $entry = [ordered]@{ captured_utc = [DateTime]::UtcNow.ToString('o'); title = $title.ToString(); class = $className.ToString(); controls = @() }
             $receipt.visible_window_observed = $true
-            # No unbounded UIA descendant traversal. WM_GETTEXT has a 100ms
-            # per-control timeout, 100 text values and a 1.5sec total budget.
-            $entry.controls = [GmsPassiveWindows]::VisibleControlText($handle)
+            # No unbounded UIA traversal. This records at most 128 native controls,
+            # with a 100ms per-control timeout and a 1.5sec total budget. Native
+            # handles, IDs, labels and classes remain in the private JSON only.
+            $entry.control_snapshot = [GmsPassiveWindows]::BoundedControls($handle,$pids)
+            $entry.controls = @($entry.control_snapshot.Controls | Where-Object { $_.Visible -and $_.Label } | ForEach-Object { $_.Label })
             $visibleText = $entry.title + ' ' + ($entry.controls -join ' ')
             if ($entry.title -match '(?i)\bGMS\b.*\bCommunity\b|\bCommunity\b.*\bGMS\b') {
                 $receipt.reported_mode_category = 'community_text_in_application_title_entitlement_unverified'
@@ -232,13 +334,27 @@ public static class GmsPassiveWindows {
             }
             $ownerHandle = [GmsPassiveWindows]::GetWindow($handle,4)
             $isDialog = $entry.class -eq '#32770' -or ($ownerHandle -ne [IntPtr]::Zero -and -not [GmsPassiveWindows]::IsWindowEnabled($ownerHandle))
+            $windowPid=[uint32]0
+            [void][GmsPassiveWindows]::GetWindowThreadProcessId($handle,[ref]$windowPid)
+            $windowContext=[GmsPassiveWindows+WindowContext]::new()
+            $windowContext.VisibleText=$visibleText
+            $windowContext.OwnedProcess=$pids.Contains($windowPid)
+            $windowContext.Visible=[GmsPassiveWindows]::IsWindowVisible($handle)
+            $windowContext.Enabled=[GmsPassiveWindows]::IsWindowEnabled($handle)
+            $windowContext.IsDialog=$isDialog
+            $entry.community_button_guard=[GmsPassiveWindows]::AssessCommunityButton($windowContext,$entry.control_snapshot)
+            # These typed guard objects contain only fixed categories, counts and
+            # booleans. Never serialize the raw window/control objects publicly.
+            if ($receipt.community_button_guard_observations.Count -lt 8) {
+                $receipt.community_button_guard_observations += @($entry.community_button_guard)
+            }
             if (-not $isDialog -and $entry.title -match '(?i)\bGMS\b' -and $entry.menu.Items.Count -gt 0) {
                 $receipt.main_window_enabled_observed=[GmsPassiveWindows]::IsWindowEnabled($handle)
             }
             $category = 'unknown'
             if ($isDialog) {
                 if ($visibleText -match '(?i)evalua|trial.*(expired|licen[cs]e)') { $category = 'evaluation' }
-                elseif ($visibleText -match '(?i)activation|registration|licen[cs]e code|unlicensed') { $category = 'licensing' }
+                elseif ($visibleText -match '(?i)activation|registration|licen[cs]e code|unlicensed|\bno\s+licen[cs]e\s+found\b') { $category = 'licensing' }
                 elseif ($visibleText -match '(?i)opengl|graphics.*(driver|error)|failed.*render|hardware.*accel') { $category = 'graphics' }
                 elseif ($visibleText -match '(?i)error|exception|fatal|failed|cannot|missing.*dll') { $category = 'error' }
                 $receipt.blocking_dialog_observed = $true

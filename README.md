@@ -101,6 +101,9 @@ to the extracted executable's SHA-256. The [capability catalogue](docs/gms/capab
 records 163 research entries with official sources and required runtime probes;
 these are a research decomposition, not an official or complete feature count.
 See [the investigation record](docs/gms/REA_FINDINGS.md) for what was observed.
+The [static dialog decoder](docs/gms/DIALOG_LAYOUTS.md) also recovers numeric
+layouts from all 429 listed templates, without distributing original captions
+or treating templates as observed UI behavior.
 
 The new `subsurface` package preserves explicit units, CRS, vertical datum,
 structured geometry, stratigraphy, rock properties, wells, observations and

@@ -2,15 +2,14 @@
   "schema_version": 2,
   "date": "2026-10-19",
   "test_result": {
-    "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest.defaultTestLoader.discover(\"tests\"); TextTestRunner verbosity=2 with dedicated log)",
-    "runner": "unittest discovery with dedicated result stream and structured receipt",
-    "tests_run": 190,
+    "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest discovery with dedicated TextTestRunner log)",
+    "tests_run": 203,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
     "passed": true,
-    "duration_seconds": 22.512,
-    "test_duration_seconds": 21.943
+    "duration_seconds": 34.282,
+    "test_duration_seconds": 33.505
   },
   "environment": {
     "numpy": "2.3.5",
@@ -28,7 +27,7 @@
   },
   "source_sha256": {
     ".github/workflows/ci.yml": "ffb2f74d374d8f14cde406d1fe49372db83c73015c08503f1a8034e9eb5da010",
-    ".github/workflows/gms-community-probe.yml": "5927b521b957210f973777aa10d4aaba45ce80280921d391169476287aaa78e1",
+    ".github/workflows/gms-community-probe.yml": "7bbbc8df4fb105267c9bf95ad9659557c09cdc6de0420ea87047f1713ee8c409",
     ".github/workflows/gms-native-analysis.yml": "3e3cd3bdfcb35b8fe3b2e04eefc5fa51e2e5825a4d533ba4d9df867c9a5c4860",
     "app.py": "3ce6008b53d6496369e5241a29237252aaaa42fdd31a578c99b0e29ac5af8e57",
     "examples/parity/generate_synthetic.py": "eebb0be20f91faf58c321276716c9db9ddb60b17cc0c4e742b99decdf684fb88",
@@ -56,8 +55,9 @@
     "src/basinlens_ccs/parity/dataset.py": "786ef2f5e82135b344794515debc9710f452c91b3a2ebeb0e83a1e7faf41785c",
     "src/basinlens_ccs/reconstruction/__init__.py": "97eec540506ace7d859132c2681b52fcbceb116d18f4969705040dff2413d164",
     "src/basinlens_ccs/reconstruction/__main__.py": "2ece34bc53a2390b00b6fc022b068a238fb5a4fca7aba269fe47f1f69cfda150",
+    "src/basinlens_ccs/reconstruction/dialogs.py": "d09a4c7575034db7ed618b9ef0cdc9fa6610250ed2633588696814d240f4fafc",
     "src/basinlens_ccs/reconstruction/pe_resources.py": "fbd74af6de6f8de1cfa2a1359262b9d6d8b16303a623eed527a9d4548997ec3a",
-    "src/basinlens_ccs/reconstruction/resources.py": "6dd7778b00f7562972e33b7d16eaeca76c6575b8f73178003bee6323a8022038",
+    "src/basinlens_ccs/reconstruction/resources.py": "c58a0b7b019068ce96c2243b35fe67d715e627d08aeb8c35d79d0c7278b4635e",
     "src/basinlens_ccs/screening.py": "58c9c67bc27db716f19bf94f07486fe719921f89e1b24a880b62098565068aec",
     "src/basinlens_ccs/subsurface/__init__.py": "53971cdce8bddd8f58434a862f2bb804e82e6c4d31b3f123927913d1a1ea3b4a",
     "src/basinlens_ccs/subsurface/__main__.py": "e63c6efbd273cfa2246595948e8ae70773428c1cfa8f4a26d1d7f9b1e18dcfa7",
@@ -65,6 +65,7 @@
     "src/basinlens_ccs/subsurface/schema.py": "72857b4d634c54453f4233fbab64e6c6418fbe8c366e109e76634532496cdd99",
     "tests/test_artifacts.py": "d505da1b04f844a8a9ce012038f80fe2a8e2a18d746d6230429cee63d2aef24c",
     "tests/test_capacity.py": "a1757c89acf7c062b5128a67eeaa3d97cbbc4b62a2904f09a07a8c3063f23f66",
+    "tests/test_dialogs.py": "a392760e3d1f06da9dfb68247cabea4c124a879ce38291242da306f11162a040",
     "tests/test_gms_native_import.py": "7bda57d181064920b06aeb9a25cac48c27945c8a113f03824449faeef5a73225",
     "tests/test_gpr_geometry.py": "5eb0af979341b9e2f33aee49847f8b487b35a987ad8f5fef4f9c5d8f71463938",
     "tests/test_gpr_hdf5.py": "44ea1052a75846dbba4a60f5b8e7bcaaa0da45b4cbba6803daa9221542fa64e1",
@@ -91,7 +92,7 @@
     "tools/inspect_gms.py": "8b0a5d3b46145f9f76afc43a2c524dc5619bdad618dfa0369dd361ac8be0f8c9",
     "tools/install_mf6.py": "64e178f8cafbf8fa50c94e773926e5775290b0ef72c4d96e38cb666d71c12ca5",
     "tools/native_rea_probe.py": "a4ebd603ba6399568272a138bbfb7b965e3507e62ca781346cd7d66bd017c94d",
-    "tools/probe_gms_community.ps1": "a4ff304bad89a35ddffd91378482665e3b5812829a6d3f9f49b411bd4a304b82"
+    "tools/probe_gms_community.ps1": "a031ec4a0d09b6756d98d5baf6a6074322f48c508c0252b7adef4246ad8e069e"
   },
   "checks": {
     "editable_install": "passed",
@@ -105,7 +106,9 @@
     "git_diff_check": "passed",
     "actionlint": "passed",
     "actual_saved_tutorial_GPR_viewer": "passed: 1125 cells, no app errors, unchanged source, unknown units retained",
-    "independent_geometry_review": "passed after fixing same-centers/different-footprints and same-mean/sloped-corner false positives"
+    "independent_geometry_review": "passed after fixing same-centers/different-footprints and same-mean/sloped-corner false positives",
+    "static_dialog_templates": "passed: 429 templates, 6853 static controls, zero failures; actual menu observations and genuine REA ledger replay unchanged",
+    "Windows_passive_helper_compilation_and_synthetic_guards": "pending first Windows execution of the added guard helper"
   },
   "native_official_run": {
     "source_files": 15,
@@ -130,7 +133,7 @@
     "shipped_head_and_budget_binary_hashes_equal": true,
     "gms_runtime_witness": false
   },
-  "ci_scope": "Remote CI on the preceding 173-test snapshot passed; latest source CI will be recorded after publication. The current local 190-test pass used actual MF6 with zero skips.",
+  "ci_scope": "Local 203-test pass used actual MF6 with zero skips. Public CI is recorded independently after publishing this source snapshot.",
   "equivalence": {
     "genuine_original_GMS_output_matches": 0,
     "whole_product_parity": false,
@@ -139,33 +142,8 @@
     "field_validation": false
   },
   "publication_boundary": "No original vendor executables, resources, source, tutorial inputs, GPR payloads or native pseudocode are included.",
-  "previous_snapshot": {
-    "tested_public_commit": "26b330a384247a8ffed787808c9927f9d319a475",
-    "tested_public_tree": "a6f0edd1567bbb18293d3c06840b1a41954daafe",
-    "test_result": {
-      "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest.defaultTestLoader.discover(\"tests\"); TextTestRunner verbosity=2, dedicated log and structured result)",
-      "runner": "unittest discovery with dedicated result stream and structured receipt",
-      "tests_run": 173,
-      "failures": 0,
-      "errors": 0,
-      "skipped": 0,
-      "passed": true,
-      "duration_seconds": 19.548,
-      "test_duration_seconds": 18.878
-    },
-    "remote_ci": [
-      {
-        "run_id": 39204176049,
-        "status": "success"
-      },
-      {
-        "run_id": 39204181970,
-        "status": "success"
-      }
-    ]
-  },
-  "tested_local_implementation_commit": "f074042ae94d7e4b73da76bf1cc27eff99537976",
-  "publication_binding": "Exact tested source hashes below; public commit/tree binding added after publication.",
+  "tested_local_implementation_commit": "41e04cdcf27ad33b6c9137cf317de226105d74de",
+  "publication_binding": "The exact tested source hashes are below; public commit/tree binding follows publication.",
   "geometry_validation": {
     "nodes": 1536,
     "cells": 1125,
@@ -194,5 +172,67 @@
     "field_units": null,
     "crs": null,
     "vertical_datum": null
+  },
+  "previous_snapshots": [
+    {
+      "tested_public_commit": "26b330a384247a8ffed787808c9927f9d319a475",
+      "tested_public_tree": "a6f0edd1567bbb18293d3c06840b1a41954daafe",
+      "test_result": {
+        "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest.defaultTestLoader.discover(\"tests\"); TextTestRunner verbosity=2, dedicated log and structured result)",
+        "runner": "unittest discovery with dedicated result stream and structured receipt",
+        "tests_run": 173,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": true,
+        "duration_seconds": 19.548,
+        "test_duration_seconds": 18.878
+      },
+      "remote_ci": [
+        {
+          "run_id": 39204176049,
+          "status": "success"
+        },
+        {
+          "run_id": 39204181970,
+          "status": "success"
+        }
+      ]
+    },
+    {
+      "tested_public_commit": "13a953f6a1ddc8e074ee699eaa428b3444e47a5c",
+      "tested_public_tree": "8e6bf5925826bf9c1f08cdc624ca52b28f229590",
+      "test_result": {
+        "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest.defaultTestLoader.discover(\"tests\"); TextTestRunner verbosity=2 with dedicated log)",
+        "runner": "unittest discovery with dedicated result stream and structured receipt",
+        "tests_run": 190,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "passed": true,
+        "duration_seconds": 22.512,
+        "test_duration_seconds": 21.943
+      },
+      "remote_ci": [
+        {
+          "run_id": 39205725933,
+          "status": "success"
+        },
+        {
+          "run_id": 39205721687,
+          "status": "success"
+        }
+      ]
+    }
+  ],
+  "static_dialog_validation_record": "dialog_layout_validation_record.json",
+  "native_REA_bounded_retry": {
+    "provider_health": "healthy",
+    "doctor_status": "passed",
+    "analysis_status": "timeout",
+    "elapsed_seconds": 1200.857,
+    "overview_returned": false,
+    "workflow_run_id": 39204176129,
+    "receipt": "native_rea_bounded_receipt.json"
   }
 }

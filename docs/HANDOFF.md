@@ -9,7 +9,7 @@ current scope or a replacement definition of completion. Public work is in
 [PR #10](https://github.com/delimune04/basinlens-ccs/pull/10), branch
 `feat/gms-groundwater-workbench`; main baseline remains `f17934e`.
 
-The final integrated run passed **190 tests with zero skips** using actual
+The final integrated run passed **203 tests with zero skips** using actual
 MF6 6.7.0, FloPy 3.11.0 and the optional UI/HDF5 dependencies. Required capacity
 CLI/verifier, compilation, diff checks and actionlint also passed.
 
@@ -32,7 +32,9 @@ Current components:
 - Actual REA 6.7.0 resource evidence for the exact GMS 10.9.7 main executable,
   independently checked against PE structure. Actual REA ledger generation has
   577 open obligations (576 numeric command IDs plus the unknown whole-product
-  reconciliation barrier), zero verified closures. The 163-entry documented
+  reconciliation barrier), zero verified closures. The new numeric dialog decoder
+  covers all 429 listed templates/6,853 static controls without original text or
+  dynamic UI claims. The 163-entry documented
   catalogue is not a product denominator.
 
 The unchanged official tutorial's 15 native files reproduce its shipped head
