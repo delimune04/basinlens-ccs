@@ -155,3 +155,9 @@ results to the published implementation. All input hashes stayed unchanged;
 no original GPR, external component or numerical runtime was executed or
 distributed. Stored version attributes describe file metadata, without proving
 a creator identity or observed original session.
+
+That corpus record describes the earlier source snapshot. The later separate
+[GPR_UNSTRUCTURED.md](GPR_UNSTRUCTURED.md) reader now supports the measured
+level-zero/single-layer quadtree packet. It verifies all horizontal topology
+and coordinates while preserving the native elevation mismatch. Other unknown
+node semantics and geometry representations remain unresolved.

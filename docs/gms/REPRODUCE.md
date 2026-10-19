@@ -86,8 +86,11 @@ GPR metadata is not resolved by guessing a conversion.
 The [geometry API](GPR_GEOMETRY.md),
 `read_gpr_rectilinear(project_path, grid_group)`, supports the explicitly
 documented rectilinear representation. In the app, open the separate read-only
-GPR section, inventory an explicit server path, and choose an observed geometry
-dataset. Select a raw numeric cell field and first-axis index only when needed.
+GPR section, inventory an explicit server path, choose an observed geometry
+dataset and explicitly select its supported representation. The default is
+rectilinear; the separate measured level-zero/single-layer Quadtree reader is
+documented in [GPR_UNSTRUCTURED.md](GPR_UNSTRUCTURED.md). No automatic decoder
+fallback or coordinate repair occurs. Select a raw numeric cell field and first-axis index only when needed.
 The view shows saved data with unknown units/CRS/datum and no inferred time
 conversion. It renders at most 20,000 cell centers and reads at most 8 MiB for
 the selected field; it does not run a solver or save a GPR project.
@@ -158,3 +161,12 @@ python -m unittest discover -s tests -v
 Solver tests are opt-in through `MF6_EXE=/absolute/path/to/mf6`; missing optional
 dependencies or executable are reported as skips. Read `VALIDATION.md` for the
 exact checks actually completed and their scientific limits.
+
+## Conservative-solute workbench
+
+The separate 1D transport section loads one synthetic example or a bounded JSON
+upload only after an explicit action. Choose a fresh output directory to export
+native input or run the configured MF6 executable. Result plots and downloads
+use the verified run’s captured case. Both mass-conservation and concentration
+bounds must pass for a successful scientific indicator. CLI commands, strict
+units, benchmark equations and limits are in [TRANSPORT.md](TRANSPORT.md).

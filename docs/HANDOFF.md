@@ -9,7 +9,7 @@ current scope or a replacement definition of completion. Public work is in
 [PR #10](https://github.com/delimune04/basinlens-ccs/pull/10), branch
 `feat/gms-groundwater-workbench`; main baseline remains `f17934e`.
 
-The latest integrated run passed **249 tests with zero skips** using actual
+The latest integrated run passed **265 tests with zero skips** using actual
 MF6 6.7.0, FloPy 3.11.0 and the optional UI/HDF5 dependencies. Required capacity
 CLI/verifier, compilation, diff checks and actionlint also passed.
 
@@ -18,7 +18,8 @@ Current components:
 - Standalone bounded1D saturated GWF/GWT conservative-solute module with
   deterministic native export, exact captured case/input binding, every-step
   concentration/mass result reader and existing native executor/verifier reuse.
-  Uniform/Gaussian/refinement/inlet checks passed; no shared UI/registry,
+  Uniform/Gaussian/refinement/inlet checks passed; separate explicit-case UI
+  provides actual runs, profile/mass plots, CSV and verifiedZIP. No shared-project registry,
   GMS comparison, CO2, reactions or density-dependent physics are implied.
 - Typed shared subsurface projects, explicit units/CRS/datum and asset identity,
   preserved geological/observation metadata, trusted engine registry and a
@@ -34,7 +35,10 @@ Current components:
   UUID relationships and exports anonymous metadata. Actual tutorial: 29 nodes,
   21 relationships, 16 unresolved. Bounded raw-chunk decoding prevents HDF5
   decompression from exceeding the declared read budget. Unknown
-  units/CRS/datum/time semantics stay unknown.
+  units/CRS/datum/time semantics stay unknown. A separate strict Quadtree reader
+  validates20,684nodes/9,976 cells. XY agrees with native DISV but raw Z differs
+ 30/75; full 3D correspondence remains false. Its explicit saved-data UI
+  rendered all9,976 cells with no app errors and unchanged source bytes.
 - A comparison/replay harness separates synthetic fixtures, shipped tutorial
   output and witnessed original GMS output. No witnessed original GMS numerical
   comparison has passed. No full GPR writer/round trip or complete UI exists.
@@ -79,8 +83,11 @@ choice and observed an enabled main window with four identical complete
 entries. The second target remained at an unknown dialog with no action.
 Edition entitlement and original numerical execution remain unverified;
 [windows_free_choice_receipt.json](gms/windows_free_choice_receipt.json) preserves
-the actual metadata and exact action counts. No provider guard or
-licensing mechanism was bypassed.
+the actual metadata and exact action counts. The subsequent original File/Open run `39213425352` observed an owned standard
+Open dialog with23 controls and no read errors/truncation, after exactly two UI
+attempts. No filename/confirmation or original solver action occurred.
+[windows_open_dialog_receipt.json](gms/windows_open_dialog_receipt.json) retains
+that exact evidence. No provider guard or licensing mechanism was bypassed.
 
 Reproduction:
 

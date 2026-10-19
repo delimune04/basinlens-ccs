@@ -38,7 +38,12 @@ from basinlens_ccs.subsurface import (  # noqa: E402
 from basinlens_ccs.groundwater.native_run import _preflight, run_native_simulation  # noqa: E402
 from basinlens_ccs.groundwater.gpr_hdf5 import MAX_GPR_BYTES, inventory_gpr, read_gpr_numeric_array  # noqa: E402
 from basinlens_ccs.groundwater.gpr_geometry import read_gpr_rectilinear  # noqa: E402
+from basinlens_ccs.groundwater.gpr_unstructured import read_gpr_quadtree  # noqa: E402
 from basinlens_ccs.groundwater.gpr_project import read_gpr_project  # noqa: E402
+from basinlens_ccs.groundwater.transport import (  # noqa: E402
+    TransportCase, export_transport, load_transport_case, read_transport_results,
+    run_transport, verify_transport_export,
+)
 
 MAX_UPLOAD_BYTES = 2_000_000
 MAX_CELLS = 100_000
@@ -47,6 +52,10 @@ DOMAIN_LABELS = {
     "groundwater": "지하수 유동",
     "ccs": "CCS 프로젝트 · 배경 지하수",
     "oil_exploration": "석유 탐사 프로젝트 · 배경 지하수",
+}
+GPR_GEOMETRY_REPRESENTATIONS = {
+    "rectilinear": "직교 육면체 · 지원되는 Rectilinear 패킷",
+    "quadtree_level0": "Quadtree/XmUGrid · 레벨 0 · 단일층",
 }
 
 
@@ -688,6 +697,170 @@ def native_workbench() -> None:
         st.caption("이 결과는 위 피압 케이스의 지도·CSV와 별도로 보존됩니다. GUI/보조자료 상태와 계산 입력의 일치, 물리 검증 및 GMS 동등성은 확인되지 않았습니다.")
 
 
+def transport_case_from_upload(payload: bytes) -> TransportCase:
+    if len(payload) > 256 * 1024:
+        raise ValueError("용질 케이스 JSON은 256 KiB 이하여야 합니다.")
+    with tempfile.TemporaryDirectory(prefix="basinlens-transport-upload-") as temporary:
+        path = Path(temporary) / "case.json"
+        path.write_bytes(payload)
+        return load_transport_case(path)
+
+
+def transport_case_preview(case: TransportCase) -> dict:
+    preview = case.to_dict()
+    initial = preview.pop("initial_concentration_kg_m3")
+    preview["initial_concentration_summary_kg_m3_pore_water"] = {
+        "cell_count": len(initial), "minimum": min(initial), "maximum": max(initial)}
+    return preview
+
+
+def transport_result_views(products: dict) -> None:
+    """Every result quantity comes from the case captured in the verified run."""
+    result = products["captured_result"]
+    summary = result.summary
+    st.markdown("**검증한 실행의 캡처 케이스 · 용질 결과**")
+    st.caption(f"현재 선택 폼과 별도로, 실행 폴더에서 재구성·검증한 케이스를 사용합니다. 케이스 SHA-256 {case_fingerprint(result.case.to_dict())}")
+    st.code(products["workspace"], language=None)
+    if summary["conservation_passed"] and summary["concentration_bounds_passed"]:
+        st.success("질량보존 검사와 농도 범위 검사를 모두 통과했습니다. 합성 1D 검사이며 현장 검증은 아닙니다.")
+    else:
+        st.error("네이티브 엔진 실행은 완료했지만 질량보존 또는 농도 범위 검사를 통과하지 못했습니다. 아래 원시 지표와 실행 기록을 확인하세요.")
+    a, b, c, d = st.columns(4)
+    a.metric("최종 총 용존 질량 (kg)", f"{summary['final_mass_kg']:.8g}")
+    b.metric("최대 질량수지 잔차 (kg)", f"{summary['max_inventory_balance_error_kg']:.4g}")
+    c.metric("질량보존 검사", "통과" if summary["conservation_passed"] else "실패")
+    d.metric("농도 범위 검사", "통과" if summary["concentration_bounds_passed"] else "실패")
+    st.caption(f"질량 재고 허용값 {summary['inventory_balance_gate_kg']:.4g} kg. 경계 유량·용질 유량·저장률도 별도로 검사합니다. 농도는 공극수 1 m³당 용질 kg입니다.")
+    index = st.select_slider("용질 저장 시각 (day)", options=list(range(len(result.times_day))),
+        value=len(result.times_day) - 1, format_func=lambda i: f"{result.times_day[i]:.8g}", key="gw_transport_time")
+    time = float(result.times_day[index])
+    profile = go.Figure()
+    profile.add_trace(go.Scatter(x=result.x_m, y=result.case.initial_concentration_kg_m3,
+        name="초기 · 0 day", mode="lines", line={"dash": "dash"}))
+    profile.add_trace(go.Scatter(x=result.x_m, y=result.concentrations_kg_m3[index],
+        name=f"저장 시각 · {time:.8g} day", mode="lines"))
+    profile.update_layout(height=330, xaxis_title="셀 중심 x (m)",
+        yaxis_title="농도 (kg/m³ 공극수)", margin={"t": 30, "b": 30})
+    mass_times = np.r_[0.0, result.times_day]
+    mass_values = np.r_[summary["initial_mass_kg"], result.mass_kg]
+    mass = go.Figure(go.Scatter(x=mass_times, y=mass_values, mode="lines", name="총 용존 질량"))
+    mass.update_layout(height=330, xaxis_title="경과 시간 (day)", yaxis_title="총 용존 질량 (kg)",
+        margin={"t": 30, "b": 30})
+    a, b = st.columns(2)
+    a.plotly_chart(profile, use_container_width=True, key="gw_transport_profile")
+    b.plotly_chart(mass, use_container_width=True, key="gw_transport_mass")
+    products["profile_figure"], products["mass_figure"] = profile, mass
+    products["profile_csv"] = pd.DataFrame({"time_day": time, "cell_column_0based": np.arange(result.case.ncol),
+        "x_center_m": result.x_m, "concentration_kg_per_m3_pore_water": result.concentrations_kg_m3[index]}).to_csv(index=False).encode("utf-8")
+    products["mass_csv"] = pd.DataFrame({"time_day": mass_times,
+        "total_dissolved_mass_kg": mass_values}).to_csv(index=False).encode("utf-8")
+    a, b = st.columns(2)
+    a.download_button("선택 시각 용질 농도 CSV 다운로드", products["profile_csv"],
+        "transport_concentration_profile.csv", "text/csv", key="gw_transport_profile_csv")
+    b.download_button("총 용존 질량 시간 CSV 다운로드", products["mass_csv"],
+        "transport_mass_history.csv", "text/csv", key="gw_transport_mass_csv")
+    if "bundle" in products:
+        st.download_button("검증한 용질 실행 ZIP 다운로드", products["bundle"],
+            "transport_native_run.zip", "application/zip", key="gw_transport_run_zip")
+    else:
+        st.caption("실행 묶음이 128 MiB를 초과하여 메모리 다운로드를 생략했습니다. 위 서버 폴더에 전체 실행 파일을 보존했습니다.")
+    with st.expander("캡처 케이스 · 수송 검사와 한계"):
+        st.json(transport_case_preview(result.case))
+        st.json(summary)
+
+
+def transport_workbench() -> None:
+    st.subheader("보존성 용질 수송 · 1D 합성 실험")
+    st.info("포화·피압 단상 물의 1D 보존성 용질(GWF/GWT) 실험입니다. CO₂·석유·반응·밀도 의존 유동·일반 3D 수송은 계산하지 않으며 위 공통 프로젝트·GPR 자료와 별개입니다.")
+    st.caption("농도: kg/m³ 공극수 · 질량: kg · 길이: m · 시간: day. 예제를 불러오거나 JSON을 명시적으로 가져온 뒤에만 내보내기·실행할 수 있습니다.")
+    examples = {"uniform.json": "균일 농도 · 이류 유입", "closed_gaussian.json": "닫힌 Gaussian · 확산", "inlet_front.json": "용질 유입 전선"}
+    with st.form("gw_transport_case_form"):
+        example = st.selectbox("용질 합성 예제", list(examples), format_func=examples.get)
+        upload = st.file_uploader("용질 케이스 JSON 열기 (최대 256 KiB)", type=["json"], key="gw_transport_upload")
+        a, b = st.columns(2)
+        example_clicked = a.form_submit_button("합성 용질 예제 불러오기")
+        import_clicked = b.form_submit_button("용질 JSON 불러오기")
+    if example_clicked or import_clicked:
+        for key in ("gw_transport_case", "gw_transport_source", "gw_transport_result", "gw_transport_export", "gw_transport_time"):
+            st.session_state.pop(key, None)
+        try:
+            if example_clicked:
+                case = load_transport_case(PROJECT_ROOT / "examples" / "transport" / example)
+                origin = examples[example]
+            else:
+                if upload is None:
+                    raise ValueError("가져올 용질 JSON 파일을 선택하세요.")
+                if upload.size > 256 * 1024:
+                    raise ValueError("용질 케이스 JSON은 256 KiB 이하여야 합니다.")
+                case = transport_case_from_upload(upload.getvalue())
+                origin = "검증한 업로드 JSON"
+            st.session_state.gw_transport_case = case.to_dict()
+            st.session_state.gw_transport_source = origin
+        except (OSError, ValueError, RuntimeError) as error:
+            st.error(f"용질 케이스 오류: {error}")
+    if "gw_transport_case" not in st.session_state:
+        return
+    case = TransportCase.from_dict(st.session_state.gw_transport_case)
+    st.caption(f"현재 검증하여 불러온 케이스: {st.session_state.gw_transport_source}. 위 폼에서 다른 항목을 골랐다면 불러오기를 눌러 적용하세요.")
+    with st.expander("용질 케이스 미리보기 · 읽기 전용"):
+        st.json(transport_case_preview(case))
+    st.download_button("용질 케이스 JSON 다운로드", case_bytes(case.to_dict()),
+        "transport_case.json", "application/json", key="gw_transport_case_download")
+    with st.form("gw_transport_execute_form"):
+        output = st.text_input("용질 작업 폴더 (새 폴더)", value="build/transport-run", key="gw_transport_output",
+            help="실행 서버의 새 폴더입니다. 내보내기와 실행 때마다 새 이름을 지정하세요. 기존 폴더는 덮어쓰지 않습니다.")
+        timeout = st.number_input("용질 실행 제한 시간 (초)", 1, 600, 120, step=1)
+        a, b = st.columns(2)
+        export_clicked = a.form_submit_button("엔진 없이 용질 MF6 입력 내보내기")
+        run_clicked = b.form_submit_button("용질 MF6 실제 실행")
+    executable = st.session_state.get("gw_solver_path", "mf6").strip()
+    request = case_fingerprint({"case": case.to_dict(), "output": output.strip(), "timeout": timeout, "exe": executable})
+    if st.session_state.get("gw_transport_request") != request:
+        for key in ("gw_transport_result", "gw_transport_export", "gw_transport_time"):
+            st.session_state.pop(key, None)
+        st.session_state.gw_transport_request = request
+    if export_clicked or run_clicked:
+        for key in ("gw_transport_result", "gw_transport_export", "gw_transport_time"):
+            st.session_state.pop(key, None)
+        try:
+            if not output.strip():
+                raise ValueError("새 용질 작업 폴더를 지정하세요.")
+            if export_clicked:
+                workspace = export_transport(case, output.strip())
+                verify_transport_export(workspace)
+                products = {"workspace": str(workspace)}
+                if sum(path.stat().st_size for path in workspace.rglob("*") if path.is_file()) <= 128 * 1024 * 1024:
+                    products["bundle"] = zip_directory(workspace)
+                st.session_state.gw_transport_export = products
+                st.success("검증한 용질 MF6 입력을 내보냈습니다. 엔진은 실행하지 않았습니다.")
+            else:
+                if not executable:
+                    raise ValueError("위 MODFLOW 6 실행 파일 경로를 지정하세요. 자동 설치·대체 계산은 수행하지 않습니다.")
+                with st.spinner("별도 폴더에서 실제 MODFLOW 6 GWF/GWT를 실행하고 캡처 케이스를 검증합니다…"):
+                    native = run_transport(case, output.strip(), exe_name=executable, timeout_seconds=float(timeout))
+                    result = read_transport_results(native.workspace)
+                    from basinlens_ccs.groundwater.native_run import verify_native_run
+                    if verify_native_run(native.workspace)["status"] != "completed":
+                        raise ValueError("완료된 용질 실행의 무결성을 확인하지 못했습니다.")
+                    products = {"workspace": str(native.workspace), "captured_result": result}
+                    if sum(path.stat().st_size for path in native.workspace.rglob("*") if path.is_file()) <= 128 * 1024 * 1024:
+                        products["bundle"] = zip_directory(native.workspace)
+                    st.session_state.gw_transport_result = products
+        except (OSError, ValueError, RuntimeError) as error:
+            st.error(f"용질 내보내기/실행 오류: {error}")
+    if "gw_transport_export" in st.session_state:
+        products = st.session_state.gw_transport_export
+        st.caption("검증한 용질 네이티브 입력 폴더 · 계산 결과가 아닙니다.")
+        st.code(products["workspace"], language=None)
+        if "bundle" in products:
+            st.download_button("검증한 용질 MF6 입력 ZIP 다운로드", products["bundle"],
+                "transport_native_inputs.zip", "application/zip", key="gw_transport_export_zip")
+        else:
+            st.caption("입력 묶음이 128 MiB를 초과하여 메모리 다운로드를 생략했습니다. 위 서버 폴더에서 확인하세요.")
+    if "gw_transport_result" in st.session_state:
+        transport_result_views(st.session_state.gw_transport_result)
+
+
 def _gpr_sha(path: str) -> str:
     project = Path(path)
     if not project.is_file() or project.stat().st_size > MAX_GPR_BYTES:
@@ -704,12 +877,19 @@ def _gpr_sha(path: str) -> str:
 
 
 def gpr_saved_figure(path: str, geometry_path: str, scalar_path: str, axis_index: int,
-                     expected_sha: str) -> tuple[go.Figure, dict]:
+                     expected_sha: str, representation: str = "rectilinear") -> tuple[go.Figure, dict]:
     """Read saved geometry/scalars bound to one unchanged file; render <=20k cells."""
-    geometry = read_gpr_rectilinear(path, geometry_path.rsplit("/", 1)[0])
+    group = geometry_path.rsplit("/", 1)[0]
+    if representation == "rectilinear":
+        geometry = read_gpr_rectilinear(path, group)
+        count = len(geometry.cells)
+    elif representation == "quadtree_level0":
+        geometry = read_gpr_quadtree(path, group)
+        count = len(geometry.faces)
+    else:
+        raise ValueError("지원할 저장 기하 형식을 명시적으로 선택하세요.")
     if geometry.source["sha256"] != expected_sha:
         raise ValueError("GPR 파일이 목록 검사 이후 변경되었습니다. 자료 목록을 다시 여세요.")
-    count = len(geometry.cells)
     field = None
     description = None
     if scalar_path:
@@ -729,31 +909,50 @@ def gpr_saved_figure(path: str, geometry_path: str, scalar_path: str, axis_index
         if _gpr_sha(path) != expected_sha:
             raise ValueError("원시 필드를 읽는 동안 GPR 파일이 변경되었습니다.")
     selected = np.linspace(0, count - 1, min(count, 20_000), dtype=np.int64)
-    centers = (geometry.points[geometry.cells[selected]] / 8).sum(axis=1)
-    k, row, col = np.unravel_index(selected, geometry.shape)
-    values = np.asarray(field[selected], dtype=float) if field is not None else k.astype(float)
+    if representation == "rectilinear":
+        centers = (geometry.points[geometry.cells[selected]] / 8).sum(axis=1)
+        k, row, col = np.unravel_index(selected, geometry.shape)
+        color_layers = k.astype(float)
+        indices = np.column_stack((selected, k, row, col))
+        layer_title = "층 인덱스"
+        hover = "셀 %{customdata[0]:.0f} · KIJ (%{customdata[1]:.0f}, %{customdata[2]:.0f}, %{customdata[3]:.0f})<br>X=%{x}<br>Y=%{y}<br>Z=%{z}<br>표시값=%{customdata[4]}<extra>저장 자료</extra>"
+        mapping = "raw flat field index to geometry flat KIJ cell index; field semantics/order not independently verified"
+    else:
+        # Select only two four-node faces per sampled cell, never all face coordinates.
+        centers = ((geometry.points[geometry.upper_faces[selected]] / 8).sum(axis=1)
+                   + (geometry.points[geometry.lower_faces[selected]] / 8).sum(axis=1))
+        color_layers = geometry.cell_layers[selected].astype(float)
+        indices = np.column_stack((selected, color_layers))
+        layer_title = "저장 층 번호"
+        hover = "셀 스트림 인덱스 %{customdata[0]:.0f} · 저장 층 %{customdata[1]:.0f}<br>X=%{x}<br>Y=%{y}<br>Z=%{z}<br>표시값=%{customdata[2]}<extra>저장 자료</extra>"
+        mapping = "raw flat field index to embedded cell-stream index; field semantics/order not independently verified"
+    if not np.isfinite(centers).all():
+        raise ValueError("저장 꼭짓점에서 계산한 표시 중심 좌표가 유한하지 않습니다.")
+    values = np.asarray(field[selected], dtype=float) if field is not None else color_layers
     finite = np.isfinite(values)
-    custom = np.column_stack((selected, k, row, col, values))[finite]
+    custom = np.column_stack((indices, values))[finite]
     fig = go.Figure(go.Scatter3d(
         x=centers[finite, 0], y=centers[finite, 1], z=centers[finite, 2], mode="markers",
         customdata=custom,
         marker={"size": 4, "color": values[finite], "colorscale": "Viridis", "opacity": 0.85,
-                "colorbar": {"title": "저장 원시값" if scalar_path else "층 인덱스"}},
-        hovertemplate="셀 %{customdata[0]:.0f} · KIJ (%{customdata[1]:.0f}, %{customdata[2]:.0f}, %{customdata[3]:.0f})<br>X=%{x}<br>Y=%{y}<br>Z=%{z}<br>표시값=%{customdata[4]}<extra>저장 자료</extra>",
+                "colorbar": {"title": "저장 원시값" if scalar_path else layer_title}},
+        hovertemplate=hover,
     ))
     fig.update_layout(height=500, margin={"l": 0, "r": 0, "t": 10, "b": 0},
         scene={"xaxis_title": "X (저장 좌표, 단위 미상)", "yaxis_title": "Y (저장 좌표, 단위 미상)",
                "zaxis_title": "Z (저장 꼭짓점 좌표, 단위·기준면 미상)", "aspectmode": "data"})
     receipt = geometry.receipt()
-    parametric = receipt.pop("parametric_z_axis")
-    receipt["parametric_z_axis_preview"] = parametric[:50]
-    receipt["parametric_z_axis_count"] = len(parametric)
+    if representation == "rectilinear":
+        parametric = receipt.pop("parametric_z_axis")
+        receipt["parametric_z_axis_preview"] = parametric[:50]
+        receipt["parametric_z_axis_count"] = len(parametric)
     receipt.update(saved_data_only=True, new_solver_result=False, scalar_path=scalar_path or None,
         scalar_storage=description, first_axis_index=axis_index if scalar_path else None,
         field_units=None, first_axis_meaning=None, time_units=None, rendered_cells=int(finite.sum()),
         sampled_cells=len(selected), omitted_nonfinite_sample_values=int((~finite).sum()),
-        render_limit=20_000, source_sha256=expected_sha,
-        scalar_index_mapping="raw flat field index to geometry flat KIJ cell index; field semantics/order not independently verified")
+        render_limit=20_000, source_sha256=expected_sha, geometry_representation=representation,
+        displayed_coordinates="physical eight-vertex means; no wrapper, axis, unit or datum transform",
+        scalar_index_mapping=mapping)
     return fig, receipt
 
 
@@ -803,7 +1002,7 @@ def gpr_project_tree(source: str, inventory: dict, datasets: list[dict]) -> None
 
 def gpr_workbench() -> None:
     st.subheader("GPR 저장 기하 · 원시 셀 자료 보기")
-    st.caption("읽기 전용입니다. 지원되는 비회전·원점 0 직교 육면체 패킷만 해독하며, 저장 자료를 새 계산 결과로 취급하지 않습니다.")
+    st.caption("읽기 전용입니다. 지원되는 저장 기하 형식을 직접 선택하며 자동 대체·변환하지 않습니다. 저장 자료는 새 계산 결과가 아닙니다.")
     with st.form("gw_gpr_inventory_form"):
         source = st.text_input("읽기 전용 GPR 파일 (서버 경로)", key="gw_gpr_source")
         opened = st.form_submit_button("GPR 자료 목록 열기")
@@ -843,6 +1042,8 @@ def gpr_workbench() -> None:
         if supported and record["path"] not in grids:
             numeric.append(record["path"])
     with st.form("gw_gpr_view_form"):
+        representation = st.selectbox("저장 기하 해석 형식", list(GPR_GEOMETRY_REPRESENTATIONS),
+            format_func=GPR_GEOMETRY_REPRESENTATIONS.get)
         geometry_path = st.selectbox("관측된 기하 데이터셋", grids)
         scalar_path = st.selectbox("직접 선택할 원시 셀 필드", ["", *numeric],
             format_func=lambda value: value or "원시 필드 없이 기하만")
@@ -853,7 +1054,7 @@ def gpr_workbench() -> None:
         st.session_state.pop("gw_gpr_receipt", None)
         try:
             figure, receipt = gpr_saved_figure(source.strip(), geometry_path, scalar_path,
-                int(axis_index), inventory["sha256"])
+                int(axis_index), inventory["sha256"], representation)
             st.session_state.gw_gpr_figure = figure
             st.session_state.gw_gpr_receipt = receipt
         except (OSError, ValueError) as error:
@@ -861,7 +1062,8 @@ def gpr_workbench() -> None:
     if "gw_gpr_figure" in st.session_state:
         st.plotly_chart(st.session_state.gw_gpr_figure, use_container_width=True, key="gw_gpr_saved_plot")
         st.json(st.session_state.gw_gpr_receipt)
-        st.caption("좌표는 실제 꼭짓점의 평균입니다. parametric Z축을 깊이로 사용하지 않습니다. 필드 평탄 인덱스를 기하 KIJ 셀 인덱스에 그대로 대응하며, 필드 의미·순서의 외부 검증은 수행하지 않습니다.")
+        st.caption("좌표는 실제 8개 꼭짓점의 평균입니다. parametric 축·wrapper 원점을 좌표에 적용하지 않습니다. 직교 격자는 KIJ 순서, Quadtree는 저장 셀 스트림 인덱스로 원시 필드를 대응하며 필드 의미·순서의 외부 검증은 수행하지 않습니다.")
+        st.caption("Quadtree 지원은 관측된 레벨 0·단일층·닫힌 6개 사각형 면 셀에 한정됩니다. 적응형 격자 생성·다층·일반 형식·GMS 편집기나 전체 동등성을 제공하지 않습니다.")
         st.caption("좌표·필드·시간의 단위, CRS와 표고 기준면은 미상으로 유지합니다. 저장 메타데이터와 네이티브 모델 단위의 불일치를 추측으로 보정하지 않습니다. 최대 20,000셀을 표시하며 원본은 변경하지 않습니다.")
 
 
@@ -893,6 +1095,8 @@ def main() -> None:
     results(case)
     st.divider()
     native_workbench()
+    st.divider()
+    transport_workbench()
     st.divider()
     gpr_workbench()
 

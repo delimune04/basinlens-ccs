@@ -2,11 +2,11 @@
 
 ## Expanded implementation check
 
-The integrated project-tree/storage snapshot passed **249 tests with zero skips** using real
-MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 33.435s.
+The integrated project-tree/storage snapshot passed **265 tests with zero skips** using real
+MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 47.999s.
 Exact source hashes, versions, commands and additional checks are in
 [expanded_validation_record.json](expanded_validation_record.json). The earlier
-published 173-test, 190-test, 203-test and 237-test snapshots and their successful remote CI are
+published 173-test, 190-test, 203-test, 237-test and 249-test snapshots and their successful remote CI are
 retained there as history. Missing solver tests are skips in ordinary CI, separate from this local
 zero-skip result.
 
@@ -15,7 +15,7 @@ execution, native unconfined feet/seconds execution, native file boundaries and
 byte preservation, complete run-inventory verification, SQLite snapshots,
 GPR link/filter/read limits, geometry topology and coordinate mapping,
 comparison provenance/tolerance failures, PE evidence binding, genuine REA
-open-obligation generation and 26 workbench UI/viewer tests.
+open-obligation generation and 34 workbench UI/viewer tests.
 The added project/storage checks cover strict tree grammar, literal identity
 joins, missing payloads, anonymous projection, raw deflate expansion, canonical
 file datatypes and explicit tree UI source binding. Normal termination
@@ -125,3 +125,30 @@ No witnessed original GMS runtime output comparison, GMS project-format round tr
 multiphase benchmark, Sleipner field comparison, Windows run, GPU acceleration,
 geomechanics or industry pilot was completed. The existing CCS evidence levels
 are unchanged by these groundwater tests.
+
+## Later transport UI and measured Quadtree geometry
+
+The 265-test integrated source includes four new transport UI tests, four
+explicit Quadtree UI tests and eight
+strict mesh-reader tests. Transport UI import, native export, real-MF6 run,
+captured-case-only concentration/mass plots, gate failures, CSVs and verified
+ZIP downloads passed without changing the shared groundwater/CCS project.
+
+The separate [Quadtree reader](GPR_UNSTRUCTURED.md) recovered 20,684 nodes and
+9,976 cells from another official project. All same-index XY footprints and
+10,342 unique XY vertices match saved native DISV exactly; upper/lower corner
+coordinate differences remain 30/75 and full3D match is false. Units, datum and
+synchronization remain unresolved; no repair or solver execution was applied.
+
+The reviewed original File/Open probe then observed a complete owned standard
+Open dialog (23 controls, no read errors/truncation), after two counted UI
+attempts. No filename was entered or confirmed;
+[windows_open_dialog_receipt.json](windows_open_dialog_receipt.json) preserves
+the exact scope. These observations do not establish original numerical parity.
+
+The measured Quadtree representation is now explicitly selectable in the GPR
+viewer; its saved9,976 cells rendered without app errors or source changes.
+Unknown coordinate/field/time units, CRS and datum were retained, no wrapper
+transform was applied, and no model synchronization or solver action occurred.
+[unstructured_ui_validation_record.json](unstructured_ui_validation_record.json)
+binds this read-only actual-file UI check to exact source/application identities.

@@ -1,0 +1,44 @@
+{
+  "application_source": {
+    "app_sha256": "70ef19e0adca40f41fa91edb5ba4b833f9695a65a6a50954cb5c4514361d7658",
+    "commit": "90b90a979cc2ab157f801b6ed7368d9e352f701a",
+    "commit_qualification": "Local implementation commit; exact application bytes are identified bySHA256 and later public source binding."
+  },
+  "checks": {
+    "bounded_case_unchanged": true,
+    "common_project_unchanged": true,
+    "default_representation_rectilinear": true,
+    "explicit_representation_selected": true,
+    "geometry_only": true,
+    "gms_runtime_executed": false,
+    "initialization_errors": 0,
+    "inventory_errors": 0,
+    "inventory_mesh_same_source_sha256": true,
+    "native_solver_executed": false,
+    "saved_mesh_errors": 0
+  },
+  "saved_mesh": {
+    "cell_count": 9976,
+    "coordinate_units": null,
+    "crs": null,
+    "field_units": null,
+    "new_solver_result": false,
+    "node_count": 20684,
+    "render_limit": 20000,
+    "rendered_cells": 9976,
+    "representation": "quadtree_level0",
+    "sampled_cells": 9976,
+    "saved_data_only": true,
+    "time_units": null,
+    "vertical_datum": null,
+    "wrapper_origin_or_axis_transform_applied": false,
+    "wrapper_quad_arrays_interpreted": false
+  },
+  "schema": "basinlens-gpr-quadtree-ui-check-v1",
+  "scope": "Read-only saved level-zero single-layer mesh viewer check only; no native DISV comparison, vertical repair, GMS runtime, synchronization, solver or full-product-equivalence claim.",
+  "source": {
+    "bytes": 2104862,
+    "original_bytes_unchanged": true,
+    "sha256": "d5bae80e0159127316388e53652dceba4069e7b6ba099e31f691d55305e509e6"
+  }
+}

@@ -203,3 +203,22 @@ No provider ownership guard was bypassed and no function recovery is claimed.
 A separate local REA objdump attempt returned `capability_unavailable` /
 `unsupported_provider` because its configured command could not be run; this
 is not a successful metadata extraction or a demonstrated target limitation.
+
+## Original File/Open dialog observation
+
+Run [39213425352](https://github.com/delimune04/basinlens-ccs/actions/runs/39213425352)
+passed Windows parsing, C# compilation and pure policy checks before execution.
+After one normal free Community choice, the first target exposed a sole enabled
+File/Open command 37447 at observed position1/2, with an enabled ancestor chain,
+leaf-only semantics, verified WM_COMMAND menu style and matching fresh snapshots.
+One reserved WM_COMMAND attempt timed out and was never retried. The next
+passive snapshot observed an owned visible enabled standard dialog with the
+exact fixed Open title:23 controls, zero read errors, no truncation, including
+one Edit and five Buttons. The second target received no action.
+
+[windows_open_dialog_receipt.json](windows_open_dialog_receipt.json) preserves
+the actual public metadata and exact counters:two target UI actions (Community
+plus File/Open), zero filename writes, confirmations, activation requests or
+probe solver actions. The dialog class/counts alone do not establish filename
+control semantics, successful model loading, entitlement or numerical parity.
+Cross-process WM_USER-range CDM messages with local pointers are not used.

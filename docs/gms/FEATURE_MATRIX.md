@@ -29,8 +29,9 @@ records the remaining product and evidence work.
 | Saved GPR project relationships | Explicit tree inspection and literal UUID graph | One actual tutorial: 29 nodes, 21 relationships, 16 unresolved; no external component synchronization |
 | Native GPR geometry | Physical nodes, hexahedra and cell elevations for one verified rectilinear representation | All 1,125 tutorial cell coordinates match native DIS; units/CRS/datum remain unknown, no GPR writing |
 | GIS / CAD / boreholes | Not implemented | No shapefile/CAD/CRS transformation claims |
-| Unstructured meshes / solids | Not implemented | No grid refinement or stratigraphic interpolation |
-| Conservative solute transport | Standalone bounded1D GWF/GWT exporter/runner/result reader | Synthetic uniform/Gaussian/inlet checks and every-step mass balance; no general3D/GMS/field equivalence or shared UI adapter |
+| Measured Quadtree mesh data | Read-only level-zero single-layer type42 polyhedra, all faces/topology checked | 9,976 same-index footprints and10,342 XY vertices match native DISV; Z differs 30/75, full 3D match false |
+| Mesh construction / solids | Not implemented | No adaptive refinement, arbitrary polyhedra or stratigraphic interpolation |
+| Conservative solute transport | Standalone bounded1D GWF/GWT exporter/runner/result reader | Synthetic uniform/Gaussian/inlet checks and every-step mass balance; separate captured-case UI/profile/mass/CSV/verifiedZIP; no general3D/GMS/field equivalence or shared-project adapter |
 | Particles and other transport | Not implemented | No MODPATH, MT3D, reactions or density-dependent interface |
 | Calibration / uncertainty inversion | Not implemented | Existing volumetric Monte Carlo stays separate |
 | CO2–brine multiphase flow | Not implemented | Requires an appropriate OPM/DuMux-class solver and benchmarks |
