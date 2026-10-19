@@ -11,15 +11,18 @@ current scope or a replacement definition of completion. Public work is in
 
 The latest integrated run passed **265 tests with zero skips** using actual
 MF6 6.7.0, FloPy 3.11.0 and the optional UI/HDF5 dependencies. Required capacity
-CLI/verifier, compilation, diff checks and actionlint also passed.
+CLI/verifier, compilation, diff checks and actionlint also passed. This exact
+265-test implementation is published within `5c62acf9` / tree `5ef3ae2f`; both
+remote CI runs `39215889617` and `39215883507` passed all three jobs. Later
+Windows probe source/check bindings are separate.
 
 Current components:
 
-- Standalone bounded1D saturated GWF/GWT conservative-solute module with
+- Standalone bounded 1D saturated GWF/GWT conservative-solute module with
   deterministic native export, exact captured case/input binding, every-step
   concentration/mass result reader and existing native executor/verifier reuse.
   Uniform/Gaussian/refinement/inlet checks passed; separate explicit-case UI
-  provides actual runs, profile/mass plots, CSV and verifiedZIP. No shared-project registry,
+  provides actual runs, profile/mass plots, CSV and verified ZIP. No shared-project registry,
   GMS comparison, CO2, reactions or density-dependent physics are implied.
 - Typed shared subsurface projects, explicit units/CRS/datum and asset identity,
   preserved geological/observation metadata, trusted engine registry and a
@@ -36,9 +39,9 @@ Current components:
   21 relationships, 16 unresolved. Bounded raw-chunk decoding prevents HDF5
   decompression from exceeding the declared read budget. Unknown
   units/CRS/datum/time semantics stay unknown. A separate strict Quadtree reader
-  validates20,684nodes/9,976 cells. XY agrees with native DISV but raw Z differs
- 30/75; full 3D correspondence remains false. Its explicit saved-data UI
-  rendered all9,976 cells with no app errors and unchanged source bytes.
+  validates 20,684 nodes/9,976 cells. XY agrees with native DISV but raw Z differs
+  30/75; full 3D correspondence remains false. Its explicit saved-data UI
+  rendered all 9,976 cells with no app errors and unchanged source bytes.
 - A comparison/replay harness separates synthetic fixtures, shipped tutorial
   output and witnessed original GMS output. No witnessed original GMS numerical
   comparison has passed. No full GPR writer/round trip or complete UI exists.
@@ -52,7 +55,8 @@ Current components:
 
 The unchanged official tutorial's 15 native files reproduce its shipped head
 and budget binaries byte for byte using public USGS MF6 6.7.0. The tutorial
-project says GMS 10.8.2 and shipped solver says MF6 6.4.1. Its 1,536 geometry
+project stores GMS-version metadata 10.8.2 and the shipped solver says MF6 6.4.1;
+the project creator is not established. Its 1,536 geometry
 nodes/1,125 hexahedra match every native DIS cell center/top/bottom literally;
 GPR unit metadata conflicts with the native feet/seconds declarations. These
 are file interoperability checks, not an original GMS session or full parity.
@@ -84,10 +88,22 @@ entries. The second target remained at an unknown dialog with no action.
 Edition entitlement and original numerical execution remain unverified;
 [windows_free_choice_receipt.json](gms/windows_free_choice_receipt.json) preserves
 the actual metadata and exact action counts. The subsequent original File/Open run `39213425352` observed an owned standard
-Open dialog with23 controls and no read errors/truncation, after exactly two UI
+Open dialog with 23 controls and no read errors/truncation, after exactly two UI
 attempts. No filename/confirmation or original solver action occurred.
 [windows_open_dialog_receipt.json](gms/windows_open_dialog_receipt.json) retains
-that exact evidence. No provider guard or licensing mechanism was bypassed.
+that exact evidence. The later pinned-tutorial run `39216983932` verified one
+filename-combo/Edit path write/readback and one Open confirmation, after four
+counted UI attempts on target1 and zero on target2. An eight-control owned
+standard dialog then appeared and was heuristically classified as an error.
+Cause and project loading remain unverified; no unknown button was pressed.
+Both GPR/executable identities stayed unchanged. The probe issued no solver
+action and did not monitor automatic numerical execution.
+[windows_tutorial_open_receipt.json](gms/windows_tutorial_open_receipt.json)
+preserves the exact scope and historical wording qualifications. No provider
+guard or licensing mechanism was bypassed. The official10.9 edition table
+marks the MF6 interface in paid MODFLOW and higher columns, with Community
+blank; this is separate documented scope, not the dialog cause or observed
+entitlement. See [RUNTIME_DIAGNOSTICS.md](gms/RUNTIME_DIAGNOSTICS.md).
 
 Reproduction:
 

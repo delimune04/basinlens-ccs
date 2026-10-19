@@ -68,6 +68,7 @@ $receipt = [ordered]@{
     verified_tutorial_requested = [bool]$VerifiedTutorialPath
     tutorial_open_observations = @(); filename_text_ui_actions = 0; file_confirm_ui_actions = 0
     tutorial_confirmation_attempted = $false; post_tutorial_window_observed = $false
+    post_confirmation_dialog_diagnostics = @()
     project_basename_title_observed = $false; project_load_verified = $false
     tutorial_gpr_sha256_before = if ($tutorialPath) { 'afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467' } else { $null }
     tutorial_gpr_sha256_after = $null; tutorial_gpr_size_after = $null; tutorial_gpr_exists_after = $null; tutorial_gpr_changed = $null
@@ -643,6 +644,127 @@ public static class GmsPassiveWindows {
     } catch { result.PolicyPermitsTextAttempt=false; result.Status=result.ConfirmAttempted ? "tutorial_confirmation_exception_no_retry" : result.TextAttempted ? "tutorial_text_phase_exception_no_retry" : "tutorial_preflight_failed_no_action"; }
     return result;
   }
+  // The public projection contains fixed vocabulary and aggregate metadata only.
+  // Keyword presence is an observation, never a diagnosis or permission to act.
+  public class PostConfirmationDiagnostic {
+    public string Policy="post_confirmation_fixed_keyword_observation_v1",Status="not_checked",TextSha256;
+    public bool ConfirmationAttempted,PinnedImageVerified,LiveImagePathVerified,WindowOwnedProcess,WindowVisible,WindowEnabled,StandardDialogVerified,RootRelationVerified,WindowIdentityConsistent;
+    public bool TopLevelTextComplete,SnapshotTruncated,TextClassified;
+    public int SnapshotReadErrors,InspectedControls,IncludedVisibleOwnedControls,NonemptyTextFields,TextCharacters,TextUtf8Bytes,MatchedKeywordCategories;
+    public bool LicenseKeywordsObserved,ModuleOrFeatureKeywordsObserved,AvailabilityKeywordsObserved,FileOperationKeywordsObserved,ParserOrFormatKeywordsObserved,HdfKeywordsObserved;
+    public bool DependencyKeywordsObserved,MemoryKeywordsObserved,AccessKeywordsObserved,PathKeywordsObserved,VersionKeywordsObserved,GraphicsKeywordsObserved,GenericErrorKeywordsObserved;
+    public bool CauseInferred=false,AdditionalUiActionsPerformed=false;
+    public string Qualification="Fixed keyword presence in one fresh owned dialog only; categories can overlap or describe context rather than cause. Absent keywords do not exclude a cause. No text, path, control identity, repair or further UI action is public.";
+  }
+  public class PrivatePostConfirmationCapture {
+    public PostConfirmationDiagnostic Observation=new PostConfirmationDiagnostic();
+    public string Title="",ClassName="",LiveImagePath="";
+    public long WindowHandle,OwnerHandle,ProcessStartUtcTicks;
+    public uint ProcessId;
+    public ControlSnapshot Snapshot=new ControlSnapshot();
+  }
+  private static bool Keyword(string text,string pattern) {
+    return System.Text.RegularExpressions.Regex.IsMatch(text,pattern,System.Text.RegularExpressions.RegexOptions.IgnoreCase|System.Text.RegularExpressions.RegexOptions.CultureInvariant);
+  }
+  public static PostConfirmationDiagnostic AssessPostConfirmationDiagnostic(WindowContext window,ControlSnapshot snapshot,string title,bool confirmed,bool image,bool livePath,bool standard,bool root,bool textComplete,bool consistent) {
+    var result=new PostConfirmationDiagnostic { ConfirmationAttempted=confirmed,PinnedImageVerified=image,LiveImagePathVerified=livePath,
+      WindowOwnedProcess=window.OwnedProcess,WindowVisible=window.Visible,WindowEnabled=window.Enabled,StandardDialogVerified=standard,
+      RootRelationVerified=root,WindowIdentityConsistent=consistent,TopLevelTextComplete=textComplete,SnapshotTruncated=snapshot.Truncated,
+      SnapshotReadErrors=snapshot.ReadErrors,InspectedControls=snapshot.Controls==null ? 0 : snapshot.Controls.Length };
+    if(!confirmed) { result.Status="no_post_confirmation_context_no_classification"; return result; }
+    if(!image || !livePath || !window.OwnedProcess || !window.Visible || !window.Enabled || !window.IsDialog || !standard || !root || !consistent) { result.Status="fresh_owned_pinned_dialog_not_verified_no_classification"; return result; }
+    if(!textComplete || title==null || title.Length==0 || title.Length>=2047 || snapshot.Truncated || snapshot.ReadErrors!=0 || snapshot.Controls==null || snapshot.Controls.Length>128) { result.Status="incomplete_dialog_text_no_classification"; return result; }
+    var fields=new List<string> { title }; var aggregate=new StringBuilder("post_confirmation_text_v1\n");
+    foreach(var c in snapshot.Controls) {
+      if(c==null || c.ClassName==null || c.ClassName.Length>=255 || c.Label==null || c.Label.Length>=511) { result.Status="incomplete_control_text_no_classification"; return result; }
+      if(!c.Visible) continue;
+      if(!c.OwnedProcess || !c.SameProcessAsWindow || !c.ParentRelationVerified) { result.Status="visible_control_ownership_not_verified_no_classification"; return result; }
+      result.IncludedVisibleOwnedControls++; fields.Add(c.Label);
+    }
+    foreach(string field in fields) {
+      // Length-prefix each exact field so distinct field sequences cannot alias.
+      aggregate.Append(field.Length.ToString(System.Globalization.CultureInfo.InvariantCulture)).Append(':').Append(field).Append('\n');
+      result.TextCharacters+=field.Length; if(field.Length>0) result.NonemptyTextFields++;
+      // Evaluate each field separately; phrases must not span unrelated controls.
+      result.LicenseKeywordsObserved |= Keyword(field,@"\blicen[cs](?:e|ed|ing)\b|\bactivation\b|\bregistration\b|\bcommunity\s+edition\b|\bevaluation\b|\btrial\b");
+      result.ModuleOrFeatureKeywordsObserved |= Keyword(field,@"\b(?:module|component|feature|interface|edition|capability|capabilities)\b");
+      result.AvailabilityKeywordsObserved |= Keyword(field,@"\b(?:unavailable|unsupported)\b|\bnot\s+(?:available|included|enabled|supported|installed)\b|\brequir(?:e|es|ed)\b");
+      result.FileOperationKeywordsObserved |= Keyword(field,@"\b(?:read|reading|open|opening|load|loading|import|importing|file|document|project)\b");
+      result.ParserOrFormatKeywordsObserved |= Keyword(field,@"\b(?:parser|parse|parsing|format|corrupt|corrupted|malformed)\b");
+      result.HdfKeywordsObserved |= Keyword(field,@"\bhdf(?:5)?\b");
+      result.DependencyKeywordsObserved |= Keyword(field,@"\b(?:dll|python|dependency|dependencies|library|libraries|runtime)\b");
+      result.MemoryKeywordsObserved |= Keyword(field,@"\b(?:memory|allocation|malloc)\b|\bstd::bad_alloc\b|\bnot\s+enough\s+storage\b");
+      result.AccessKeywordsObserved |= Keyword(field,@"\b(?:access|permission|permissions|denied|privilege|privileges)\b|\bread[ -]only\b");
+      result.PathKeywordsObserved |= Keyword(field,@"\b(?:path|directory|folder|filename)\b|\bfile\s+name\b|\bnot\s+found\b|\bdoes\s+not\s+exist\b|\bcannot\s+find\b");
+      result.VersionKeywordsObserved |= Keyword(field,@"\b(?:version|older|newer|compatible|incompatible)\b");
+      result.GraphicsKeywordsObserved |= Keyword(field,@"\b(?:opengl|graphics|rendering|renderer)\b|\bdisplay\s+driver\b");
+      result.GenericErrorKeywordsObserved |= Keyword(field,@"\b(?:error|exception|fatal|failed|failure|cannot|unable)\b");
+    }
+    byte[] bytes=new UTF8Encoding(false,true).GetBytes(aggregate.ToString()); result.TextUtf8Bytes=bytes.Length;
+    using(var hash=System.Security.Cryptography.SHA256.Create()) result.TextSha256=BitConverter.ToString(hash.ComputeHash(bytes)).Replace("-","").ToLowerInvariant();
+    foreach(bool matched in new bool[] {result.LicenseKeywordsObserved,result.ModuleOrFeatureKeywordsObserved,result.AvailabilityKeywordsObserved,result.FileOperationKeywordsObserved,result.ParserOrFormatKeywordsObserved,result.HdfKeywordsObserved,result.DependencyKeywordsObserved,result.MemoryKeywordsObserved,result.AccessKeywordsObserved,result.PathKeywordsObserved,result.VersionKeywordsObserved,result.GraphicsKeywordsObserved,result.GenericErrorKeywordsObserved}) if(matched) result.MatchedKeywordCategories++;
+    result.TextClassified=true; result.Status=result.MatchedKeywordCategories>0 ? "fixed_keywords_observed_cause_unverified" : "no_allowlisted_keywords_observed_cause_unknown";
+    return result;
+  }
+  public static PrivatePostConfirmationCapture ObservePostConfirmationDialog(IntPtr window,HashSet<uint> pids,string imagePath,string expectedHash,long expectedSize,bool confirmed) {
+    var capture=new PrivatePostConfirmationCapture(); var context=new WindowContext();
+    bool image=false,livePath=false,standard=false,root=false,textComplete=false,consistent=false;
+    try {
+      if(!confirmed) { capture.Observation=AssessPostConfirmationDiagnostic(context,capture.Snapshot,"",false,false,false,false,false,false,false); return capture; }
+      var watch=Stopwatch.StartNew(); uint pid; GetWindowThreadProcessId(window,out pid);
+      capture.WindowHandle=window.ToInt64(); capture.ProcessId=pid;
+      context.OwnedProcess=pids.Contains(pid); context.Visible=IsWindowVisible(window); context.Enabled=IsWindowEnabled(window);
+      root=GetAncestor(window,2)==window; capture.OwnerHandle=GetWindow(window,4).ToInt64();
+      if(!context.OwnedProcess || !context.Visible || !context.Enabled || !root) { capture.Observation=AssessPostConfirmationDiagnostic(context,capture.Snapshot,"",true,false,false,false,root,false,false); return capture; }
+      var process=Process.GetProcessById((int)pid); capture.ProcessStartUtcTicks=process.StartTime.ToUniversalTime().Ticks;
+      capture.LiveImagePath=process.MainModule.FileName;
+      livePath=String.Equals(System.IO.Path.GetFullPath(capture.LiveImagePath),System.IO.Path.GetFullPath(imagePath),StringComparison.OrdinalIgnoreCase);
+      image=livePath && VerifyPinnedImage(capture.LiveImagePath,expectedHash,expectedSize);
+      if(!image) { capture.Observation=AssessPostConfirmationDiagnostic(context,capture.Snapshot,"",true,false,livePath,false,root,false,false); return capture; }
+      var title=new StringBuilder(2048); var cls=new StringBuilder(256);
+      int titleLength=GetWindowText(window,title,title.Capacity),classLength=GetClassName(window,cls,cls.Capacity);
+      capture.Title=title.ToString(); capture.ClassName=cls.ToString(); standard=capture.ClassName=="#32770"; context.IsDialog=standard;
+      textComplete=titleLength>0 && titleLength<2047 && classLength>0 && classLength<255;
+      if(standard && textComplete) capture.Snapshot=BoundedControls(window,pids);
+      var freshTitle=new StringBuilder(2048); var freshClass=new StringBuilder(256); uint freshPid;
+      int freshTitleLength=GetWindowText(window,freshTitle,freshTitle.Capacity),freshClassLength=GetClassName(window,freshClass,freshClass.Capacity);
+      GetWindowThreadProcessId(window,out freshPid);
+      var freshProcess=Process.GetProcessById((int)freshPid);
+      consistent=freshPid==pid && pids.Contains(freshPid) && GetAncestor(window,2)==window && IsWindowVisible(window) && GetWindow(window,4).ToInt64()==capture.OwnerHandle &&
+        IsWindowEnabled(window)==context.Enabled && freshTitleLength>0 && freshTitleLength<2047 && freshClassLength>0 && freshClassLength<255 &&
+        String.Equals(freshTitle.ToString(),capture.Title,StringComparison.Ordinal) && String.Equals(freshClass.ToString(),capture.ClassName,StringComparison.Ordinal) &&
+        freshProcess.StartTime.ToUniversalTime().Ticks==capture.ProcessStartUtcTicks && String.Equals(System.IO.Path.GetFullPath(freshProcess.MainModule.FileName),System.IO.Path.GetFullPath(capture.LiveImagePath),StringComparison.OrdinalIgnoreCase) &&
+        VerifyPinnedImage(capture.LiveImagePath,expectedHash,expectedSize) && watch.ElapsedMilliseconds<=8000;
+      capture.Observation=AssessPostConfirmationDiagnostic(context,capture.Snapshot,capture.Title,true,image,livePath,standard,root,textComplete,consistent);
+    } catch { capture.Observation.Status="post_confirmation_read_exception_no_classification"; capture.Observation.ConfirmationAttempted=confirmed; capture.Observation.SnapshotReadErrors++; }
+    return capture;
+  }
+  public static void ValidatePostConfirmationDiagnosticPolicy() {
+    var window=new WindowContext { OwnedProcess=true,Visible=true,Enabled=true,IsDialog=true };
+    var control=new ControlRecord { Visible=true,OwnedProcess=true,SameProcessAsWindow=true,ParentRelationVerified=true,ClassName="Static",Label="Cannot read HDF5 file: parser format incompatible version; dependency DLL missing; access denied; path not found; not enough memory; module unavailable; license required; OpenGL error." };
+    var snapshot=new ControlSnapshot { Controls=new ControlRecord[] { control } };
+    var result=AssessPostConfirmationDiagnostic(window,snapshot,"Error",true,true,true,true,true,true,true);
+    if(!result.TextClassified || result.MatchedKeywordCategories!=13 || result.TextSha256==null || result.TextSha256.Length!=64 || result.CauseInferred || result.AdditionalUiActionsPerformed) throw new InvalidOperationException("Fixed diagnostic category regression.");
+    var same=AssessPostConfirmationDiagnostic(window,snapshot,"Error",true,true,true,true,true,true,true);
+    if(result.TextSha256!=same.TextSha256) throw new InvalidOperationException("Diagnostic hash is not deterministic.");
+    control.Label="Unrecognized text C:\\private\\sensitive_name.bin";
+    var unknown=AssessPostConfirmationDiagnostic(window,snapshot,"Notice",true,true,true,true,true,true,true);
+    if(!unknown.TextClassified || unknown.MatchedKeywordCategories!=0 || unknown.Status!="no_allowlisted_keywords_observed_cause_unknown" || unknown.TextSha256==result.TextSha256) throw new InvalidOperationException("Unknown text must remain unknown.");
+    foreach(var field in typeof(PostConfirmationDiagnostic).GetFields()) if(field.FieldType==typeof(string) && ((string)field.GetValue(unknown) ?? "").Contains("sensitive_name")) throw new InvalidOperationException("Unknown target text entered the public projection.");
+    control.Label="not"; var second=new ControlRecord { Visible=true,OwnedProcess=true,SameProcessAsWindow=true,ParentRelationVerified=true,ClassName="Static",Label="found" };
+    snapshot.Controls=new ControlRecord[] {control,second};
+    if(AssessPostConfirmationDiagnostic(window,snapshot,"Notice",true,true,true,true,true,true,true).PathKeywordsObserved) throw new InvalidOperationException("A phrase must not span controls.");
+    foreach(string flag in new string[] {"confirmed","image","live","standard","root","text","consistent","owned","visible","enabled","dialog","control_owned","same_process","parent","truncated","read_error","long_title","long_control"}) {
+      window.OwnedProcess=flag!="owned"; window.Visible=flag!="visible"; window.Enabled=flag!="enabled"; window.IsDialog=flag!="dialog";
+      control.OwnedProcess=flag!="control_owned"; control.SameProcessAsWindow=flag!="same_process"; control.ParentRelationVerified=flag!="parent";
+      control.Label=flag=="long_control" ? new String('x',511) : "Error"; snapshot.Controls=new ControlRecord[] {control}; snapshot.Truncated=flag=="truncated"; snapshot.ReadErrors=flag=="read_error" ? 1 : 0;
+      var refused=AssessPostConfirmationDiagnostic(window,snapshot,flag=="long_title" ? new String('x',2047) : "Error",flag!="confirmed",flag!="image",flag!="live",flag!="standard",flag!="root",flag!="text",flag!="consistent");
+      if(refused.TextClassified || refused.TextSha256!=null || refused.MatchedKeywordCategories!=0) throw new InvalidOperationException("Incomplete diagnostic became classified: "+flag);
+    }
+    // Fixed public contract: no raw control records, strings from the target or collections.
+    var fixedStrings=new HashSet<string> {"Policy","Status","TextSha256","Qualification"};
+    foreach(var field in typeof(PostConfirmationDiagnostic).GetFields()) if((field.FieldType!=typeof(bool) && field.FieldType!=typeof(int) && field.FieldType!=typeof(string)) || (field.FieldType==typeof(string) && !fixedStrings.Contains(field.Name)) || field.Name.Contains("Handle") || field.Name.EndsWith("Id",StringComparison.Ordinal)) throw new InvalidOperationException("Diagnostic public field type widened.");
+  }
   public static ControlSnapshot BoundedControls(IntPtr window,HashSet<uint> pids) {
     var snapshot=new ControlSnapshot(); var result=new List<ControlRecord>(); var watch=Stopwatch.StartNew();
     uint windowPid; GetWindowThreadProcessId(window,out windowPid);
@@ -742,6 +864,7 @@ public static class GmsPassiveWindows {
     $selectionChecked = $false
     $fileOpenChecked = $false
     $tutorialChecked = $false
+    $postConfirmDiagnosticChecked = $false
     $continueAfterSelection = $false
     while ([DateTime]::UtcNow -lt $deadline) {
         $iteration++
@@ -811,6 +934,15 @@ public static class GmsPassiveWindows {
             }
             $category = 'unknown'
             if ($isDialog) {
+                if ($receipt.tutorial_confirmation_attempted -and -not $postConfirmDiagnosticChecked) {
+                    $postConfirmDiagnosticChecked=$true
+                    $receipt.probe_phase='passive_post_confirmation_fixed_keyword_observation'
+                    $diagnostic=[GmsPassiveWindows]::ObservePostConfirmationDialog($handle,$pids,$exe,$ExpectedTargetSha256,$ExpectedTargetSize,$true)
+                    # Only this typed fixed-vocabulary projection is public.
+                    # Fresh raw text/control identity belongs to the private trace.
+                    $receipt.post_confirmation_dialog_diagnostics += @($diagnostic.Observation)
+                    $entry.post_confirmation_diagnostic_private=$diagnostic
+                }
                 if ($visibleText -match '(?i)evalua|trial.*(expired|licen[cs]e)') { $category = 'evaluation' }
                 elseif ($visibleText -match '(?i)activation|registration|licen[cs]e code|unlicensed|\bno\s+licen[cs]e\s+found\b') { $category = 'licensing' }
                 elseif ($visibleText -match '(?i)opengl|graphics.*(driver|error)|failed.*render|hardware.*accel') { $category = 'graphics' }

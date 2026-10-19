@@ -132,7 +132,7 @@ claims**. It is an original implementation under reconstruction, not a completed
 replacement or compatibility-certified product.
 
 There is a separate positive interoperability check: the official 10.9 tutorial
-index ships a project whose stored creator metadata is 10.8.2 and whose shipped
+index ships a project whose stored GMS-version metadata is 10.8.2 and whose shipped
 solver listing says MF6 6.4.1. Re-executing its 15 unchanged native input files
 with public USGS MF6 6.7.0 reproduced all 1,125 heads and the full shipped binary
 budget file byte for byte. This was not an original GMS GUI run or translation.
@@ -175,7 +175,8 @@ reported nonseparator numeric IDs overlap 85 static REA menu IDs. The remaining
 17 IDs are unclassified and may include Windows system or generated entries;
 they are not automatically new GMS capabilities. The second target had no
 eligible exact choice and received no UI action. Total target/licence UI actions
-were one; probe activation requests and original numerical runs were zero.
+were one; probe activation requests and solver actions were zero. Numerical
+execution was not monitored and no original numerical output was verified.
 
 [windows_free_choice_receipt.json](windows_free_choice_receipt.json) binds the
 artifact digest, raw public metadata and derived numeric intersection. A title,
@@ -222,3 +223,18 @@ plus File/Open), zero filename writes, confirmations, activation requests or
 probe solver actions. The dialog class/counts alone do not establish filename
 control semantics, successful model loading, entitlement or numerical parity.
 Cross-process WM_USER-range CDM messages with local pointers are not used.
+
+
+## Actual pinned tutorial filename/confirmation outcome
+
+Windows run `39216983932` passed pre-action compilation/pure policy gates and
+completed one verified pinned filename write/readback and Open confirmation.
+Target1 had four counted UI attempts; target2 had zero. A later complete owned
+eight-control dialog was heuristically classified as an error. Its cause and
+project-load outcome remain unknown; no unknown button was pressed. Both GPR
+and executable identities were unchanged, no probe solver action was issued,
+and numerical execution was not monitored. See
+[windows_tutorial_open_receipt.json](windows_tutorial_open_receipt.json) and
+[RUNTIME_DIAGNOSTICS.md](RUNTIME_DIAGNOSTICS.md) for exact counts and retained
+historical wording qualifications. No genuine original numerical comparison or
+obligation closure is established.

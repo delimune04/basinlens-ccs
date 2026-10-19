@@ -6,20 +6,20 @@ on:
   workflow_dispatch:
     inputs:
       document:
-        description: 'Optional official tutorial document; no solver run or licence UI actions'
+        description: 'Optional official tutorial document; this option issues no solver or licence action'
         type: choice
         options: [none, classic_grid, mf6_grid]
         default: none
       select_free_community:
-        description: 'Optional single verified free Community Edition choice during normal startup; no activation or model run'
+        description: 'Optional single verified free Community Edition choice during normal startup; no activation or solver action issued'
         type: boolean
         default: false
       observe_file_open_dialog:
-        description: 'Optional single File/Open dialog observation after the free choice; no filename, confirmation or model run'
+        description: 'Optional single File/Open dialog observation after the free choice; this option issues no filename, confirmation or solver action'
         type: boolean
         default: false
       open_verified_mf6_project:
-        description: 'Optional exact pinned tutorial filename/confirmation through verified native controls; no solver or save'
+        description: 'Optional exact pinned tutorial filename/confirmation through verified native controls; no solver/save action issued'
         type: boolean
         default: false
   push:
@@ -71,6 +71,8 @@ jobs:
           $sources=@($ast.FindAll({param($node) $node -is [System.Management.Automation.Language.StringConstantExpressionAst] -and $node.Value.StartsWith('using System;') -and $node.Value.Contains('public static class GmsPassiveWindows')},$true))
           if ($sources.Count -ne 1) { throw 'Expected one passive native helper source.' }
           Add-Type -TypeDefinition $sources[0].Value
+          # Pure policy/privacy tests only; never query or act on a target here.
+          [GmsPassiveWindows]::ValidatePostConfirmationDiagnosticPolicy()
           foreach ($label in @('Community Edition','&Community Edition',"  COMMUNITY `t Edition  ")) {
             if (-not [GmsPassiveWindows]::IsDocumentedCommunityLabel($label)) { throw 'Documented-label normalization regression.' }
           }
@@ -371,7 +373,7 @@ jobs:
             licence_ui_actions=(@($reports | ForEach-Object { [int]$_.licence_ui_actions }) | Measure-Object -Sum).Sum
             activation_requests_initiated_by_probe=0
             observations=$reports
-            qualification='Each normal registered target was observed independently after the exact identity gate. Optional explicit single free Community choice and one verified File/Open dialog command per target only, with actual cumulative action counts. No canonical preference or activation. No solver action is issued; numerical execution is not monitored.'
+            qualification='Each normal registered target was observed independently after the exact identity gate. Optional single free Community choice, verified File/Open command, pinned filename text and verified Open confirmation per target, each with its own eligibility gate and actual cumulative action counts. No canonical preference or activation. No solver action is issued; numerical execution is not monitored.'
           }
           $summary | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json') -Encoding utf8
       - name: Record an unavailable runtime result if installation or observation stopped early

@@ -134,9 +134,14 @@ python -m basinlens_ccs.reconstruction.dialogs /private/path/gms10_9.exe --evide
 ```
 
 The optional normal Windows startup workflow and its passive control guards
-are described in [RUNTIME_DIAGNOSTICS.md](RUNTIME_DIAGNOSTICS.md). It performs
-no control selection or activation. Its Windows helper compiles and runs
-synthetic guard checks before the explicit installer download.
+are described in [RUNTIME_DIAGNOSTICS.md](RUNTIME_DIAGNOSTICS.md). Its default
+mode is passive. Separate default-off options permit one verified free Community
+selection, one verified File/Open command, and the pinned tutorial filename/open
+sequence through documented native controls. Each action requires fresh
+identity/ownership/control checks. No activation request or solver action is
+issued. The Windows helper compiles and runs pure policy checks before any
+installer download or target startup. See the separate actual receipts for
+which phases were attempted and observed.
 
 For the pinned official installer, `python tools/extract_gms_target.py --help`
 shows the explicit download/extraction interface. This is a roughly 2 GB opt-in

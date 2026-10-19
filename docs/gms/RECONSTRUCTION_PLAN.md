@@ -2,9 +2,10 @@
 
 The requested objective is an independently implemented replacement for the
 whole GMS workbench, with reusable CCS and oil-exploration interfaces. That
-objective remains open. The current confined workflow, general native MF6
-execution and partial GPR readers are working components, not a reduced
-definition of completion.
+objective remains open. Current components include confined groundwater,
+general native MF6 execution, bounded conservative-solute transport and partial
+GPR tree/geometry readers with explicit views. They do not reduce the definition
+of completion.
 
 The reference artifact is the hash-pinned GMS 10.9.7 x64 main executable.
 An installer build does not identify an activated edition, all add-ons or
@@ -59,9 +60,44 @@ that requirement. Current genuine GMS runtime output matches remain zero.
 
 ## Immediate sequence
 
-Establish the original runtime/reference corpus, complete selected native-data
-contracts, then bind their implementations and checks into the capability
-catalogue. Expand the families above in parallel worktrees while preserving
+Normal original startup, one free Community choice, materialized menus and an
+owned standard Open dialog have been observed in separate exact-build runs.
+The pinned filename write/readback and Open confirmation then completed, but a
+later eight-control dialog was heuristically classified as an error. Cause and
+complete project loading are unverified. These observations have not verified
+edition entitlement, input translation or numerical execution. The next
+reference gate is bounded passive diagnosis of that dialog, followed by
+independent evidence of the loaded model and captured native inputs/outputs
+before any numerical equivalence claim.
+
+For an original numerical comparison, bind the exact project and input graph,
+record declared engine/version/units/time/support, retain pre/post file hashes
+and fresh diagnostics, then normalize outputs under the existing comparison
+contract. A title change or successful process exit cannot replace these gates.
+Keep the measured Quadtree Z mismatch and unresolved GUI/native synchronization
+visible; do not turn a matching XY footprint into a full model match.
+
+Complete selected native-data contracts, then bind their implementations and
+checks into the capability catalogue. Expand the families above in parallel worktrees while preserving
 single ownership of each file/branch. The project must continue to publish
 working slices and exact remaining gaps without claiming the whole objective
 has been completed.
+
+
+## MF6 run evidence after loading
+
+The exact static resource catalogue does not identify MF6-specific Save/Run
+Simulation commands. Its classic MODFLOW command IDs cannot be substituted.
+This is a catalogue limitation, not evidence that the product lacks MF6.
+The official [MODFLOW6 Grid Approach tutorial, section14](https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW6-GridApproach.pdf)
+describes saving and running the simulation from its Project Explorer node,
+then using the simulation queue and loading the completed solution. The selected
+simulation node and its dynamic context must therefore be observed first.
+
+The pinned GPR already contains a saved Head dataset. Displaying that dataset
+does not establish a fresh original run. Before/after input and existing-output
+snapshots, selected simulation identity, actual solver image/version, fresh
+queue/process/log evidence and output time/shape/budget checks are required.
+The saved-native corpus declares feet/seconds and one86400-second step; GPR
+display-time semantics remain unresolved. Use explicit normalized support and
+preserve those unknowns in any later comparison.

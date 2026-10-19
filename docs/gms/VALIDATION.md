@@ -2,13 +2,15 @@
 
 ## Expanded implementation check
 
-The integrated project-tree/storage snapshot passed **265 tests with zero skips** using real
+The integrated groundwater/transport/GPR workbench snapshot passed **265 tests with zero skips** using real
 MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 47.999s.
 Exact source hashes, versions, commands and additional checks are in
 [expanded_validation_record.json](expanded_validation_record.json). The earlier
 published 173-test, 190-test, 203-test, 237-test and 249-test snapshots and their successful remote CI are
 retained there as history. Missing solver tests are skips in ordinary CI, separate from this local
-zero-skip result.
+zero-skip result. The matching published snapshot `5c62acf9` / tree
+`5ef3ae2f` passed all three jobs in each remote CI run `39215889617` and
+`39215883507`; later Windows probe changes have separate source/check bindings.
 
 Checks cover strict shared-project/engine contracts, actual CCS background-water
 execution, native unconfined feet/seconds execution, native file boundaries and
@@ -42,7 +44,7 @@ input bytes; unknown units/CRS/datum stayed unknown.
 
 An unchanged official tutorial was independently rerun through the public
 USGS engine and the new native runner. Its 1,125 heads and budget binary were
-byte-identical to shipped results. Its older creator/solver identities, native
+byte-identical to shipped results. Its stored GMS-version metadata, shipped solver identity, native
 feet/seconds units, independent controls and unresolved GPR unit metadata are
 recorded in [TUTORIAL_INTEROPERABILITY.md](TUTORIAL_INTEROPERABILITY.md). This is
 shipped-input interoperability, not a witnessed original GMS numerical execution
@@ -129,15 +131,14 @@ are unchanged by these groundwater tests.
 ## Later transport UI and measured Quadtree geometry
 
 The 265-test integrated source includes four new transport UI tests, four
-explicit Quadtree UI tests and eight
-strict mesh-reader tests. Transport UI import, native export, real-MF6 run,
+explicit Quadtree UI tests and eight strict mesh-reader tests. Transport UI import, native export, real-MF6 run,
 captured-case-only concentration/mass plots, gate failures, CSVs and verified
 ZIP downloads passed without changing the shared groundwater/CCS project.
 
 The separate [Quadtree reader](GPR_UNSTRUCTURED.md) recovered 20,684 nodes and
 9,976 cells from another official project. All same-index XY footprints and
 10,342 unique XY vertices match saved native DISV exactly; upper/lower corner
-coordinate differences remain 30/75 and full3D match is false. Units, datum and
+coordinate differences remain 30/75 and full 3D match is false. Units, datum and
 synchronization remain unresolved; no repair or solver execution was applied.
 
 The reviewed original File/Open probe then observed a complete owned standard
@@ -147,8 +148,23 @@ attempts. No filename was entered or confirmed;
 the exact scope. These observations do not establish original numerical parity.
 
 The measured Quadtree representation is now explicitly selectable in the GPR
-viewer; its saved9,976 cells rendered without app errors or source changes.
+viewer; its saved 9,976 cells rendered without app errors or source changes.
 Unknown coordinate/field/time units, CRS and datum were retained, no wrapper
 transform was applied, and no model synchronization or solver action occurred.
 [unstructured_ui_validation_record.json](unstructured_ui_validation_record.json)
 binds this read-only actual-file UI check to exact source/application identities.
+
+
+## Actual pinned tutorial filename/confirmation outcome
+
+Windows run `39216983932` passed pre-action compilation/pure policy gates and
+completed one verified pinned filename write/readback and Open confirmation.
+Target1 had four counted UI attempts; target2 had zero. A later complete owned
+eight-control dialog was heuristically classified as an error. Its cause and
+project-load outcome remain unknown; no unknown button was pressed. Both GPR
+and executable identities were unchanged, no probe solver action was issued,
+and numerical execution was not monitored. See
+[windows_tutorial_open_receipt.json](windows_tutorial_open_receipt.json) and
+[RUNTIME_DIAGNOSTICS.md](RUNTIME_DIAGNOSTICS.md) for exact counts and retained
+historical wording qualifications. No genuine original numerical comparison or
+obligation closure is established.

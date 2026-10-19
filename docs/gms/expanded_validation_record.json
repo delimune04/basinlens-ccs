@@ -122,9 +122,9 @@
     "GPR_project_tree_and_raw_chunk_storage": "passed: 12 project tests, 10 storage tests, 3 explicit tree UI tests; actual corpus graph in project_validation_record.json",
     "free_Community_selection_review": "independent source review passed after exact parent/dialog/root freshness and title truncation fixes; Windows compile and policy self-tests required before action",
     "free_Community_Windows_helper_compilation_and_policy_selftests": "passed in Windows run39211459223 before download/target execution",
-    "File_Open_dialog_observer": "independent source review cleared exact owned image, no-dialog main window, enabled complete ancestor/leaf/style and two fresh snapshots; Windows compile/policy tests pending before actual action",
-    "File_Open_Windows_compilation_and_pure_policy_tests": "passed in Windows39213425352 before download/normal target startup; actual dialog outcome pending",
-    "transport_UI": "4new tests passed with actual MF6;30totalworkbenchUI tests. Explicit upload/examples/export/run, capturedcase profile/mass/CSV, scientific failures and verifiedZIP covered.",
+    "File_Open_dialog_observer": "Independent review cleared the exact image, no-dialog main, complete enabled menu ancestry/style and two fresh snapshots; actual Windows compilation/pure tests and guarded menu delivery completed in run39213425352.",
+    "File_Open_Windows_compilation_and_pure_policy_tests": "Passed before download/target startup in Windows39213425352. Actual owned Open dialog had23controls, zero read errors/truncation; no filename input/confirmation in that run.",
+    "transport_UI": "4 transport UI tests passed with actual MF6, included in34 total workbench UI tests. Explicit upload/examples/export/run, captured-case profile/mass/CSV, scientific failure gates and verifiedZIP are covered.",
     "Quadtree_geometry": "8synthetic tests and independently reviewed actual9976cell/10342XY vertex comparison; Zmismatch preserved without repair."
   },
   "native_official_run": {
@@ -150,7 +150,7 @@
     "shipped_head_and_budget_binary_hashes_equal": true,
     "gms_runtime_witness": false
   },
-  "ci_scope": "265localtests passed with actualMF6 andzero skips; remoteCI for thisnewsourcehasnotcompleted.",
+  "ci_scope": "The exact 265-test local source snapshot is bound to public commit 5c62acf9 and tree 5ef3ae2f. Both corresponding remote CI runs passed all three jobs. Ordinary CI may skip missing optional dependencies or solvers; the separate local 265-test result has zero skips.",
   "equivalence": {
     "genuine_original_GMS_output_matches": 0,
     "whole_product_parity": false,
@@ -160,7 +160,7 @@
   },
   "publication_boundary": "No original vendor executables, resources, source, tutorial inputs, GPR payloads or native pseudocode are included.",
   "tested_local_implementation_commit": "f77835f5352ee5915f7c01ffb886ef2d9db5e773",
-  "publication_binding": "265-test source hashes bind transportUI and explicit measuredQuadtree viewer; exact published tree andCI will follow publication.",
+  "publication_binding": "Source hashes describe the local 265-test f77835f implementation, published unchanged within 5c62acf9/tree5ef3ae2f. Later Windows probe changes are recorded separately and are not covered by that Python test result.",
   "geometry_validation": {
     "nodes": 1536,
     "cells": 1125,
@@ -364,7 +364,9 @@
     "reported_numeric_ids": 102,
     "static_REA_id_overlap": 85,
     "community_entitlement_established": false,
-    "original_numerical_runs": 0
+    "probe_solver_actions": 0,
+    "numerical_execution_monitored": false,
+    "verified_original_numerical_outputs": 0
   },
   "additional_GPR_corpus": {
     "record": "gpr_corpus_validation_record.json",
@@ -459,5 +461,90 @@
     "vertical_datum": null,
     "origin_transform_applied": false,
     "native_GMS_or_solver_executed": false
+  },
+  "tested_public_commit": "5c62acf9c352fb9ecd8d78db009f1306029584ee",
+  "tested_public_tree": "5ef3ae2fb0cca97d3d3fa2c8a65152c12c0261b1",
+  "remote_ci": [
+    {
+      "run_id": 39215889617,
+      "status": "success",
+      "jobs_passed": 3
+    },
+    {
+      "run_id": 39215883507,
+      "status": "success",
+      "jobs_passed": 3
+    }
+  ],
+  "additional_pinned_tutorial_probe_check": {
+    "implementation_local_commit": "884cbf8df4cc318bc19bfce04901f21c174668c1",
+    "public_commit": "ae17fd17341bb61a539a196153819ce2bb97256b",
+    "public_tree": "90ccddcf9131ffed8cf9180881bae12b8c9ee918",
+    "workflow_run_id": 39216983932,
+    "source_sha256": {
+      ".github/workflows/gms-community-probe.yml": "f8d6295ac4c236c22ff2c8117afb42ed7d030b29ff15e133d56e268d4a114475",
+      "tools/probe_gms_community.ps1": "22936483c0c3942371fac8706c69507baaaa55ad59c40b7ebf2fb0d3e91624cf",
+      "docs/gms/RUNTIME_DIAGNOSTICS.md": "983567350a7a5cc9e06048207d071aca608e031ff2f08a6d19a7799df332f7ec"
+    },
+    "independent_source_review": "passed",
+    "actionlint": "passed",
+    "git_diff_check": "passed",
+    "Windows_compilation_and_pure_policy_selftests": "passed before installer download in run39216983932",
+    "actual_observation": "Completed:4counted UI attempts on first target,0on second; pinned filename/readback/confirmation succeeded, followed by an8-control error-classified dialog; load unverified. See windows_tutorial_open_receipt.json.",
+    "qualification": "Separate exact 884cbf8/ae17fd17 Windows probe snapshot; its file hashes remain historical after later documentation/description corrections. The265-test Python suite does not compile or validate the embedded Windows C# helper.",
+    "actual_receipt": "windows_tutorial_open_receipt.json",
+    "remote_ci": [
+      {
+        "run_id": 39216990578,
+        "status": "success",
+        "jobs_passed": 3
+      },
+      {
+        "run_id": 39216983548,
+        "status": "success",
+        "jobs_passed": 3
+      }
+    ]
+  },
+  "actual_Windows_pinned_tutorial_open": {
+    "Windows_parse_compile_and_pure_policy_tests": "passed before download/target startup",
+    "target_count": 2,
+    "target_ui_actions": 4,
+    "free_community_attempts": 1,
+    "file_open_menu_attempts": 1,
+    "filename_text_attempts": 1,
+    "file_confirm_attempts": 1,
+    "first_target_filename_pattern": "documented_filename_combo_edit",
+    "filename_native_acceptance_and_exact_readback": true,
+    "fresh_preconfirmation_identity_and_control_checks": true,
+    "confirmation_message_completed": true,
+    "post_confirmation_dialog": {
+      "standard_owned_visible_enabled": true,
+      "fixed_Open_title": false,
+      "inspected_controls": 8,
+      "read_errors": 0,
+      "truncated": false,
+      "buttons": 4,
+      "edits": 1,
+      "static_controls": 2,
+      "other_controls": 1,
+      "passive_classification": "error",
+      "exact_cause": "unknown",
+      "no_later_ui_action": true,
+      "classification_basis": "heuristic text category only; does not establish cause or GPR parse failure"
+    },
+    "second_target_ui_actions": 0,
+    "GPR_sources_unchanged": true,
+    "executables_unchanged": true,
+    "post_tutorial_main_window_observed": false,
+    "project_basename_title_observed": false,
+    "project_load_verified": false,
+    "edition_entitlement_established": false,
+    "probe_solver_actions": 0,
+    "numerical_execution_monitored": false,
+    "genuine_original_numerical_comparisons": 0,
+    "all_577_reconstruction_obligations_remain_open": true,
+    "record": "windows_tutorial_open_receipt.json",
+    "workflow_run_id": 39216983932
   }
 }

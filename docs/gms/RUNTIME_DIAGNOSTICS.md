@@ -104,7 +104,7 @@ network activity is not monitored or inferred.
 After the attempt, the helper observes passively and stops at any later observed
 dialog, including an unchanged startup dialog. A sent click, a title or an enabled
 window does not prove Community entitlement or successful workspace operation;
-`community_mode_confirmed` remains false. No solver is invoked. Raw UI evidence
+`community_mode_confirmed` remains false. The probe issues no solver action. Raw UI evidence
 remains private, and public policy decisions contain only fixed categories,
 counts and booleans. Workflow self-tests exercise this separate policy without
 calling its native selection method.
@@ -239,3 +239,67 @@ paths, control identifiers/handles, unknown text and screenshots remain private.
 this probe issues no solver action and does not establish that the target could
 not perform an automatic numerical action. Pure policy tests and Windows helper
 compilation run before downloads or target execution.
+
+
+## Actual pinned tutorial filename/confirmation outcome
+
+Windows run [39216983932](https://github.com/delimune04/basinlens-ccs/actions/runs/39216983932)
+passed parsing, C# compilation and pure policy tests before download/target
+startup. The first target matched the documented filename-combo/Edit pattern.
+One pinned path write was accepted, exact full-path readback and fresh
+preconfirmation source/image/control checks passed, and one Open confirmation
+completed. Counts were Community 1 + File/Open 1 + filename 1 + confirmation 1
+= 4; the second target received zero UI actions.
+
+A subsequent owned standard dialog had eight controls, no read errors or
+truncation, and was not the fixed Open dialog. The probe heuristically classified
+its text as an error; the exact cause and GPR parse/load outcome remain unknown.
+No later button was pressed. No post-tutorial main window or project-basename
+title was observed. Both executable identities and the pinned GPR stayed
+unchanged. The probe issued zero solver actions; numerical execution was not
+monitored and no original numerical output was verified.
+
+[windows_tutorial_open_receipt.json](windows_tutorial_open_receipt.json) retains
+the artifact identities, unchanged parsed public records, exact counters and
+qualifications for historical summary/passive-observer wording. This is guarded
+input/confirmation evidence, not verified model loading, active entitlement,
+translation or a numerical comparison. All 577 reconstruction obligations remain
+open. No raw UI text, screenshots or private paths are distributed.
+
+
+## Separate documented edition context
+
+The current official [GMS10.9 edition comparison](https://aquaveo.com/software/gms/pricing)
+marks the MODFLOW6 Model & Interface in the paid MODFLOW and higher columns,
+with no inclusion mark in Community. The [Community page](https://aquaveo.com/software/gms/community)
+links that comparison and gives grid/stress-period limits. This is documented
+edition scope, not evidence of the observed dialog's cause or the running
+process's active entitlement. Reference MF6 behavior requires independently
+established module availability; the passive diagnostic does not request a
+trial, change licensing or override a module check.
+
+
+## Passive post-confirmation keyword diagnostic
+
+After a confirmation attempt and at most once per target, the helper can inspect
+one later visible, enabled, owned standard root dialog. It rechecks the live process path,
+start identity, executable size/hash and window owner/PID/title/class around a
+bounded control read. Classification requires complete top-level/control text,
+verified visible-control ownership, no read errors/truncation, and elapsed
+acceptance within eight seconds. This elapsed check is not an interruptible
+watchdog for every native/file read. Enabled state is required and its stability
+is checked; the diagnostic performs no button, text, menu or other UI action.
+
+The public projection contains fixed keyword-presence booleans for licensing,
+modules/features, availability, file operations, parser/format, HDF, dependencies,
+memory, access, paths, versions, graphics and generic errors. Each field is
+classified separately so phrases cannot cross unrelated controls. Counts and a
+SHA256 of invariant length-prefixed exact text fields provide an identity; raw
+text/paths/control identities remain private. Categories can overlap, refer to
+context, or all be absent. None identifies the cause or authorizes a repair,
+licensing action, trial, dialog confirmation or solver run.
+
+Pure category/refusal/hash/privacy tests run immediately after Windows Add-Type
+and before downloads. Source review and local actionlint/diff checks passed;
+actual Windows compilation/policy checks and observations are recorded separately
+when available. The earlier four mutating action sites are unchanged.
