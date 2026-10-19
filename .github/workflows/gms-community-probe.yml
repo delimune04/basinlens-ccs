@@ -31,6 +31,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Parse PowerShell source before downloads or target execution
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          foreach ($path in @('tools/find_gms_runtime.ps1','tools/probe_gms_community.ps1')) {
+            $tokens=$null; $syntaxErrors=$null
+            [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path -LiteralPath $path).Path,[ref]$tokens,[ref]$syntaxErrors)
+            if ($syntaxErrors.Count) { throw ($syntaxErrors.Message -join [Environment]::NewLine) }
+          }
       - name: Download and verify pinned official GMS installer
         shell: pwsh
         run: |
@@ -51,10 +60,17 @@ jobs:
             throw 'Normal installation exceeded ten minutes.'
           }
           if ($installer.ExitCode -notin @(0,3010)) { throw ('Installer exit status ' + $installer.ExitCode) }
-          $roots = @(Get-ChildItem -LiteralPath $env:ProgramFiles -Directory | Where-Object { $_.Name -like 'GMS*' -or $_.Name -like 'Aquaveo*' })
-          $targets = @($roots | Get-ChildItem -Recurse -File -Filter 'gms10_9.exe')
-          if ($targets.Count -ne 1) { throw 'A unique normally installed GMS executable was not found.' }
-          'GMS_RUNTIME_EXE=' + $targets[0].FullName | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Discover the exact unchanged installed runtime across normal install locations
+        timeout-minutes: 3
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $privateResult = Join-Path $env:RUNNER_TEMP 'gms-discovery-private/result.json'
+          & ./tools/find_gms_runtime.ps1 -PrivateResultPath $privateResult -PublicDiagnosticPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/discovery-summary.json')
+          if ($LASTEXITCODE -ne 0) { throw 'Verified installed-runtime discovery failed; sanitized counts were recorded.' }
+          $result = Get-Content -LiteralPath $privateResult -Raw | ConvertFrom-Json
+          if (-not $result.runtime_executable_path) { throw 'Discovery produced no verified executable.' }
+          'GMS_RUNTIME_EXE=' + $result.runtime_executable_path | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
       - name: Optionally fetch official tutorial privately
         if: inputs.document != '' && inputs.document != 'none'
         shell: pwsh
@@ -98,6 +114,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: gms-community-runtime-summary
-          path: ${{ runner.temp }}/gms-runtime-public/public-summary.json
+          path: |
+            ${{ runner.temp }}/gms-runtime-public/public-summary.json
+            ${{ runner.temp }}/gms-runtime-public/discovery-summary.json
           if-no-files-found: warn
           retention-days: 30
