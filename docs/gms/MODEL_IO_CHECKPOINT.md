@@ -70,6 +70,12 @@ in 87.586 seconds using actual MF6 6.7.0. See
 source, environment, solver and full test-ID bindings. The integrated workbench
 also loaded the spatial model with valid feature accounting and two plots,
 preserving the independent legacy editor state without an application error.
+Public feature commit `cc7b13ad` and its equivalent PR merge tree passed both
+push/PR CI runs `39229412904` / `39229419781`, all three jobs in each. Both strict
+jobs ran 352 tests with zero skips and completed the actual portable project
+example. Downloaded artifact digests and all 107 source hashes were checked;
+[model_io_ci_validation_record.json](model_io_ci_validation_record.json) retains
+the durable parsed receipts and full member identities.
 
 ## Reproduce
 

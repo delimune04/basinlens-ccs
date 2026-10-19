@@ -39,6 +39,13 @@ hashes were rechecked after execution. Exact counts/identities are in
 [model_io_validation_record.json](gms/model_io_validation_record.json).
 Installation, the required 2,000-sample seed-42 capacity example and its
 artifact verifier, compilation, actionlint and diff checks were also run.
+Public commit `cc7b13ad` / tree `d99ffbb1` then passed push run `39229412904`
+and PR run `39229419781`, all three jobs in each. Each strict real-MF6 job ran
+352 tests with zero skips/errors/failures and the saved/relocated two-run project
+example passed. Both artifacts were downloaded and matched their GitHub SHA-256
+digests; all 107 source hashes match. Exact feature/PR-merge commit and artifact
+bindings are retained in
+[model_io_ci_validation_record.json](gms/model_io_ci_validation_record.json).
 
 Reproduce the prioritized model flow in a fresh output directory:
 
