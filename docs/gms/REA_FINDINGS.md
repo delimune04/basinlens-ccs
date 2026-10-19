@@ -109,6 +109,22 @@ The exact sanitized [Windows receipt](windows_runtime_receipt.json) preserves
 those distinctions. The workflow's successful collection status does not imply
 a usable model session, a license/graphics diagnosis or product equivalence.
 
+The subsequent [passive control observation](windows_control_receipt.json),
+run 39208615776, compiled its helper and passed synthetic rejection/privacy
+checks on Windows before installation. The first target exposed exactly one
+enabled, visible standard `Community Edition` push button in an owned dialog,
+with same-process and parent/root relationships verified. The fixed no-license
+phrase was not observed, so the stricter passive context guard did not pass.
+The second target exposed no matching button. No control was selected and no
+active edition or new model run was established by this observation.
+
+The native probe now separates the 1,200-second provider startup budget from
+a 90-second outer cleanup grace. Earlier equal deadlines could suppress the
+provider's own failure result. Bounded retained JSON and invocation-owned logs
+can now contribute only allowlisted diagnostic stages/timings and numeric facts;
+an outer timeout remains failed even if a retained result parses successfully.
+This change improves measurement and does not establish analysis completion.
+
 No original GMS numerical run has yet been normalized and compared. An activated
 Premium edition, its dependencies and all UI behavior have not been observed.
 The public implementation therefore makes **zero genuine GMS output-match

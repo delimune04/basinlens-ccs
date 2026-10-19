@@ -108,7 +108,7 @@
     "actual_saved_tutorial_GPR_viewer": "passed: 1125 cells, no app errors, unchanged source, unknown units retained",
     "independent_geometry_review": "passed after fixing same-centers/different-footprints and same-mean/sloped-corner false positives",
     "static_dialog_templates": "passed: 429 templates, 6853 static controls, zero failures; actual menu observations and genuine REA ledger replay unchanged",
-    "Windows_passive_helper_compilation_and_synthetic_guards": "pending first Windows execution of the added guard helper"
+    "Windows_passive_helper_compilation_and_synthetic_guards": "passed in actual Windows run 39208615776 before installer download"
   },
   "native_official_run": {
     "source_files": 15,
@@ -133,7 +133,7 @@
     "shipped_head_and_budget_binary_hashes_equal": true,
     "gms_runtime_witness": false
   },
-  "ci_scope": "Local 203-test pass used actual MF6 with zero skips. Public CI is recorded independently after publishing this source snapshot.",
+  "ci_scope": "Both CI runs passed for the exact 203-test public snapshot. Solver tests are skips in ordinary CI; local recorded integration checks used actual MF6 without skips.",
   "equivalence": {
     "genuine_original_GMS_output_matches": 0,
     "whole_product_parity": false,
@@ -143,7 +143,7 @@
   },
   "publication_boundary": "No original vendor executables, resources, source, tutorial inputs, GPR payloads or native pseudocode are included.",
   "tested_local_implementation_commit": "41e04cdcf27ad33b6c9137cf317de226105d74de",
-  "publication_binding": "The exact tested source hashes are below; public commit/tree binding follows publication.",
+  "publication_binding": "Exact published 203-test snapshot; later probe changes have separately recorded checks until the next full-source publication.",
   "geometry_validation": {
     "nodes": 1536,
     "cells": 1125,
@@ -234,5 +234,37 @@
     "overview_returned": false,
     "workflow_run_id": 39204176129,
     "receipt": "native_rea_bounded_receipt.json"
+  },
+  "tested_public_commit": "c6f04dc5c1709cab03a0777e8449dc8a938b772e",
+  "tested_public_tree": "aabf41e3542646a5f0754be01a1d06fe73690bcf",
+  "remote_ci": [
+    {
+      "run_id": 39208622899,
+      "status": "success"
+    },
+    {
+      "run_id": 39208615712,
+      "status": "success"
+    }
+  ],
+  "additional_native_probe_check": {
+    "targeted_tests_run": 13,
+    "targeted_failures": 0,
+    "targeted_errors": 0,
+    "targeted_skips": 0,
+    "integrated_tests_run": 212,
+    "integrated_failures": 0,
+    "integrated_errors": 0,
+    "integrated_skips": 0,
+    "integrated_duration_seconds": 33.433,
+    "integrated_test_duration_seconds": 32.641,
+    "source_sha256": {
+      "tools/native_rea_probe.py": "49f9139fd41c5dc37f26d1788111c5a8b932f419df3c8d9a596c2e51dba34ff5",
+      "tests/test_native_rea_probe.py": "a6925cbf4bff9d3f2a5faa8613f2d2c28223dd4726072f200b6d0a730241bde8",
+      ".github/workflows/gms-native-analysis.yml": "b0b3d14d36f48f518e8f83e704d3641e29ef491068dc5e6572cf19b64b9e8b1f"
+    },
+    "provider_budget_seconds": 1200,
+    "outer_watchdog_seconds": 1290,
+    "actual_corrected_probe_result": "not yet run"
   }
 }

@@ -2,6 +2,9 @@ name: Opt-in GMS native REA investigation
 
 # This is a bounded research operation, not ordinary CI. A dispatch or explicit
 # commit marker opts into the large vendor/tool downloads and native analysis.
+# [gms-native-diagnostics] requests the same 20-minute provider budget with a
+# separate cleanup grace and sanitized stage/timing observations; no extra
+# analyzer is disabled by that marker. Ordinary commits do not start this job.
 on:
   workflow_dispatch:
     inputs:
@@ -24,7 +27,8 @@ jobs:
   static-analysis:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      contains(github.event.head_commit.message, '[gms-native-probe]')
+      contains(github.event.head_commit.message, '[gms-native-probe]') ||
+      contains(github.event.head_commit.message, '[gms-native-diagnostics]')
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
@@ -84,6 +88,7 @@ jobs:
           --output "$RUNNER_TEMP/rea-public"
           --private-workspace "$RUNNER_TEMP/rea-private"
           --timeout-seconds 1200
+          --cleanup-grace-seconds 90
       - name: Preserve only the sanitized analysis receipt
         if: always()
         uses: actions/upload-artifact@v4

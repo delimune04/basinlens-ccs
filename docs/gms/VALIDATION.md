@@ -2,7 +2,7 @@
 
 ## Expanded implementation check
 
-The current implementation passed **203 tests with zero skips** using real
+The published dialog/guard snapshot passed **203 tests with zero skips** using real
 MODFLOW 6, FloPy, Streamlit and h5py. Total discovery/run wall time was 34.282s.
 Exact source hashes, versions, commands and additional checks are in
 [expanded_validation_record.json](expanded_validation_record.json). The earlier
