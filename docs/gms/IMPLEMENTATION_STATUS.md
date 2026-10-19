@@ -471,8 +471,10 @@ Add that receipt as new EXECUTED_TEST_RECORD evidence; update the changed SOURCE
 Then validate this registry and run the full regression suite. Preserve older records as historical evidence rather than relabeling them as a newer run.
 Future implementations remain pending until their exact implementation and execution records are integrated.
 
-## Current integrated execution scope
+## Historical feature-evidence binding snapshot
 
 Actual final integrated selected-module execution at source freeze 55429eb6f2e9c97e9e36e098a21808b82f5c2f56: 631 tests, zero skips/errors/failures, full_suite=false. Excludes status accounting as explicitly recorded; not full CI or original GMS evidence.
+
+Later corrected strict regression executed 647 tests with zero skips/errors/failures. Both corrected public CI runs also passed all 13 authored example groups; see [geoscience_ci_validation_record_v4.json](geoscience_ci_validation_record_v4.json) and [geoscience_full_tests_v5.json](geoscience_full_tests_v5.json). The CI workflow alone gained explicit examples-parent creation; the other 184 fingerprinted source/test/tool/example files retain their bootstrap bytes. The historical 631-test receipt remains unchanged and supports the precise feature source/test bindings above.
 
 All implementation batches remain open beyond their declared subsets. See [FULL_IMPLEMENTATION_BACKLOG.md](FULL_IMPLEMENTATION_BACKLOG.md) for all 163 selected IDs and 55 unmapped official details. PEST/native GPR writing, full GIS/reprojection, arbitrary geological inference, broader engines and original behavioral/numerical acceptance remain unfinished.

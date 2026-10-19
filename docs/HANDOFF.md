@@ -17,18 +17,26 @@ bounded actual-MF6 K/Ss parameter search. The main workbench now connects these
 with geoscience and inference panels. See the exact operations and remaining
 scope in [GEOSCIENCE_CHECKPOINT.md](gms/GEOSCIENCE_CHECKPOINT.md).
 
-Implementation/test source freeze is local `55429eb6f2e9c97e9e36e098a21808b82f5c2f56`,
+Application/test implementation freeze is local `55429eb6f2e9c97e9e36e098a21808b82f5c2f56`,
 tree `89e4f486bdca1f70f77d5242b316c8fe854fcb7f`. Publication may use a different
 GitHub API commit checked against the final local publication tree; its remote
 source/CI identities are recorded separately, including the unchanged code hashes. Source code is frozen during integration runs. The
 selected bootstrap deliberately excludes the 16 registry tests so actual feature
-evidence can be rebound before the complete suite. The final-source bootstrap
+evidence can be rebound before the complete suite. The initial application-source bootstrap
 ran **631 tests in 49 selected modules with zero skips/errors/failures**, in
 266.185s; all 185 recorded source hashes were rechecked. It is explicitly not full
 CI. Registry validation and all 16 registry tests passed after rebinding. Current
 counts are **91 NONE / 72 PARTIAL / 0 SCOPED_COMPLETE**, original comparison
 **160 NOT_OBSERVED / 3 OBSERVED_PARTIAL / 0 VERIFIED**; 55 official details remain
-UNMAPPED_OPEN. The final strict integrated suite ran **647 tests with zero skips/errors/failures** in 382.444s; all 185 source hashes were identical before/after and match the selected bootstrap. Exact receipts/log/environment are retained in `gms/geoscience_full_tests_v4.json`, `.log` and `geoscience_full_environment_v4.txt`; `gms/geoscience_validation_record_v4.json` also records the fresh 2,000-sample/seed-42 capacity CLI and successful artifact verifier. Public CI remains pending publication at this checkpoint.
+UNMAPPED_OPEN.
+
+The initial strict integrated suite ran **647 tests with zero skips/errors/failures** in 382.444s; all 185 source hashes were identical before/after and matched the selected bootstrap. Those initial receipts remain in `gms/geoscience_full_tests_v4.json`, `.log` and `geoscience_full_environment_v4.txt`; `gms/geoscience_validation_record_v4.json` also records the fresh 2,000-sample/seed-42 capacity CLI and successful artifact verifier.
+
+Initial source CI `39241430315` and `39241434599` both passed all 647 strict tests and the model/classic examples, then failed at the first new geology example because its parent directory was missing; calibration was skipped. The failed artifacts and exact stack are retained in `gms/geoscience_ci_parent_recovery_v4.json`. Corrected source `041df131d3158d84e923ffc1bacf4644248e8f3b` / tree `03b7c62d5c2cad023cf0758735f0eff2a24d50d6` (local `10307270d2ac880dd196e4a8583366112259a086`) adds only parent creation to the fingerprinted workflow; the other 184 files are unchanged.
+
+A fresh corrected-source full strict run also passed **647 tests, zero skips/errors/failures**, in 431.696s with all 185 before/after hashes checked. Its exact records are `gms/geoscience_full_tests_v5.json`, `.log` and `geoscience_full_environment_v5.txt`.
+
+Corrected source push CI `39242500749` and PR CI `39242506897` passed all three jobs each. Both strict jobs actually ran all 647 tests without skips and all 13 authored examples; downloaded ZIP digests, source/PR-merge trees and 185 source hashes match. Parsed receipts and every member hash are retained in `gms/geoscience_ci_validation_record_v4.json`. The evidence-only publication changes documentation and keeps those corrected 185 program/test/config/example bytes unchanged; latest head CI is tracked in PR #10 checks.
 
 Dedicated evidence already retained:
 

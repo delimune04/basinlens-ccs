@@ -57,13 +57,24 @@ different successful configurations; no hidden retry changes the forcing.
 Meaningful independent reviews also found and fixed narrow triangle-boundary
 tolerance, raster decimal cell-boundary clipping, large-coordinate resolution,
 source replacement while reading, typed GeoJSON tampering and stale result
-cache paths. The final strict integrated suite executed **647 tests with zero
+cache paths. The initial strict integrated suite executed **647 tests with zero
 skips/errors/failures**, in 382.444s. All 185 recorded program/test/config/example
-hashes were identical before/after and match the actual 631-test selected bootstrap.
+hashes were identical before/after and matched the actual 631-test selected bootstrap.
 The [full receipt](geoscience_full_tests_v4.json), [dedicated log](geoscience_full_tests_v4.log)
 and [integrated validation record](geoscience_validation_record_v4.json) preserve
 the exact evidence, environment and fresh 2,000-sample/seed-42 capacity run/verifier.
-Public CI is recorded separately after publication. The older 352-test model-I/O
+The first public source CI passed those 647 tests, then failed at the first
+new example because the shared output parent was absent.
+[Failure/recovery details](geoscience_ci_parent_recovery_v4.json) remain retained.
+Only the CI workflow gained explicit parent creation; 184 other fingerprinted
+files are unchanged. Fresh corrected-source local strict regression passed
+**647 tests, zero skips/errors/failures**, in 431.696s. All 185 current before/after
+hashes match; see [the corrected full receipt](geoscience_full_tests_v5.json)
+and [log](geoscience_full_tests_v5.log). Corrected source push CI `39242500749` and PR CI `39242506897` passed all three
+jobs each, including the strict 647-test zero-skip job and all 13 authored examples.
+Exact source/merge-tree, downloaded ZIP and 185-file identity checks are preserved
+in [the public CI validation record](geoscience_ci_validation_record_v4.json).
+Later evidence-only publication preserves those corrected program bytes. The older 352-test model-I/O
 checkpoint remains historical evidence for its own source tree.
 
 ## Original comparison and remaining work

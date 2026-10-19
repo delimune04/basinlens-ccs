@@ -133,36 +133,7 @@
     "local_commit": "55429eb6f2e9c97e9e36e098a21808b82f5c2f56",
     "tree": "89e4f486bdca1f70f77d5242b316c8fe854fcb7f"
   },
-  "interpretation": "Full executed local software regression and authored synthetic numerical checks. Core-only CI is separate. Original GMS behavior, field calibration and CO2/oil multiphase physics are not established. Byte hashes provide integrity, not operator authentication.",
-  "original_gms_equivalence_established": false,
-  "public_ci": "Pending publication; tracked separately by exact GitHub source and tree identities.",
-  "schema": "basinlens-geoscience-integrated-validation-v4",
-  "status": {
-    "NONE": 91,
-    "PARTIAL": 72,
-    "REA_open_obligations": 577,
-    "REA_verified_closures": 0,
-    "SCOPED_COMPLETE": 0,
-    "UNMAPPED_OPEN": 55,
-    "observed_official_page_items": 223,
-    "original_NOT_OBSERVED": 160,
-    "original_OBSERVED_PARTIAL": 3,
-    "original_VERIFIED": 0,
-    "selected_catalogue_entries": 163
-  },
-  "status_scope_clarification": {
-    "changed_fields": "36 remaining_scope wording fields plus generated Markdown/backlog qualifiers; IDs, states, evidence bindings and program sources unchanged.",
-    "errors": 0,
-    "failures": 0,
-    "log": "docs/gms/status_scope_correction_tests_v5.log",
-    "record": "docs/gms/status_scope_correction_tests_v5.json",
-    "registry_sha256": "0ce099b1d235a7ee3b7a039169607ce8ff9465c5f7b9e96d7445e69acab4fea2",
-    "scoped_tests_run": 16,
-    "skips": 0
-  },
-  "strict_command": "MF6_EXE=/absolute/mf6 MF2005_EXE=/absolute/mf2005dbl MFNWT_EXE=/absolute/mfnwtdbl CI_SOLVER_REPORT=/fresh/report python tools/ci_real_mf6.py test",
-  "strict_local_test_checkout": "9f1e20d3b15e12f4b8720870a4239f6699dd9d24",
-  "strict_tests": {
+  "initial_strict_tests": {
     "all_source_hashes_rechecked": true,
     "bootstrap_source_bytes_equal": true,
     "classic_solvers": {
@@ -207,5 +178,91 @@
     "source_files": 185,
     "tests_run": 647
   },
-  "whole_product_complete": false
+  "interpretation": "Full executed local software regression and authored synthetic numerical checks. Core-only CI is separate. Original GMS behavior, field calibration and CO2/oil multiphase physics are not established. Byte hashes provide integrity, not operator authentication.",
+  "last_updated_utc": "2026-10-19T11:15:26.507503+00:00",
+  "original_gms_equivalence_established": false,
+  "public_ci": "Corrected source push 39242500749 and PR 39242506897 passed all three jobs each. See geoscience_ci_validation_record_v4.json for exact trees, 647-test zero-skip receipts, 185 source identities, pinned solver receipts and all 13 examples. Initial failed runs are retained separately; later evidence-only head preserves these corrected program bytes.",
+  "schema": "basinlens-geoscience-integrated-validation-v4",
+  "status": {
+    "NONE": 91,
+    "PARTIAL": 72,
+    "REA_open_obligations": 577,
+    "REA_verified_closures": 0,
+    "SCOPED_COMPLETE": 0,
+    "UNMAPPED_OPEN": 55,
+    "observed_official_page_items": 223,
+    "original_NOT_OBSERVED": 160,
+    "original_OBSERVED_PARTIAL": 3,
+    "original_VERIFIED": 0,
+    "selected_catalogue_entries": 163
+  },
+  "status_scope_clarification": {
+    "changed_fields": "36 remaining_scope wording fields plus generated Markdown/backlog qualifiers; IDs, states, evidence bindings and program sources unchanged.",
+    "errors": 0,
+    "failures": 0,
+    "log": "docs/gms/status_scope_correction_tests_v5.log",
+    "record": "docs/gms/status_scope_correction_tests_v5.json",
+    "registry_sha256": "0ce099b1d235a7ee3b7a039169607ce8ff9465c5f7b9e96d7445e69acab4fea2",
+    "scoped_tests_run": 16,
+    "skips": 0
+  },
+  "strict_command": "MF6_EXE=/absolute/mf6 MF2005_EXE=/absolute/mf2005dbl MFNWT_EXE=/absolute/mfnwtdbl CI_SOLVER_REPORT=/fresh/report python tools/ci_real_mf6.py test",
+  "strict_local_test_checkout": "10307270d2ac880dd196e4a8583366112259a086",
+  "strict_tests": {
+    "all_source_hashes_rechecked": true,
+    "bootstrap_application_bindings_preserved": true,
+    "classic_solvers": {
+      "mf2005": {
+        "bytes": 7546544,
+        "member": "mf2005dbl",
+        "resolved_path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+        "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+      },
+      "mfnwt": {
+        "bytes": 8259552,
+        "member": "mfnwtdbl",
+        "resolved_path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+        "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+      }
+    },
+    "duration_seconds": 431.6957040900015,
+    "errors": 0,
+    "failures": 0,
+    "full_suite": true,
+    "log": "docs/gms/geoscience_full_tests_v5.log",
+    "packages": {
+      "flopy": "3.11.0",
+      "h5py": "3.16.0",
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "plotly": "7.1.0",
+      "streamlit": "1.66.0"
+    },
+    "python": "3.12.14",
+    "record": "docs/gms/geoscience_full_tests_v5.json",
+    "skips": 0,
+    "solver": {
+      "bytes": 49182760,
+      "resolved_path": "/workspace/scratch/96bcf7ec787f/research/bin/mf6",
+      "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+      "version": "mf6: 6.7.0 02/05/2026",
+      "version_returncode": 0,
+      "version_stderr": "",
+      "version_stdout": " \nmf6: 6.7.0 02/05/2026\n \n"
+    },
+    "source_delta_from_initial_full_suite": [
+      ".github/workflows/ci.yml"
+    ],
+    "source_files": 185,
+    "tests_run": 647,
+    "unchanged_application_test_tool_example_files": 184
+  },
+  "whole_product_complete": false,
+  "workflow_recovery": {
+    "changed_program_contract": "CI workflow creates shared examples parent before leaf-output scripts; 184 other program/test/tool/example files unchanged. Initial records remain historical and are not rewritten as new executions.",
+    "github_source_commit": "041df131d3158d84e923ffc1bacf4644248e8f3b",
+    "local_commit": "10307270d2ac880dd196e4a8583366112259a086",
+    "record": "docs/gms/geoscience_ci_parent_recovery_v4.json",
+    "tree": "03b7c62d5c2cad023cf0758735f0eff2a24d50d6"
+  }
 }
