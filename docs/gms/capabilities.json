@@ -1,0 +1,2615 @@
+{
+  "schema_version": 1,
+  "catalogue_id": "gms-10.9-documented-capabilities-20261019",
+  "scope": "Selected documented GMS 10.9 capabilities. This decomposition is a partial investigation catalogue, not an official or exhaustive product feature count.",
+  "features": [
+    {
+      "id": "workspace.modules",
+      "name": "Object-specific workspaces",
+      "category": "workspace",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GettingStarted.pdf",
+          "locator": "Switch among specialized model/data modules with corresponding tools."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Open the same project and select each applicable object workspace."
+    },
+    {
+      "id": "workspace.project_tree",
+      "name": "Project hierarchy and active objects",
+      "category": "workspace",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GettingStarted.pdf",
+          "locator": "Organize geometric objects and associated datasets in a hierarchical explorer."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Select, hide, show and activate each supported object/data type."
+    },
+    {
+      "id": "workspace.graphics_navigation",
+      "name": "3D navigation and object selection",
+      "category": "workspace",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GettingStarted.pdf",
+          "locator": "Navigate the model and inspect selected objects in the graphics window."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify plan/oblique navigation, selection and query values on a known geometry."
+    },
+    {
+      "id": "workspace.xyzs_editing",
+      "name": "Coordinate and dataset editing",
+      "category": "workspace",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GettingStarted.pdf",
+          "locator": "Inspect coordinates and edit supported object/data values using the XYZS interface."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Edit a permissible value; assert the correct object or dataset changes."
+    },
+    {
+      "id": "workspace.project_save",
+      "name": "Project save and reopen",
+      "category": "workspace",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GettingStarted.pdf",
+          "locator": "Save the current project and restore its supported data/display state."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Reopen a project and compare geometry, datasets, references and display settings."
+    },
+    {
+      "id": "workspace.projections",
+      "name": "Project coordinate reference",
+      "category": "workspace",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GettingStarted.pdf",
+          "locator": "Set the project projection before combining spatial sources."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Import differently referenced data and verify its documented spatial alignment."
+    },
+    {
+      "id": "workspace.display_presets",
+      "name": "Reusable display configurations",
+      "category": "workspace",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/DisplayThemes.pdf",
+          "locator": "Store and restore display settings as themes."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Switch themes and confirm dataset, contour and presentation state is restored."
+    },
+    {
+      "id": "conceptual.coverages",
+      "name": "Conceptual model coverages",
+      "category": "conceptual_model",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/FeatureObjects.pdf",
+          "locator": "Organize feature geometry separately from the numerical grid."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Maintain multiple coverages and remesh without losing original features."
+    },
+    {
+      "id": "conceptual.points",
+      "name": "Independent points",
+      "category": "conceptual_model",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/FeatureObjects.pdf",
+          "locator": "Create and edit standalone features used for localized controls."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Create, select, move and query a feature point with retained attributes."
+    },
+    {
+      "id": "conceptual.arcs",
+      "name": "Connected line geometry",
+      "category": "conceptual_model",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/FeatureObjects.pdf",
+          "locator": "Build arcs containing endpoints and intermediate vertices."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Edit endpoints/vertices while maintaining documented topology."
+    },
+    {
+      "id": "conceptual.polygons",
+      "name": "Polygonal regions",
+      "category": "conceptual_model",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/FeatureObjects.pdf",
+          "locator": "Build area features from closed arc networks."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Build, select and edit bounded areas including shared-edge cases."
+    },
+    {
+      "id": "conceptual.feature_editing",
+      "name": "Feature selection and editing",
+      "category": "conceptual_model",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/FeatureObjects.pdf",
+          "locator": "Select and modify supported conceptual objects."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare object identity/topology/attributes before and after editing."
+    },
+    {
+      "id": "conceptual.grid_frames",
+      "name": "Grid extent frames",
+      "category": "conceptual_model",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/FeatureObjects.pdf",
+          "locator": "Use a movable frame to define numerical model extents."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Resize and move a frame then verify the generated domain."
+    },
+    {
+      "id": "gis.shapefile_read",
+      "name": "Shapefile display",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GIS.pdf",
+          "locator": "Import and display shapefile geometry."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Load point, line and polygon sources with known coordinates."
+    },
+    {
+      "id": "gis.attribute_table",
+      "name": "GIS attribute inspection",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GIS.pdf",
+          "locator": "Read feature attributes alongside imported geometry."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify typed attribute values and record identities survive import."
+    },
+    {
+      "id": "gis.to_scatter",
+      "name": "GIS-to-sample conversion",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GIS.pdf",
+          "locator": "Convert GIS content to scatter data for interpolation."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare exported sample coordinates/attributes against the source."
+    },
+    {
+      "id": "gis.to_features",
+      "name": "GIS-to-conceptual conversion",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/GIS.pdf",
+          "locator": "Map GIS geometry and attributes to conceptual objects."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify selected attributes and topology in the resulting coverage."
+    },
+    {
+      "id": "gis.crs_assignment",
+      "name": "Coordinate-reference assignment",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Projections.pdf",
+          "locator": "Set references for images, CAD, shapefiles and elevation inputs."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify that declared versus transformed references are distinguished."
+    },
+    {
+      "id": "gis.mixed_crs",
+      "name": "Mixed-reference data alignment",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Projections.pdf",
+          "locator": "Combine differently referenced sources within one project."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check known control locations after the documented coordinate conversion."
+    },
+    {
+      "id": "gis.cad_import",
+      "name": "CAD model context",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Projections.pdf",
+          "locator": "Import drawing geometry as spatial model context."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Import documented drawing formats and compare coordinate extents."
+    },
+    {
+      "id": "gis.georeferenced_images",
+      "name": "Georeferenced imagery",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Projections.pdf",
+          "locator": "Place reference imagery in the model coordinate context."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check reference corners and image opacity against known control points."
+    },
+    {
+      "id": "gis.online_background",
+      "name": "Dynamic background maps",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/OnlineMaps.pdf",
+          "locator": "Retrieve and update online maps while navigating."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_client_plus_external_map_service_terms",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pan/zoom and test successful and unavailable-service responses."
+    },
+    {
+      "id": "gis.map_layer_display",
+      "name": "Map layering and transparency",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/OnlineMaps.pdf",
+          "locator": "Order multiple map backgrounds and adjust opacity."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_client_plus_external_map_service_terms",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify layer order and transparency are preserved on save."
+    },
+    {
+      "id": "gis.map_snapshot",
+      "name": "Offline map snapshots",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/OnlineMaps.pdf",
+          "locator": "Save an online map view as a local image."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_client_plus_external_map_service_terms",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Reopen the saved image without requiring the original map request."
+    },
+    {
+      "id": "gis.web_image_acquisition",
+      "name": "Web image acquisition",
+      "category": "gis",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/ImportFromWeb.pdf",
+          "locator": "Obtain aerial and topographic imagery using a web import workflow."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_client_plus_external_map_service_terms",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Acquire a known extent and retain source/reference details."
+    },
+    {
+      "id": "raster.import_properties",
+      "name": "Raster import and metadata",
+      "category": "raster",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Rasters.pdf",
+          "locator": "Read elevation rasters and inspect their properties."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify extents, dimensions, reference and nodata from a known raster."
+    },
+    {
+      "id": "raster.visualization",
+      "name": "Raster shading",
+      "category": "raster",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Rasters.pdf",
+          "locator": "Display elevation rasters with configurable rendering."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check value queries, color treatment and nodata display."
+    },
+    {
+      "id": "raster.resample",
+      "name": "Raster resampling",
+      "category": "raster",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Rasters.pdf",
+          "locator": "Resample raster values onto a different sampling resolution."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare documented resampling method and target support."
+    },
+    {
+      "id": "raster.merge_clip",
+      "name": "Raster merge and trimming",
+      "category": "raster",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Rasters.pdf",
+          "locator": "Combine raster sources and trim their spatial support."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify overlap precedence and boundary/nodata behavior."
+    },
+    {
+      "id": "raster.catalog",
+      "name": "Raster catalogs",
+      "category": "raster",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Rasters.pdf",
+          "locator": "Group raster sources for subsequent interpolation."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify source ordering/support across catalog boundaries."
+    },
+    {
+      "id": "raster.to_scatter",
+      "name": "Raster/sample conversion",
+      "category": "raster",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Rasters.pdf",
+          "locator": "Convert between rasters and scatter samples."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Round-trip a small field and quantify expected resampling changes."
+    },
+    {
+      "id": "raster.interpolate",
+      "name": "Raster-to-model interpolation",
+      "category": "raster",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Rasters.pdf",
+          "locator": "Interpolate rasters to TINs, feature objects and model layers."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify output values, support and coordinate correspondence."
+    },
+    {
+      "id": "lidar.import_filter",
+      "name": "Point-cloud import and filtering",
+      "category": "lidar",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Lidar.pdf",
+          "locator": "Load lidar data and filter its classes/visible content."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check class filtering and retained coordinates on a small LAS fixture."
+    },
+    {
+      "id": "lidar.display",
+      "name": "Point-cloud rendering controls",
+      "category": "lidar",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Lidar.pdf",
+          "locator": "Control classification coloring and point display density."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Confirm display decimation does not change stored/interpolated data."
+    },
+    {
+      "id": "lidar.trim_export",
+      "name": "Filtered point-cloud export",
+      "category": "lidar",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Lidar.pdf",
+          "locator": "Trim point-cloud support and save the selected result."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify exported count, classes and bounds match the requested filter."
+    },
+    {
+      "id": "lidar.to_raster",
+      "name": "Lidar-to-raster conversion",
+      "category": "lidar",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Lidar.pdf",
+          "locator": "Generate raster elevations from lidar samples."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify interpolation and handling of sample-free areas."
+    },
+    {
+      "id": "lidar.to_ugrid",
+      "name": "Lidar-to-grid interpolation",
+      "category": "lidar",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Lidar.pdf",
+          "locator": "Assign elevations from point clouds to an unstructured grid."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare interpolated values against independent known samples."
+    },
+    {
+      "id": "lidar.multifile_merge",
+      "name": "Multiple point-cloud sources",
+      "category": "lidar",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Lidar_with_Multiple_Files.pdf",
+          "locator": "Merge point clouds or use them jointly for interpolation."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Test overlap, coordinate consistency and multi-file coverage."
+    },
+    {
+      "id": "geology.borehole_import",
+      "name": "Borehole logs",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-BoreholesAndCrossSections.pdf",
+          "locator": "Import and visualize stratigraphic borehole records."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check well names, contacts, material identities and coordinates."
+    },
+    {
+      "id": "geology.borehole_materials",
+      "name": "Borehole material editing",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-BoreholesAndCrossSections.pdf",
+          "locator": "Edit the material assignments displayed in boreholes."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Change one logged interval and verify only its intended assignment changes."
+    },
+    {
+      "id": "geology.borehole_sections",
+      "name": "Borehole cross-sections",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-BoreholesAndCrossSections.pdf",
+          "locator": "Create sections between logs automatically or manually."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare section endpoints and log contact elevations."
+    },
+    {
+      "id": "geology.section_surface_snap",
+      "name": "Section surface constraints",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-BoreholesAndCrossSections.pdf",
+          "locator": "Snap section tops to an available surface."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify section-top elevations against the chosen surface."
+    },
+    {
+      "id": "geology.section_editor",
+      "name": "Cross-section interpretation",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-BoreholesAndCrossSections.pdf",
+          "locator": "Fill and edit multiple interpreted geological sections."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Edit one correlation and verify the resulting interpreted region/topology."
+    },
+    {
+      "id": "geology.horizon_identity",
+      "name": "Horizon correlation identifiers",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonsAndSolids.pdf",
+          "locator": "Assign geological horizon identifiers manually or automatically."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify consistent horizon ordering across a synthetic log network."
+    },
+    {
+      "id": "geology.solids_from_horizons",
+      "name": "Stratigraphic solid construction",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonsAndSolids.pdf",
+          "locator": "Build geological solids from horizon/contact interpretations."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check bounded volumes, material identities and valid topological contacts."
+    },
+    {
+      "id": "geology.solids_section_constraints",
+      "name": "Section-constrained solids",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonsAndSolids.pdf",
+          "locator": "Use interpreted borehole sections to constrain solid generation."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Confirm a changed interpretation changes only the documented solid constraints."
+    },
+    {
+      "id": "geology.solid_cross_sections",
+      "name": "Solid section visualization",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonsAndSolids.pdf",
+          "locator": "Cut sections through generated geological solids."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare the section intersection against known simple solids."
+    },
+    {
+      "id": "geology.horizon_extent",
+      "name": "Horizon extent coverages",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonCoverages.pdf",
+          "locator": "Constrain where interpreted horizons and solids extend laterally."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check that generated solids respect the coverage boundary."
+    },
+    {
+      "id": "geology.auto_horizon_coverages",
+      "name": "Automatic horizon coverages",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonCoverages.pdf",
+          "locator": "Generate horizon extent coverages from available geological content."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare generated coverage geometry to a controlled log/section case."
+    },
+    {
+      "id": "geology.tin_construction",
+      "name": "Triangulated surfaces",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-TINs.pdf",
+          "locator": "Create surfaces by triangulating imported elevation vertices."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check triangle connectivity, vertex identities and elevations."
+    },
+    {
+      "id": "geology.tin_editing",
+      "name": "Surface editing",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-TINs.pdf",
+          "locator": "Add, remove, lock and move surface vertices."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify editing operations preserve valid surface connectivity."
+    },
+    {
+      "id": "geology.tin_smoothing",
+      "name": "Surface refinement and smoothing",
+      "category": "geology",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-TINs.pdf",
+          "locator": "Subdivide surfaces and interpolate refined elevations."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Quantify elevation changes and verify boundaries remain controlled."
+    },
+    {
+      "id": "mesh.horizon_surfaces",
+      "name": "Horizon surfaces from samples",
+      "category": "mesh",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonsTINsAndMeshes.pdf",
+          "locator": "Interpolate horizon TIN surfaces from spatial samples."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check horizon ordering and interpolation support on known data."
+    },
+    {
+      "id": "mesh.horizon_finite_elements",
+      "name": "Geological finite-element meshing",
+      "category": "mesh",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonsTINsAndMeshes.pdf",
+          "locator": "Generate three-dimensional finite-element geometry from horizon surfaces."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify element orientation, layer/material association and valid thickness."
+    },
+    {
+      "id": "mesh.raster_horizons",
+      "name": "Raster-defined horizons",
+      "category": "mesh",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonsWithRasters.pdf",
+          "locator": "Assign horizon identities to raster catalogs."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify catalog/horizon ordering and explicit fill/clip settings."
+    },
+    {
+      "id": "mesh.ugrid_from_rasters",
+      "name": "Unstructured layers from rasters",
+      "category": "mesh",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/StratigraphyModeling-HorizonsWithRasters.pdf",
+          "locator": "Generate layered unstructured geometry from raster horizons."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check top/bottom surfaces, clipped support and sublayer mapping."
+    },
+    {
+      "id": "grid.structured_creation",
+      "name": "Structured model grids",
+      "category": "grid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-GridApproach.pdf",
+          "locator": "Create a finite-difference grid and define layer elevations."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check dimensions, spacing, origins and all layer cell volumes."
+    },
+    {
+      "id": "grid.direct_cell_data",
+      "name": "Direct cell parameter editing",
+      "category": "grid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-GridApproach.pdf",
+          "locator": "Assign model parameters and activity flags directly to cells."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Edit selected cells and compare the resulting native model arrays."
+    },
+    {
+      "id": "grid.initial_boundary_inputs",
+      "name": "Grid-based model controls",
+      "category": "grid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-GridApproach.pdf",
+          "locator": "Define starting heads and boundary/source packages on a grid."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify the written engine inputs match the edited control values."
+    },
+    {
+      "id": "grid.model_checker",
+      "name": "Model setup checks",
+      "category": "grid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-GridApproach.pdf",
+          "locator": "Check the model before invoking the numerical engine."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Reject deliberately inconsistent geometry/control inputs and preserve diagnostics."
+    },
+    {
+      "id": "ugrid.import",
+      "name": "Unstructured geometry import",
+      "category": "ugrid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/UGridCreation.pdf",
+          "locator": "Load two- and three-dimensional unstructured geometry."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check cell connectivity and face orientation against a known fixture."
+    },
+    {
+      "id": "ugrid.creation",
+      "name": "Unstructured geometry generation",
+      "category": "ugrid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/UGridCreation.pdf",
+          "locator": "Create new unstructured domains using grid frames and coverages."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify generated domain support, element types and cell identifiers."
+    },
+    {
+      "id": "ugrid.conversions",
+      "name": "Unstructured object conversions",
+      "category": "ugrid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/UGridCreation.pdf",
+          "locator": "Convert structured grids and suitable GIS geometry to UGrids."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare cell support and projected extents before/after conversion."
+    },
+    {
+      "id": "ugrid.extrusion",
+      "name": "Layered grid extrusion",
+      "category": "ugrid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/UGridCreation.pdf",
+          "locator": "Extrude two-dimensional geometry into a three-dimensional grid."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check layer topology and surface elevations on a controlled prism grid."
+    },
+    {
+      "id": "ugrid.refinement_types",
+      "name": "Alternative unstructured layouts",
+      "category": "ugrid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/UGridCreation.pdf",
+          "locator": "Generate documented refinement layouts using Map-to-UGrid controls."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Exercise each documented layout and verify connectivity and resolution."
+    },
+    {
+      "id": "ugrid.quadtree_refinement",
+      "name": "Feature-based quadtree refinement",
+      "category": "ugrid",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-Quadtree.pdf",
+          "locator": "Refine an unstructured layout around selected conceptual features."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify requested refinement around wells/rivers without invalid cells."
+    },
+    {
+      "id": "geostatistics.scatter_io",
+      "name": "Spatial sample datasets",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics-2D.pdf",
+          "locator": "Create or import scalar scatter data through a text-import workflow."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check coordinates, missing-data handling and dataset identities."
+    },
+    {
+      "id": "geostatistics.linear_2d",
+      "name": "Two-dimensional linear interpolation",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics-2D.pdf",
+          "locator": "Interpolate scalar samples using the documented linear method."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Reproduce an affine field inside its interpolation support."
+    },
+    {
+      "id": "geostatistics.idw_2d",
+      "name": "Two-dimensional distance weighting",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics-2D.pdf",
+          "locator": "Estimate grid values using configurable inverse-distance weighting."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare a small point configuration to an independent hand calculation."
+    },
+    {
+      "id": "geostatistics.kriging_2d",
+      "name": "Two-dimensional kriging",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics-2D.pdf",
+          "locator": "Interpolate using kriging with configured geostatistical assumptions."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check variogram/settings and a controlled independent reference result."
+    },
+    {
+      "id": "geostatistics.dataset_math",
+      "name": "Dataset calculations",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics-2D.pdf",
+          "locator": "Create derived numerical datasets with the data calculator."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify expressions, units interpretation and missing-value behavior."
+    },
+    {
+      "id": "geostatistics.idw_3d",
+      "name": "Three-dimensional distance weighting",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics–3D.pdf",
+          "locator": "Interpolate volumetric samples with available IDW variants."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare simple/gradient/quadratic settings on controlled fields."
+    },
+    {
+      "id": "geostatistics.kriging_3d",
+      "name": "Three-dimensional kriging",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics–3D.pdf",
+          "locator": "Apply supported volumetric kriging interpolation."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify covariance assumptions and an independent small reference."
+    },
+    {
+      "id": "geostatistics.vertical_anisotropy",
+      "name": "Interpolation anisotropy",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics–3D.pdf",
+          "locator": "Control vertical weighting relative to horizontal distance."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Show that changing anisotropy produces the expected support weighting."
+    },
+    {
+      "id": "geostatistics.bounds_truncation",
+      "name": "Interpolation value bounds",
+      "category": "geostatistics",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics–3D.pdf",
+          "locator": "Apply specified ranges and truncation to interpolated fields."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Test out-of-range estimates and explicitly retained/truncated values."
+    },
+    {
+      "id": "visualization.isosurfaces",
+      "name": "Volumetric scalar isosurfaces",
+      "category": "visualization",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics–3D.pdf",
+          "locator": "Render scalar-level surfaces inside a volume."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare surfaces to a field with an analytic level set."
+    },
+    {
+      "id": "visualization.cross_sections",
+      "name": "Arbitrary volume sections",
+      "category": "visualization",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics–3D.pdf",
+          "locator": "Inspect scalar fields through movable sections."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare section values and locations against the source field."
+    },
+    {
+      "id": "visualization.moving_sections",
+      "name": "Moving-section animation",
+      "category": "visualization",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics–3D.pdf",
+          "locator": "Animate a section through the model volume."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify frame positions, scalar values and exported timing."
+    },
+    {
+      "id": "visualization.moving_isosurfaces",
+      "name": "Isovalue animation",
+      "category": "visualization",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Geostatistics–3D.pdf",
+          "locator": "Animate changes in the displayed scalar isovalue."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify chosen levels and the generated frame sequence."
+    },
+    {
+      "id": "visualization.clipping_planes",
+      "name": "Spatial clipping planes",
+      "category": "visualization",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/UgridClipping.pdf",
+          "locator": "Hide portions of an unstructured volume with an editable clipping plane."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check clipping geometry on a simple block with known intersections."
+    },
+    {
+      "id": "visualization.scalar_clipping",
+      "name": "Scalar-based volume clipping",
+      "category": "visualization",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/UgridClipping.pdf",
+          "locator": "Clip visible grid regions by scalar thresholds or ranges."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify visible cells against exact scalar inequalities."
+    },
+    {
+      "id": "visualization.cell_visibility",
+      "name": "Explicit cell visibility",
+      "category": "visualization",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/UgridClipping.pdf",
+          "locator": "Exclude additional cells from a clipped display."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify visibility state independently from cell activity/model data."
+    },
+    {
+      "id": "presentation.annotation_objects",
+      "name": "Report annotations",
+      "category": "presentation",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Annotations.pdf",
+          "locator": "Place scale indicators, direction markers, labels, shapes and images."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Check object placement/scaling in screen and printed output."
+    },
+    {
+      "id": "presentation.annotation_io",
+      "name": "Annotation interchange",
+      "category": "presentation",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Annotations.pdf",
+          "locator": "Import and export supported annotation content."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Round-trip annotation placement and formatting."
+    },
+    {
+      "id": "presentation.layout_pages",
+      "name": "Print-layout compositions",
+      "category": "presentation",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/PrintLayout.pdf",
+          "locator": "Combine multiple model views in a printable page layout."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify map extents, scale and page/export dimensions."
+    },
+    {
+      "id": "presentation.layout_io",
+      "name": "Reusable print layouts",
+      "category": "presentation",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/PrintLayout.pdf",
+          "locator": "Save and import layout configurations."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Round-trip multiple views and layout elements."
+    },
+    {
+      "id": "presentation.image_export",
+      "name": "Graphical export",
+      "category": "presentation",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/PrintingAndExportingImages.pdf",
+          "locator": "Print, capture and save graphical model views."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Compare exported size, legends and content to the selected model view."
+    },
+    {
+      "id": "automation.toolbox_execution",
+      "name": "Processing toolbox",
+      "category": "automation",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Toolbox.pdf",
+          "locator": "Run documented processing tools with explicit parameters."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Run one tool and compare its result and preserved parameter values."
+    },
+    {
+      "id": "automation.toolbox_history",
+      "name": "Tool execution history",
+      "category": "automation",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/Toolbox.pdf",
+          "locator": "Reuse previous tool configurations and save history."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_workbench",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Rerun from saved history and compare output geometry/data."
+    },
+    {
+      "id": "interchange.modflow_native_text",
+      "name": "Native MODFLOW text export",
+      "category": "model_interchange",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-SaveNativeText.pdf",
+          "locator": "Export supported model inputs as standard engine text files."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_adapter_to_third_party_engine_formats",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Run the exported case with the corresponding unmodified engine."
+    },
+    {
+      "id": "interchange.external_arrays",
+      "name": "External-array model export",
+      "category": "model_interchange",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-SaveNativeText.pdf",
+          "locator": "Write model data using the documented external-array workflow."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_adapter_to_third_party_engine_formats",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify array paths, shapes and values after moving the export bundle."
+    },
+    {
+      "id": "interchange.modflow6_conversion",
+      "name": "Export classic/USG models to MF6",
+      "category": "model_interchange",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-SaveModflow6.pdf",
+          "locator": "Convert documented supported model configurations to MODFLOW6 files."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "native_adapter_with_explicit_conversion_limits",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Verify conversion warnings, explicitly unsupported controls and reference outputs."
+    },
+    {
+      "id": "interchange.unsupported_packages",
+      "name": "Preserve unsupported native packages",
+      "category": "model_interchange",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-UnsupportedPackage.pdf",
+          "locator": "Use the documented external/native-package workflow for packages without full GUI support."
+        }
+      ],
+      "document_date": "2025",
+      "document_date_kind": "copyright year printed in GMS10.9 tutorial; not an inferred publication day",
+      "boundary": "external_package_passthrough_is_not_full_gui_implementation",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Preserve package bytes/paths and run the explicitly selected compatible executable."
+    },
+    {
+      "id": "interchange.gpr_container",
+      "name": "GMS project containers",
+      "category": "project_formats",
+      "documentation": [
+        {
+          "url": "https://www.xmswiki.com/wiki/GMS:File_Formats",
+          "locator": "Project files retain general state and references to external assets; modern containers use HDF5."
+        }
+      ],
+      "document_date": "2017-12-27",
+      "document_date_kind": "wiki last-edited footer; format description requires current-version verification",
+      "boundary": "proprietary_undocumented_gpr_container; some objects follow documented XMDF; not general HDF5 equivalence",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Round-trip actual supported-version project files with references, geometry, datasets, attributes and display state; record every unsupported object."
+    },
+    {
+      "id": "interchange.legacy_gms_formats",
+      "name": "Legacy GMS formats",
+      "category": "project_formats",
+      "documentation": [
+        {
+          "url": "https://www.xmswiki.com/wiki/GMS:File_Formats",
+          "locator": "The official format page links historical format documentation and notes legacy readers."
+        }
+      ],
+      "document_date": "2017-12-27",
+      "document_date_kind": "wiki last-edited footer",
+      "boundary": "historical_specification; current_version_reader_coverage_requires_testing",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Enumerate documented legacy formats and verify imports against licensed or independently generated fixtures."
+    },
+    {
+      "id": "licensing.edition_matrix",
+      "name": "Edition-dependent modules",
+      "category": "licensing",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/pricing",
+          "locator": "Capabilities vary by edition and optional integrations."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "undated_current_webpage",
+      "boundary": "commercial_GMS_modules_and_separately_licensed_dependencies_are_distinct",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Freeze the target edition and separately enumerate licensed modules and external engine entitlements."
+    },
+    {
+      "id": "licensing.community_limits",
+      "name": "Community reference limits",
+      "category": "licensing",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/community",
+          "locator": "The current Community page specifies a 5000-cell and three-stress-period limit."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "undated_current_webpage",
+      "boundary": "GMS_Community_edition_limit; not_a_general_engine_limit",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Identify whether each reference experiment lies within the observed edition permissions."
+    },
+    {
+      "id": "engine.modflow.classic",
+      "name": "MODFLOW 88 / 96 / 2000 / 2005",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://www.aquaveo.com/software/gms-modflow",
+          "locator": "Saturated groundwater flow; steady and transient runs."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "GMS model interface to external MODFLOW engines; native import/edit/save for 2000/2005/NWT, import for 88/96. Not a new solver authored by GMS.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modflow.nwt",
+      "name": "MODFLOW-NWT",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities",
+          "locator": "Newton groundwater formulation addresses cell wetting/drying."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Version variant of MODFLOW-2005; GMS native model interface.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modflow.lgr",
+      "name": "MODFLOW-LGR",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities",
+          "locator": "Multiple nested grids for local refinement."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "GMS setup/import/edit/save interface to MODFLOW-LGR.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modflow.usg",
+      "name": "MODFLOW-USG",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities",
+          "locator": "Structured/unstructured groundwater grids."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "GMS unstructured-grid model interface; package support must be checked separately.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modflow.usg_transport",
+      "name": "MODFLOW-USG-Transport",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/pricing",
+          "locator": "Solute, density-dependent and heat transport; 10.9 adds PFAS support."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Distinct USG transport engine/interface; no inference of CO2-brine multiphase capability.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modflow6.flow",
+      "name": "MODFLOW 6 flow",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/pricing",
+          "locator": "Create/import/edit/save MF6 simulations with DIS/DISV/DISU workflows."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "External USGS engine controlled by GMS simulation and package interfaces; specific package GUI support is version-dependent.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modflow6.transport",
+      "name": "MODFLOW 6 GWT",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/whatsnew",
+          "locator": "Groundwater solute transport with coupled/uncoupled tutorial workflows."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "MF6 transport interface; concentration observations in 10.9. No claim of free-phase CO2.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modflow6.energy",
+      "name": "MODFLOW 6 GWE",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/whatsnew",
+          "locator": "Groundwater heat/ATES; coupled and uncoupled examples."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "10.9 energy model interface; temperature observations supported.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modpath",
+      "name": "MODPATH",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities",
+          "locator": "Forward/backward advective particle paths based on MODFLOW output."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Particle-tracking engine interface; not a reactive solute or multiphase solver.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modpath3du",
+      "name": "mod-PATH3DU",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/pricing",
+          "locator": "Unstructured-grid particles using MODFLOW-USG output."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "GMS interface to separate particle-tracking engine.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.mt3dms",
+      "name": "MT3DMS",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/mt3dms",
+          "locator": "Dissolved multispecies advection, dispersion and reactions."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Runs after MODFLOW; consumes its heads and cell fluxes through flow-transport files.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.mt3d_usgs",
+      "name": "MT3D-USGS",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/pricing",
+          "locator": "Extended solute/reactive-transport model interface."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Distinct upstream transport engine; public 10.9 Keating workflow exists.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.rt3d",
+      "name": "RT3D",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/rt3d",
+          "locator": "Multispecies reactive transport, preset or user reactions."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Modified MT3DMS external engine with GMS custom interface.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.seam3d",
+      "name": "SEAM3D",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/seam3d",
+          "locator": "Biodegradation and NAPL dissolution; substrates/electron acceptors."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "MT3DMS-derived engine, GMS custom interface.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.seawat",
+      "name": "SEAWAT",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/seawat",
+          "locator": "Variable-density groundwater with multispecies solute and heat."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "GMS generates input files then runs separate SEAWAT; reuses MODFLOW/MT3D interfaces.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.pht3d",
+      "name": "PHT3D",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/pht3d",
+          "locator": "Aqueous geochemical reactive transport in saturated media."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "MT3DMS plus PHREEQC-2 external engine, GMS custom interface.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.hgs",
+      "name": "HydroGeoSphere interface",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/hydrogeosphere",
+          "locator": "2D surface flow, 3D variably saturated groundwater, ET."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "GMS interface has narrower coverage than full HGS engine. Native HGS edits needed for examples including solute transport, density-dependent flow, fracture flow.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.femwater",
+      "name": "FEMWATER",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/femwater",
+          "locator": "3D finite-element density-driven saturated/unsaturated flow/transport."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Custom GMS model interface with mesh/stratigraphy setup, run and visualization.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.modaem",
+      "name": "MODAEM",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities",
+          "locator": "2D analytic-element aquifer models."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "GMS model interface.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "engine.seep2d",
+      "name": "SEEP2D",
+      "category": "engine",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities",
+          "locator": "2D steady saturated/unsaturated seepage sections."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "GMS model interface, e.g. dam/levee profiles.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "geometry.feflow",
+      "name": "FEFLOW geometry",
+      "category": "geometry",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms-feflow",
+          "locator": "Import/export 2D/3D finite-element meshes through .fem."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Geometry interoperability only established; full FEFLOW solver execution not established.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "geometry.tough2",
+      "name": "TOUGH2 geometry",
+      "category": "geometry",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/tough2",
+          "locator": "Generate/export 3D UGrid grids or meshes for TOUGH2."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Geometry export is established; integrated TOUGH2 multiphase execution not established.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.pest",
+      "name": "PEST / Parallel PEST",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/pest",
+          "locator": "Nonlinear parameter estimation and single-machine multicore runs."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "External John Doherty utility with custom GMS calibration interface.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.mf6_observations",
+      "name": "MODFLOW 6 PEST observations",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/whatsnew",
+          "locator": "Steady/transient head observations; 10.9 adds concentration/temperature observations."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Documented observation setup/display/statistics is separate from proof of automated parameter estimation.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "uncertainty.tprogs",
+      "name": "T-PROGS",
+      "category": "uncertainty",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/tprogs",
+          "locator": "Borehole-conditioned material realizations and MODFLOW HUF input sets."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Separate transition-probability geostatistical utility integrated by GMS.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "solver.samg",
+      "name": "SAMG / SAMG-MODFLOW+",
+      "category": "solver",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/samg",
+          "locator": "Sparse-system algebraic multigrid; optional serial/parallel variants."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Separate Fraunhofer solver library; commercial GMS entitlement.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "analysis.zonebudget",
+      "name": "ZONEBUDGET",
+      "category": "analysis",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities",
+          "locator": "Subregional MODFLOW water budgets."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "USGS budget utility integrated with GMS.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "historical.utexas",
+      "name": "UTEXAS",
+      "category": "historical",
+      "documentation": [
+        {
+          "url": "https://aquaveo.com/software/gms/models-utilities/utexas",
+          "locator": "Historical slope stability interface."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Current dedicated Aquaveo page explicitly says no longer supported.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "historical.utchem",
+      "name": "UTCHEM",
+      "category": "historical",
+      "documentation": [
+        {
+          "url": "https://www.erdc.usace.army.mil/Locations/CHL/Products/Fact-Sheet-View/Article/476776/groundwater-modeling-system/",
+          "locator": "Historical GMS interface is evidenced; current scope unconfirmed."
+        }
+      ],
+      "document_date": null,
+      "document_date_kind": "unknown",
+      "boundary": "Absent from current 10.9 model list, pricing and tutorial index searched. Do not assert current integration or infer removal solely from absence.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.manual",
+      "name": "Manual calibration and observation comparison",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-ModelCalibration.pdf",
+          "locator": "Adjust model inputs and compare simulated values with field observations using observation points and plots."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.pest_zonal",
+      "name": "PEST zonal parameter estimation",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-AutomatedParameterEstimation.pdf",
+          "locator": "Define parameter zones and use PEST to calibrate a MODFLOW model."
+        }
+      ],
+      "document_date": "2025-08-14",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.pilot_points",
+      "name": "PEST pilot points",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-PestPilotPoints.pdf",
+          "locator": "Parameterize spatial property fields with pilot points, including fixed-value points and multiple parameters."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.pilot_points_advanced",
+      "name": "Advanced pilot-point constraints",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-PestPilotPointsAdvanced.pdf",
+          "locator": "Change pilot-point regularization and work with prior-information equations."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.pest_svd",
+      "name": "PEST truncated SVD",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-AdvancedPest.pdf",
+          "locator": "Use truncated singular-value decomposition within a MODFLOW PEST parameter-estimation workflow."
+        }
+      ],
+      "document_date": "2025-08-14",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.pest_svd_assist",
+      "name": "PEST SVD-Assist",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-AdvancedPest.pdf",
+          "locator": "Use SVD-Assist and a precomputed Jacobian in the documented advanced PEST workflow."
+        }
+      ],
+      "document_date": "2025-08-14",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.pest_parallel",
+      "name": "Parallel PEST workflow",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-AdvancedPest.pdf",
+          "locator": "Run PEST model evaluations in parallel within the documented GMS setup."
+        }
+      ],
+      "document_date": "2025-08-14",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.parameter_instances_clusters",
+      "name": "MODFLOW parameter instances and clusters",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-AdvancedParameterOptions.pdf",
+          "locator": "Define array-based parameters with clusters, parameter factors and time-varying instances."
+        }
+      ],
+      "document_date": "2025-08-14",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.transient_pumping",
+      "name": "Transient pumping-test calibration",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-TransientCalibrationPumpTest.pdf",
+          "locator": "Configure stress periods, import transient observations and calibrate a pumping-test model with PEST."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "calibration.transient_data",
+      "name": "Transient calibration data workflow",
+      "category": "calibration",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-TransientCalibration.pdf",
+          "locator": "Manage time-dependent model data with date/time inputs for a transient calibration workflow."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS pre/post-processing and parameterization with external MODFLOW/PEST utilities; this tutorial establishes its example workflow, not arbitrary engine/version support.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "uncertainty.parameter_randomization",
+      "name": "Parameter randomization and sampling",
+      "category": "uncertainty",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-StochasticModeling-ParameterRandomization.pdf",
+          "locator": "Run stochastic MODFLOW models using randomized parameters with random or Latin-hypercube sampling."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS ensemble preparation/run/analysis using MODFLOW and associated utilities; no claim of statistical coverage, convergence or calibrated site accuracy.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "uncertainty.transport_threshold",
+      "name": "Ensemble transport threshold analysis",
+      "category": "uncertainty",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-StochasticModeling-ParameterRandomization.pdf",
+          "locator": "Apply MT3DMS to multiple MODFLOW realizations and perform the documented concentration-threshold analysis."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS ensemble preparation/run/analysis using MODFLOW and associated utilities; no claim of statistical coverage, convergence or calibrated site accuracy.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "uncertainty.indicator_simulations",
+      "name": "Stochastic indicator realizations",
+      "category": "uncertainty",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-StochasticModeling-IndicatorSimulations.pdf",
+          "locator": "Use alternative material indicator realizations in a stochastic MODFLOW workflow."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS ensemble preparation/run/analysis using MODFLOW and associated utilities; no claim of statistical coverage, convergence or calibrated site accuracy.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "uncertainty.stochastic_inverse",
+      "name": "Stochastic inverse modeling",
+      "category": "uncertainty",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-StochasticModeling-Inverse.pdf",
+          "locator": "Calibrate multiple MODFLOW models with alternative aquifer-stratigraphy realizations through LPF/HUF workflows."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS ensemble preparation/run/analysis using MODFLOW and associated utilities; no claim of statistical coverage, convergence or calibrated site accuracy.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "uncertainty.nsmc_generate",
+      "name": "PEST Null Space Monte Carlo I",
+      "category": "uncertainty",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-StochasticModeling-NullSpaceMonteCarloI.pdf",
+          "locator": "Generate multiple calibrated MODFLOW models using the documented NSMC options."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS ensemble preparation/run/analysis using MODFLOW and associated utilities; no claim of statistical coverage, convergence or calibrated site accuracy.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "uncertainty.nsmc_reuse",
+      "name": "PEST Null Space Monte Carlo II",
+      "category": "uncertainty",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-StochasticModeling-NullSpaceMonteCarloII.pdf",
+          "locator": "Reuse NSMC results to configure another stochastic MODFLOW simulation."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "GMS ensemble preparation/run/analysis using MODFLOW and associated utilities; no claim of statistical coverage, convergence or calibrated site accuracy.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.drt",
+      "name": "MODFLOW DRT interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-DRTPackage.pdf",
+          "locator": "Configure Drain Return boundaries and compare with ordinary DRN boundaries."
+        }
+      ],
+      "document_date": "2025-08-14",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.ets",
+      "name": "MODFLOW ETS interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-ETSPackage.pdf",
+          "locator": "Configure segmented evapotranspiration and compare with the ordinary EVT formulation."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.gage",
+      "name": "MODFLOW GAGE interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-GAGEPackage.pdf",
+          "locator": "Add model gages through the documented lake/stream-related package workflow."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.lak3",
+      "name": "MODFLOW LAK3 interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-LAKPackage.pdf",
+          "locator": "Configure a lake-package example representing mine-excavation dewatering."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.mnw1",
+      "name": "MODFLOW MNW1 interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-MNWPackage.pdf",
+          "locator": "Set up multi-node wells with grid and conceptual-model workflows and compare with WEL."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.mnw2",
+      "name": "MODFLOW MNW2 interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-MNW2Package.pdf",
+          "locator": "Set up MNW2 wells through sample and conceptual-model workflows and compare with WEL."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.mnw2_nonvertical",
+      "name": "MNW2 nonvertical wells and pump capacity",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-MNW2NonVerticalandPumpCapacity.pdf",
+          "locator": "Configure nonvertical wells and pump-capacity options in the MNW2 interface."
+        }
+      ],
+      "document_date": "2025-08-15",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.sfr2",
+      "name": "MODFLOW SFR1/SFR2 streams",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-SFR2Package.pdf",
+          "locator": "Create a stream model with SFR1/SFR2-type reaches, segments and routing."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.str",
+      "name": "MODFLOW STR streams",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-STRPackage.pdf",
+          "locator": "Create stream arcs with upstream/downstream orientation, segment/reach numbering and conductance parameters."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.sub",
+      "name": "MODFLOW SUB interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-SUBPackage.pdf",
+          "locator": "Configure the MODFLOW SUB package through the documented grid-based setup."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.swi2",
+      "name": "MODFLOW SWI2 interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-SWI-TwoAquiferSystem.pdf",
+          "locator": "Configure the SWI2 interface using the documented two-aquifer-system example."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.classic.uzf",
+      "name": "MODFLOW UZF interface",
+      "category": "model_package_classic",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-UZFPackage.pdf",
+          "locator": "Configure unsaturated-zone flow and compare with recharge and evapotranspiration packages."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Dedicated classic MODFLOW package workflow documented in GMS 10.9; do not infer the same package/version options are available in USG or MODFLOW 6.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usg.gnc",
+      "name": "MODFLOW-USG GNC",
+      "category": "model_package_usg",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-GncPackage.pdf",
+          "locator": "Configure Ghost Node Correction inputs for a MODFLOW-USG example."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented USG interface example; no generalization to MODFLOW 6 or all network/grid configurations.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usg.cln",
+      "name": "MODFLOW-USG CLN multilayer wells",
+      "category": "model_package_usg",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-CLNProcess.pdf",
+          "locator": "Use the connected linear network process with conceptual objects to create multilayer wells."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented USG interface example; no generalization to MODFLOW 6 or all network/grid configurations.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usg.cln_shapefile",
+      "name": "Shapefile to CLN mapping",
+      "category": "model_package_usg",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-ShapefileToCLN.pdf",
+          "locator": "Map shapefile geometry and attributes into the CLN package."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented USG interface example; no generalization to MODFLOW 6 or all network/grid configurations.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usg.cln_observations",
+      "name": "CLN well observations",
+      "category": "model_package_usg",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-CLNObservations.pdf",
+          "locator": "Create observations for a MODFLOW-USG CLN well."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented USG interface example; no generalization to MODFLOW 6 or all network/grid configurations.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usgt.pfas",
+      "name": "USG-Transport PFAS inputs",
+      "category": "model_package_usg_transport",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-Transport_PFAS.pdf",
+          "locator": "Apply PFAS-specific parameters through the demonstrated LPF/BCT transport workflow."
+        }
+      ],
+      "document_date": "2025-09-05",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented MODFLOW-USG-Transport example; dissolved transport/matrix diffusion is not a CO2-brine multiphase solver.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usgt.mdt_discrete_fracture",
+      "name": "MDT discrete-fracture example",
+      "category": "model_package_usg_transport",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-MDT_DiscreteFracture.pdf",
+          "locator": "Configure matrix-diffusion transport from a single fracture."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented MODFLOW-USG-Transport example; dissolved transport/matrix diffusion is not a CO2-brine multiphase solver.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usgt.mdt_equivalent_porous",
+      "name": "MDT equivalent porous-media example",
+      "category": "model_package_usg_transport",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-MDT_EquivalentPorous.pdf",
+          "locator": "Configure matrix diffusion using an equivalent porous-media representation of single or parallel fractures."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented MODFLOW-USG-Transport example; dissolved transport/matrix diffusion is not a CO2-brine multiphase solver.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usgt.mdt_matrix",
+      "name": "MDT heterogeneous matrix example",
+      "category": "model_package_usg_transport",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-MDT_Matrix.pdf",
+          "locator": "Configure matrix diffusion for a heterogeneous sand/clay system."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented MODFLOW-USG-Transport example; dissolved transport/matrix diffusion is not a CO2-brine multiphase solver.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    },
+    {
+      "id": "package.usgt.mdt_3d",
+      "name": "MDT field-scale 3D example",
+      "category": "model_package_usg_transport",
+      "documentation": [
+        {
+          "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW-USG-MDT_3D.pdf",
+          "locator": "Configure matrix diffusion in a three-dimensional unstructured field-scale model."
+        }
+      ],
+      "document_date": "2025-08-18",
+      "document_date_kind": "PDF metadata modification date; not inferred publication date",
+      "boundary": "Documented MODFLOW-USG-Transport example; dissolved transport/matrix diffusion is not a CO2-brine multiphase solver.",
+      "runtime_status": "not_verified_in_GMS",
+      "required_runtime_probe": "Pin the supported engine version; reproduce the documented interface workflow and independent physical checks within the supported formulation."
+    }
+  ]
+}

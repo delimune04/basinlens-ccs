@@ -1,0 +1,94 @@
+{
+  "cases": {
+    "flat": {
+      "evaluations_consumed": 3,
+      "execution_module_sha256": "e0a9f734d28f76960d9bded9c2251cafe8573de2e407a8455f4ff55783d72f7b",
+      "expected_rejection": "unidentifiable fixed-head-only data despite strong conductivity prior",
+      "status": "failed",
+      "verification": {
+        "completed_native_evaluations_recomputed": 3,
+        "evaluations_verified": 3,
+        "native_residuals_recomputed": true,
+        "original_gms_comparison": "NOT_OBSERVED",
+        "schema": "basinlens-calibration-bundle-v1",
+        "solver_executed_by_verifier": false,
+        "source_documents_preserved": true,
+        "status": "failed"
+      }
+    },
+    "steady": {
+      "authored_truth": 4.0,
+      "best_parameters": {
+        "Kx": 4.000479881466979
+      },
+      "engine": {
+        "name": "mf6",
+        "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+        "version": "mf6: 6.7.0 02/05/2026"
+      },
+      "evaluations_consumed": 24,
+      "execution_module_sha256": "e0a9f734d28f76960d9bded9c2251cafe8573de2e407a8455f4ff55783d72f7b",
+      "failed_evaluations": 0,
+      "final_data_jacobian_rank": 1,
+      "initial_data_jacobian_rank": 1,
+      "training_rmse_m": 2.3708381361913922e-05,
+      "verification": {
+        "completed_native_evaluations_recomputed": 24,
+        "evaluations_verified": 24,
+        "native_residuals_recomputed": true,
+        "original_gms_comparison": "NOT_OBSERVED",
+        "schema": "basinlens-calibration-bundle-v1",
+        "solver_executed_by_verifier": false,
+        "source_documents_preserved": true,
+        "status": "completed"
+      },
+      "withheld_rmse_m": 1.4994496947196012e-05
+    },
+    "transient": {
+      "authored_truth": 0.05,
+      "best_parameters": {
+        "ss": 0.05001369658830742
+      },
+      "engine": {
+        "name": "mf6",
+        "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+        "version": "mf6: 6.7.0 02/05/2026"
+      },
+      "evaluations_consumed": 24,
+      "execution_module_sha256": "e0a9f734d28f76960d9bded9c2251cafe8573de2e407a8455f4ff55783d72f7b",
+      "failed_evaluations": 0,
+      "final_data_jacobian_rank": 1,
+      "initial_data_jacobian_rank": 1,
+      "training_rmse_m": 3.043408395164704e-05,
+      "verification": {
+        "completed_native_evaluations_recomputed": 24,
+        "evaluations_verified": 24,
+        "native_residuals_recomputed": true,
+        "original_gms_comparison": "NOT_OBSERVED",
+        "schema": "basinlens-calibration-bundle-v1",
+        "solver_executed_by_verifier": false,
+        "source_documents_preserved": true,
+        "status": "completed"
+      },
+      "withheld_rmse_m": 2.0291241767722568e-05
+    }
+  },
+  "engine": "actual MODFLOW 6 GWF",
+  "original_gms_comparison": "NOT_OBSERVED",
+  "pest_implemented": false,
+  "schema": "basinlens-calibration-example-v1",
+  "source_documents_unchanged": true,
+  "source_sha256": {
+    "flat_case.json": "87577a39f3735d990a8c251323ba28a3dce354652c9a120586f47a8152d08b1c",
+    "flat_observations.json": "075ee92adc18395fb2c3cd6085ab116028400b91fb0ec0a32e28e7f722af3726",
+    "flat_settings.json": "8647c532410d6890a35c40bedbb67796538b0ab06c012fbbfc44946dd9c7f41b",
+    "steady_case.json": "87577a39f3735d990a8c251323ba28a3dce354652c9a120586f47a8152d08b1c",
+    "steady_observations.json": "f1422a9dd3c3838e5333fa7da598fd19cb3edde7efae477bef76e8f5e65248a4",
+    "steady_settings.json": "ae1ff98e9c55cb1e604ea884c9e8358404c8e7ed4b891776a14d77665187eea2",
+    "transient_case.json": "517c4c8d0634bce3e03f41d2264f9fe9ff9f71cec2781feafb0c9791ac0fe5fa",
+    "transient_observations.json": "9f1c10c07a6a7b4ea95f7e80700127b43715b5870cbba6192f194848d6cc7452",
+    "transient_settings.json": "f84d2dfa698bbc056bf88dfb2187a24d59a883fa4c14100aa973bafa7c6284a8"
+  },
+  "truth_basis": "independently authored finite-volume and backward-Euler calculations; synthetic only",
+  "verification_module_sha256": "2c1a405ba8eff300d08a60a6eccec1dd6792c4bb4e48e91e31e6b2cbc223f249"
+}

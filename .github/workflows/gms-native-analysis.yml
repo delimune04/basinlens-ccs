@@ -1,0 +1,99 @@
+name: Opt-in GMS native REA investigation
+
+# This is a bounded research operation, not ordinary CI. A dispatch or explicit
+# commit marker opts into the large vendor/tool downloads and native analysis.
+# [gms-native-diagnostics] requests the same 20-minute provider budget with a
+# separate cleanup grace and sanitized stage/timing observations; no extra
+# analyzer is disabled by that marker. Ordinary commits do not start this job.
+on:
+  workflow_dispatch:
+    inputs:
+      analyzer_profile:
+        description: 'Default analysis or measured bounded inventory profile (weaker call semantics)'
+        type: choice
+        options: [default, bounded_inventory]
+        default: default
+  push:
+    branches: ["feat/gms-groundwater-workbench"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gms-native-rea-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  static-analysis:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.head_commit.message, '[gms-native-probe]') ||
+      contains(github.event.head_commit.message, '[gms-native-diagnostics]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      GHIDRA_HEADLESS_MAXMEM: 4G
+      REA_GHIDRA_STARTUP_TIMEOUT_MS: "1200000"
+      # Measured local default timings: entry disassembly753s, call-fixups298s,
+      # inferred non-return flow124s. Optional profile weakens call/pcode
+      # semantics while retaining entry disassembly; it is not full recovery.
+      REA_GHIDRA_DISABLED_ANALYZERS: ${{ (inputs.analyzer_profile == 'bounded_inventory' || contains(github.event.head_commit.message, '[gms-native-bounded]')) && 'Call-Fixup Installer,Non-Returning Functions - Discovered' || '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Install pinned REA and archive reader
+        run: |
+          npm install --prefix "$RUNNER_TEMP/rea-tools" rea-agents@6.7.0 7zip-bin@5.2.0 --ignore-scripts --no-audit --no-fund
+          chmod u+x "$RUNNER_TEMP/rea-tools/node_modules/7zip-bin/linux/x64/7za"
+      - name: Fetch and verify the official Ghidra release
+        shell: bash
+        run: |
+          curl --fail --location --silent --show-error --retry 2 --max-time 300 \
+            --output "$RUNNER_TEMP/ghidra.zip" \
+            https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.1.4_build/ghidra_12.1.4_PUBLIC_20260921.zip
+          python - "$RUNNER_TEMP/ghidra.zip" <<'PY'
+          import hashlib, pathlib, sys
+          p = pathlib.Path(sys.argv[1])
+          assert hashlib.file_digest(p.open('rb'), 'sha256').hexdigest() == 'ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db'
+          PY
+          unzip -q "$RUNNER_TEMP/ghidra.zip" -d "$RUNNER_TEMP"
+          rm "$RUNNER_TEMP/ghidra.zip"
+      - name: Fetch official GMS 10.9.7 and extract the unchanged analysis target
+        shell: bash
+        run: |
+          curl --fail --location --silent --show-error --retry 2 --max-time 600 \
+            --output "$RUNNER_TEMP/gms-installer.exe" \
+            https://s3.amazonaws.com/gms.aquaveo.com/gms10.9.7full64bit.exe
+          python tools/extract_gms_target.py "$RUNNER_TEMP/gms-installer.exe" "$RUNNER_TEMP/gms-target" \
+            --sevenzip "$RUNNER_TEMP/rea-tools/node_modules/7zip-bin/linux/x64/7za"
+          rm "$RUNNER_TEMP/gms-installer.exe"
+      - name: Run actual REA doctor and Ghidra native overview
+        env:
+          GHIDRA_INSTALL_DIR: ${{ runner.temp }}/ghidra_12.1.4_PUBLIC
+        run: >-
+          python tools/native_rea_probe.py
+          --target "$RUNNER_TEMP/gms-target/gms10_9.exe"
+          --rea-cli "$RUNNER_TEMP/rea-tools/node_modules/rea-agents/scripts/rea.mjs"
+          --output "$RUNNER_TEMP/rea-public"
+          --private-workspace "$RUNNER_TEMP/rea-private"
+          --timeout-seconds 1200
+          --cleanup-grace-seconds 90
+      - name: Preserve only the sanitized analysis receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gms-native-rea-summary
+          path: ${{ runner.temp }}/rea-public/public-summary.json
+          if-no-files-found: warn
+          retention-days: 30

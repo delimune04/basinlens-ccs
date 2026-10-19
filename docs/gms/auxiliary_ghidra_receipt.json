@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "route": "Standard Ghidra headless auxiliary static analysis; not REA",
+  "status": "command_completed_with_partial_auto_analysis",
+  "target_sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+  "target_size_bytes": 145479264,
+  "original_target_executed": false,
+  "tool_versions": {
+    "ghidra": "12.1.4",
+    "jdk": "21.0.12.1"
+  },
+  "architecture": "x86_64",
+  "process_exit_code": 0,
+  "elapsed_seconds": 1378.71,
+  "analysis_profile": {
+    "requested": "default automatic analysis",
+    "disabled_analyzers": [],
+    "analysis_budget_seconds": 1200,
+    "analysis_timed_out": true,
+    "full_auto_analysis_completed": false,
+    "reported_total_analyzer_seconds": 1199.0
+  },
+  "reported_counts": {
+    "functions": 318972,
+    "defined_strings": 6457,
+    "typed_requested_format_string_hits": 0,
+    "raw_byte_pattern_candidates": 69,
+    "standard_file_io_api_entries": 6,
+    "selected_small_function_dossiers": 9
+  },
+  "bounded_selection": {
+    "raw_scan_case_sensitive": true,
+    "maximum_matches_per_pattern_encoding": 64,
+    "maximum_selected_functions": 12,
+    "maximum_selected_function_bytes": 8192,
+    "per_selected_function_decompiler_timeout_seconds": 20
+  },
+  "analyzer_timings": [
+    {
+      "analyzer": "Disassemble Entry Points",
+      "seconds": 753.416
+    },
+    {
+      "analyzer": "Call-Fixup Installer",
+      "seconds": 297.989
+    },
+    {
+      "analyzer": "Non-Returning Functions - Discovered",
+      "seconds": 123.52
+    },
+    {
+      "analyzer": "Subroutine References",
+      "seconds": 21.383
+    },
+    {
+      "analyzer": "Embedded Media",
+      "seconds": 1.298
+    },
+    {
+      "analyzer": "Non-Returning Functions - Known",
+      "seconds": 1.166
+    },
+    {
+      "analyzer": "Create Function",
+      "seconds": 0.723
+    },
+    {
+      "analyzer": "Windows x86 PE Exception Handling",
+      "seconds": 0.442
+    },
+    {
+      "analyzer": "PDB Universal",
+      "seconds": 0.034
+    },
+    {
+      "analyzer": "Windows x86 Thread Environment Block (TEB) Analyzer",
+      "seconds": 0.027
+    }
+  ],
+  "source_provenance": {
+    "private_postscript_sha256": "65d54e8a5a659cfa239ae926bbc41dcf3ffa53855ae6cf2aecd3a16bda3cc7a3",
+    "private_owner_runner_sha256": "e85396023ddc47a71f878247c0f68c601172143dbe4c8b1253594ad4cd509a67",
+    "official_ghidra_archive_sha256": "ddac49f903da9d5bac833e5cc79395098b9c33cfd3279be5f31bd00387d2d4db"
+  },
+  "limitations": [
+    "Default automatic analysis reached its 1200-second limit. The recovered program database and inventories are partial.",
+    "Reported function and defined-string counts describe this database state. They do not measure valid production functions, completed coverage, or reconstruction equivalence.",
+    "Raw byte-pattern candidates include immediate machine-code bytes and truncated candidate strings. They are not confirmed format tokens or file specifications.",
+    "Most selected small-function dossiers concern embedded regression-fixture opening helpers. They do not recover production file grammars.",
+    "The case-sensitive, per-pattern capped scan cannot establish that an unobserved string or feature is absent.",
+    "Only reached analyzers appear in the timing table. Missing analyzers are unmeasured, rather than zero-cost.",
+    "This independent Ghidra route does not establish a passed REA analysis session. Separate REA health and analysis results must be reported independently.",
+    "No desktop application execution, original-application file-writing round trip, licensing-behavior investigation, or multiphase CCS simulation was performed.",
+    "Native strings, private paths, procedure names, addresses, and pseudocode are excluded from this public receipt."
+  ]
+}

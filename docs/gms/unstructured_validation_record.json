@@ -1,0 +1,109 @@
+{
+  "mesh": {
+    "schema": "basinlens-gpr-quadtree-mesh-v1",
+    "node_count": 20684,
+    "cell_count": 9976,
+    "faces_per_cell": 6,
+    "nodes_per_face": 4,
+    "cell_type": "polyhedron_42",
+    "single_layer": true,
+    "refinement_levels": 0,
+    "topology": {
+      "closed_cells_verified": 9976,
+      "boundary_faces": 20682,
+      "shared_faces": 19587,
+      "maximum_face_owners": 2,
+      "unused_points": 0,
+      "face_winding_verified": true
+    },
+    "packet_sha256": "a09899156384ed81c30b50dbb01d4f13582bf42b622fc70353db225af47f1244",
+    "wrapper_quad_arrays_interpreted": false,
+    "wrapper_origin_or_axis_transform_applied": false,
+    "physical_coordinate_source": "embedded XmUGrid locations, unchanged",
+    "coordinate_units": null,
+    "crs": null,
+    "vertical_datum": null,
+    "raw_coordinates_included": false,
+    "units_converted": false,
+    "source": {
+      "bytes": 2104862,
+      "sha256": "d5bae80e0159127316388e53652dceba4069e7b6ba099e31f691d55305e509e6",
+      "identity_verified_after_read": true
+    },
+    "gms_runtime_executed": false,
+    "scope": "One measured mesh representation only; no QUAD pointer semantics, project synchronization or full GMS equivalence."
+  },
+  "native_disv_comparison": {
+    "compared_cells": 9976,
+    "native_xy_vertices": 10342,
+    "gpr_unique_xy_vertices": 10342,
+    "cell_order": "GPR stream index versus declared native cell2d ID (FloPy zero-based)",
+    "all_cell_footprints_match": true,
+    "all_xy_vertices_match": true,
+    "single_layer_xy_node_pair_topology_matches": true,
+    "maximum_nodes_per_xy_vertex": 2,
+    "all_face_corner_z_match": false,
+    "full_3d_mesh_coordinate_match": false,
+    "max_absolute_coordinate_error": {
+      "cell_polygon_xy": 0.0,
+      "lexicographic_unique_xy_vertices": 0.0,
+      "upper_corner_z_vs_cell_top": 30.0,
+      "lower_corner_z_vs_cell_bottom": 75.0
+    },
+    "native_reference_center_vs_gpr_corner_mean_max_error": 1.1641532182693481e-10,
+    "native_reference_center_comparison_is_diagnostic_only": true,
+    "native_origin_options_present": {
+      "xorigin": false,
+      "yorigin": false,
+      "angrot": false
+    },
+    "native_length_units": "meters",
+    "gpr_coordinate_units": null,
+    "units_converted": false,
+    "origin_or_z_repair_applied": false,
+    "physical_or_runtime_equivalence_claimed": false,
+    "scope": "Literal same-index footprints, vertex set, and flat-face elevations only; unknown GPR units/CRS/datum remain unknown."
+  },
+  "provenance": {
+    "source_url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/mf6_conceptual.zip",
+    "archive_sha256": "950934c78d4fde477ae346b8a34e1f81f4477a8dd66228538616b8ae9e00c0c7",
+    "stored_GMS_version_attribute": "10.7.0",
+    "version_attribute_establishes_original_creator_or_observed_runtime": false,
+    "public_xmsgrid_revision": "7045701d1736f87f61572c1ea6a4178864214bd0",
+    "public_xmscore_revision": "503a9692186422fb0574fc1f0e75d32a3d435aef",
+    "numeric_reader": "FloPy3.11.0 / h5py3.16.0",
+    "vendor_payloads_redistributed": false
+  },
+  "checks": {
+    "synthetic_tests_passed": 8,
+    "skipped": 0,
+    "all_cell_topology_checked": true,
+    "separate_native_DISV_all_cell_and_vertex_comparison": true,
+    "original_GMS_execution": false,
+    "solver_execution": false,
+    "raw_coordinates_or_private_names_included": false
+  },
+  "native_geometry_input_identity": [
+    {
+      "role": "native_disv_package",
+      "bytes": 410,
+      "sha256": "95abbdef8fee67188d71fe7a0410883abd2492c0bc061b44d15c1bdbcef3c433"
+    },
+    {
+      "role": "native_disv_vertices",
+      "bytes": 438126,
+      "sha256": "3794f315a86e23d6b9d1ec477df9853f52899bb1a60e107f15ac3ce1738bb62a"
+    },
+    {
+      "role": "native_disv_cell2d",
+      "bytes": 635917,
+      "sha256": "dcc2399eab815f867728888135cf4a156f3c00f8d4cc8af9144a15e9a30cf2f7"
+    }
+  ],
+  "native_input_graph": {
+    "files": 17,
+    "issues": 0,
+    "native_inputs_resolved": true,
+    "no_native_code_executed": true
+  }
+}

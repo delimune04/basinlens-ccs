@@ -1,0 +1,32 @@
+{
+  "coordinate_tolerance": 0.001,
+  "fd_step_fraction": 0.01,
+  "max_evaluations": 40,
+  "max_sweeps": 2,
+  "max_total_seconds": 300,
+  "minimum_sensitivity_norm": 1e-06,
+  "parameters": [
+    {
+      "field": "kx_m_day",
+      "id": "Kx",
+      "initial": 1.0,
+      "lower": 0.5,
+      "material_id": "sand",
+      "prior": null,
+      "scale": "log",
+      "unit": "m/day",
+      "upper": 8.0
+    }
+  ],
+  "per_run_timeout_seconds": 20,
+  "provenance": "Explicit bounded authored calibration experiment; no field validation",
+  "rank_rtol": 1e-06,
+  "schema": "basinlens-calibration-v1",
+  "training_ids": [
+    "train-left",
+    "train-middle"
+  ],
+  "withheld_ids": [
+    "withheld-right"
+  ]
+}

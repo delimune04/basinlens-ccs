@@ -1,0 +1,110 @@
+{
+  "additional_counts": {
+    "decode_failures": 0,
+    "maximum_controls_in_one_dialog": 129,
+    "named_control_classes_omitted": 589
+  },
+  "date": "2026-10-19",
+  "decoder_limits": {
+    "catalogue_charged_dialog_bytes": 33554432,
+    "catalogue_declared_controls": 50000,
+    "controls_per_template": 8192,
+    "evidence_maximum_bytes": 16777216,
+    "phase_target_hash_maximum_bytes": "verified target size plus one byte",
+    "template_bytes": 2000000,
+    "utf16_code_units_per_string": 16384
+  },
+  "limitations": [
+    "Dialog units depend on font metrics; no runtime pixel layout is inferred.",
+    "Static templates do not establish dynamic controls, enabled states, handlers or displayed dialogs.",
+    "Names, captions, typefaces and creation data content are omitted.",
+    "REA receipt bytes and PE structure are cross-checked; receipt authorship is not authenticated here.",
+    "Complete listed dialog decoding does not establish complete GUI or product coverage.",
+    "Stored style and font values do not establish fonts actually selected, runtime enabled states, dynamic controls or pixel positions.",
+    "The 429-resource coverage is this exact artifact\u2019s listed static dialog resources, not all windows or full GMS feature coverage.",
+    "No new witnessed original GMS runtime numerical comparison or parity claim is established."
+  ],
+  "method": "Original bounded Win32 template decoder applied to exact REA-observed PE resource ranges; static observations only",
+  "observations": {
+    "built_in_class_ordinal_counts": {
+      "128": 3428,
+      "129": 851,
+      "130": 1739,
+      "131": 32,
+      "132": 2,
+      "133": 212
+    },
+    "control_count": 6853,
+    "declared_controls_charged": 6853,
+    "dialog_payload_bytes_charged": 428580,
+    "dialogs_attempted": 429,
+    "dialogs_decoded": 429,
+    "dialogs_excluded_by_inventory_limits": 0,
+    "format_counts": {
+      "extended": 316,
+      "standard": 113
+    },
+    "gms_parity_established": false,
+    "opaque_creation_data_bytes_consumed": 0,
+    "pe_directory_crosscheck": {
+      "leaf_count": 1208,
+      "listed_leaves_verified": 1208
+    },
+    "rea_evidence_id": "ev_9eb14006478ec9134d3e2f86ea0ec19d033a9d9ae72c155639fed87365417306",
+    "rea_evidence_sha256": "6dbc1b749f8b3374fe0796d08645d35fc23fd617ed894bb6d8a6490efc1b4f02",
+    "resource_inventory_coverage": {
+      "examined_entries": 2431,
+      "resources": 1208,
+      "status": "complete"
+    },
+    "runtime_observed": false,
+    "target": {
+      "sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+      "size_bytes": 145479264
+    }
+  },
+  "primary_format_sources": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-dlgtemplate",
+    "https://learn.microsoft.com/en-us/windows/win32/api/winuser/ns-winuser-dlgitemtemplate",
+    "https://learn.microsoft.com/en-us/windows/win32/dlgbox/dlgtemplateex",
+    "https://learn.microsoft.com/en-us/windows/win32/dlgbox/dlgitemtemplateex"
+  ],
+  "publication": {
+    "individual_dialog_layouts_included": false,
+    "private_paths_included": false,
+    "vendor_labels_or_names_included": false,
+    "vendor_resource_or_creation_bytes_included": false
+  },
+  "schema": "basinlens.static_dialog_layout_validation.v1",
+  "source_sha256": {
+    "src/basinlens_ccs/reconstruction/dialogs.py": "d09a4c7575034db7ed618b9ef0cdc9fa6610250ed2633588696814d240f4fafc",
+    "src/basinlens_ccs/reconstruction/resources.py": "c58a0b7b019068ce96c2243b35fe67d715e627d08aeb8c35d79d0c7278b4635e",
+    "tests/test_dialogs.py": "a392760e3d1f06da9dfb68247cabea4c124a879ce38291242da306f11162a040"
+  },
+  "verification": {
+    "actual_dialog_cli_exit_code": 0,
+    "actual_rea_ledger_byte_identical": true,
+    "actual_rea_ledger_file_sha256": "13021adfce22414d94951d4ef4969da034a33e8473ef8c91ae112d43116d8838",
+    "default_menu_observation_canonical_sha256": "9228495bb147536e93e0e2b6ff9bffb47ea22a7e750c73554d607e465155d634",
+    "default_menu_observation_unchanged": true,
+    "existing_resource_tests": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests_run": 11
+    },
+    "focused_dialog_tests": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests_run": 13
+    },
+    "ledger_boundary_tests": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests_run": 5
+    },
+    "python_version": "3.12.14"
+  }
+}

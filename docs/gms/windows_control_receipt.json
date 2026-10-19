@@ -1,0 +1,265 @@
+{
+  "record_schema_version": 1,
+  "workflow_run_id": 39208615776,
+  "workflow_head_commit": "c6f04dc5c1709cab03a0777e8449dc8a938b772e",
+  "workflow_url": "https://github.com/delimune04/basinlens-ccs/actions/runs/39208615776",
+  "artifact_id": 12167255685,
+  "artifact_digest": "sha256:173dfb6189d3a94a01d4c6a4e812fe8bff2244406ccad5512e678554a952bc94",
+  "artifact_records": {
+    "discovery-summary.json": {
+      "discovery_schema_version": 1,
+      "status": "equivalent_verified_normal_launch_targets_enumerated",
+      "executed_target": false,
+      "registry_gms_entries": 1,
+      "registry_aquaveo_entries": 0,
+      "registry_install_location_roots": 1,
+      "registry_icon_roots": 0,
+      "conventional_vendor_roots": 0,
+      "plausible_root_count": 4,
+      "examined_entries": 50000,
+      "executable_candidates": 696,
+      "size_matching_candidates": 4,
+      "hash_matching_candidates": 2,
+      "unreadable_locations": 0,
+      "skipped_reparse_points": 45,
+      "budget_exhausted": true,
+      "registration_present": true,
+      "chosen_from_registered_icon": false,
+      "document_association_entries": 0,
+      "app_path_entries": 0,
+      "gms_shortcut_entries": 4,
+      "verified_canonical_candidates": 2,
+      "chosen_canonical_sources": [],
+      "equivalent_canonical_enumeration_requested": true,
+      "equivalent_canonical_targets_enumerated": 2,
+      "no_canonical_preference_selected": true,
+      "expected_target_sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+      "expected_target_size": 145479264,
+      "qualification": "Discovery metadata only; no original application launch, licence operation or numerical execution.",
+      "finished_utc": "2026-10-19T06:17:49.6232340Z"
+    },
+    "public-summary.json": {
+      "no_canonical_preference_selected": true,
+      "qualification": "Each normal registered target was observed independently after the exact identity gate. No claim that one duplicate installation is canonical, no licence UI actions, and no new solver run.",
+      "numerical_run_observed": false,
+      "equivalent_normal_launch_target_count": 2,
+      "observations": [
+        {
+          "visible_window_observed": true,
+          "exit_code": 0,
+          "receipt": "runtime-01.json",
+          "index": 1,
+          "target_started": true,
+          "status": "original_window_observed"
+        },
+        {
+          "visible_window_observed": true,
+          "exit_code": 0,
+          "receipt": "runtime-02.json",
+          "index": 2,
+          "target_started": true,
+          "status": "original_window_observed"
+        }
+      ],
+      "probe_schema_version": 2,
+      "targets_started": 2,
+      "paired_gms_comparisons": 0,
+      "status": "bounded_equivalent_target_observations_finished",
+      "targets_with_visible_window": 2
+    },
+    "runtime-01.json": {
+      "probe_schema_version": 1,
+      "status": "original_window_observed",
+      "started_utc": "2026-10-19T06:17:50.3854867Z",
+      "target": {
+        "name": "GMS10_9.exe",
+        "sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+        "file_version": "10,9,7",
+        "size_bytes": 145479264
+      },
+      "launch_method": "normal_process_start",
+      "target_started": true,
+      "visible_window_observed": true,
+      "community_mode_confirmed": false,
+      "numerical_run_observed": false,
+      "paired_gms_comparisons": 0,
+      "startup_classification": "unclassified_dialog_observed",
+      "dialog_categories_observed": [
+        "unknown"
+      ],
+      "blocking_dialog_observed": true,
+      "reported_mode_category": "community_text_observed_mode_unverified",
+      "possible_community_option_text_observed": true,
+      "main_window_enabled_observed": null,
+      "menu_observations": [
+        {
+          "items": [],
+          "truncated": false,
+          "read_errors": 0,
+          "limitation": "Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities.",
+          "status": "no_standard_hmenu_custom_or_unavailable_unknown"
+        },
+        {
+          "items": [],
+          "truncated": false,
+          "read_errors": 0,
+          "limitation": "Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities.",
+          "status": "no_standard_hmenu_custom_or_unavailable_unknown"
+        }
+      ],
+      "community_button_guard_observations": [
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "owned_visible_enabled_dialog_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": false,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 0,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        },
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "fixed_no_license_found_context_not_observed",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": true,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 4,
+          "ExactLabelControlCount": 1,
+          "ExactLabelStandardButtonCount": 1,
+          "EnabledVisibleStandardButtonCount": 1,
+          "FullyVerifiedCandidateCount": 1,
+          "UniqueExactLabelStandardButton": true,
+          "UniqueFullyVerifiedCandidate": true,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": [
+            {
+              "StandardButton": true,
+              "PushButton": true,
+              "Enabled": true,
+              "Visible": true,
+              "OwnedProcess": true,
+              "SameProcessAsWindow": true,
+              "ParentRelationVerified": true
+            }
+          ]
+        }
+      ],
+      "community_button_guard_actions_enabled": false,
+      "standard_menu_items_observed": false,
+      "classification_basis": "Conservative passive visible-window and bounded child-control text; original text stays private.",
+      "activation_requests_initiated_by_probe": 0,
+      "licence_ui_actions": 0,
+      "target_ui_actions": 0,
+      "target_network_activity_monitored": false,
+      "observation_seconds": 30,
+      "screenshot_count": 2,
+      "private_observation_sha256": "f1081135c15620e9dd270879b851e11db934ebaf208eda0e97e2eacd71882d4b",
+      "probe_phase": "passive_window_observation",
+      "qualification": "Passive startup/document-window observation only. Screenshots and UI text are private; no numerical or full-product equivalence claim.",
+      "finished_utc": "2026-10-19T06:17:59.4167116Z",
+      "target_unchanged": true
+    },
+    "runtime-02.json": {
+      "probe_schema_version": 1,
+      "status": "original_window_observed",
+      "started_utc": "2026-10-19T06:17:59.7632308Z",
+      "target": {
+        "name": "GMS10_9.exe",
+        "sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+        "file_version": "10,9,7",
+        "size_bytes": 145479264
+      },
+      "launch_method": "normal_process_start",
+      "target_started": true,
+      "visible_window_observed": true,
+      "community_mode_confirmed": false,
+      "numerical_run_observed": false,
+      "paired_gms_comparisons": 0,
+      "startup_classification": "unclassified_dialog_observed",
+      "dialog_categories_observed": [
+        "unknown"
+      ],
+      "blocking_dialog_observed": true,
+      "reported_mode_category": "unknown",
+      "possible_community_option_text_observed": false,
+      "main_window_enabled_observed": null,
+      "menu_observations": [
+        {
+          "items": [],
+          "truncated": false,
+          "read_errors": 0,
+          "limitation": "Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities.",
+          "status": "no_standard_hmenu_custom_or_unavailable_unknown"
+        }
+      ],
+      "community_button_guard_observations": [
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "fixed_no_license_found_context_not_observed",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": true,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 3,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        }
+      ],
+      "community_button_guard_actions_enabled": false,
+      "standard_menu_items_observed": false,
+      "classification_basis": "Conservative passive visible-window and bounded child-control text; original text stays private.",
+      "activation_requests_initiated_by_probe": 0,
+      "licence_ui_actions": 0,
+      "target_ui_actions": 0,
+      "target_network_activity_monitored": false,
+      "observation_seconds": 30,
+      "screenshot_count": 1,
+      "private_observation_sha256": "c2621ea1a269d9fc7eb81d3d2e5f4e4956514764359f0e11115ed93149e32602",
+      "probe_phase": "passive_window_observation",
+      "qualification": "Passive startup/document-window observation only. Screenshots and UI text are private; no numerical or full-product equivalence claim.",
+      "finished_utc": "2026-10-19T06:18:03.4173756Z",
+      "target_unchanged": true
+    }
+  },
+  "interpretation": {
+    "Windows_helper_compilation_and_synthetic_guards": "passed before download",
+    "first_target_unique_standard_community_edition_push_button": true,
+    "first_target_button_enabled_visible_owned_parent_verified": true,
+    "fixed_no_license_found_phrase_observed": false,
+    "passive_guard_complete_candidate_status": false,
+    "community_choice_actions": 0,
+    "licence_activation_requests": 0,
+    "active_edition_confirmed": false,
+    "new_original_solver_runs": 0,
+    "genuine_gms_output_matches": 0,
+    "second_target_matching_button_count": 0,
+    "raw_ui_text_or_control_metadata_distributed": false
+  }
+}

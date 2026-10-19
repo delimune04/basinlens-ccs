@@ -1,0 +1,113 @@
+{
+  "geometry": {
+    "schema": "basinlens-gpr-rectilinear-v1",
+    "shape_kij": [
+      5,
+      15,
+      15
+    ],
+    "node_count": 1536,
+    "cell_count": 1125,
+    "cell_type": "hexahedron",
+    "flat_order": "C: layer,row,column",
+    "orientation": [
+      "Y_DECREASE",
+      "X_INCREASE",
+      "Z_DECREASE"
+    ],
+    "bounds_xyz": [
+      [
+        0.0,
+        0.0,
+        -450.0
+      ],
+      [
+        75000.0,
+        75000.0,
+        200.0
+      ]
+    ],
+    "parametric_z_axis": [
+      0.0,
+      2.0,
+      4.0,
+      6.0,
+      8.0,
+      10.0
+    ],
+    "physical_z_source": "embedded points and explicit cell elevations",
+    "coordinate_units": null,
+    "crs": null,
+    "vertical_datum": null,
+    "units_converted": false,
+    "packet_sha256": "405bda2f999b071b9deba21852420a25ae1b2779d231cceeb2e300ee77c378c9",
+    "source": {
+      "file": "mf6-solution.gpr",
+      "bytes": 3071450,
+      "sha256": "afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467",
+      "identity_verified_after_read": true,
+      "dataset_storage": {
+        "path": "/UnstructuredGridModule/UnstructuredGrid 1/Geometry.xmsgrid",
+        "logical_bytes": 23979,
+        "shape": [
+          23979
+        ],
+        "dtype": "int8",
+        "attributes": [],
+        "chunks": [
+          1048576
+        ],
+        "filter_ids": [
+          1
+        ],
+        "virtual": false,
+        "external_storage": false,
+        "units_converted": false
+      }
+    },
+    "gms_runtime_executed": false,
+    "scope": "Supported geometry only; no complete project reconstruction or runtime equivalence."
+  },
+  "native_dis_comparison": {
+    "shape_kij": [
+      5,
+      15,
+      15
+    ],
+    "compared_cells": 1125,
+    "compared_xy_nodes": 1536,
+    "compared_face_corner_elevations": 9000,
+    "max_absolute_coordinate_error": {
+      "center_x": 0.0,
+      "center_y": 0.0,
+      "center_z": 0.0,
+      "top": 0.0,
+      "bottom": 0.0,
+      "vertex_x": 0.0,
+      "vertex_y": 0.0,
+      "upper_corner_z_vs_cell_top": 0.0,
+      "lower_corner_z_vs_cell_bottom": 0.0
+    },
+    "exact_coordinate_match": true,
+    "vertical_comparison": "Each physical GPR face corner versus the native cell top/bottom scalar; flat-cell-face interpretation.",
+    "native_shared_vertex_z_constructed": false,
+    "gpr_coordinate_units": null,
+    "native_length_units": "feet",
+    "units_converted": false,
+    "scope": "Literal centers, XY vertices, and flat-cell face-elevation comparison; no unique native shared-node Z surface or GMS runtime parity claim."
+  },
+  "provenance": {
+    "source_url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/mf6_grid.zip",
+    "zip_bytes": 509175,
+    "zip_sha256": "ad5d7684e9c6270a9a2a129430b04cc0c6bd39ba03a73f1c21825e3fa3e87dd4",
+    "project_creator_version_attribute": "10.8.2",
+    "native_input_aggregate_sha256": "1d866906bce28e4a16a4af919b793b0703703ee296082a16a0667a05120de5f9",
+    "native_reader": "FloPy 3.11.0",
+    "native_input_selection": "saved native MODFLOW 6/sim export; no editor-side synchronization",
+    "vendor_input_redistributed": false,
+    "public_source_revisions": {
+      "Aquaveo/xmsgrid": "7045701d1736f87f61572c1ea6a4178864214bd0",
+      "Aquaveo/xmscore": "503a9692186422fb0574fc1f0e75d32a3d435aef"
+    }
+  }
+}

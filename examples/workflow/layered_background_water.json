@@ -1,0 +1,283 @@
+{
+  "assignments": [
+    {
+      "cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          4
+        ]
+      ],
+      "material_id": "sand",
+      "stratum_id": "upper"
+    },
+    {
+      "cells": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          4
+        ]
+      ],
+      "material_id": "silt",
+      "stratum_id": "lower"
+    }
+  ],
+  "boundaries": [
+    {
+      "cell": [
+        0,
+        0,
+        0
+      ],
+      "kind": "CHD",
+      "label": "edge_0_0",
+      "period": 0,
+      "values": {
+        "head_m": 12.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        4
+      ],
+      "kind": "CHD",
+      "label": "edge_0_4",
+      "period": 0,
+      "values": {
+        "head_m": 10.0
+      }
+    },
+    {
+      "cell": [
+        1,
+        0,
+        0
+      ],
+      "kind": "CHD",
+      "label": "edge_1_0",
+      "period": 0,
+      "values": {
+        "head_m": 12.0
+      }
+    },
+    {
+      "cell": [
+        1,
+        0,
+        4
+      ],
+      "kind": "CHD",
+      "label": "edge_1_4",
+      "period": 0,
+      "values": {
+        "head_m": 10.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        0
+      ],
+      "kind": "CHD",
+      "label": "edge_0_0",
+      "period": 1,
+      "values": {
+        "head_m": 12.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        4
+      ],
+      "kind": "CHD",
+      "label": "edge_0_4",
+      "period": 1,
+      "values": {
+        "head_m": 10.0
+      }
+    },
+    {
+      "cell": [
+        1,
+        0,
+        0
+      ],
+      "kind": "CHD",
+      "label": "edge_1_0",
+      "period": 1,
+      "values": {
+        "head_m": 12.0
+      }
+    },
+    {
+      "cell": [
+        1,
+        0,
+        4
+      ],
+      "kind": "CHD",
+      "label": "edge_1_4",
+      "period": 1,
+      "values": {
+        "head_m": 10.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        2
+      ],
+      "kind": "WEL",
+      "label": "synthetic_injector",
+      "period": 1,
+      "values": {
+        "rate_m3_day": 5.0
+      }
+    }
+  ],
+  "grid": {
+    "dx_m": 10.0,
+    "dy_m": 20.0,
+    "layer_surfaces_m": [
+      0.0,
+      -10.0,
+      -30.0
+    ],
+    "ncol": 5,
+    "nrow": 1,
+    "rotation_degrees": 0.0,
+    "row_axis": "south_to_north",
+    "x_origin_m": 100.0,
+    "y_origin_m": 200.0
+  },
+  "initial_head_m": [
+    12.0,
+    12.0,
+    12.0,
+    12.0,
+    12.0,
+    12.0,
+    12.0,
+    12.0,
+    12.0,
+    12.0
+  ],
+  "materials": [
+    {
+      "id": "sand",
+      "kx_m_day": 5.0,
+      "ky_m_day": 3.0,
+      "kz_m_day": 0.5,
+      "name": "Synthetic sand",
+      "porosity": 0.25,
+      "ss_per_m": 1e-05
+    },
+    {
+      "id": "silt",
+      "kx_m_day": 1.0,
+      "ky_m_day": 1.0,
+      "kz_m_day": 0.05,
+      "name": "Synthetic silt",
+      "porosity": 0.3,
+      "ss_per_m": 2e-05
+    }
+  ],
+  "periods": [
+    {
+      "duration_day": 1.0,
+      "nsteps": 1,
+      "steady": true
+    },
+    {
+      "duration_day": 2.0,
+      "nsteps": 4,
+      "steady": false
+    }
+  ],
+  "project": {
+    "crs": "unknown",
+    "domain": "ccs",
+    "flow_role": "background_water",
+    "id": "synthetic-layered",
+    "name": "Synthetic layered confined water",
+    "provenance": [
+      "Original synthetic case; no field observations and no original GMS comparison."
+    ],
+    "units": {
+      "conductance": "m2/day",
+      "conductivity": "m/day",
+      "head": "m",
+      "length": "m",
+      "porosity": "1",
+      "recharge": "m/day",
+      "specific_storage": "1/m",
+      "time": "day",
+      "water_rate": "m3/day"
+    },
+    "vertical_datum": "local synthetic z=0 m reference"
+  },
+  "schema": "basinlens-model-workflow-v1",
+  "strata": [
+    {
+      "id": "upper",
+      "layer_indices": [
+        0
+      ],
+      "name": "Upper synthetic aquifer"
+    },
+    {
+      "id": "lower",
+      "layer_indices": [
+        1
+      ],
+      "name": "Lower synthetic aquifer"
+    }
+  ]
+}

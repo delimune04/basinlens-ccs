@@ -1,0 +1,46 @@
+{
+  "schema_version": 2,
+  "investigated_date": "2026-10-19",
+  "rea_version": "6.7.0",
+  "analysis_subject": "Actual unchanged gms10_9.exe, extracted from official GMS 10.9.7 full installer",
+  "target": {
+    "name": "gms10_9.exe",
+    "size_bytes": 145479264,
+    "sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+    "crc32": "42447c5d",
+    "zip_size_crc_verified": true
+  },
+  "installer": {
+    "name": "gms10.9.7full64bit.exe",
+    "source": "https://s3.amazonaws.com/gms.aquaveo.com/gms10.9.7full64bit.exe",
+    "size_bytes": 1992547136,
+    "sha256": "69fef79023d065d4664e74950e10669c784a7e18fabfaa8ada48b2760f624335",
+    "s3_multipart_etag": "3b6bb1dd69e6828fdea909ccc1fe3918-191",
+    "multipart_etag_verified": true
+  },
+  "rea_operation": "inspect_pe_resources",
+  "rea_evidence_id": "ev_9eb14006478ec9134d3e2f86ea0ec19d033a9d9ae72c155639fed87365417306",
+  "rea_evidence_sha256": "6dbc1b749f8b3374fe0796d08645d35fc23fd617ed894bb6d8a6490efc1b4f02",
+  "resource_coverage": {
+    "status": "complete",
+    "examined_entries": 2431,
+    "resources": 1208
+  },
+  "menu_observations": {
+    "menu_resources_decoded": 131,
+    "distinct_command_ids": 576,
+    "dialog_resources_inventoried": 429,
+    "decoder_failures": 0,
+    "runtime_observed": false
+  },
+  "native_function_analysis": "see separately recorded provider receipt; successful import/analysis not implied by PE resource decoding",
+  "target_executed": false,
+  "gms_behavioral_equivalence_tested": false,
+  "gms_parity_established": false,
+  "published_payloads": false,
+  "limitations": [
+    "Static resources can be unused, dynamically replaced, disabled or edition-specific",
+    "No command handler, interaction outcome or runtime layout was observed",
+    "Resource count is not a feature count; complete product coverage remains unknown"
+  ]
+}

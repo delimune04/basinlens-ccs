@@ -1,0 +1,342 @@
+{
+  "schema": "basinlens.tutorial_interoperability.v1",
+  "study_kind": "rerun_of_official_shipped_native_modflow6_tutorial",
+  "observed_run": {
+    "started_utc": "2026-10-19T05:09:04.621976+00:00",
+    "finished_utc": "2026-10-19T05:09:04.875972+00:00",
+    "command": [
+      "mf6"
+    ],
+    "working_directory_role": "fresh_private_copy_of_native_simulation_directory",
+    "solver_exit_code": 0,
+    "normal_termination": true,
+    "solver": {
+      "name": "USGS MODFLOW 6",
+      "version_banner": "mf6: 6.7.0 02/05/2026",
+      "executable_sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4"
+    },
+    "analysis_environment": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "flopy": "3.11.0"
+    },
+    "fresh_run_controls": {
+      "copied_shipped_outputs": false,
+      "run_directory_created_new": true,
+      "flow_output_created_empty": true,
+      "native_inputs_modified": false,
+      "original_input_source_modified": false
+    }
+  },
+  "sources": {
+    "tutorial_archive": {
+      "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/mf6_grid.zip",
+      "sha256": "ad5d7684e9c6270a9a2a129430b04cc0c6bd39ba03a73f1c21825e3fa3e87dd4",
+      "size_bytes": 509175
+    },
+    "tutorial_pdf": {
+      "url": "https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/MODFLOW6-GridApproach.pdf",
+      "sha256": "ff83c5e638cde50fe7756b4ace41d2aa418a59a60ebadcb14ea67eb0b2a3dc8d",
+      "size_bytes": 669121
+    },
+    "saved_project": {
+      "archive_relative_path": "mf6_grid/sample/mf6-solution.gpr",
+      "sha256": "afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467",
+      "size_bytes": 3071450,
+      "hdf5_root_GMS_Version_attribute": [
+        "10.8.2"
+      ],
+      "version_evidence_kind": "stored_project_metadata_only",
+      "version_qualification": "The 10.9 tutorial distribution contains a project saved with stored version 10.8.2; no original GMS GUI execution was observed."
+    },
+    "shipped_output_solver": {
+      "name": "MODFLOW 6",
+      "version": "6.4.1",
+      "release_date_literal": "12/09/2022",
+      "evidence_kind": "banner_in_preexisting_shipped_listing_only",
+      "runtime_observed": false
+    }
+  },
+  "native_input_receipt": {
+    "archive_relative_directory": "mf6_grid/sample/mf6-solution_models/MODFLOW 6/sim",
+    "file_count": 15,
+    "total_bytes": 3778,
+    "files": [
+      {
+        "path": "flow.chd",
+        "size_bytes": 193,
+        "sha256": "f7df582da7fdbf49df9411b95e547c4652999046aa4c157fdc54c734055ccb48"
+      },
+      {
+        "path": "flow.dis",
+        "size_bytes": 399,
+        "sha256": "1fba0234c7f0d6bd77fe4c19106b9ba643d32fc73e728690b73dc21bf4fa2776"
+      },
+      {
+        "path": "flow.drn",
+        "size_bytes": 192,
+        "sha256": "fc5a8ba548c5af6196f609ab5148aa867698e4b9d3083dd6fdd265bed6eb268b"
+      },
+      {
+        "path": "flow.ic",
+        "size_bytes": 86,
+        "sha256": "71c0e8c73d1d7dd359a4fd6fe945e94a4e5dd2a0742ccf0a98e373b6c5204255"
+      },
+      {
+        "path": "flow.nam",
+        "size_bytes": 312,
+        "sha256": "8a90aa4fe960137ac585c394af0c5b95a02032fa8e16791f05e21cae331db779"
+      },
+      {
+        "path": "flow.npf",
+        "size_bytes": 444,
+        "sha256": "e02d217605883a9ffa1c70543ea4c42b8ea4c985c2bc340d8cbfa291932eadfe"
+      },
+      {
+        "path": "flow.oc",
+        "size_bytes": 208,
+        "sha256": "2e4de4ada9acf56f140a3cf059615365de27a24c920a2ba427c359cc53548174"
+      },
+      {
+        "path": "flow.rch",
+        "size_bytes": 150,
+        "sha256": "f59a69e8bdf6a280ef1966cb4613da6f9fc067bbdd0a637cbe8ac1e281d73c74"
+      },
+      {
+        "path": "flow.wel",
+        "size_bytes": 193,
+        "sha256": "91ef4f1e5a438e1d68e69e61a1001b7a4358c66303508663b380dca60065d051"
+      },
+      {
+        "path": "flow_input/flow.chd_1.txt",
+        "size_bytes": 855,
+        "sha256": "f03cc9a06670bb505fb33b35ccc3fd1f311af7eb7b79d60169b4da4af7f4fea9"
+      },
+      {
+        "path": "flow_input/flow.drn_1.txt",
+        "size_bytes": 144,
+        "sha256": "93957b9e62010b835d03b01d0079b82006e783e91283208a669e6ed6d8593175"
+      },
+      {
+        "path": "flow_input/flow.wel_1.txt",
+        "size_bytes": 169,
+        "sha256": "276afbdca742ed6de44aa8db956a07fc83312d88ceb3ddb5ddc119781afb07ec"
+      },
+      {
+        "path": "mfsim.nam",
+        "size_bytes": 235,
+        "sha256": "c5332c88a9e7e279f2a9b665a58f302671a5c82d3703e788b5ddceedc2ed5cd5"
+      },
+      {
+        "path": "sim.ims",
+        "size_bytes": 49,
+        "sha256": "8c9d2c0ad8ca52d93fc4a1a1ac880dc93ac72b8eef32b0e6fa2fd8fb3a2fcf28"
+      },
+      {
+        "path": "sim.tdis",
+        "size_bytes": 149,
+        "sha256": "6fa843b05aed563a0c46b8abb3e442e5c6eebaaea86b05908b3fb051c4911ad1"
+      }
+    ],
+    "input_set_sha256": "1d866906bce28e4a16a4af919b793b0703703ee296082a16a0667a05120de5f9",
+    "input_set_hash_definition": "SHA-256 of UTF-8 JSON encoding of the files array sorted lexicographically by path, using Python json.dumps(records, sort_keys=True, separators=(',', ':')).",
+    "source_and_copy_bytes_unchanged_after_run": true
+  },
+  "native_model_summary": {
+    "grid_shape_layer_row_col": [
+      5,
+      15,
+      15
+    ],
+    "cell_count": 1125,
+    "cell_width_ft": 5000.0,
+    "cell_height_ft": 5000.0,
+    "top_elevation_ft": 200.0,
+    "layer_bottom_elevations_ft": [
+      -150.0,
+      -200.0,
+      -300.0,
+      -350.0,
+      -450.0
+    ],
+    "native_length_units_literal": "FEET",
+    "native_time_units_literal": "SECONDS",
+    "stress_period_length_seconds": 86400.0,
+    "stress_period_count": 1,
+    "time_step_count": 1,
+    "storage_package_present": false,
+    "interpretation": "steady state; the saved output time is not evidence of transient evolution",
+    "water_only": true,
+    "top_layer_icelltype": 1,
+    "lower_layer_icelltype": 0,
+    "formulation": "convertible top layer with VARIABLECV DEWATERED and PERCHED; four lower confined layers",
+    "constant_head_entry_count": 75,
+    "constant_head_value_ft": 0.0,
+    "well_entry_count": 15,
+    "each_well_rate_ft3_per_second": -5.0,
+    "drain_entry_count": 9,
+    "drain_conductance_ft2_per_second": 1.0,
+    "recharge_rate_ft_per_second": 3e-08,
+    "recharge_applied_cell_count": 210,
+    "crs": "not established",
+    "vertical_datum": "not established",
+    "implicit_unit_conversion_performed": false
+  },
+  "stored_project_unit_metadata": {
+    "hdf5_group": "/UnstructuredGridModule/UnstructuredGrid 1/Datasets/Head",
+    "DatasetUnits": [
+      ""
+    ],
+    "TimeUnits": [
+      "Days"
+    ],
+    "Times": [
+      86400.0
+    ],
+    "Values_shape": [
+      1,
+      1125
+    ],
+    "Values_dtype": "float32",
+    "status": "unresolved_metadata_conflict",
+    "interpretation": "The native export explicitly declares FEET and SECONDS, while the stored Head group has blank DatasetUnits and TimeUnits Days with Times 86400.0. Both literal representations are preserved. Native export units govern only this native-engine computation. No GPR-to-native time conversion, GUI display behavior, or correction of the project metadata is inferred."
+  },
+  "results": {
+    "head_shape_time_layer_row_col": [
+      1,
+      5,
+      15,
+      15
+    ],
+    "saved_times_seconds": [
+      86400.0
+    ],
+    "head_range_ft": [
+      -15.855494964090072,
+      129.04141155560075
+    ],
+    "per_layer_head_range_ft": [
+      [
+        0.0,
+        129.04141155560075
+      ],
+      [
+        0.0,
+        116.62560953120115
+      ],
+      [
+        -15.855494964090072,
+        104.20814532191717
+      ],
+      [
+        -10.354022879948594,
+        104.04054306473563
+      ],
+      [
+        -4.887748844980239,
+        103.87397683373055
+      ]
+    ],
+    "shipped_head_comparison": {
+      "shape_equal": true,
+      "times_equal": true,
+      "max_abs_difference_ft": 0.0,
+      "rmse_ft": 0.0,
+      "max_error_index_zero_based_time_layer_row_col": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "shipped_at_max_difference_ft": 0.0,
+      "rerun_at_max_difference_ft": 0.0
+    },
+    "external_binary_budget": {
+      "terms": {
+        "WEL": {
+          "in_ft3_per_second": 0.0,
+          "out_ft3_per_second": 75.0,
+          "net_ft3_per_second": -75.0
+        },
+        "DRN": {
+          "in_ft3_per_second": 0.0,
+          "out_ft3_per_second": 31.85294986972795,
+          "net_ft3_per_second": -31.85294986972795
+        },
+        "RCHA": {
+          "in_ft3_per_second": 157.49999999999997,
+          "out_ft3_per_second": -0.0,
+          "net_ft3_per_second": 157.49999999999997
+        },
+        "CHD": {
+          "in_ft3_per_second": 0.0,
+          "out_ft3_per_second": 50.646392532121396,
+          "net_ft3_per_second": -50.646392532121396
+        }
+      },
+      "total_in_ft3_per_second": 157.49999999999997,
+      "total_out_ft3_per_second": 157.49934240184933,
+      "residual_ft3_per_second": 0.0006575981506387052,
+      "relative_percent": 0.0004175235069537368,
+      "binary_times_seconds": [
+        86400.0
+      ]
+    },
+    "budget_method": "Sum positive and negative q records separately for WEL, DRN, RCHA and CHD at the saved time. Exclude internal FLOW-JA-FACE and DATA-SPDIS records. residual = total_in - total_out; relative_percent = 100 * residual / (0.5 * (total_in + total_out)).",
+    "independent_control_checks": {
+      "expected_well_net_ft3_per_second": -75.0,
+      "well_budget_difference_ft3_per_second": 0.0,
+      "drain_from_head_and_C_ft3_per_second": -31.852949869727947,
+      "drain_budget_difference_ft3_per_second": -3.552713678800501e-15,
+      "full_top_recharge_ft3_per_second": 168.74999999999997,
+      "constant_head_max_abs_error_ft": 0.0,
+      "all_heads_above_layer_bottoms": true,
+      "recharge_applied_cell_count": 210,
+      "recharge_per_nonCHD_top_cell_ft3_per_second": 0.7499999999999999,
+      "expected_applied_recharge_ft3_per_second": 157.5,
+      "recharge_budget_difference_ft3_per_second": -2.842170943040401e-14,
+      "top_layer_heads_below_top_surface": true
+    },
+    "control_check_method": {
+      "well": "Sum the 15 native well rates independently of output budget records.",
+      "drain": "Sum -C * max(head - drain_elevation, 0) using native conductances, elevations and rerun heads.",
+      "recharge": "210 non-CHD top cells * 5000 ft * 5000 ft * 3e-8 ft/s. The theoretical entire 225-cell surface rate is reported separately, not mistaken for applied recharge.",
+      "constant_head": "Compare rerun heads in all 75 CHD cells against the specified zero-foot head."
+    },
+    "binary_output_comparison": [
+      {
+        "relative_path": "flow_output/flow.hds",
+        "shipped_sha256": "47ca4ef681d52bcd6a33fad4e1108cd0af7822ed0bff2a5516f5d9adab71dfe1",
+        "rerun_sha256": "47ca4ef681d52bcd6a33fad4e1108cd0af7822ed0bff2a5516f5d9adab71dfe1",
+        "bytes_equal": true
+      },
+      {
+        "relative_path": "flow_output/flow.cbc",
+        "shipped_sha256": "ce0a0fbe73b80fc302ebc39508d33498ed1b234c69f91a27612552c30cbc44a2",
+        "rerun_sha256": "ce0a0fbe73b80fc302ebc39508d33498ed1b234c69f91a27612552c30cbc44a2",
+        "bytes_equal": true
+      }
+    ]
+  },
+  "claims": {
+    "shipped_tutorial_native_input_interoperability_observed": true,
+    "same_solver_family_shipped_binary_agreement_observed": true,
+    "original_GMS_runtime_observed": false,
+    "GMS_parity_established": false,
+    "GPR_model_translation_performed_by_this_study": false,
+    "parity_capture_created": false,
+    "independent_physical_solver_benchmark": false,
+    "CO2_brine_or_oil_multiphase_validated": false,
+    "raw_vendor_files_published": false
+  },
+  "limits": [
+    "One exact shipped native model and one steady state solve; no grid or time-step convergence study.",
+    "Stored project metadata, historical shipped solver banner and observed rerun solver are separate identities.",
+    "Shipped output agreement does not establish a witnessed original GMS run or full-product reconstruction.",
+    "The convertible top layer, DRN/RCHA/CHD packages and FEET/SECONDS units do not establish compatibility with the bounded confined groundwater adapter.",
+    "Geodetic CRS and vertical datum are not established; negative hydraulic head is not negative absolute pressure. No pressure conversion was performed.",
+    "The stored project unit conflict remains unresolved; no unit inference or automatic metadata repair was performed.",
+    "No site safety, field calibration, CO2-brine, oil, or containment validation is implied.",
+    "Vendor inputs, project files and shipped outputs remain private; this record contains original observations and checksums only. Redistribution permission for those source files has not been established."
+  ]
+}

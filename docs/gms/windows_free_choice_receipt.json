@@ -1,0 +1,5328 @@
+{
+  "record_schema_version": 1,
+  "workflow_run_id": 39211459223,
+  "workflow_head_commit": "8dec98bacac067716a1248d4c6e4cc0f31ee04a7",
+  "workflow_url": "https://github.com/delimune04/basinlens-ccs/actions/runs/39211459223",
+  "artifact_id": 12167572976,
+  "artifact_digest": "sha256:c97161ea0fdfc9cb8576166221db75ce18565a4ce18c912e3da99cc4c16c7749",
+  "artifact_record_sha256": {
+    "discovery-summary.json": "4f966733ccb03bfa762491e59dd40ddb55aa314ddebdc05e6c28cd37e06e018a",
+    "public-summary.json": "c4b70ce2a7b815daae562e7f8890d6eedaf0e68bd1bf75797461efc1b0bd1f22",
+    "runtime-01.json": "e4daf2fa72c162a4ff4cb3d8aed89094d7fa2b075c202b36adf3aaec68d5dd45",
+    "runtime-02.json": "6bb346a0d6698b0a841a0b4e802b00015b55a90a1ab56bb45f16f5f4a9f340bb"
+  },
+  "artifact_records": {
+    "discovery-summary.json": {
+      "discovery_schema_version": 1,
+      "status": "equivalent_verified_normal_launch_targets_enumerated",
+      "executed_target": false,
+      "registry_gms_entries": 1,
+      "registry_aquaveo_entries": 0,
+      "registry_install_location_roots": 1,
+      "registry_icon_roots": 0,
+      "conventional_vendor_roots": 0,
+      "plausible_root_count": 4,
+      "examined_entries": 50000,
+      "executable_candidates": 696,
+      "size_matching_candidates": 4,
+      "hash_matching_candidates": 2,
+      "unreadable_locations": 0,
+      "skipped_reparse_points": 45,
+      "budget_exhausted": true,
+      "registration_present": true,
+      "chosen_from_registered_icon": false,
+      "document_association_entries": 0,
+      "app_path_entries": 0,
+      "gms_shortcut_entries": 4,
+      "verified_canonical_candidates": 2,
+      "chosen_canonical_sources": [],
+      "equivalent_canonical_enumeration_requested": true,
+      "equivalent_canonical_targets_enumerated": 2,
+      "no_canonical_preference_selected": true,
+      "expected_target_sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+      "expected_target_size": 145479264,
+      "qualification": "Discovery metadata only; no original application launch, licence operation or numerical execution.",
+      "finished_utc": "2026-10-19T06:47:05.7672192Z"
+    },
+    "public-summary.json": {
+      "activation_requests_initiated_by_probe": 0,
+      "probe_schema_version": 2,
+      "equivalent_normal_launch_target_count": 2,
+      "status": "bounded_equivalent_target_observations_finished",
+      "observations": [
+        {
+          "licence_ui_actions": 1,
+          "receipt": "runtime-01.json",
+          "free_community_selection_attempted": true,
+          "target_ui_actions": 1,
+          "exit_code": 0,
+          "visible_window_observed": true,
+          "target_started": true,
+          "index": 1,
+          "status": "original_window_observed"
+        },
+        {
+          "licence_ui_actions": 0,
+          "receipt": "runtime-02.json",
+          "free_community_selection_attempted": false,
+          "target_ui_actions": 0,
+          "exit_code": 0,
+          "visible_window_observed": true,
+          "target_started": true,
+          "index": 2,
+          "status": "original_window_observed"
+        }
+      ],
+      "numerical_run_observed": false,
+      "targets_started": 2,
+      "no_canonical_preference_selected": true,
+      "paired_gms_comparisons": 0,
+      "free_community_selection_requested": true,
+      "licence_ui_actions": 1.0,
+      "qualification": "Each normal registered target was observed independently after the exact identity gate. Optional explicit single free Community choice per target only, with actual action counts. No canonical preference, activation or new solver run.",
+      "target_ui_actions": 1.0,
+      "targets_with_visible_window": 2
+    },
+    "runtime-01.json": {
+      "probe_schema_version": 1,
+      "status": "original_window_observed",
+      "started_utc": "2026-10-19T06:47:06.5944316Z",
+      "target": {
+        "sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+        "size_bytes": 145479264,
+        "file_version": "10,9,7",
+        "name": "GMS10_9.exe"
+      },
+      "launch_method": "normal_process_start",
+      "target_started": true,
+      "visible_window_observed": true,
+      "community_mode_confirmed": false,
+      "numerical_run_observed": false,
+      "paired_gms_comparisons": 0,
+      "startup_classification": "free_community_choice_attempted_workspace_unverified",
+      "dialog_categories_observed": [
+        "unknown"
+      ],
+      "blocking_dialog_observed": true,
+      "reported_mode_category": "community_text_in_application_title_entitlement_unverified",
+      "possible_community_option_text_observed": true,
+      "main_window_enabled_observed": true,
+      "menu_observations": [
+        {
+          "status": "materialized_standard_hmenu_observed",
+          "items": [
+            {
+              "position_path": "0",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61456,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61440,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61472,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61488,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "0/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61536,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "0/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61504,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 656069,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37445,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37447,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37450,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37451,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37439,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39371,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37724,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37448,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57653,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37440,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 131787,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37355,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37358,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37362,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38678,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37360,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38692,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37359,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39445,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39322,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39212,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39319,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38854,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37349,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/15",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37357,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/16",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39490,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/17",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/18",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38847,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/19",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37361,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/20",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39488,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/21",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/22",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37803,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/23",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39036,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/24",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/25",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37348,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/26",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/27",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37352,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/28",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37868,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66253,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37322,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39510,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39077,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37315,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39213,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39257,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39545,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37354,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66255,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37317,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37332,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37318,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66257,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37721,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37715,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/11/3",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37718,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/4",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37716,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/5",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37720,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/6",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37717,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/7",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37719,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39547,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37316,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/15",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37323,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/16",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/17",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66259,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38240,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37838,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 40681,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/3",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37835,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/4",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39276,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/5",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39324,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/6",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38409,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/7",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38262,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/8",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/17/9",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38415,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/18",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/19",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37321,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/20",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/21",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37822,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/22",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37820,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66271,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37208,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37211,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37733,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 108,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37209,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37731,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37198,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37199,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39496,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38826,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66261,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57650,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57652,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57651,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "5/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39465,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "5/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": true,
+              "command_id": 65280,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66263,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39165,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "6/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37452,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37729,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39149,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "7",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61472,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "8",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "9",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61536,
+              "enabled": true,
+              "separator": false
+            }
+          ],
+          "read_errors": 0,
+          "truncated": false,
+          "limitation": "Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities."
+        },
+        {
+          "status": "materialized_standard_hmenu_observed",
+          "items": [
+            {
+              "position_path": "0",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61456,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61440,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61472,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61488,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "0/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61536,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "0/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61504,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 656069,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37445,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37447,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37450,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37451,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37439,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39371,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37724,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37448,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57653,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37440,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 131787,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37355,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37358,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37362,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38678,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37360,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38692,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37359,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39445,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39322,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39212,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39319,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38854,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37349,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/15",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37357,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/16",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39490,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/17",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/18",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38847,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/19",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37361,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/20",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39488,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/21",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/22",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37803,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/23",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39036,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/24",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/25",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37348,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/26",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/27",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37352,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/28",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37868,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66253,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37322,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39510,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39077,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37315,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39213,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39257,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39545,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37354,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66255,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37317,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37332,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37318,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66257,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37721,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37715,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/11/3",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37718,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/4",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37716,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/5",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37720,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/6",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37717,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/7",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37719,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39547,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37316,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/15",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37323,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/16",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/17",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66259,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38240,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37838,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 40681,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/3",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37835,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/4",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39276,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/5",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39324,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/6",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38409,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/7",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38262,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/8",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/17/9",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38415,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/18",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/19",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37321,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/20",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/21",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37822,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/22",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37820,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66271,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37208,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37211,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37733,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 108,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37209,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37731,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37198,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37199,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39496,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38826,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66261,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57650,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57652,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57651,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "5/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39465,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "5/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": true,
+              "command_id": 65280,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66263,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39165,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "6/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37452,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37729,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39149,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "7",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61472,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "8",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "9",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61536,
+              "enabled": true,
+              "separator": false
+            }
+          ],
+          "read_errors": 0,
+          "truncated": false,
+          "limitation": "Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities."
+        },
+        {
+          "status": "materialized_standard_hmenu_observed",
+          "items": [
+            {
+              "position_path": "0",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61456,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61440,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61472,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61488,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "0/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61536,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "0/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61504,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 656069,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37445,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37447,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37450,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37451,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37439,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39371,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37724,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37448,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57653,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37440,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 131787,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37355,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37358,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37362,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38678,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37360,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38692,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37359,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39445,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39322,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39212,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39319,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38854,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37349,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/15",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37357,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/16",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39490,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/17",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/18",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38847,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/19",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37361,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/20",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39488,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/21",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/22",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37803,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/23",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39036,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/24",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/25",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37348,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/26",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/27",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37352,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/28",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37868,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66253,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37322,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39510,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39077,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37315,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39213,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39257,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39545,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37354,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66255,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37317,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37332,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37318,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66257,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37721,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37715,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/11/3",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37718,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/4",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37716,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/5",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37720,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/6",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37717,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/7",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37719,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39547,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37316,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/15",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37323,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/16",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/17",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66259,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38240,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37838,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 40681,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/3",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37835,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/4",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39276,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/5",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39324,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/6",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38409,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/7",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38262,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/8",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/17/9",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38415,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/18",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/19",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37321,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/20",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/21",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37822,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/22",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37820,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66271,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37208,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37211,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37733,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 108,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37209,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37731,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37198,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37199,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39496,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38826,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66261,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57650,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57652,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57651,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "5/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39465,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "5/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": true,
+              "command_id": 65280,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66263,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39165,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "6/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37452,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37729,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39149,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "7",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61472,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "8",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "9",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61536,
+              "enabled": true,
+              "separator": false
+            }
+          ],
+          "read_errors": 0,
+          "truncated": false,
+          "limitation": "Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities."
+        },
+        {
+          "status": "materialized_standard_hmenu_observed",
+          "items": [
+            {
+              "position_path": "0",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61456,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61440,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61472,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61488,
+              "enabled": false,
+              "separator": false
+            },
+            {
+              "position_path": "0/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "0/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61536,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "0/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "0/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 61504,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 656069,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37445,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37447,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37450,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37451,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37439,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39371,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37724,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37448,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57653,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "1/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "1/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37440,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 131787,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37355,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37358,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37362,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38678,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37360,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38692,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37359,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39445,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39322,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39212,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39319,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38854,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37349,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/15",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37357,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/16",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39490,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/17",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/18",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38847,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/19",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37361,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/20",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39488,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/21",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/22",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37803,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/23",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39036,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/24",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/25",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37348,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/26",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "2/27",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37352,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "2/28",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37868,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66253,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37322,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39510,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39077,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37315,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39213,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39257,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39545,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37354,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66255,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37317,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37332,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/10/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37318,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66257,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37721,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37715,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/11/3",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37718,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/4",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37716,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/5",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37720,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/6",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37717,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/11/7",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37719,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39547,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/14",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37316,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/15",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37323,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/16",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/17",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66259,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/0",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38240,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/1",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37838,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/2",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 40681,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/3",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37835,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/4",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39276,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/5",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39324,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/6",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38409,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/7",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38262,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/17/8",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/17/9",
+              "depth": 2,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38415,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/18",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/19",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37321,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/20",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "3/21",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37822,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "3/22",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37820,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66271,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37208,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37211,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37733,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 108,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37209,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/7",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37731,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/8",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/9",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37198,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/10",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37199,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/11",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "4/12",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39496,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "4/13",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 38826,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66261,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57650,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57652,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 57651,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "5/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39465,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "5/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "5/6",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": true,
+              "command_id": 65280,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6",
+              "depth": 0,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 66263,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/0",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/1",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39165,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/2",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 0,
+              "enabled": false,
+              "separator": true
+            },
+            {
+              "position_path": "6/3",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37452,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/4",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 37729,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "6/5",
+              "depth": 1,
+              "owner_drawn": false,
+              "checked": false,
+              "command_id": 39149,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "7",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61472,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "8",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61728,
+              "enabled": true,
+              "separator": false
+            },
+            {
+              "position_path": "9",
+              "depth": 0,
+              "owner_drawn": true,
+              "checked": false,
+              "command_id": 61536,
+              "enabled": true,
+              "separator": false
+            }
+          ],
+          "read_errors": 0,
+          "truncated": false,
+          "limitation": "Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities."
+        }
+      ],
+      "community_button_guard_observations": [
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "owned_visible_enabled_dialog_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": false,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 0,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        },
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "fixed_no_license_found_context_not_observed",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": true,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 4,
+          "ExactLabelControlCount": 1,
+          "ExactLabelStandardButtonCount": 1,
+          "EnabledVisibleStandardButtonCount": 1,
+          "FullyVerifiedCandidateCount": 1,
+          "UniqueExactLabelStandardButton": true,
+          "UniqueFullyVerifiedCandidate": true,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": [
+            {
+              "StandardButton": true,
+              "PushButton": true,
+              "Enabled": true,
+              "Visible": true,
+              "OwnedProcess": true,
+              "SameProcessAsWindow": true,
+              "ParentRelationVerified": true
+            }
+          ]
+        },
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "owned_visible_enabled_dialog_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": false,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 62,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        },
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "owned_visible_enabled_dialog_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": false,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 62,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        },
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "owned_visible_enabled_dialog_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": false,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 62,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        },
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "owned_visible_enabled_dialog_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": false,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 62,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        },
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "owned_visible_enabled_dialog_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": false,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 62,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        },
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "owned_visible_enabled_dialog_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": false,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 62,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        }
+      ],
+      "community_button_guard_actions_enabled": false,
+      "free_community_selection_requested": true,
+      "free_community_selection_observations": [
+        {
+          "Policy": "documented_free_community_normal_startup_v1",
+          "Status": "single_free_community_click_sent",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "ExplicitOptIn": true,
+          "NormalStartup": true,
+          "TargetIdentityVerified": true,
+          "LiveImagePathVerified": true,
+          "CompleteLiveSnapshots": true,
+          "TermsAcceptanceContextObserved": false,
+          "OtherLicenceOptionsTextObserved": false,
+          "PolicyPermitsOneAttempt": true,
+          "Attempted": true,
+          "MessageCompleted": true,
+          "ExactLabelControlCount": 1,
+          "VisibleDialogCount": 1,
+          "AttemptBudgetUsed": 1,
+          "NoLicensePhraseRequiredByThisPolicy": false,
+          "Qualification": "A unique actual free Community choice may be selected once; no activation or entitlement/numerical inference. Unknown no-license phrase remains unknown."
+        }
+      ],
+      "free_community_selection_attempted": true,
+      "post_selection_dialog_observed": false,
+      "post_selection_window_observed": true,
+      "standard_menu_items_observed": true,
+      "classification_basis": "Conservative passive visible-window and bounded child-control text; original text stays private.",
+      "activation_requests_initiated_by_probe": 0,
+      "licence_ui_actions": 1,
+      "target_ui_actions": 1,
+      "target_network_activity_monitored": false,
+      "observation_seconds": 30,
+      "screenshot_count": 4,
+      "private_observation_sha256": "32e1138e662eaf7699cebd96d19939dce12010e233f1354a76258c9676b33b79",
+      "probe_phase": "passive_post_choice_observation",
+      "qualification": "Bounded startup/document observation. Optional explicitly requested single documented free Community choice only; no activation or numerical/full-product equivalence claim. UI text and screenshots stay private.",
+      "finished_utc": "2026-10-19T06:47:40.6359344Z",
+      "target_unchanged": true
+    },
+    "runtime-02.json": {
+      "probe_schema_version": 1,
+      "status": "original_window_observed",
+      "started_utc": "2026-10-19T06:47:41.0042714Z",
+      "target": {
+        "sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+        "size_bytes": 145479264,
+        "file_version": "10,9,7",
+        "name": "GMS10_9.exe"
+      },
+      "launch_method": "normal_process_start",
+      "target_started": true,
+      "visible_window_observed": true,
+      "community_mode_confirmed": false,
+      "numerical_run_observed": false,
+      "paired_gms_comparisons": 0,
+      "startup_classification": "unclassified_dialog_observed",
+      "dialog_categories_observed": [
+        "unknown"
+      ],
+      "blocking_dialog_observed": true,
+      "reported_mode_category": "unknown",
+      "possible_community_option_text_observed": false,
+      "main_window_enabled_observed": null,
+      "menu_observations": [
+        {
+          "status": "no_standard_hmenu_custom_or_unavailable_unknown",
+          "items": [],
+          "read_errors": 0,
+          "truncated": false,
+          "limitation": "Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities."
+        }
+      ],
+      "community_button_guard_observations": [
+        {
+          "FixedLabelCategory": "community_edition",
+          "Status": "fixed_no_license_found_context_not_observed",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "WindowOwnedProcess": true,
+          "WindowVisible": true,
+          "WindowEnabled": true,
+          "WindowIsDialog": true,
+          "SnapshotTruncated": false,
+          "SnapshotReadErrors": 0,
+          "InspectedControls": 3,
+          "ExactLabelControlCount": 0,
+          "ExactLabelStandardButtonCount": 0,
+          "EnabledVisibleStandardButtonCount": 0,
+          "FullyVerifiedCandidateCount": 0,
+          "UniqueExactLabelStandardButton": false,
+          "UniqueFullyVerifiedCandidate": false,
+          "ActionsEnabled": false,
+          "RequiresReviewBeforeAnyAction": true,
+          "MatchingControls": []
+        }
+      ],
+      "community_button_guard_actions_enabled": false,
+      "free_community_selection_requested": true,
+      "free_community_selection_observations": [
+        {
+          "Policy": "documented_free_community_normal_startup_v1",
+          "Status": "global_dialog_or_exact_button_uniqueness_not_verified",
+          "NoLicenseContext": "not_recognized_or_unavailable",
+          "ExplicitOptIn": true,
+          "NormalStartup": true,
+          "TargetIdentityVerified": true,
+          "LiveImagePathVerified": false,
+          "CompleteLiveSnapshots": true,
+          "TermsAcceptanceContextObserved": false,
+          "OtherLicenceOptionsTextObserved": false,
+          "PolicyPermitsOneAttempt": false,
+          "Attempted": false,
+          "MessageCompleted": false,
+          "ExactLabelControlCount": 0,
+          "VisibleDialogCount": 1,
+          "AttemptBudgetUsed": 0,
+          "NoLicensePhraseRequiredByThisPolicy": false,
+          "Qualification": "A unique actual free Community choice may be selected once; no activation or entitlement/numerical inference. Unknown no-license phrase remains unknown."
+        }
+      ],
+      "free_community_selection_attempted": false,
+      "post_selection_dialog_observed": false,
+      "post_selection_window_observed": false,
+      "standard_menu_items_observed": false,
+      "classification_basis": "Conservative passive visible-window and bounded child-control text; original text stays private.",
+      "activation_requests_initiated_by_probe": 0,
+      "licence_ui_actions": 0,
+      "target_ui_actions": 0,
+      "target_network_activity_monitored": false,
+      "observation_seconds": 30,
+      "screenshot_count": 1,
+      "private_observation_sha256": "75bc7edd184416452a1931d066dbcebed7d41c3891f207b915104c50e38991fb",
+      "probe_phase": "passive_post_choice_observation",
+      "qualification": "Bounded startup/document observation. Optional explicitly requested single documented free Community choice only; no activation or numerical/full-product equivalence claim. UI text and screenshots stay private.",
+      "finished_utc": "2026-10-19T06:47:46.4736792Z",
+      "target_unchanged": true
+    }
+  },
+  "derived_menu_crosscheck": {
+    "static_REA_evidence_id": "ev_9eb14006478ec9134d3e2f86ea0ec19d033a9d9ae72c155639fed87365417306",
+    "static_numeric_ids": 576,
+    "nonempty_menu_snapshots": 4,
+    "all_four_item_snapshots_equal": true,
+    "all_snapshots_complete": true,
+    "items_per_snapshot": 134,
+    "reported_nonseparator_numeric_ids": 102,
+    "ids_also_in_static_REA_menus": 85,
+    "other_reported_numeric_ids": [
+      61440,
+      61456,
+      61472,
+      61488,
+      61504,
+      61536,
+      61728,
+      65280,
+      66253,
+      66255,
+      66257,
+      66259,
+      66261,
+      66263,
+      66271,
+      131787,
+      656069
+    ],
+    "qualification": "Numeric identity/visibility/enabled-state observations only. Other IDs may include Win32/system/generated menu entries; they are not automatically application capabilities. Menu IDs can be reused across contexts. No command handler was invoked, no behavioral closure or whole-product denominator established."
+  },
+  "interpretation": {
+    "free_community_choices_attempted": 1,
+    "probe_activation_requests": 0,
+    "original_numerical_runs": 0,
+    "target_01_post_choice_enabled_main_window": true,
+    "target_01_materialized_standard_menu": true,
+    "target_02_eligible_free_choice": false,
+    "community_entitlement_established": false,
+    "whole_GMS_parity": false,
+    "qualification": "One exact documented free Community click was delivered, followed by an enabled original main window with materialized menus. The second independently registered target stopped at an unknown dialog without action. Earlier blocking-dialog observations remain historical facts."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "bilinear_query_values": [
+    10.0,
+    13.75,
+    null
+  ],
+  "catalogue_assets_reopened": 3,
+  "clip_merge_values_extent_equal": true,
+  "constant_resample_exact": true,
+  "linear_resample_exact": true,
+  "original_gms_comparison": "NOT_OBSERVED",
+  "roundtrip": {
+    "ascii_values_and_metadata_equal": true,
+    "asset_id": "linear-head",
+    "canonical_raster_sha256": "b7dd57c318b38913fed4b7a335f86de111c71b85c7447048d383dde08a062635",
+    "cells": 6,
+    "json_equal": true,
+    "original_gms_comparison": "NOT_OBSERVED",
+    "schema": "basinlens-raster-roundtrip-v1"
+  },
+  "scatter_valid_cells": 6,
+  "schema": "basinlens-raster-example-v1",
+  "source_sha256": "b7dd57c318b38913fed4b7a335f86de111c71b85c7447048d383dde08a062635",
+  "source_unchanged": true
+}

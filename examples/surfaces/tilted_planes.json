@@ -1,0 +1,85 @@
+{
+  "schema": "basinlens-surfaces-v1",
+  "id": "synthetic-planes",
+  "name": "Authored tilted planes",
+  "units": {
+    "length": "m",
+    "elevation": "m",
+    "volume": "m3"
+  },
+  "crs": "LOCAL:explicit synthetic XY metres",
+  "vertical_datum": "LOCAL:authored z=0",
+  "provenance": [
+    "Authored synthetic analytical planes; no field measurements"
+  ],
+  "vertices": [
+    {
+      "id": "A",
+      "x_m": 0,
+      "y_m": 0
+    },
+    {
+      "id": "B",
+      "x_m": 4,
+      "y_m": 0
+    },
+    {
+      "id": "C",
+      "x_m": 4,
+      "y_m": 2
+    },
+    {
+      "id": "D",
+      "x_m": 0,
+      "y_m": 2
+    }
+  ],
+  "triangles": [
+    {
+      "id": "T0",
+      "vertex_ids": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "T1",
+      "vertex_ids": [
+        "A",
+        "C",
+        "D"
+      ]
+    }
+  ],
+  "horizons": [
+    {
+      "id": "top",
+      "name": "Top interpreted horizon",
+      "elevations_m": [
+        10,
+        14,
+        18,
+        14
+      ]
+    },
+    {
+      "id": "base",
+      "name": "Base interpreted horizon",
+      "elevations_m": [
+        5,
+        9,
+        11,
+        7
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "id": "layer-0",
+      "name": "Synthetic wedge",
+      "material_id": "synthetic-sand"
+    }
+  ],
+  "history": []
+}

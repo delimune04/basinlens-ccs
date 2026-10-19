@@ -1,0 +1,32 @@
+{
+  "distinct_static_command_ids": 576,
+  "ledger_closure_digest": "8320e8788370b0e66a9b5e6abf77073fa7685a2b9851de55eafd58d2c9f46200",
+  "ledger_evidence_id": "ev_e15711c9ee7b75fa39f180359163a4b17007148a70178cdce53b2030e0934cfa",
+  "ledger_file_sha256": "13021adfce22414d94951d4ef4969da034a33e8473ef8c91ae112d43116d8838",
+  "ledger_id": "rol_655aa88f74bf2003a3318488fb415d038e7794e1c5b37c69ae8b98bb4f7bbc61",
+  "ledger_status": "unknown",
+  "limitations": [
+    "Numeric command IDs are static observations and may be unused, context-dependent or edition-specific.",
+    "Reviewed means an analyst supplied the obligations; it does not mean runtime behavior was observed.",
+    "No command handler, numerical algorithm, native project compatibility or original GMS output parity was verified.",
+    "The canonical source Evidence bundle contains original resource metadata and remains private."
+  ],
+  "node_version": "v24.19.0",
+  "obligations_total": 577,
+  "obligations_verified": 0,
+  "original_resource_labels_or_bytes_published": false,
+  "rea_coverage_field_scope": "REA complete means the supplied finite obligation set was projected; it is not complete GMS coverage.",
+  "rea_version": "6.7.0",
+  "runtime_cases_observed": 0,
+  "schema_version": 1,
+  "scope": "static menu command obligations plus whole-product scope barrier",
+  "source_observations_sha256": "fdff1dfc425ecc89be23f0daef4a439a86aae8309ed15758524d0d2ce9252db7",
+  "source_rea_evidence_id": "ev_9eb14006478ec9134d3e2f86ea0ec19d033a9d9ae72c155639fed87365417306",
+  "source_rea_evidence_sha256": "6dbc1b749f8b3374fe0796d08645d35fc23fd617ed894bb6d8a6490efc1b4f02",
+  "static_menu_resources_decoded": 131,
+  "target": {
+    "sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+    "size_bytes": 145479264
+  },
+  "whole_product_coverage": "unknown"
+}

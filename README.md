@@ -10,7 +10,9 @@ Sleipner observation comparison, and evaluated NVIDIA acceleration.
 See the [한국어 프로젝트 초안](docs/PROJECT_BRIEF.md),
 [architecture](docs/ARCHITECTURE.md), [NVIDIA plan](docs/NVIDIA_INTEGRATION.md),
 [validation gates](docs/VALIDATION_PLAN.md), and [professor review note](docs/PROFESSOR_REVIEW.md).
-Physical simulation, seismic, GPU and industry-pilot modules remain planned.
+An optional **single-phase confined groundwater reference workflow** is now
+implemented with FloPy/MODFLOW 6; see below. CO2–brine multiphase simulation,
+seismic, GPU and industry-pilot modules remain planned.
 
 BasinLens CCS is an early Python prototype that turns uncertain storage-area,
 thickness, porosity, CO2-density, and efficiency assumptions into a
@@ -66,6 +68,100 @@ input, its 1-based record position including the header.
 
 ## Quick start
 
+### Optional groundwater modeling workbench
+
+The original GMS-inspired workbench provides a bounded model-building workflow:
+multilayer structured grids, anisotropic hydraulic conductivity, fixed heads,
+recharge, water injection/extraction wells, steady/transient MODFLOW 6 runs,
+2D/3D head plots, project JSON, portable solver inputs and auditable run bundles.
+
+```bash
+python -m pip install -e ".[app,groundwater]"
+python -m streamlit run groundwater_app.py
+```
+
+Install MODFLOW 6 separately and provide its executable path in the app.
+The same app also exposes bounded borehole logs, conceptual geometry, scatter
+interpolation, grid generation and captured-result analysis. Dedicated tools add
+explicit TIN horizons/prisms, raster/ASCII exchange, LAS point clouds and pinned
+MODFLOW-2005/NWT adapters. See the [current geoscience checkpoint](docs/gms/GEOSCIENCE_CHECKPOINT.md)
+for exact supported operations, tests and remaining work. Each module has its
+own declared reference/units and refuses unsupported transformations.
+The [inference panel](docs/INFERENCE_WORKSPACE_UI.md) adds bounded kriging,
+Gaussian/LHS sampling and an authored actual-MF6 conductivity/storage search
+with separate training/withheld observations. It does not implement PEST or
+establish field calibration.
+For an explicit optional download:
+
+```bash
+python tools/install_mf6.py --accept-download --destination build/mf6-bin
+```
+
+This is a **constant-density, confined groundwater module** for reference studies,
+not a complete GMS clone or a CO2 multiphase simulator. No native GMS project
+round-trip compatibility or complete numerical equivalence to GMS has been established. Existing
+capacity/attention outputs remain separate. See the [official-catalogue status](docs/gms/IMPLEMENTATION_STATUS.md),
+[run instructions](docs/gms/REPRODUCE.md), [REA findings](docs/gms/REA_FINDINGS.md),
+and [actual numerical checks](docs/gms/VALIDATION.md).
+
+### GMS reconstruction and CCS / oil extension
+
+The reconstruction baseline is GMS 10.9.7 x64. Actual REA observations are bound
+to the extracted executable's SHA-256. The [capability catalogue](docs/gms/capabilities.json)
+records 163 research entries with official sources and required runtime probes;
+these are a research decomposition, not an official or complete feature count.
+See [the investigation record](docs/gms/REA_FINDINGS.md) for what was observed.
+The [static dialog decoder](docs/gms/DIALOG_LAYOUTS.md) also recovers numeric
+layouts from all 429 listed templates, without distributing original captions
+or treating templates as observed UI behavior.
+
+The new `subsurface` package preserves explicit units, CRS, vertical datum,
+structured geometry, stratigraphy, rock properties, wells, observations and
+hashed asset references across domains. Its engine registry currently runs
+MODFLOW 6. CCS and oil projects can use it with the explicit `background_water`
+role. CO2 multiphase, black-oil and seismic adapters are unavailable until their
+implementations and independent benchmarks exist.
+
+```bash
+python -m basinlens_ccs.subsurface engines
+python -m basinlens_ccs.subsurface validate examples/subsurface/ccs_background_water.json
+python -m basinlens_ccs.subsurface run examples/subsurface/ccs_background_water.json --output build/ccs-water --exe /absolute/path/to/mf6
+```
+
+The [comparison harness](docs/gms/PARITY.md) checks geometry, units, support,
+native input hashes, capture provenance and numerical tolerances before accepting
+a declared output match. Synthetic examples test the harness; they cannot count
+as GMS matches. No original GMS runtime result has yet passed this comparison.
+The complete GMS reconstruction remains open.
+The [reconstruction plan](docs/gms/RECONSTRUCTION_PLAN.md) retains the whole-product
+objective and its remaining evidence gates.
+
+Experimental [native MF6 import](docs/gms/MF6_NATIVE_IMPORT.md) preserves general
+native packages and units without narrowing them to the confined case schema.
+The [GPR reader](docs/gms/GPR_HDF5_READ.md) inventories HDF5 metadata and reads
+explicitly selected numeric arrays with bounded raw deflate decoding. The
+[partial project reader](docs/gms/GPR_PROJECT.md) also recovers saved tree
+hierarchy and literal UUID relationships; its UI exports an anonymous summary.
+Unresolved references remain explicit. A [bounded geometry decoder](docs/gms/GPR_GEOMETRY.md)
+also recovers a verified rectilinear hexahedral representation; its physical
+cell centers and elevations match one official tutorial's native DIS export
+exactly. A separate [measured Quadtree reader](docs/gms/GPR_UNSTRUCTURED.md)
+recovers another project’s 9,976 cells; horizontal geometry matches native DISV
+while vertical coordinates disagree. It preserves that mismatch. Project
+writing and complete format compatibility remain open.
+Install these optional interfaces with `pip install -e ".[gms]"`.
+A separate [conservative-solute transport module](docs/gms/TRANSPORT.md) exports
+and runs bounded 1D GWF/GWT cases with explicit kg/m³ units and every-step mass
+balance, with a separate workbench section for captured-case plots and downloads.
+Independent Gaussian diffusion, refinement and inlet checks are
+synthetic water/solute benchmarks; they do not supply CO2 or oil physics.
+An unchanged official tutorial export was re-executed with public USGS MODFLOW:
+all 1,125 heads and external budget outputs matched its shipped binary results.
+The [evidence record](docs/gms/TUTORIAL_INTEROPERABILITY.md) distinguishes this
+historical tutorial interoperability check from a witnessed GMS runtime comparison.
+
+### Capacity screening
+
 ```bash
 git clone https://github.com/delimune04/basinlens-ccs.git
 cd basinlens-ccs
@@ -97,6 +193,10 @@ Run the tests without additional test dependencies:
 ```bash
 python -m unittest discover -s tests -v
 ```
+
+The required [real-engine CI](docs/gms/CI_VALIDATION.md) runs the full optional
+workbench suite with hash-pinned MF6, MF2005 and NWT binaries and rejects any
+skipped test. Ordinary core-only test jobs report optional skips separately.
 
 With the bundled synthetic inputs, 20,000 samples per site, and random seed 42,
 the current prototype produces:
@@ -145,6 +245,7 @@ tests/                unit and reproducibility tests
 examples/             synthetic demonstration inputs
 docs/                 methodology and learning roadmap
 app.py                Streamlit demonstration interface
+groundwater_app.py    optional confined groundwater workbench
 ```
 
 ## Development direction

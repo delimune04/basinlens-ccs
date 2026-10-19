@@ -1,0 +1,196 @@
+{
+  "assignments": [
+    {
+      "cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          0,
+          0,
+          5
+        ]
+      ],
+      "material_id": "sand",
+      "stratum_id": "aquifer"
+    }
+  ],
+  "boundaries": [
+    {
+      "cell": [
+        0,
+        0,
+        0
+      ],
+      "kind": "CHD",
+      "label": "synthetic_CHD",
+      "period": 0,
+      "values": {
+        "head_m": 10.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        1
+      ],
+      "kind": "DRN",
+      "label": "synthetic_DRN",
+      "period": 0,
+      "values": {
+        "conductance_m2_day": 0.5,
+        "elevation_m": 9.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        2
+      ],
+      "kind": "RCH",
+      "label": "synthetic_RCH",
+      "period": 0,
+      "values": {
+        "rate_m_day": 0.01
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        3
+      ],
+      "kind": "RIV",
+      "label": "synthetic_RIV",
+      "period": 0,
+      "values": {
+        "bottom_m": 9.0,
+        "conductance_m2_day": 1.0,
+        "stage_m": 11.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        4
+      ],
+      "kind": "WEL",
+      "label": "synthetic_WEL",
+      "period": 0,
+      "values": {
+        "rate_m3_day": -1.0
+      }
+    },
+    {
+      "cell": [
+        0,
+        0,
+        5
+      ],
+      "kind": "GHB",
+      "label": "synthetic_GHB",
+      "period": 0,
+      "values": {
+        "conductance_m2_day": 2.0,
+        "head_m": 8.0
+      }
+    }
+  ],
+  "grid": {
+    "dx_m": 1.0,
+    "dy_m": 2.0,
+    "layer_surfaces_m": [
+      0.0,
+      -10.0
+    ],
+    "ncol": 6,
+    "nrow": 1,
+    "rotation_degrees": 0.0,
+    "row_axis": "south_to_north",
+    "x_origin_m": 100.0,
+    "y_origin_m": 200.0
+  },
+  "initial_head_m": [
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0,
+    10.0
+  ],
+  "materials": [
+    {
+      "id": "sand",
+      "kx_m_day": 1.0,
+      "ky_m_day": 1.0,
+      "kz_m_day": 1.0,
+      "name": "Synthetic sand",
+      "porosity": 0.25,
+      "ss_per_m": 1e-05
+    }
+  ],
+  "periods": [
+    {
+      "duration_day": 1.0,
+      "nsteps": 1,
+      "steady": true
+    }
+  ],
+  "project": {
+    "crs": "unknown",
+    "domain": "groundwater",
+    "flow_role": "background_water",
+    "id": "synthetic-head-dependent",
+    "name": "Synthetic head-dependent boundaries",
+    "provenance": [
+      "Original synthetic case; no field observations and no original GMS comparison."
+    ],
+    "units": {
+      "conductance": "m2/day",
+      "conductivity": "m/day",
+      "head": "m",
+      "length": "m",
+      "porosity": "1",
+      "recharge": "m/day",
+      "specific_storage": "1/m",
+      "time": "day",
+      "water_rate": "m3/day"
+    },
+    "vertical_datum": "local synthetic z=0 m reference"
+  },
+  "schema": "basinlens-model-workflow-v1",
+  "strata": [
+    {
+      "id": "aquifer",
+      "layer_indices": [
+        0
+      ],
+      "name": "Synthetic confined aquifer"
+    }
+  ]
+}

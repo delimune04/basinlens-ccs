@@ -1,0 +1,1420 @@
+{
+  "actual_eight_run_example": {
+    "actual_native_runs": 8,
+    "all_passed": true,
+    "cases": [
+      {
+        "case": "layered_background_water.json",
+        "case_sha256": "983f753a21a3e14536919419f2077a2bdb4640784a98856037d8d08a2b53f1a3",
+        "engine": "mf2005",
+        "roundtrip": {
+          "case_metadata_preserved": true,
+          "gms_parity_established": false,
+          "gms_project_roundtrip": false,
+          "linear_solver": "pcg",
+          "maximum_budget_column_difference": 0.0,
+          "maximum_head_difference_m": 0.0,
+          "native_runs_completed": 2,
+          "native_runs_requested": 2,
+          "native_token_semantics_equal": true,
+          "numerical_roundtrip_passed": true,
+          "rewritten_inputs": {
+            "flow.bas": {
+              "bytes": 782,
+              "sha256": "7a8952e403ef53ee3771f42cc4f747dc03fddd6b1e8c6ce8e34e6a1342120e02"
+            },
+            "flow.chd": {
+              "bytes": 650,
+              "sha256": "867e2a6274fd8279d6f11ec55123d78fd6d010987c76a50b9b462d2421b68e01"
+            },
+            "flow.dis": {
+              "bytes": 1243,
+              "sha256": "f94f86b074c78c35d7452c6d6cbb84b779495ce6af1537e8e4650e3d7f03633a"
+            },
+            "flow.lpf": {
+              "bytes": 2095,
+              "sha256": "b81d8fcf0adecdf810aa564b8924aa49df2df26bf453e445c35dd756aaf80703"
+            },
+            "flow.nam": {
+              "bytes": 472,
+              "sha256": "b45b7e17a7d69d74a7abf14db9d58c07b6234e88fd0f82cbdf6f929924e8cc63"
+            },
+            "flow.oc": {
+              "bytes": 365,
+              "sha256": "b59094d424ccc235fa2f9abb08a38b63bd29986d0f62bea9db4aa9f1269592ae"
+            },
+            "flow.pcg": {
+              "bytes": 97,
+              "sha256": "04984f103033bb9228481133d9a16315465269e7c7cad35492f88073ed08b351"
+            },
+            "flow.wel": {
+              "bytes": 204,
+              "sha256": "9a90c1c31fbaf1b4dc2cf75ffbc2d4ad8a8f6c648d2b4bcba893378b01ad5125"
+            },
+            "settings.json": {
+              "bytes": 6784,
+              "sha256": "a467884243b3eb3ca12944bbfe3160d6833890b0b44e9403fae23f046fb64d25"
+            }
+          },
+          "run_validation_gates": [
+            {
+              "boundary_rates_passed": true,
+              "confined_saturation_support_passed": true,
+              "water_balance_passed": true
+            },
+            {
+              "boundary_rates_passed": true,
+              "confined_saturation_support_passed": true,
+              "water_balance_passed": true
+            }
+          ],
+          "schema": "basinlens-classic-roundtrip-v1",
+          "source_inputs": {
+            "flow.bas": {
+              "bytes": 782,
+              "sha256": "12990fe7ac9d7de2b925ea2f0142920c194f2545ecf38d22c07d990c0a51a85e"
+            },
+            "flow.chd": {
+              "bytes": 650,
+              "sha256": "867e2a6274fd8279d6f11ec55123d78fd6d010987c76a50b9b462d2421b68e01"
+            },
+            "flow.dis": {
+              "bytes": 1243,
+              "sha256": "3a8c171c3d61a8fe1ac2835d5d10c0dd346b0990632b4bfcab42f96d30676122"
+            },
+            "flow.lpf": {
+              "bytes": 2095,
+              "sha256": "b83e3cfb276c1d4abf35cde1a7f138bd05941598d7c5a6cf439b61ebc3201458"
+            },
+            "flow.nam": {
+              "bytes": 472,
+              "sha256": "b45b7e17a7d69d74a7abf14db9d58c07b6234e88fd0f82cbdf6f929924e8cc63"
+            },
+            "flow.oc": {
+              "bytes": 365,
+              "sha256": "b59094d424ccc235fa2f9abb08a38b63bd29986d0f62bea9db4aa9f1269592ae"
+            },
+            "flow.pcg": {
+              "bytes": 97,
+              "sha256": "04984f103033bb9228481133d9a16315465269e7c7cad35492f88073ed08b351"
+            },
+            "flow.wel": {
+              "bytes": 204,
+              "sha256": "9a90c1c31fbaf1b4dc2cf75ffbc2d4ad8a8f6c648d2b4bcba893378b01ad5125"
+            },
+            "settings.json": {
+              "bytes": 6784,
+              "sha256": "cc0e1487efd45e6ff4d89dddd7ba5706442927b0b4859489aa10a7efa450d725"
+            }
+          },
+          "source_unchanged": true,
+          "status": "completed"
+        },
+        "source_unchanged": true,
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-2005",
+          "gms_parity_established": false,
+          "linear_solver": "pcg",
+          "maximum_boundary_rate_error_m3_day": 0.0,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 1.1368683772161603e-13,
+          "native_period_durations_day": [
+            1.0,
+            2.0
+          ],
+          "saved_steps": 5,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            2,
+            1,
+            5
+          ],
+          "solver": {
+            "bytes": 7546544,
+            "engine": "mf2005",
+            "member": "mf2005dbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+            "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "case": "head_dependent_water.json",
+        "case_sha256": "f57a5e1fdb4651e35890127ae91734d1b19c0d1dd2df31e73e9e8f801c46e904",
+        "engine": "mf2005",
+        "roundtrip": {
+          "case_metadata_preserved": true,
+          "gms_parity_established": false,
+          "gms_project_roundtrip": false,
+          "linear_solver": "pcg",
+          "maximum_budget_column_difference": 0.0,
+          "maximum_head_difference_m": 0.0,
+          "native_runs_completed": 2,
+          "native_runs_requested": 2,
+          "native_token_semantics_equal": true,
+          "numerical_roundtrip_passed": true,
+          "rewritten_inputs": {
+            "flow.bas": {
+              "bytes": 470,
+              "sha256": "441f760d1f6643cf1424dd3e67a424c57f3c9d241b3e17f4858600ce56824054"
+            },
+            "flow.chd": {
+              "bytes": 170,
+              "sha256": "c8b183fba1f5372aa8b6baff4542c8ac185d4dc12a09f7746a25dc6dfb94b34f"
+            },
+            "flow.dis": {
+              "bytes": 1061,
+              "sha256": "360bd8a41a1046cc44c61b2f347dca7546975e363a6c9da00eaba00044b44b90"
+            },
+            "flow.drn": {
+              "bytes": 180,
+              "sha256": "1db5da77f998b0ec8431d42d631ed4338a95e23651b111515f21b19c5c64356e"
+            },
+            "flow.ghb": {
+              "bytes": 180,
+              "sha256": "8fe3034642a6e7222330543e336ae1de9ccdf3d55e3194b19da3455c8b9ed511"
+            },
+            "flow.lpf": {
+              "bytes": 959,
+              "sha256": "1c042eb007c191a821ae31f780bdf26787db3948fe48c7a9fceeee2798d7b4ed"
+            },
+            "flow.nam": {
+              "bytes": 596,
+              "sha256": "4d135ccd1474910f908e25568e054f92ba44715b92b16b453c3f05cae890a6ca"
+            },
+            "flow.oc": {
+              "bytes": 189,
+              "sha256": "2d82f2487b5618e96c464b960e03a9c481d61c4506ab52c050d8d6f7d2978506"
+            },
+            "flow.pcg": {
+              "bytes": 97,
+              "sha256": "04984f103033bb9228481133d9a16315465269e7c7cad35492f88073ed08b351"
+            },
+            "flow.rch": {
+              "bytes": 381,
+              "sha256": "d1fa7bd69fa50eae2e1a3c213182379accebde7ac99de8b3af5a81cb69639212"
+            },
+            "flow.riv": {
+              "bytes": 196,
+              "sha256": "6bb97cbacf91b82831ed72051eebd5478d775fbe566b887aa7f9c2a40312042c"
+            },
+            "flow.wel": {
+              "bytes": 165,
+              "sha256": "2d179d82140dd7c6f5e136c4d4fa365668a44d343a22b43ec7026cb2dfd9ecdc"
+            },
+            "settings.json": {
+              "bytes": 5971,
+              "sha256": "c2c3773338f8b6728496e67e6c5fce93c5397db5c5bc4f2d4b3e9ebc33806102"
+            }
+          },
+          "run_validation_gates": [
+            {
+              "boundary_rates_passed": true,
+              "confined_saturation_support_passed": true,
+              "water_balance_passed": true
+            },
+            {
+              "boundary_rates_passed": true,
+              "confined_saturation_support_passed": true,
+              "water_balance_passed": true
+            }
+          ],
+          "schema": "basinlens-classic-roundtrip-v1",
+          "source_inputs": {
+            "flow.bas": {
+              "bytes": 470,
+              "sha256": "928a832547c60ba1afa3852c3d0f69aa4c230184ca7d99a7b3d5f0aefbaf9eff"
+            },
+            "flow.chd": {
+              "bytes": 170,
+              "sha256": "c8b183fba1f5372aa8b6baff4542c8ac185d4dc12a09f7746a25dc6dfb94b34f"
+            },
+            "flow.dis": {
+              "bytes": 1061,
+              "sha256": "77c8d874b2e88904a1831d3b64c7096f12cd12dee59647f347145d3d6dc3669a"
+            },
+            "flow.drn": {
+              "bytes": 180,
+              "sha256": "1db5da77f998b0ec8431d42d631ed4338a95e23651b111515f21b19c5c64356e"
+            },
+            "flow.ghb": {
+              "bytes": 180,
+              "sha256": "8fe3034642a6e7222330543e336ae1de9ccdf3d55e3194b19da3455c8b9ed511"
+            },
+            "flow.lpf": {
+              "bytes": 959,
+              "sha256": "75c82ac1c8c8069bbe2f078fcf1ca0048d7c6f4e566f6b34b52b22e8c1c7ae4d"
+            },
+            "flow.nam": {
+              "bytes": 596,
+              "sha256": "4d135ccd1474910f908e25568e054f92ba44715b92b16b453c3f05cae890a6ca"
+            },
+            "flow.oc": {
+              "bytes": 189,
+              "sha256": "2d82f2487b5618e96c464b960e03a9c481d61c4506ab52c050d8d6f7d2978506"
+            },
+            "flow.pcg": {
+              "bytes": 97,
+              "sha256": "04984f103033bb9228481133d9a16315465269e7c7cad35492f88073ed08b351"
+            },
+            "flow.rch": {
+              "bytes": 381,
+              "sha256": "d1fa7bd69fa50eae2e1a3c213182379accebde7ac99de8b3af5a81cb69639212"
+            },
+            "flow.riv": {
+              "bytes": 196,
+              "sha256": "6bb97cbacf91b82831ed72051eebd5478d775fbe566b887aa7f9c2a40312042c"
+            },
+            "flow.wel": {
+              "bytes": 165,
+              "sha256": "2d179d82140dd7c6f5e136c4d4fa365668a44d343a22b43ec7026cb2dfd9ecdc"
+            },
+            "settings.json": {
+              "bytes": 5971,
+              "sha256": "5a6b9796f63a4aab78d5c643d336fbe77438960a4c7a611420d36cb42445ea88"
+            }
+          },
+          "source_unchanged": true,
+          "status": "completed"
+        },
+        "source_unchanged": true,
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-2005",
+          "gms_parity_established": false,
+          "linear_solver": "pcg",
+          "maximum_boundary_rate_error_m3_day": 4.470348362317633e-10,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 1.5987211554602254e-14,
+          "native_period_durations_day": [
+            1.0
+          ],
+          "saved_steps": 1,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            1,
+            6
+          ],
+          "solver": {
+            "bytes": 7546544,
+            "engine": "mf2005",
+            "member": "mf2005dbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+            "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "case": "layered_background_water.json",
+        "case_sha256": "983f753a21a3e14536919419f2077a2bdb4640784a98856037d8d08a2b53f1a3",
+        "engine": "mfnwt",
+        "roundtrip": {
+          "case_metadata_preserved": true,
+          "gms_parity_established": false,
+          "gms_project_roundtrip": false,
+          "linear_solver": "xmd",
+          "maximum_budget_column_difference": 0.0,
+          "maximum_head_difference_m": 0.0,
+          "native_runs_completed": 2,
+          "native_runs_requested": 2,
+          "native_token_semantics_equal": true,
+          "numerical_roundtrip_passed": true,
+          "rewritten_inputs": {
+            "flow.bas": {
+              "bytes": 781,
+              "sha256": "584fb51b936e940147a1e32c7e82483178a19bfc816326f1d7c5b036315ad219"
+            },
+            "flow.chd": {
+              "bytes": 649,
+              "sha256": "cac3e15091ed52d337784c68c260af102c63c6aa065357d598a2c3f401f6d0b0"
+            },
+            "flow.dis": {
+              "bytes": 1242,
+              "sha256": "511727772493432920ddfa384601cfdb0f02adfa708f5e5d18d38566114baeb9"
+            },
+            "flow.nam": {
+              "bytes": 471,
+              "sha256": "aa9ed10df9cc43df2ef80a72ee6f0ca8c0193789f51799f0c104086369016a85"
+            },
+            "flow.nwt": {
+              "bytes": 318,
+              "sha256": "578ac38b8042ab74c6ce67f8c2ee18a1a45cc411b2d1318aeb081429dabff9c3"
+            },
+            "flow.oc": {
+              "bytes": 364,
+              "sha256": "299749176a6ce463e3f3819b571ebae9f82cef18cc797272d1414c3fffedb28a"
+            },
+            "flow.upw": {
+              "bytes": 2103,
+              "sha256": "4955b13e25d0fee1d63703f3089c594a81b00f6c33d8d1bba61fda48e896fc88"
+            },
+            "flow.wel": {
+              "bytes": 203,
+              "sha256": "f7d54848c8200b0423ce92c5432b371df84b368be2a02026054d2cf2ab9ea808"
+            },
+            "settings.json": {
+              "bytes": 6784,
+              "sha256": "efc1fb023e8313b83865e75e3d271f14d130d57ddcb5191e18ef064b7e462c62"
+            }
+          },
+          "run_validation_gates": [
+            {
+              "boundary_rates_passed": true,
+              "confined_saturation_support_passed": true,
+              "water_balance_passed": true
+            },
+            {
+              "boundary_rates_passed": true,
+              "confined_saturation_support_passed": true,
+              "water_balance_passed": true
+            }
+          ],
+          "schema": "basinlens-classic-roundtrip-v1",
+          "source_inputs": {
+            "flow.bas": {
+              "bytes": 781,
+              "sha256": "3f821c09c13c0038139d17d48188a5d595824153ec6372a270250f1c7d6b4f10"
+            },
+            "flow.chd": {
+              "bytes": 649,
+              "sha256": "cac3e15091ed52d337784c68c260af102c63c6aa065357d598a2c3f401f6d0b0"
+            },
+            "flow.dis": {
+              "bytes": 1242,
+              "sha256": "2630831e934659486bbf883db45b287e3276dd3af7ff01f8e9d3db9a8cfffb55"
+            },
+            "flow.nam": {
+              "bytes": 471,
+              "sha256": "aa9ed10df9cc43df2ef80a72ee6f0ca8c0193789f51799f0c104086369016a85"
+            },
+            "flow.nwt": {
+              "bytes": 318,
+              "sha256": "578ac38b8042ab74c6ce67f8c2ee18a1a45cc411b2d1318aeb081429dabff9c3"
+            },
+            "flow.oc": {
+              "bytes": 364,
+              "sha256": "299749176a6ce463e3f3819b571ebae9f82cef18cc797272d1414c3fffedb28a"
+            },
+            "flow.upw": {
+              "bytes": 2103,
+              "sha256": "7ef15971fa9298cb250fa52be8029c54e1adcdeb1d35423432c445e8df895a19"
+            },
+            "flow.wel": {
+              "bytes": 203,
+              "sha256": "f7d54848c8200b0423ce92c5432b371df84b368be2a02026054d2cf2ab9ea808"
+            },
+            "settings.json": {
+              "bytes": 6784,
+              "sha256": "88d2f59473a2e20e61b83cb4ba7ef19ac5308a901e399f8a29c8228496ffb80b"
+            }
+          },
+          "source_unchanged": true,
+          "status": "completed"
+        },
+        "source_unchanged": true,
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-NWT",
+          "gms_parity_established": false,
+          "linear_solver": "xmd",
+          "maximum_boundary_rate_error_m3_day": 0.0,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 1.7349037761960062e-09,
+          "native_period_durations_day": [
+            1.0,
+            2.0
+          ],
+          "saved_steps": 5,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            2,
+            1,
+            5
+          ],
+          "solver": {
+            "bytes": 8259552,
+            "engine": "mfnwt",
+            "member": "mfnwtdbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+            "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "case": "head_dependent_water.json",
+        "case_sha256": "f57a5e1fdb4651e35890127ae91734d1b19c0d1dd2df31e73e9e8f801c46e904",
+        "engine": "mfnwt",
+        "roundtrip": {
+          "case_metadata_preserved": true,
+          "gms_parity_established": false,
+          "gms_project_roundtrip": false,
+          "linear_solver": "xmd",
+          "maximum_budget_column_difference": 0.0,
+          "maximum_head_difference_m": 0.0,
+          "native_runs_completed": 2,
+          "native_runs_requested": 2,
+          "native_token_semantics_equal": true,
+          "numerical_roundtrip_passed": true,
+          "rewritten_inputs": {
+            "flow.bas": {
+              "bytes": 469,
+              "sha256": "6fa8524f95cdbe759fad7477062e9e0bc9ecd251ec4cbe7cd312daf74810855e"
+            },
+            "flow.chd": {
+              "bytes": 169,
+              "sha256": "77acce68a63985c33e4aa7c1b3e5dfb88b4a6fb7ca38f9ee2ec5cf91195362b2"
+            },
+            "flow.dis": {
+              "bytes": 1060,
+              "sha256": "dab0e4ecfafc71cb921b430aa5f4dac9c7a79cc6dffaa618ee5bc28daa4fce3b"
+            },
+            "flow.drn": {
+              "bytes": 179,
+              "sha256": "2db572e326caab18cafec1cd8391ea6d9ebf100c4eb310e480ef309e5381b94e"
+            },
+            "flow.ghb": {
+              "bytes": 179,
+              "sha256": "3e6f68446640399450ece33c4b9e4456786f76ad5c492990f88792330c9fbf13"
+            },
+            "flow.nam": {
+              "bytes": 595,
+              "sha256": "90cb19728cdc8d556da42d1132e46d6d34b42f37bdced5f4834882352c40d82b"
+            },
+            "flow.nwt": {
+              "bytes": 318,
+              "sha256": "578ac38b8042ab74c6ce67f8c2ee18a1a45cc411b2d1318aeb081429dabff9c3"
+            },
+            "flow.oc": {
+              "bytes": 188,
+              "sha256": "ed634c211f1609430b994b14828fcb29e63890d66df28aec3bb7f6cf9d90a095"
+            },
+            "flow.rch": {
+              "bytes": 380,
+              "sha256": "0382b3594c81b38ca8c93883cab86874b749cbc298a997ec063ad6f70e741476"
+            },
+            "flow.riv": {
+              "bytes": 195,
+              "sha256": "5a473b79651015783463b03509cc8d6f0e415ff3382104c918215a74f5dee3e1"
+            },
+            "flow.upw": {
+              "bytes": 967,
+              "sha256": "e992df58bb53b86bfcc262ede24ddbdb2de7fd85fb2d872f1be3cc4867ee0c2a"
+            },
+            "flow.wel": {
+              "bytes": 164,
+              "sha256": "3051bb336a1951e608248f2bb28bdd36fd707757edde39f88462f1fae80f2e21"
+            },
+            "settings.json": {
+              "bytes": 5971,
+              "sha256": "f8a417044c1f7608f07fd06653b704aae1f1a36a17cad9b3f2cd818b87dfd4c9"
+            }
+          },
+          "run_validation_gates": [
+            {
+              "boundary_rates_passed": true,
+              "confined_saturation_support_passed": true,
+              "water_balance_passed": true
+            },
+            {
+              "boundary_rates_passed": true,
+              "confined_saturation_support_passed": true,
+              "water_balance_passed": true
+            }
+          ],
+          "schema": "basinlens-classic-roundtrip-v1",
+          "source_inputs": {
+            "flow.bas": {
+              "bytes": 469,
+              "sha256": "687f74fcfcee800112067219a592cf3c35a31d8e18bb1ce329af45f6b9cf0473"
+            },
+            "flow.chd": {
+              "bytes": 169,
+              "sha256": "77acce68a63985c33e4aa7c1b3e5dfb88b4a6fb7ca38f9ee2ec5cf91195362b2"
+            },
+            "flow.dis": {
+              "bytes": 1060,
+              "sha256": "6462e2fb49a16040b270906f48d4aaf8990042dce60e114e67370959cf63946a"
+            },
+            "flow.drn": {
+              "bytes": 179,
+              "sha256": "2db572e326caab18cafec1cd8391ea6d9ebf100c4eb310e480ef309e5381b94e"
+            },
+            "flow.ghb": {
+              "bytes": 179,
+              "sha256": "3e6f68446640399450ece33c4b9e4456786f76ad5c492990f88792330c9fbf13"
+            },
+            "flow.nam": {
+              "bytes": 595,
+              "sha256": "90cb19728cdc8d556da42d1132e46d6d34b42f37bdced5f4834882352c40d82b"
+            },
+            "flow.nwt": {
+              "bytes": 318,
+              "sha256": "578ac38b8042ab74c6ce67f8c2ee18a1a45cc411b2d1318aeb081429dabff9c3"
+            },
+            "flow.oc": {
+              "bytes": 188,
+              "sha256": "ed634c211f1609430b994b14828fcb29e63890d66df28aec3bb7f6cf9d90a095"
+            },
+            "flow.rch": {
+              "bytes": 380,
+              "sha256": "0382b3594c81b38ca8c93883cab86874b749cbc298a997ec063ad6f70e741476"
+            },
+            "flow.riv": {
+              "bytes": 195,
+              "sha256": "5a473b79651015783463b03509cc8d6f0e415ff3382104c918215a74f5dee3e1"
+            },
+            "flow.upw": {
+              "bytes": 967,
+              "sha256": "dea61b36681dfef10539cbdd2324cf1d4c7f3ea38653ba093752cf308dfc097e"
+            },
+            "flow.wel": {
+              "bytes": 164,
+              "sha256": "3051bb336a1951e608248f2bb28bdd36fd707757edde39f88462f1fae80f2e21"
+            },
+            "settings.json": {
+              "bytes": 5971,
+              "sha256": "aa188b49b03ce2137b7a338ba7fd41e740406a1bd60f14e18933f6b8fb4ff43f"
+            }
+          },
+          "source_unchanged": true,
+          "status": "completed"
+        },
+        "source_unchanged": true,
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-NWT",
+          "gms_parity_established": false,
+          "linear_solver": "xmd",
+          "maximum_boundary_rate_error_m3_day": 4.470348362317633e-10,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 4.136069264859543e-10,
+          "native_period_durations_day": [
+            1.0
+          ],
+          "saved_steps": 1,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            1,
+            6
+          ],
+          "solver": {
+            "bytes": 8259552,
+            "engine": "mfnwt",
+            "member": "mfnwtdbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+            "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      }
+    ],
+    "co2_or_oil_multiphase_physics": false,
+    "gms_parity_established": false,
+    "schema": "basinlens-classic-example-v1"
+  },
+  "focused_test_log": "docs/gms/classic_independent_tests_v4.log",
+  "focused_test_record": "docs/gms/classic_independent_tests_v4.json",
+  "gms_parity_established": false,
+  "independent_physical_cases": {
+    "all_passed": true,
+    "duration_seconds": 2.0188103019972914,
+    "original_gms_comparison": false,
+    "schema": "independent-classic-water-review-v4d",
+    "source_after": {
+      "classic.py": "90a1c3aa1a4983171d644f6e9f36de31686464cf86153bc502666aa126c3a968",
+      "model_workflow.py": "c64debe5ab7214d91ca4f859abcf68ea0569c285d076a25d97ba2602b98f6fe4"
+    },
+    "source_before": {
+      "classic.py": "90a1c3aa1a4983171d644f6e9f36de31686464cf86153bc502666aa126c3a968",
+      "model_workflow.py": "c64debe5ab7214d91ca4f859abcf68ea0569c285d076a25d97ba2602b98f6fe4"
+    },
+    "source_unchanged": true,
+    "tests": [
+      {
+        "actual": [
+          [
+            [
+              [
+                20.0,
+                13.142857142857142,
+                9.714285714285714,
+                8.0
+              ]
+            ]
+          ]
+        ],
+        "case": "series",
+        "engine": "mf2005",
+        "head_tolerance_m": 2e-08,
+        "independent_expected": [
+          [
+            [
+              20.0,
+              13.142857142857142,
+              9.714285714285715,
+              8.000000000000002
+            ]
+          ]
+        ],
+        "max_head_error_m": 1.7763568394002505e-15,
+        "status": "passed",
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-2005",
+          "gms_parity_established": false,
+          "linear_solver": "pcg",
+          "maximum_boundary_rate_error_m3_day": 0.0,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 1.4210854715202004e-14,
+          "native_period_durations_day": [
+            1.25
+          ],
+          "saved_steps": 1,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            1,
+            4
+          ],
+          "solver": {
+            "bytes": 7546544,
+            "engine": "mf2005",
+            "member": "mf2005dbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+            "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "actual": [
+          [
+            [
+              [
+                16.020370371915675,
+                16.020370371915675
+              ]
+            ]
+          ]
+        ],
+        "case": "combination",
+        "engine": "mf2005",
+        "head_tolerance_m": 2e-07,
+        "independent_expected": [
+          [
+            [
+              16.02037037037037,
+              16.02037037037037
+            ]
+          ]
+        ],
+        "max_head_error_m": 1.5453061052994599e-09,
+        "status": "passed",
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-2005",
+          "gms_parity_established": false,
+          "linear_solver": "pcg",
+          "maximum_boundary_rate_error_m3_day": 8.34465008203722e-09,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 5.329070518200751e-15,
+          "native_period_durations_day": [
+            1.25
+          ],
+          "saved_steps": 1,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            1,
+            2
+          ],
+          "solver": {
+            "bytes": 7546544,
+            "engine": "mf2005",
+            "member": "mf2005dbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+            "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "actual": [
+          [
+            [
+              [
+                25.999999952502552,
+                25.999999952502552
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                26.999999905005104,
+                26.999999905005104
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                27.999999857507657,
+                27.999999857507657
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                28.99999981001021,
+                28.99999981001021
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                28.99999981001021,
+                28.99999981001021
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                28.99999981001021,
+                28.99999981001021
+              ]
+            ]
+          ]
+        ],
+        "case": "storage",
+        "engine": "mf2005",
+        "head_tolerance_m": 2e-06,
+        "independent_expected": [
+          [
+            [
+              [
+                26,
+                26
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                27,
+                27
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                28,
+                28
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                29,
+                29
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                29,
+                29
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                29,
+                29
+              ]
+            ]
+          ]
+        ],
+        "max_head_error_m": 1.899897910107029e-07,
+        "status": "passed",
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-2005",
+          "gms_parity_established": false,
+          "linear_solver": "pcg",
+          "maximum_boundary_rate_error_m3_day": 0.0,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 2.6645352591003757e-15,
+          "native_period_durations_day": [
+            1.0,
+            0.5
+          ],
+          "saved_steps": 6,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            1,
+            2
+          ],
+          "solver": {
+            "bytes": 7546544,
+            "engine": "mf2005",
+            "member": "mf2005dbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+            "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "actual": [
+          [
+            [
+              [
+                19.0,
+                16.57142856002462,
+                15.0
+              ],
+              [
+                11.0,
+                9.428571439975379,
+                7.0
+              ]
+            ]
+          ]
+        ],
+        "case": "coordinates",
+        "engine": "mf2005",
+        "head_tolerance_m": 2e-08,
+        "independent_expected": [
+          [
+            [
+              19.0,
+              16.571428571428573,
+              15.0
+            ],
+            [
+              11.0,
+              9.428571428571429,
+              7.0
+            ]
+          ]
+        ],
+        "max_head_error_m": 1.1403951560851056e-08,
+        "status": "passed",
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-2005",
+          "gms_parity_established": false,
+          "linear_solver": "pcg",
+          "maximum_boundary_rate_error_m3_day": 0.0,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 0.0,
+          "native_period_durations_day": [
+            1.25
+          ],
+          "saved_steps": 1,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            2,
+            3
+          ],
+          "solver": {
+            "bytes": 7546544,
+            "engine": "mf2005",
+            "member": "mf2005dbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mf2005dbl",
+            "sha256": "08e49f5abae8dcb33370444b5e6f6c922887254301312bc6cd3192604a0c0e85"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "actual": [
+          [
+            [
+              [
+                20.0,
+                13.142857142840104,
+                9.714285714263749,
+                8.0
+              ]
+            ]
+          ]
+        ],
+        "case": "series",
+        "engine": "mfnwt",
+        "head_tolerance_m": 2e-08,
+        "independent_expected": [
+          [
+            [
+              20.0,
+              13.142857142857142,
+              9.714285714285715,
+              8.000000000000002
+            ]
+          ]
+        ],
+        "max_head_error_m": 2.1966428676023497e-11,
+        "status": "passed",
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-NWT",
+          "gms_parity_established": false,
+          "linear_solver": "xmd",
+          "maximum_boundary_rate_error_m3_day": 0.0,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 5.594742447101453e-10,
+          "native_period_durations_day": [
+            1.25
+          ],
+          "saved_steps": 1,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            1,
+            4
+          ],
+          "solver": {
+            "bytes": 8259552,
+            "engine": "mfnwt",
+            "member": "mfnwtdbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+            "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "actual": [
+          [
+            [
+              [
+                16.020370371864097,
+                16.020370371864097
+              ]
+            ]
+          ]
+        ],
+        "case": "combination",
+        "engine": "mfnwt",
+        "head_tolerance_m": 2e-07,
+        "independent_expected": [
+          [
+            [
+              16.02037037037037,
+              16.02037037037037
+            ]
+          ]
+        ],
+        "max_head_error_m": 1.4937278081106342e-09,
+        "status": "passed",
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-NWT",
+          "gms_parity_established": false,
+          "linear_solver": "xmd",
+          "maximum_boundary_rate_error_m3_day": 8.34465008203722e-09,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 2.7852831152586077e-10,
+          "native_period_durations_day": [
+            1.25
+          ],
+          "saved_steps": 1,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            1,
+            2
+          ],
+          "solver": {
+            "bytes": 8259552,
+            "engine": "mfnwt",
+            "member": "mfnwtdbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+            "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "actual": [
+          [
+            [
+              [
+                25.999999952594756,
+                25.999999952594756
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                26.99999990518964,
+                26.99999990518964
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                27.99999985778441,
+                27.99999985778441
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                28.999999810379276,
+                28.999999810379276
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                28.999999810379276,
+                28.999999810379276
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                28.999999810379276,
+                28.999999810379276
+              ]
+            ]
+          ]
+        ],
+        "case": "storage",
+        "engine": "mfnwt",
+        "head_tolerance_m": 2e-06,
+        "independent_expected": [
+          [
+            [
+              [
+                26,
+                26
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                27,
+                27
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                28,
+                28
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                29,
+                29
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                29,
+                29
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                29,
+                29
+              ]
+            ]
+          ]
+        ],
+        "max_head_error_m": 1.8962072445560807e-07,
+        "status": "passed",
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-NWT",
+          "gms_parity_established": false,
+          "linear_solver": "xmd",
+          "maximum_boundary_rate_error_m3_day": 0.0,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 2.068252236142598e-10,
+          "native_period_durations_day": [
+            1.0,
+            0.5
+          ],
+          "saved_steps": 6,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            1,
+            2
+          ],
+          "solver": {
+            "bytes": 8259552,
+            "engine": "mfnwt",
+            "member": "mfnwtdbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+            "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      },
+      {
+        "actual": [
+          [
+            [
+              [
+                19.0,
+                16.571428560021598,
+                15.0
+              ],
+              [
+                11.0,
+                9.428571439969794,
+                7.0
+              ]
+            ]
+          ]
+        ],
+        "case": "coordinates",
+        "engine": "mfnwt",
+        "head_tolerance_m": 2e-08,
+        "independent_expected": [
+          [
+            [
+              19.0,
+              16.571428571428573,
+              15.0
+            ],
+            [
+              11.0,
+              9.428571428571429,
+              7.0
+            ]
+          ]
+        ],
+        "max_head_error_m": 1.1406974920191715e-08,
+        "status": "passed",
+        "summary": {
+          "boundary_rates_passed": true,
+          "co2_or_oil_multiphase_physics": false,
+          "confined_saturation_support_passed": true,
+          "engine": "MODFLOW-NWT",
+          "gms_parity_established": false,
+          "linear_solver": "xmd",
+          "maximum_boundary_rate_error_m3_day": 0.0,
+          "maximum_prescribed_head_error_m": 0.0,
+          "maximum_water_balance_residual_m3_day": 6.886580194986891e-10,
+          "native_period_durations_day": [
+            1.25
+          ],
+          "saved_steps": 1,
+          "scope": "Authored confined-water subset; scalar input precision is limited by legacy FloPy/text; no original GMS or general legacy import equivalence",
+          "shape": [
+            1,
+            2,
+            3
+          ],
+          "solver": {
+            "bytes": 8259552,
+            "engine": "mfnwt",
+            "member": "mfnwtdbl",
+            "path": "/workspace/scratch/96bcf7ec787f/research/classic-bin-v4/mfnwtdbl",
+            "sha256": "7c9a54732f0dc936daaf6a8cf6749c51cb38480049db650250e7464d64bef8f4"
+          },
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "water_balance_passed": true
+        }
+      }
+    ]
+  },
+  "recorded_utc": "2026-10-19T10:16:37.691914+00:00",
+  "schema": "basinlens-classic-validation-v4",
+  "source_sha256": {
+    "examples/classic/run_classic_example.py": "aef9c93e36b47299a0c3f4912b187ae603356263ed66ef8dfa63b54a6659a7fb",
+    "src/basinlens_ccs/subsurface/classic.py": "90a1c3aa1a4983171d644f6e9f36de31686464cf86153bc502666aa126c3a968",
+    "tests/test_classic.py": "43b70fdaa7dfe8f0f6ee4cbcaa8f2b23f2f2d267245e7674b1811a5b37d89ac5",
+    "tools/ci_classic_engines.py": "e6b3767b17c09a3e2ac2920d60e172bf0684b89d28ca0dab661d17603397f154"
+  },
+  "whole_gms_complete": false
+}

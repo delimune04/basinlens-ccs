@@ -12,6 +12,11 @@ project engineering targets, not regulatory thresholds or achieved performance.
 | L2 Observation comparison | monitored case compared under explicit interpretation assumptions | asset provenance, seismic QC, observation/model mismatch and uncertainty | not implemented |
 | L3 Limited industry pilot | useful within an agreed company workflow | representative case, owner-defined tolerances, review, deployment/support checks | not performed |
 
+2026-10-19 addition: the optional confined groundwater workflow has separate
+synthetic MODFLOW 6 reference checks documented in [gms/VALIDATION.md](gms/VALIDATION.md).
+Those checks do not promote the CO2–brine L1 target in the table above or validate
+the capacity/containment heuristics. The fluid, scope and benchmark family differ.
+
 Only a verified result can be promoted. A passing software test does not promote a
 conceptual capacity estimate to a containment assessment.
 

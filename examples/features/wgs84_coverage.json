@@ -1,0 +1,120 @@
+{
+  "schema": "basinlens-feature-coverage-v1",
+  "id": "synthetic-wgs84",
+  "name": "Synthetic WGS84 coverage",
+  "coordinate_system": {
+    "units": "degrees",
+    "crs": "EPSG:4326",
+    "axis_order": "x,y"
+  },
+  "provenance": [
+    "Authored synthetic geometry; no measured field values or original GMS session"
+  ],
+  "nodes": [
+    {
+      "id": "a",
+      "x": 127.0,
+      "y": 37.0,
+      "attributes": {}
+    },
+    {
+      "id": "b",
+      "x": 127.01,
+      "y": 37.0,
+      "attributes": {}
+    },
+    {
+      "id": "c",
+      "x": 127.01,
+      "y": 37.01,
+      "attributes": {}
+    },
+    {
+      "id": "d",
+      "x": 127.0,
+      "y": 37.01,
+      "attributes": {}
+    },
+    {
+      "id": "e",
+      "x": 127.004,
+      "y": 37.004,
+      "attributes": {}
+    },
+    {
+      "id": "f",
+      "x": 127.006,
+      "y": 37.004,
+      "attributes": {}
+    },
+    {
+      "id": "g",
+      "x": 127.006,
+      "y": 37.006,
+      "attributes": {}
+    },
+    {
+      "id": "h",
+      "x": 127.004,
+      "y": 37.006,
+      "attributes": {}
+    }
+  ],
+  "points": [
+    {
+      "id": "observation",
+      "x": 127.001,
+      "y": 37.001,
+      "attributes": {
+        "head_m": 10,
+        "label": "synthetic",
+        "nested": {
+          "preserve": [
+            1,
+            true,
+            null
+          ]
+        }
+      }
+    }
+  ],
+  "arcs": [
+    {
+      "id": "river",
+      "node_ids": [
+        "a",
+        "b",
+        "c"
+      ],
+      "attributes": {
+        "head_m": 9,
+        "boundary_kind": "RIV"
+      }
+    }
+  ],
+  "polygons": [
+    {
+      "id": "aquifer",
+      "shell": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "a"
+      ],
+      "holes": [
+        [
+          "e",
+          "f",
+          "g",
+          "h",
+          "e"
+        ]
+      ],
+      "attributes": {
+        "kx_m_day": 5,
+        "material": "illustrative"
+      }
+    }
+  ]
+}

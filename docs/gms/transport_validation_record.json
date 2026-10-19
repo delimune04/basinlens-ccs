@@ -1,0 +1,254 @@
+{
+  "benchmark_contract": {
+    "gaussian": {
+      "allstep_centroid_gate_m": 1e-07,
+      "allstep_variance_gate_m2": 1e-05,
+      "amplitude_kg_m3": 0.2,
+      "center_m": 50.0,
+      "coarse_ncol": 100,
+      "coarse_nsteps": 100,
+      "diffusion_m2_day": 0.2,
+      "duration_day": 20.0,
+      "final_variance_m2": 17.0,
+      "fine_ncol": 200,
+      "fine_nsteps": 400,
+      "initial_sigma_m": 3.0,
+      "refinement_error_ratio_gate": 0.4,
+      "relative_profile_l1_gate": 0.01
+    },
+    "inlet": {
+      "allstep_inventory_gate_kg": 1e-07,
+      "expected_final_mass_kg": 2.4,
+      "outlet_boundary_approximation": "No appreciable breakthrough in this one short synthetic case; independent reader still integrates actual end-step outlet concentration."
+    },
+    "uniform": {
+      "concentration_gate_kg_m3": 1e-08,
+      "expected_concentration_kg_m3": 0.2,
+      "expected_mass_kg": 12.0
+    }
+  },
+  "co2_multiphase_validated": false,
+  "flopy": "3.11.0",
+  "gms_parity_established": false,
+  "limits": [
+    "single-phase saturated constant-density water and one conservative solute only",
+    "No original GMS runtime or parity observation",
+    "No GPR writer, shared registry or UI added",
+    "Reader requires recorded FloPy version and exact exporter source revision",
+    "Gaussian infinite-domain profile used only with distant boundaries; arbitrary transport cases not independently validated",
+    "Hashes provide content integrity, not operator authentication"
+  ],
+  "numpy": "2.3.5",
+  "original_gms_executed": false,
+  "python": "3.12.14",
+  "schema": "basinlens-transport-validation-v1",
+  "software_checks": {
+    "capacity_cli_2000_samples_seed42_and_verifier_passed": true,
+    "cli_export_verify_run_results_passed": true,
+    "compilation_passed": true,
+    "focused_transport_tests": {
+      "errors": 0,
+      "execution": "Included in the 249-test integrated run at the recorded source hashes",
+      "failures": 0,
+      "skips": 0,
+      "tests": 12
+    },
+    "git_diff_check_passed": true,
+    "integrated_tests": {
+      "errors": 0,
+      "failures": 0,
+      "seconds": 35.51045440099915,
+      "skips": 0,
+      "tests": 249
+    }
+  },
+  "solver_sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+  "source_sha256": {
+    "src/basinlens_ccs/groundwater/gms_native.py": "854f7610175c3ce51b82bd60e9f6eac5e6d3f683710af41f26ed36a9e668bcb2",
+    "src/basinlens_ccs/groundwater/native_run.py": "6141221cee3dc5988f13c9cfd3c7823faebcc7fe07ab7400bae70b2472245643",
+    "src/basinlens_ccs/groundwater/transport.py": "c159985f1fc929713617a9eb2603ae07c7caeafd76a5911b56a04740082129b1",
+    "tests/test_transport.py": "dab2a8d5b7a7f700a26a9365cc03a16a2c16747e1a2bbd2ebd79d5282b0bd76b"
+  },
+  "synthetic_cases": {
+    "closed_gaussian": {
+      "final_relative_profile_l1": 0.001002586639487697,
+      "input_sha256": "bcdcb5cceb7fbddcbb51a2963d3adb1374c5d47571dffc36b545d893a3569c6f",
+      "max_centroid_error_m": 1.4210854715202004e-14,
+      "max_variance_error_m2": 6.394884621840902e-14,
+      "summary": {
+        "co2_or_multiphase_physics": false,
+        "concentration_bounds_passed": true,
+        "concentration_max_kg_m3": 0.19908906291911604,
+        "concentration_min_kg_m3": 8.428837986777255e-61,
+        "conservation_passed": true,
+        "courant_number": 0.0,
+        "darcy_flux_m_day": 0.0,
+        "diffusion_number": 0.04000000000000001,
+        "engine": "MODFLOW 6 GWF/GWT",
+        "final_mass_kg": 0.3759942411946397,
+        "gms_parity_established": false,
+        "initial_mass_kg": 0.3759942411946501,
+        "inventory_balance_gate_kg": 4.7599424119465e-08,
+        "max_boundary_rate_error_kg_day": 0.0,
+        "max_inventory_balance_error_kg": 1.0436096431476471e-14,
+        "max_storage_rate_error_kg_day": 2.482822974991805e-15,
+        "max_water_boundary_error_m3_day": 0.0,
+        "ncol": 200,
+        "nominal_interior_dispersion_m2_day": 0.2,
+        "nsteps": 400,
+        "pore_velocity_m_day": 0.0,
+        "schema": "basinlens-transport-result-v1",
+        "solver": {
+          "name": "mf6",
+          "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+          "version": "mf6: 6.7.0 02/05/2026"
+        },
+        "units": {
+          "concentration": "kg/m3",
+          "conductivity": "m/day",
+          "darcy_flux": "m/day",
+          "diffusion": "m2/day",
+          "length": "m",
+          "mass": "kg",
+          "mass_rate": "kg/day",
+          "porosity": "1",
+          "time": "day"
+        },
+        "validation_scope": "synthetic conservative-solute 1D cases; no field or GMS validation"
+      }
+    },
+    "gaussian_coarse": {
+      "final_relative_profile_l1": 0.004018744738322548,
+      "summary": {
+        "co2_or_multiphase_physics": false,
+        "concentration_bounds_passed": true,
+        "concentration_max_kg_m3": 0.19642165169040485,
+        "concentration_min_kg_m3": 3.540822082256395e-50,
+        "conservation_passed": true,
+        "courant_number": 0.0,
+        "darcy_flux_m_day": 0.0,
+        "diffusion_number": 0.04000000000000001,
+        "engine": "MODFLOW 6 GWF/GWT",
+        "final_mass_kg": 0.3759942411946475,
+        "gms_parity_established": false,
+        "initial_mass_kg": 0.3759942411946501,
+        "inventory_balance_gate_kg": 4.7599424119465e-08,
+        "max_boundary_rate_error_kg_day": 0.0,
+        "max_inventory_balance_error_kg": 2.55351295663786e-15,
+        "max_storage_rate_error_kg_day": 3.894454203567932e-16,
+        "max_water_boundary_error_m3_day": 0.0,
+        "ncol": 100,
+        "nominal_interior_dispersion_m2_day": 0.2,
+        "nsteps": 100,
+        "pore_velocity_m_day": 0.0,
+        "schema": "basinlens-transport-result-v1",
+        "solver": {
+          "name": "mf6",
+          "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+          "version": "mf6: 6.7.0 02/05/2026"
+        },
+        "units": {
+          "concentration": "kg/m3",
+          "conductivity": "m/day",
+          "darcy_flux": "m/day",
+          "diffusion": "m2/day",
+          "length": "m",
+          "mass": "kg",
+          "mass_rate": "kg/day",
+          "porosity": "1",
+          "time": "day"
+        },
+        "validation_scope": "synthetic conservative-solute 1D cases; no field or GMS validation"
+      }
+    },
+    "inlet_front": {
+      "input_sha256": "7f0f68aa2e2c5081f0f4ed4bc47800a13692511dca44a472c13fcc543c2451ba",
+      "summary": {
+        "co2_or_multiphase_physics": false,
+        "concentration_bounds_passed": true,
+        "concentration_max_kg_m3": 0.19936058759132352,
+        "concentration_min_kg_m3": 1.1220425083978129e-67,
+        "conservation_passed": true,
+        "courant_number": 0.1,
+        "darcy_flux_m_day": 0.05,
+        "diffusion_number": 0.11,
+        "engine": "MODFLOW 6 GWF/GWT",
+        "final_mass_kg": 2.400000000000001,
+        "gms_parity_established": false,
+        "initial_mass_kg": 0.0,
+        "inventory_balance_gate_kg": 2.5000000000000004e-07,
+        "max_boundary_rate_error_kg_day": 0.0,
+        "max_inventory_balance_error_kg": 7.105427357601002e-15,
+        "max_storage_rate_error_kg_day": 2.0469737016526324e-15,
+        "max_water_boundary_error_m3_day": 4.274358644806853e-15,
+        "ncol": 80,
+        "nominal_interior_dispersion_m2_day": 0.11,
+        "nsteps": 160,
+        "pore_velocity_m_day": 0.2,
+        "schema": "basinlens-transport-result-v1",
+        "solver": {
+          "name": "mf6",
+          "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+          "version": "mf6: 6.7.0 02/05/2026"
+        },
+        "units": {
+          "concentration": "kg/m3",
+          "conductivity": "m/day",
+          "darcy_flux": "m/day",
+          "diffusion": "m2/day",
+          "length": "m",
+          "mass": "kg",
+          "mass_rate": "kg/day",
+          "porosity": "1",
+          "time": "day"
+        },
+        "validation_scope": "synthetic conservative-solute 1D cases; no field or GMS validation"
+      }
+    },
+    "uniform": {
+      "input_sha256": "9a137c0be064e81c8f95f81d217387c26a97b64debf2ac7bfb59ec8b6a937017",
+      "max_uniform_error_kg_m3": 0.0,
+      "summary": {
+        "co2_or_multiphase_physics": false,
+        "concentration_bounds_passed": true,
+        "concentration_max_kg_m3": 0.2,
+        "concentration_min_kg_m3": 0.2,
+        "conservation_passed": true,
+        "courant_number": 0.1,
+        "darcy_flux_m_day": 0.05,
+        "diffusion_number": 0.07500000000000001,
+        "engine": "MODFLOW 6 GWF/GWT",
+        "final_mass_kg": 12.0,
+        "gms_parity_established": false,
+        "initial_mass_kg": 12.0,
+        "inventory_balance_gate_kg": 1.2099999999999998e-06,
+        "max_boundary_rate_error_kg_day": 2.220446049250313e-16,
+        "max_inventory_balance_error_kg": 0.0,
+        "max_storage_rate_error_kg_day": 0.0,
+        "max_water_boundary_error_m3_day": 1.1657341758564144e-15,
+        "ncol": 40,
+        "nominal_interior_dispersion_m2_day": 0.15000000000000002,
+        "nsteps": 40,
+        "pore_velocity_m_day": 0.2,
+        "schema": "basinlens-transport-result-v1",
+        "solver": {
+          "name": "mf6",
+          "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+          "version": "mf6: 6.7.0 02/05/2026"
+        },
+        "units": {
+          "concentration": "kg/m3",
+          "conductivity": "m/day",
+          "darcy_flux": "m/day",
+          "diffusion": "m2/day",
+          "length": "m",
+          "mass": "kg",
+          "mass_rate": "kg/day",
+          "porosity": "1",
+          "time": "day"
+        },
+        "validation_scope": "synthetic conservative-solute 1D cases; no field or GMS validation"
+      }
+    }
+  }
+}

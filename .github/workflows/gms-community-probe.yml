@@ -1,0 +1,398 @@
+name: Opt-in normal GMS Community runtime observation
+
+# Explicit dispatch or commit marker only: downloads a 1.99GB vendor installer,
+# installs on a disposable Windows VM and observes startup/document behavior.
+on:
+  workflow_dispatch:
+    inputs:
+      document:
+        description: 'Optional official tutorial document; this option issues no solver or licence action'
+        type: choice
+        options: [none, classic_grid, mf6_grid]
+        default: none
+      select_free_community:
+        description: 'Optional single verified free Community Edition choice during normal startup; no activation or solver action issued'
+        type: boolean
+        default: false
+      observe_file_open_dialog:
+        description: 'Optional single File/Open dialog observation after the free choice; this option issues no filename, confirmation or solver action'
+        type: boolean
+        default: false
+      open_verified_mf6_project:
+        description: 'Optional exact pinned tutorial filename/confirmation through verified native controls; no solver/save action issued'
+        type: boolean
+        default: false
+  push:
+    branches: ["feat/gms-groundwater-workbench"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gms-community-runtime-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  observe-community-startup:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.head_commit.message, '[gms-community-probe]') ||
+      contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]') ||
+      contains(github.event.head_commit.message, '[gms-free-community-choice-probe]') ||
+      contains(github.event.head_commit.message, '[gms-open-dialog-probe]') ||
+      contains(github.event.head_commit.message, '[gms-open-mf6-project-probe]')
+    runs-on: windows-2022
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Parse PowerShell source before downloads or target execution
+        shell: pwsh
+        env:
+          OPEN_VERIFIED_MF6: ${{ inputs.open_verified_mf6_project == true || contains(github.event.head_commit.message, '[gms-open-mf6-project-probe]') }}
+          REQUESTED_DOCUMENT: ${{ inputs.document }}
+          ORDINARY_DOCUMENT_MARKER: ${{ contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]') }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:OPEN_VERIFIED_MF6 -eq 'true' -and (($env:REQUESTED_DOCUMENT -and $env:REQUESTED_DOCUMENT -ne 'none') -or $env:ORDINARY_DOCUMENT_MARKER -eq 'true')) { throw 'The pinned native-control tutorial phase cannot be combined with ordinary document launch.' }
+          foreach ($path in @('tools/find_gms_runtime.ps1','tools/probe_gms_community.ps1')) {
+            $tokens=$null; $syntaxErrors=$null
+            [void][System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path -LiteralPath $path).Path,[ref]$tokens,[ref]$syntaxErrors)
+            if ($syntaxErrors.Count) { throw ($syntaxErrors.Message -join [Environment]::NewLine) }
+          }
+      - name: Compile passive Windows helper and check fixed-label observation guards
+        shell: pwsh
+        run: |
+          $ErrorActionPreference='Stop'
+          $tokens=$null; $errors=$null
+          $ast=[System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path 'tools/probe_gms_community.ps1').Path,[ref]$tokens,[ref]$errors)
+          if ($errors.Count) { throw 'PowerShell parser rejected the passive probe.' }
+          $sources=@($ast.FindAll({param($node) $node -is [System.Management.Automation.Language.StringConstantExpressionAst] -and $node.Value.StartsWith('using System;') -and $node.Value.Contains('public static class GmsPassiveWindows')},$true))
+          if ($sources.Count -ne 1) { throw 'Expected one passive native helper source.' }
+          Add-Type -TypeDefinition $sources[0].Value
+          # Pure policy/privacy tests only; never query or act on a target here.
+          [GmsPassiveWindows]::ValidatePostConfirmationDiagnosticPolicy()
+          foreach ($label in @('Community Edition','&Community Edition',"  COMMUNITY `t Edition  ")) {
+            if (-not [GmsPassiveWindows]::IsDocumentedCommunityLabel($label)) { throw 'Documented-label normalization regression.' }
+          }
+          foreach ($label in @('Community','Community Edition Trial','Select Community Edition','Community Edition...','Community-Edition','Edition Community','CommunityEdition','Com munity Edition','Community && Edition','')) {
+            if ([GmsPassiveWindows]::IsDocumentedCommunityLabel($label)) { throw 'Undocumented label became a candidate.' }
+          }
+          $window=[GmsPassiveWindows+WindowContext]::new()
+          $window.OwnedProcess=$true; $window.Visible=$true; $window.Enabled=$true; $window.IsDialog=$true
+          $window.VisibleText='No license found.'
+          $button=[GmsPassiveWindows+ControlRecord]::new()
+          $button.Label='&Community Edition'; $button.ClassName='Button'; $button.IsStandardButton=$true; $button.IsPushButton=$true
+          $button.Visible=$true; $button.Enabled=$true; $button.OwnedProcess=$true; $button.SameProcessAsWindow=$true; $button.ParentRelationVerified=$true
+          $snapshot=[GmsPassiveWindows+ControlSnapshot]::new(); $snapshot.Controls=@($button)
+          function Assert-PassiveGuard([bool]$expected) {
+            $guard=[GmsPassiveWindows]::AssessCommunityButton($window,$snapshot)
+            if (($guard.Status -eq 'passive_candidate_observed_review_required_no_action') -ne $expected) { throw 'Passive candidate guard regression.' }
+            if ($guard.ActionsEnabled -or -not $guard.RequiresReviewBeforeAnyAction) { throw 'Passive guard exposed action authorization.' }
+          }
+          Assert-PassiveGuard $true
+          foreach ($field in @('Visible','Enabled','OwnedProcess','SameProcessAsWindow','ParentRelationVerified','IsStandardButton','IsPushButton')) {
+            $button.$field=$false; Assert-PassiveGuard $false; $button.$field=$true
+          }
+          foreach ($field in @('OwnedProcess','Visible','Enabled','IsDialog')) {
+            $window.$field=$false; Assert-PassiveGuard $false; $window.$field=$true
+          }
+          $window.VisibleText='Unknown startup dialog'; Assert-PassiveGuard $false
+          $window.VisibleText='No licence found.'; Assert-PassiveGuard $true
+          $snapshot.Controls=@($button,$button); Assert-PassiveGuard $false
+          $snapshot.Controls=@($button); $snapshot.Truncated=$true; Assert-PassiveGuard $false
+          $snapshot.Truncated=$false; $snapshot.ReadErrors=1; Assert-PassiveGuard $false
+          $snapshot.ReadErrors=0; $button.Label='PRIVATE_UNKNOWN_LABEL'; $button.ClassName='PRIVATE_UNKNOWN_CLASS'
+          Assert-PassiveGuard $false
+          $json=[GmsPassiveWindows]::AssessCommunityButton($window,$snapshot) | ConvertTo-Json -Depth 8
+          if ($json.Contains('PRIVATE_UNKNOWN') -or $json.Contains('Handle') -or $json.Contains('ControlId') -or $json.Contains('ProcessId')) { throw 'Private native metadata leaked into a public guard.' }
+          # Test the separate opt-in policy WITHOUT calling the native action
+          # method. Missing old no-license wording must remain missing.
+          $button.Label='Community Edition'; $button.ClassName='Button'
+          $window.VisibleText='Unknown startup wording'
+          function Assert-FreeSelection([bool]$expected,[bool]$optIn=$true,[bool]$normal=$true,[bool]$identity=$true,[int]$used=0,[int]$labels=1,[int]$dialogs=1,[bool]$complete=$true) {
+            $decision=[GmsPassiveWindows]::AssessFreeSelection($window,$snapshot,$optIn,$normal,$identity,$used,$labels,$dialogs,$complete)
+            if ($decision.PolicyPermitsOneAttempt -ne $expected -or $decision.Attempted -or $decision.NoLicensePhraseRequiredByThisPolicy) { throw 'Separate free-choice policy regression.' }
+            if ($decision.NoLicenseContext -ne 'not_recognized_or_unavailable') { throw 'Missing original phrase was promoted to observed.' }
+          }
+          Assert-FreeSelection $true
+          Assert-PassiveGuard $false
+          Assert-FreeSelection $false $false
+          Assert-FreeSelection $false $true $false
+          Assert-FreeSelection $false $true $true $false
+          Assert-FreeSelection $false $true $true $true 1
+          Assert-FreeSelection $false $true $true $true 0 2
+          Assert-FreeSelection $false $true $true $true 0 1 2
+          Assert-FreeSelection $false $true $true $true 0 1 1 $false
+          foreach ($field in @('Visible','Enabled','OwnedProcess','SameProcessAsWindow','ParentRelationVerified','IsStandardButton','IsPushButton')) {
+            $button.$field=$false; Assert-FreeSelection $false; $button.$field=$true
+          }
+          foreach ($field in @('OwnedProcess','Visible','Enabled','IsDialog')) {
+            $window.$field=$false; Assert-FreeSelection $false; $window.$field=$true
+          }
+          $snapshot.Controls=@($button,$button); Assert-FreeSelection $false
+          $snapshot.Controls=@($button); $snapshot.Truncated=$true; Assert-FreeSelection $false
+          $snapshot.Truncated=$false; $snapshot.ReadErrors=1; Assert-FreeSelection $false
+          $snapshot.ReadErrors=0
+          foreach ($text in @('EULA','Terms and Conditions','End user license','Accept this agreement','License Agreement','Licence Agreement','Terms of Use','I agree to these terms','By clicking Community Edition you agree to the license agreement')) {
+            $window.VisibleText=$text; Assert-FreeSelection $false
+          }
+          foreach ($text in @('Purchase a licence or use Community Edition','An evaluation licence was not found','Enter a license key or select Community Edition','Trial options are also available')) {
+            $window.VisibleText=$text; Assert-FreeSelection $true
+            $alternatives=[GmsPassiveWindows]::AssessFreeSelection($window,$snapshot,$true,$true,$true,0,1,1,$true)
+            if (-not $alternatives.OtherLicenceOptionsTextObserved -or $alternatives.TermsAcceptanceContextObserved) { throw 'Alternative licensing text was confused with a free-button action or terms acceptance.' }
+          }
+          $window.VisibleText='Unknown startup wording'
+          $decision=[GmsPassiveWindows]::AssessFreeSelection($window,$snapshot,$true,$true,$true,0,1,1,$true)
+          $json=$decision | ConvertTo-Json -Depth 8
+          if ($json.Contains('Unknown startup wording') -or $json.Contains('Handle') -or $json.Contains('ControlId') -or $json.Contains('ProcessId')) { throw 'Private native metadata leaked into a free-choice policy result.' }
+          # Pure File/Open policy and observation tests; no WM_COMMAND delivery.
+          $window.IsDialog=$false
+          $menu=[GmsPassiveWindows+MenuSnapshot]::new(); $menu.Status='materialized_standard_hmenu_observed'; $menu.RootStyleRead=$true
+          $ancestor=[GmsPassiveWindows+MenuRecord]::new(); $ancestor.PositionPath='1'; $ancestor.Enabled=$true; $ancestor.HasSubmenu=$true; $ancestor.ContainingMenuStyleRead=$true
+          $item=[GmsPassiveWindows+MenuRecord]::new(); $item.CommandId=37447; $item.PositionPath='1/2'; $item.Enabled=$true
+          $item.Label='PRIVATE_NATIVE_MENU_LABEL'; $item.ContainingMenuStyleRead=$true; $menu.Items=@($ancestor,$item)
+          function Assert-FileOpen([bool]$expected,[bool]$optIn=$true,[bool]$normal=$true,[bool]$ceAttempted=$true,[bool]$ceCompleted=$true,[bool]$identity=$true,[int]$used=0,[int]$dialogs=0,[int]$mainWindows=1,[int]$commands=1,[bool]$complete=$true) {
+            $decision=[GmsPassiveWindows]::AssessFileOpen($window,$menu,$optIn,$normal,$ceAttempted,$ceCompleted,$identity,$used,$dialogs,$mainWindows,$commands,$complete)
+            if ($decision.PolicyPermitsOneAttempt -ne $expected -or $decision.Attempted -or $decision.CommandId -ne 37447 -or $decision.ExpectedPosition -ne '1/2') { throw 'File/Open policy regression.' }
+            $json=$decision | ConvertTo-Json -Depth 8
+            if ($json.Contains('PRIVATE_NATIVE') -or $json.Contains('Handle') -or $json.Contains('ProcessId')) { throw 'Private window/menu metadata leaked into a File/Open decision.' }
+          }
+          Assert-FileOpen $true
+          Assert-FileOpen $false $false
+          Assert-FileOpen $false $true $false
+          Assert-FileOpen $false $true $true $false
+          Assert-FileOpen $false $true $true $true $false
+          Assert-FileOpen $false $true $true $true $true $false
+          Assert-FileOpen $false $true $true $true $true $true 1
+          Assert-FileOpen $false $true $true $true $true $true 0 1
+          Assert-FileOpen $false $true $true $true $true $true 0 0 2
+          Assert-FileOpen $false $true $true $true $true $true 0 0 1 2
+          Assert-FileOpen $false $true $true $true $true $true 0 0 1 1 $false
+          foreach ($field in @('OwnedProcess','Visible','Enabled')) { $window.$field=$false; Assert-FileOpen $false; $window.$field=$true }
+          $window.IsDialog=$true; Assert-FileOpen $false; $window.IsDialog=$false
+          $item.CommandId=37448; Assert-FileOpen $false; $item.CommandId=37447
+          $item.PositionPath='1/3'; Assert-FileOpen $false; $item.PositionPath='1/2'
+          $item.Enabled=$false; Assert-FileOpen $false; $item.Enabled=$true
+          $item.Separator=$true; Assert-FileOpen $false; $item.Separator=$false
+          $menu.Truncated=$true; Assert-FileOpen $false; $menu.Truncated=$false
+          $menu.ReadErrors=1; Assert-FileOpen $false; $menu.ReadErrors=0
+          $menu.Status='unknown'; Assert-FileOpen $false; $menu.Status='materialized_standard_hmenu_observed'
+          $menu.Items=@($ancestor,$item,$item); Assert-FileOpen $false; $menu.Items=@($ancestor,$item)
+          $ancestor.Enabled=$false; Assert-FileOpen $false; $ancestor.Enabled=$true
+          $ancestor.Separator=$true; Assert-FileOpen $false; $ancestor.Separator=$false
+          $ancestor.HasSubmenu=$false; Assert-FileOpen $false; $ancestor.HasSubmenu=$true
+          $ancestor.ContainingMenuStyleRead=$false; Assert-FileOpen $false; $ancestor.ContainingMenuStyleRead=$true
+          $menu.Items=@($item); Assert-FileOpen $false; $menu.Items=@($ancestor,$item)
+          $item.HasSubmenu=$true; Assert-FileOpen $false; $item.HasSubmenu=$false
+          $menu.RootStyleRead=$false; Assert-FileOpen $false; $menu.RootStyleRead=$true
+          $menu.RootStyle=0x08000000; Assert-FileOpen $false; $menu.RootStyle=0
+          $item.ContainingMenuStyleRead=$false; Assert-FileOpen $false; $item.ContainingMenuStyleRead=$true
+          $item.ContainingMenuStyle=0x08000000; Assert-FileOpen $false; $item.ContainingMenuStyle=0
+          $window.IsDialog=$true
+          $observation=[GmsPassiveWindows]::ObserveOpenDialog($window,$snapshot,'#32770','Open')
+          if ($observation.Status -ne 'fixed_open_title_standard_dialog_observed_effect_unverified' -or $observation.FileSelectionOrConfirmationPerformed) { throw 'Fixed Open dialog observation regression.' }
+          $observation=[GmsPassiveWindows]::ObserveOpenDialog($window,$snapshot,'PRIVATE_UNKNOWN_CLASS','PRIVATE_UNKNOWN_DIALOG')
+          if ($observation.Status -ne 'post_command_dialog_context_unverified') { throw 'Unknown dialog was promoted to Open.' }
+          $json=$observation | ConvertTo-Json -Depth 8
+          if ($json.Contains('PRIVATE_') -or $json.Contains('Handle') -or $json.Contains('ProcessId')) { throw 'Private dialog metadata leaked into public observation.' }
+          # Synthetic documented filename/IDOK layouts; never call text/click APIs.
+          $filename=[GmsPassiveWindows+ControlRecord]::new(); $filename.Handle=1100; $filename.ParentHandle=1000; $filename.TopLevelHandle=1000
+          $filename.ControlId=0x0480; $filename.ClassName='Edit'; $filename.IsWritableNativeEdit=$true
+          $openButton=[GmsPassiveWindows+ControlRecord]::new(); $openButton.Handle=1200; $openButton.ParentHandle=1000; $openButton.TopLevelHandle=1000
+          $openButton.ControlId=1; $openButton.ClassName='Button'; $openButton.IsStandardButton=$true; $openButton.IsPushButton=$true; $openButton.Label='&Open'
+          foreach ($control in @($filename,$openButton)) { $control.Visible=$true; $control.Enabled=$true; $control.OwnedProcess=$true; $control.SameProcessAsWindow=$true; $control.ParentRelationVerified=$true }
+          $snapshot=[GmsPassiveWindows+ControlSnapshot]::new(); $snapshot.Controls=@($filename,$openButton)
+          function Assert-Tutorial([bool]$expected,[bool]$opt=$true,[bool]$normal=$true,[bool]$ce=$true,[bool]$opened=$true,[bool]$image=$true,[bool]$source=$true,[int]$textUsed=0,[int]$confirmUsed=0,[int]$dialogs=1,[bool]$complete=$true) {
+            $decision=[GmsPassiveWindows]::AssessTutorialOpen($window,$snapshot,1000,'#32770','Open',$opt,$normal,$ce,$opened,$image,$source,$textUsed,$confirmUsed,$dialogs,$complete)
+            if ($decision.PolicyPermitsTextAttempt -ne $expected -or $decision.TextAttempted -or $decision.ConfirmAttempted) { throw 'Pinned tutorial preflight regression.' }
+            $json=$decision | ConvertTo-Json -Depth 8
+            if ($json.Contains('Handle') -or $json.Contains('ControlId') -or $json.Contains('ProcessId') -or $json.Contains('PRIVATE_')) { throw 'Native tutorial metadata leaked publicly.' }
+          }
+          Assert-Tutorial $true
+          $longTitle='Open'+(' '*2048)
+          if ([GmsPassiveWindows]::AssessTutorialOpen($window,$snapshot,1000,'#32770',$longTitle,$true,$true,$true,$true,$true,$true,0,0,1,$true).PolicyPermitsTextAttempt) { throw 'Oversized title was accepted as complete Open context.' }
+          Assert-Tutorial $false $false
+          Assert-Tutorial $false $true $false
+          Assert-Tutorial $false $true $true $false
+          Assert-Tutorial $false $true $true $true $false
+          Assert-Tutorial $false $true $true $true $true $false
+          Assert-Tutorial $false $true $true $true $true $true $false
+          Assert-Tutorial $false $true $true $true $true $true $true 1
+          Assert-Tutorial $false $true $true $true $true $true $true 0 1
+          Assert-Tutorial $false $true $true $true $true $true $true 0 0 2
+          Assert-Tutorial $false $true $true $true $true $true $true 0 0 1 $false
+          foreach ($field in @('Visible','Enabled','OwnedProcess','SameProcessAsWindow','ParentRelationVerified','IsWritableNativeEdit')) { $filename.$field=$false; Assert-Tutorial $false; $filename.$field=$true }
+          foreach ($field in @('Visible','Enabled','OwnedProcess','SameProcessAsWindow','ParentRelationVerified','IsStandardButton','IsPushButton')) { $openButton.$field=$false; Assert-Tutorial $false; $openButton.$field=$true }
+          $openButton.Label='Open another'; Assert-Tutorial $false; $openButton.Label='&Open'
+          $openButton.ControlId=2; Assert-Tutorial $false; $openButton.ControlId=1
+          $openButton.ButtonType=2; Assert-Tutorial $false; $openButton.ButtonType=0
+          $openButton.ClassName='PRIVATE_UNKNOWN_BUTTON'; Assert-Tutorial $false; $openButton.ClassName='Button'
+          $filename.ControlId=0x0481; Assert-Tutorial $false; $filename.ControlId=0x0480
+          $filename.ParentHandle=999; Assert-Tutorial $false; $filename.ParentHandle=1000
+          $snapshot.Truncated=$true; Assert-Tutorial $false; $snapshot.Truncated=$false
+          $snapshot.ReadErrors=1; Assert-Tutorial $false; $snapshot.ReadErrors=0
+          $snapshot.Controls=@($filename,$openButton,$openButton); Assert-Tutorial $false; $snapshot.Controls=@($filename,$openButton)
+          $combo=[GmsPassiveWindows+ControlRecord]::new(); $combo.Handle=1300; $combo.ParentHandle=1000; $combo.TopLevelHandle=1000; $combo.ControlId=0x047c; $combo.ClassName='ComboBox'
+          $combo.Visible=$true; $combo.Enabled=$true; $combo.OwnedProcess=$true; $combo.SameProcessAsWindow=$true; $combo.ParentRelationVerified=$true
+          $filename.ParentHandle=1300; $filename.ControlId=1001; $snapshot.Controls=@($filename,$openButton,$combo); Assert-Tutorial $true
+          $combo.ClassName='PRIVATE_UNKNOWN'; Assert-Tutorial $false; $combo.ClassName='ComboBox'
+          $combo.ControlId=0x047d; Assert-Tutorial $false; $combo.ControlId=0x047c
+          $otherRole=[GmsPassiveWindows+ControlRecord]::new(); $otherRole.Handle=1500; $otherRole.ParentHandle=1000; $otherRole.TopLevelHandle=1000; $otherRole.ControlId=1
+          $otherRole.ClassName='Button'; $otherRole.Label='Cancel'; $otherRole.Visible=$true; $otherRole.Enabled=$true; $otherRole.OwnedProcess=$true; $otherRole.SameProcessAsWindow=$true; $otherRole.ParentRelationVerified=$true; $otherRole.IsStandardButton=$true; $otherRole.IsPushButton=$true
+          $snapshot.Controls=@($filename,$openButton,$combo,$otherRole); Assert-Tutorial $false; $snapshot.Controls=@($filename,$openButton,$combo)
+          $expected='C:\private\mf6_grid\sample\mf6-solution.gpr'
+          if (-not [GmsPassiveWindows]::FilenameTextMatches($expected,$expected,$true,[uint64]$expected.Length)) { throw 'Exact path readback regression.' }
+          foreach ($observed in @('mf6-solution.gpr',($expected+' '),($expected.ToLowerInvariant()),'PRIVATE_OTHER_PATH')) {
+            if ([GmsPassiveWindows]::FilenameTextMatches($observed,$expected,$true,[uint64]$observed.Length)) { throw 'Inexact filename accepted.' }
+          }
+          if ([GmsPassiveWindows]::FilenameTextMatches($expected,$expected,$false,[uint64]$expected.Length) -or [GmsPassiveWindows]::FilenameTextMatches($expected,$expected,$true,0)) { throw 'Failed native readback accepted.' }
+          $decision=[GmsPassiveWindows+TutorialOpenDecision]::new(); $decision.TextAttempted=$true; $decision.TextAttemptBudgetUsed=1; $decision.TextMessageCompleted=$true; $decision.TextNativeAccepted=$true
+          if (-not [GmsPassiveWindows]::CanConfirmTutorial($decision,$true,$true,$true,0)) { throw 'Single confirm gate regression.' }
+          foreach ($field in @('TextAttempted','TextMessageCompleted','TextNativeAccepted')) { $decision.$field=$false; if ([GmsPassiveWindows]::CanConfirmTutorial($decision,$true,$true,$true,0)) { throw 'Incomplete write enabled confirmation.' }; $decision.$field=$true }
+          if ([GmsPassiveWindows]::CanConfirmTutorial($decision,$false,$true,$true,0) -or [GmsPassiveWindows]::CanConfirmTutorial($decision,$true,$false,$true,0) -or [GmsPassiveWindows]::CanConfirmTutorial($decision,$true,$true,$false,0) -or [GmsPassiveWindows]::CanConfirmTutorial($decision,$true,$true,$true,1)) { throw 'Unverified source/control/text or exhausted budget enabled confirmation.' }
+          $decision.TextAttemptBudgetUsed=0
+          if ([GmsPassiveWindows]::CanConfirmTutorial($decision,$true,$true,$true,0)) { throw 'Missing text attempt budget enabled confirmation.' }
+          $decision.TextAttemptBudgetUsed=1
+          $decision.ConfirmAttempted=$true
+          if ([GmsPassiveWindows]::CanConfirmTutorial($decision,$true,$true,$true,0)) { throw 'Confirmation retry became eligible.' }
+          Write-Output 'All pure native policy cases passed; no target or native action method was invoked.'
+      - name: Download and verify pinned official GMS installer
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $path = Join-Path $env:RUNNER_TEMP 'gms-installer.exe'
+          Invoke-WebRequest -Uri 'https://s3.amazonaws.com/gms.aquaveo.com/gms10.9.7full64bit.exe' -OutFile $path -TimeoutSec 600
+          if ((Get-Item -LiteralPath $path).Length -ne 1992547136) { throw 'Unexpected installer size.' }
+          if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -ne '69fef79023d065d4664e74950e10669c784a7e18fabfaa8ada48b2760f624335') { throw 'Installer digest mismatch.' }
+      - name: Normal documented silent installation without activation
+        shell: pwsh
+        run: |
+          # Aquaveo documents /qn for XMS installers. No registration property,
+          # evaluation request, licence-service patch or bypass flag is supplied.
+          $ErrorActionPreference = 'Stop'
+          $installer = Start-Process -FilePath (Join-Path $env:RUNNER_TEMP 'gms-installer.exe') -ArgumentList '/qn' -PassThru
+          if (-not $installer.WaitForExit(600000)) {
+            & taskkill.exe /PID $installer.Id /T /F 2>&1 | Out-Null
+            throw 'Normal installation exceeded ten minutes.'
+          }
+          if ($installer.ExitCode -notin @(0,3010)) { throw ('Installer exit status ' + $installer.ExitCode) }
+      - name: Discover the exact unchanged installed runtime across normal install locations
+        timeout-minutes: 3
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $privateResult = Join-Path $env:RUNNER_TEMP 'gms-discovery-private/result.json'
+          & ./tools/find_gms_runtime.ps1 -PrivateResultPath $privateResult -PublicDiagnosticPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/discovery-summary.json') -EnumerateEquivalentCanonicalTargets
+          if ($LASTEXITCODE -ne 0) { throw 'Verified installed-runtime discovery failed; sanitized counts were recorded.' }
+          $result = Get-Content -LiteralPath $privateResult -Raw | ConvertFrom-Json
+          $targets=@($result.runtime_executable_paths)
+          if ($targets.Count -lt 1 -or $targets.Count -gt 4) { throw 'Discovery must provide one to four exact-identity normal launch targets.' }
+          'GMS_RUNTIME_PRIVATE_RESULT=' + $privateResult | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Optionally fetch official tutorial privately
+        if: >-
+          (inputs.document != '' && inputs.document != 'none') ||
+          contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]') ||
+          inputs.open_verified_mf6_project == true ||
+          contains(github.event.head_commit.message, '[gms-open-mf6-project-probe]')
+        shell: pwsh
+        env:
+          SELECTED_DOCUMENT: ${{ (inputs.open_verified_mf6_project == true || contains(github.event.head_commit.message, '[gms-open-mf6-project-probe]') || contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]')) && 'mf6_grid' || inputs.document }}
+          OPEN_VERIFIED_MF6: ${{ inputs.open_verified_mf6_project == true || contains(github.event.head_commit.message, '[gms-open-mf6-project-probe]') }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $name = if ($env:SELECTED_DOCUMENT -eq 'classic_grid') { 'modfgrid.zip' } else { 'mf6_grid.zip' }
+          $archive = Join-Path $env:RUNNER_TEMP 'official-tutorial.zip'
+          Invoke-WebRequest -Uri ('https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/' + $name) -OutFile $archive -TimeoutSec 120
+          if ((Get-Item -LiteralPath $archive).Length -gt 104857600) { throw 'Tutorial exceeds the bounded 100MiB archive limit.' }
+          if ($env:SELECTED_DOCUMENT -eq 'mf6_grid') {
+            if ((Get-Item -LiteralPath $archive).Length -ne 509175 -or (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'ad5d7684e9c6270a9a2a129430b04cc0c6bd39ba03a73f1c21825e3fa3e87dd4') { throw 'Pinned official MF6 tutorial archive differs; opening was not attempted.' }
+          }
+          $tutorial = Join-Path $env:RUNNER_TEMP 'private-official-tutorial'
+          Expand-Archive -LiteralPath $archive -DestinationPath $tutorial
+          $projects = if ($env:SELECTED_DOCUMENT -eq 'mf6_grid') { @(Get-Item -LiteralPath (Join-Path $tutorial 'mf6_grid/sample/mf6-solution.gpr')) } else { @(Get-ChildItem -LiteralPath $tutorial -Recurse -File -Filter '*.gpr' | Sort-Object FullName) }
+          if ($projects.Count -eq 0) { throw 'No native GMS project found; project opening was not attempted.' }
+          if ($env:SELECTED_DOCUMENT -eq 'mf6_grid' -and (Get-FileHash -LiteralPath $projects[0].FullName -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467') { throw 'Pinned MF6 tutorial GPR differs.' }
+          if ($env:OPEN_VERIFIED_MF6 -eq 'true') {
+            if ($env:SELECTED_DOCUMENT -ne 'mf6_grid' -or $projects[0].Length -ne 3071450) { throw 'Only the exact pinned MF6 GPR is accepted for native control selection.' }
+            'GMS_VERIFIED_TUTORIAL=' + $projects[0].FullName | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          } else { 'GMS_RUNTIME_PROJECT=' + $projects[0].FullName | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append }
+      - name: Observe each target with an optional single free Community choice
+        timeout-minutes: 6
+        shell: pwsh
+        env:
+          SELECT_FREE_COMMUNITY: ${{ inputs.select_free_community == true || inputs.observe_file_open_dialog == true || inputs.open_verified_mf6_project == true || contains(github.event.head_commit.message, '[gms-open-mf6-project-probe]') || contains(github.event.head_commit.message, '[gms-free-community-choice-probe]') || contains(github.event.head_commit.message, '[gms-open-dialog-probe]') }}
+          OBSERVE_FILE_OPEN_DIALOG: ${{ inputs.observe_file_open_dialog == true || inputs.open_verified_mf6_project == true || contains(github.event.head_commit.message, '[gms-open-mf6-project-probe]') || contains(github.event.head_commit.message, '[gms-open-dialog-probe]') }}
+        run: |
+          $ErrorActionPreference='Stop'
+          $result=Get-Content -LiteralPath $env:GMS_RUNTIME_PRIVATE_RESULT -Raw | ConvertFrom-Json
+          $targets=@($result.runtime_executable_paths)
+          if ($targets.Count -lt 1 -or $targets.Count -gt 4) { throw 'Passive target count is outside the reviewed bound.' }
+          $reports=@()
+          $index=0
+          foreach ($target in $targets) {
+            $index++
+            $receiptName=('runtime-' + $index.ToString('D2') + '.json')
+            $receiptPath=Join-Path $env:RUNNER_TEMP ('gms-runtime-public/' + $receiptName)
+            $arguments=@{
+              ExecutablePath=$target
+              PrivateOutputDirectory=(Join-Path $env:RUNNER_TEMP ('gms-runtime-private/probe-' + $index))
+              PublicReceiptPath=$receiptPath
+              ObservationSeconds=30
+              AllowStart=$true
+            }
+            if ($env:GMS_RUNTIME_PROJECT) { $arguments.ProjectPath=$env:GMS_RUNTIME_PROJECT }
+            if ($env:GMS_VERIFIED_TUTORIAL) { $arguments.VerifiedTutorialPath=$env:GMS_VERIFIED_TUTORIAL }
+            if ($env:SELECT_FREE_COMMUNITY -eq 'true') { $arguments.SelectFreeCommunityEdition=$true }
+            if ($env:OBSERVE_FILE_OPEN_DIALOG -eq 'true') { $arguments.ObserveFileOpenDialog=$true }
+            $code=2
+            try { & ./tools/probe_gms_community.ps1 @arguments; $code=$LASTEXITCODE }
+            catch { $code=2 }
+            $observation=if (Test-Path -LiteralPath $receiptPath) { Get-Content -LiteralPath $receiptPath -Raw | ConvertFrom-Json } else { $null }
+            $reports += @(@{index=$index;receipt=$receiptName;exit_code=$code;status=$observation.status;target_started=$observation.target_started;visible_window_observed=$observation.visible_window_observed;target_ui_actions=$observation.target_ui_actions;licence_ui_actions=$observation.licence_ui_actions;free_community_selection_attempted=$observation.free_community_selection_attempted;file_open_ui_actions=$observation.file_open_ui_actions;file_open_command_attempted=$observation.file_open_command_attempted;post_file_open_dialog_observed=$observation.post_file_open_dialog_observed;filename_text_ui_actions=$observation.filename_text_ui_actions;file_confirm_ui_actions=$observation.file_confirm_ui_actions;project_basename_title_observed=$observation.project_basename_title_observed;tutorial_gpr_changed=$observation.tutorial_gpr_changed})
+          }
+          $summary=@{
+            probe_schema_version=2
+            status='bounded_equivalent_target_observations_finished'
+            equivalent_normal_launch_target_count=$targets.Count
+            no_canonical_preference_selected=($targets.Count -gt 1)
+            targets_started=@($reports | Where-Object { $_.target_started -eq $true }).Count
+            targets_with_visible_window=@($reports | Where-Object { $_.visible_window_observed -eq $true }).Count
+            numerical_run_observed=$false
+            probe_solver_actions=0
+            numerical_execution_monitored=$false
+            filename_text_ui_actions=(@($reports | ForEach-Object { [int]$_.filename_text_ui_actions }) | Measure-Object -Sum).Sum
+            file_confirm_ui_actions=(@($reports | ForEach-Object { [int]$_.file_confirm_ui_actions }) | Measure-Object -Sum).Sum
+            paired_gms_comparisons=0
+            free_community_selection_requested=($env:SELECT_FREE_COMMUNITY -eq 'true')
+            verified_tutorial_requested=[bool]$env:GMS_VERIFIED_TUTORIAL
+            file_open_dialog_probe_requested=($env:OBSERVE_FILE_OPEN_DIALOG -eq 'true')
+            file_open_ui_actions=(@($reports | ForEach-Object { [int]$_.file_open_ui_actions }) | Measure-Object -Sum).Sum
+            target_ui_actions=(@($reports | ForEach-Object { [int]$_.target_ui_actions }) | Measure-Object -Sum).Sum
+            licence_ui_actions=(@($reports | ForEach-Object { [int]$_.licence_ui_actions }) | Measure-Object -Sum).Sum
+            activation_requests_initiated_by_probe=0
+            observations=$reports
+            qualification='Each normal registered target was observed independently after the exact identity gate. Optional single free Community choice, verified File/Open command, pinned filename text and verified Open confirmation per target, each with its own eligibility gate and actual cumulative action counts. No canonical preference or activation. No solver action is issued; numerical execution is not monitored.'
+          }
+          $summary | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json') -Encoding utf8
+      - name: Record an unavailable runtime result if installation or observation stopped early
+        if: always()
+        shell: pwsh
+        run: |
+          $path = Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json'
+          if (-not (Test-Path -LiteralPath $path)) {
+            New-Item -ItemType Directory -Force -Path (Split-Path -Parent $path) | Out-Null
+            @{ probe_schema_version=1; status='workflow_stopped_before_runtime_receipt'; target_started=$null; numerical_run_observed=$false; probe_solver_actions=0; numerical_execution_monitored=$false; paired_gms_comparisons=0; qualification='No original runtime or numerical result may be inferred; inspect the failed workflow step.' } | ConvertTo-Json | Set-Content -LiteralPath $path -Encoding utf8
+          }
+      - name: Preserve sanitized runtime metadata only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gms-community-runtime-summary
+          path: |
+            ${{ runner.temp }}/gms-runtime-public/public-summary.json
+            ${{ runner.temp }}/gms-runtime-public/discovery-summary.json
+            ${{ runner.temp }}/gms-runtime-public/runtime-*.json
+          if-no-files-found: warn
+          retention-days: 30

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-19",
+  "test_result": {
+    "command": "MF6_EXE=/absolute/path/to/mf6 python -m unittest discover -s tests -v",
+    "tests_run": 57,
+    "skipped": 0,
+    "result": "passed",
+    "duration_seconds": 12.689
+  },
+  "environment": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "flopy": "3.11.0",
+    "basinlens_ccs": "0.2.0",
+    "streamlit": "1.66.0",
+    "plotly": "7.1.0",
+    "pandas": "2.2.3"
+  },
+  "engine_version": "mf6: 6.7.0 02/05/2026",
+  "solver_sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+  "adapter_source_sha256": {
+    "__init__.py": "ba7e3c820e54da0403e5b0c923b410a9c75c2fe9cc78aa0c9142450e2c5eec35",
+    "__main__.py": "0aab3fa349e26f650653bbc8c5ca4c49acff412fba8fc258e9ea8c79ed106663",
+    "adapter.py": "f1a714b03a6144ad178cd0cb4bb31e441084f162530b8312bd5203e749a2b81f",
+    "schema.py": "912341aa0f6f10c84120013e80242adfa67a3ceff66a9b1289f79aefdaba6205"
+  },
+  "synthetic_demo": {
+    "case_id": "synthetic-confined-3layer",
+    "cell_count": 2583,
+    "time_steps": 13,
+    "final_time_days": 31.0,
+    "max_abs_budget_residual_m3_per_day": 7.596862587888609e-07,
+    "max_abs_percent_discrepancy": 2.429975438121622e-07,
+    "budget_gate_passed": true
+  },
+  "additional_checks": {
+    "capacity_cli_2000_samples_seed42": "passed",
+    "capacity_bundle_verify": "passed",
+    "groundwater_cli_demo": "passed",
+    "groundwater_run_verify": "passed",
+    "groundwater_export_verify": "passed",
+    "editable_install": "passed"
+  },
+  "validation_scope": "Synthetic confined single-phase groundwater only. No GMS parity, CO2 multiphase, field data, Windows execution or industry validation."
+}
