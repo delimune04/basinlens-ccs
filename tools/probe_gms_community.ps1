@@ -8,8 +8,9 @@ descendants are inspected. Screenshots, titles and UIA text stay private. The
 public receipt contains metadata/counts/hashes only. Default behavior is passive;
 -SelectFreeCommunityEdition permits at most one verified Community Edition button
 click during normal startup. -ObserveFileOpenDialog permits one verified menu
-command after that completed choice; it never selects or confirms a file. No
-activation, trial or solver action is performed. A visible window does not
+command after that completed choice. A separate VerifiedTutorialPath permits one
+verified pinned filename write and confirmation; ordinary document paths cannot
+be combined with it. No activation, trial, save or solver action is issued. A visible window does not
 prove Community entitlement, successful model import, or numerical execution.
 #>
 [CmdletBinding()]
@@ -20,6 +21,7 @@ param(
     [string]$ExpectedTargetSha256 = 'd69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2',
     [long]$ExpectedTargetSize = 145479264,
     [string]$ProjectPath,
+    [string]$VerifiedTutorialPath,
     [ValidateRange(10,120)][int]$ObservationSeconds = 30,
     [switch]$AllowStart,
     [switch]$SelectFreeCommunityEdition,
@@ -31,6 +33,13 @@ if (-not $AllowStart) { throw 'Normal target execution requires the explicit -Al
 if ($SelectFreeCommunityEdition -and $ProjectPath) { throw 'The optional free Community choice is allowed only on normal startup without a project argument.' }
 if ($ObserveFileOpenDialog -and (-not $SelectFreeCommunityEdition -or $ProjectPath)) { throw 'File/Open dialog observation requires the explicit normal-startup free Community path and no project argument.' }
 if ($SelectFreeCommunityEdition -and ($ExpectedTargetSha256 -ne 'd69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2' -or $ExpectedTargetSize -ne 145479264)) { throw 'The optional free Community choice requires the exact originally observed GMS 10.9.7 image identity.' }
+if ($VerifiedTutorialPath -and (-not $ObserveFileOpenDialog -or -not $SelectFreeCommunityEdition -or $ProjectPath)) { throw 'A verified tutorial requires the explicit normal free-choice/File-Open path and no ProjectPath.' }
+$tutorialPath=$null
+if ($VerifiedTutorialPath) {
+    $tutorialPath=(Resolve-Path -LiteralPath $VerifiedTutorialPath).Path
+    if ([IO.Path]::GetFileName($tutorialPath) -cne 'mf6-solution.gpr' -or $tutorialPath.Length -gt 400 -or $tutorialPath -notmatch '^[A-Za-z]:\\' -or $tutorialPath -match '[\x00\r\n"*?]') { throw 'Only the pinned local MF6 tutorial GPR path is accepted.' }
+    if ((Get-Item -LiteralPath $tutorialPath).Length -ne 3071450 -or (Get-FileHash -LiteralPath $tutorialPath -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467') { throw 'Pinned tutorial GPR identity differs; normal startup was not attempted.' }
+}
 $exe = (Resolve-Path -LiteralPath $ExecutablePath).Path
 if (-not (Test-Path -LiteralPath $exe -PathType Leaf)) { throw 'Select an installed regular GMS executable.' }
 $actualHash = (Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -55,6 +64,14 @@ $receipt = [ordered]@{
     target = @{ name = [IO.Path]::GetFileName($exe); sha256 = (Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant(); size_bytes = (Get-Item -LiteralPath $exe).Length; file_version = [Diagnostics.FileVersionInfo]::GetVersionInfo($exe).FileVersion }
     launch_method = 'normal_process_start'; target_started = $false; visible_window_observed = $false
     community_mode_confirmed = $false; numerical_run_observed = $false; paired_gms_comparisons = 0
+    probe_solver_actions = 0; numerical_execution_monitored = $false
+    verified_tutorial_requested = [bool]$VerifiedTutorialPath
+    tutorial_open_observations = @(); filename_text_ui_actions = 0; file_confirm_ui_actions = 0
+    tutorial_confirmation_attempted = $false; post_tutorial_window_observed = $false
+    project_basename_title_observed = $false; project_load_verified = $false
+    tutorial_gpr_sha256_before = if ($tutorialPath) { 'afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467' } else { $null }
+    tutorial_gpr_sha256_after = $null; tutorial_gpr_size_after = $null; tutorial_gpr_exists_after = $null; tutorial_gpr_changed = $null
+    tutorial_gpr_observation_status = if ($tutorialPath) { 'not_observed' } else { 'not_requested' }
     startup_classification = 'unknown'; dialog_categories_observed = @(); blocking_dialog_observed = $false
     reported_mode_category = 'unknown'; possible_community_option_text_observed = $false
     main_window_enabled_observed = $null; menu_observations = @()
@@ -73,7 +90,7 @@ $receipt = [ordered]@{
     target_network_activity_monitored = $false
     observation_seconds = $ObservationSeconds; screenshot_count = 0; private_observation_sha256 = $null
     probe_phase = 'initializing'
-    qualification = 'Bounded startup/document observation. Optional explicit single free Community choice and File/Open dialog command only; no activation or numerical/full-product equivalence claim. UI text and screenshots stay private.'
+    qualification = 'Bounded startup/document observation. Optional explicit free Community choice, File/Open command and pinned tutorial filename/confirmation only; no activation or numerical/full-product equivalence claim. UI text and screenshots stay private.'
 }
 $owned = $null
 $ownedIds = [Collections.Generic.HashSet[uint]]::new()
@@ -112,6 +129,7 @@ public static class GmsPassiveWindows {
   [DllImport("user32.dll")] public static extern bool GetWindowRect(IntPtr h, out Rect r);
   [DllImport("user32.dll")] public static extern bool EnumChildWindows(IntPtr h, EnumProc callback, IntPtr l);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern IntPtr SendMessageTimeout(IntPtr h,uint m,UIntPtr w,StringBuilder text,uint flags,uint milliseconds,out UIntPtr result);
+  [DllImport("user32.dll", EntryPoint="SendMessageTimeoutW", CharSet=CharSet.Unicode, SetLastError=true)] private static extern IntPtr SendNativeTextTimeout(IntPtr h,uint m,UIntPtr w,[MarshalAs(UnmanagedType.LPWStr)] string text,uint flags,uint milliseconds,out UIntPtr result);
   [DllImport("user32.dll", EntryPoint="SendMessageTimeoutW", SetLastError=true)] private static extern IntPtr SendButtonMessageTimeout(IntPtr h,uint m,UIntPtr w,IntPtr l,uint flags,uint milliseconds,out UIntPtr result);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetWindowText(IntPtr h, StringBuilder text, int count);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetClassName(IntPtr h, StringBuilder text, int count);
@@ -160,7 +178,7 @@ public static class GmsPassiveWindows {
     public uint ProcessId;
     public int ControlId,ButtonType;
     public string ClassName="",Label="";
-    public bool Visible,Enabled,OwnedProcess,SameProcessAsWindow,ParentRelationVerified,IsStandardButton,IsPushButton;
+    public bool Visible,Enabled,OwnedProcess,SameProcessAsWindow,ParentRelationVerified,IsStandardButton,IsPushButton,IsWritableNativeEdit;
   }
   public class ControlSnapshot {
     public ControlRecord[] Controls=new ControlRecord[0];
@@ -471,6 +489,160 @@ public static class GmsPassiveWindows {
       result.Status="fixed_open_title_standard_dialog_observed_effect_unverified";
     return result;
   }
+  public class TutorialOpenDecision {
+    public string Policy="pinned_mf6_native_filename_only_v1",Status="not_checked",FilenamePattern="unsupported";
+    public bool ExplicitOptIn,NormalStartup,CommunityMessageCompleted,FileOpenAttempted,ImageVerified,SourceVerified,CompleteLiveSnapshots;
+    public bool OwnedVisibleEnabledOpenDialog,RelationsVerified,ConsistentLiveControls,ExactFullPathReadback;
+    public bool PolicyPermitsTextAttempt,TextAttempted,TextMessageCompleted,TextNativeAccepted,ConfirmAttempted,ConfirmMessageCompleted,PreconfirmationIdentityVerified,PreconfirmationControlsVerified;
+    public int VisibleDialogCount,FilenameCandidateCount,ConfirmationCandidateCount,VisibleNativeEditCount,DirectFilenameRoleCount,ConfirmationRoleCount,FilenameComboRoleCount,TextAttemptBudgetUsed,ConfirmAttemptBudgetUsed;
+    public string Qualification="One pinned filename write and one exact Open-button attempt only; source/model units, load completion, entitlement and numerical execution remain unverified.";
+  }
+  private static bool EligibleControl(ControlRecord c) { return c.Visible && c.Enabled && c.OwnedProcess && c.SameProcessAsWindow && c.ParentRelationVerified; }
+  private static bool NativeCombo(ControlRecord c) { return String.Equals(c.ClassName,"ComboBox",StringComparison.OrdinalIgnoreCase) || String.Equals(c.ClassName,"ComboBoxEx32",StringComparison.OrdinalIgnoreCase); }
+  private static bool NativeEdit(ControlRecord c) { return String.Equals(c.ClassName,"Edit",StringComparison.OrdinalIgnoreCase) && c.IsWritableNativeEdit; }
+  private static bool ExactOpenLabel(string label) {
+    if(label==null) return false;
+    var text=new StringBuilder();
+    for(int i=0;i<label.Length;i++) { if(label[i]!='&') text.Append(label[i]); else if(i+1<label.Length && label[i+1]=='&') { text.Append('&'); i++; } }
+    return String.Equals(System.Text.RegularExpressions.Regex.Replace(text.ToString(),@"\s+"," ").Trim(),"Open",StringComparison.OrdinalIgnoreCase);
+  }
+  private static bool EditBelowCombo(ControlRecord edit,ControlRecord combo,Dictionary<long,ControlRecord> controls) {
+    long parent=edit.ParentHandle;
+    for(int depth=0;depth<4;depth++) {
+      if(parent==combo.Handle) return true;
+      ControlRecord intermediate;
+      if(!controls.TryGetValue(parent,out intermediate) || !EligibleControl(intermediate) || !NativeCombo(intermediate)) return false;
+      parent=intermediate.ParentHandle;
+    }
+    return false;
+  }
+  public static TutorialOpenDecision AssessTutorialOpen(WindowContext window,ControlSnapshot snapshot,long dialog,string nativeClass,string title,bool optIn,bool normal,bool ceCompleted,bool openAttempted,bool image,bool source,int textUsed,int confirmUsed,int dialogs,bool complete) {
+    var result=new TutorialOpenDecision { ExplicitOptIn=optIn,NormalStartup=normal,CommunityMessageCompleted=ceCompleted,FileOpenAttempted=openAttempted,
+      ImageVerified=image,SourceVerified=source,TextAttemptBudgetUsed=textUsed,ConfirmAttemptBudgetUsed=confirmUsed,VisibleDialogCount=dialogs,
+      CompleteLiveSnapshots=complete && !snapshot.Truncated && snapshot.ReadErrors==0,
+      OwnedVisibleEnabledOpenDialog=window.OwnedProcess && window.Visible && window.Enabled && window.IsDialog && nativeClass=="#32770" && title!=null && title.Length<2047 && String.Equals(title.Trim(),"Open",StringComparison.OrdinalIgnoreCase) };
+    var map=new Dictionary<long,ControlRecord>(); var combos=new List<ControlRecord>(); var edits=new List<ControlRecord>();
+    bool duplicateHandles=false;
+    foreach(var c in snapshot.Controls) {
+      if(map.ContainsKey(c.Handle)) duplicateHandles=true; else map.Add(c.Handle,c);
+      if(c.Visible && c.OwnedProcess && c.SameProcessAsWindow && c.ParentHandle==dialog) {
+        if(c.ControlId==1) result.ConfirmationRoleCount++;
+        if(c.ControlId==0x0480) result.DirectFilenameRoleCount++;
+        if(c.ControlId==0x047c) result.FilenameComboRoleCount++;
+      }
+      if(EligibleControl(c) && c.TopLevelHandle==dialog) {
+        if(String.Equals(c.ClassName,"Edit",StringComparison.OrdinalIgnoreCase)) result.VisibleNativeEditCount++;
+        if(c.ControlId==0x047c && c.ParentHandle==dialog && NativeCombo(c)) combos.Add(c);
+        if(NativeEdit(c)) edits.Add(c);
+        if(c.ControlId==1 && c.ParentHandle==dialog && String.Equals(c.ClassName,"Button",StringComparison.OrdinalIgnoreCase) && c.IsStandardButton && c.IsPushButton && (c.ButtonType==0 || c.ButtonType==1) && ExactOpenLabel(c.Label)) result.ConfirmationCandidateCount++;
+      }
+    }
+    foreach(var edit in edits) {
+      bool direct=edit.ControlId==0x0480 && edit.ParentHandle==dialog;
+      bool combo=combos.Count==1 && EditBelowCombo(edit,combos[0],map);
+      if((direct && combos.Count==0) || (combo && !direct && edits.Count==1)) { result.FilenameCandidateCount++; result.FilenamePattern=direct ? "documented_direct_filename_edit" : "documented_filename_combo_edit"; }
+    }
+    result.RelationsVerified=!duplicateHandles && dialog!=0 && result.FilenameCandidateCount==1 && result.ConfirmationCandidateCount==1 && result.ConfirmationRoleCount==1 && result.VisibleNativeEditCount==1 && result.FilenameComboRoleCount==combos.Count && combos.Count<=1;
+    if(!optIn) result.Status="default_no_tutorial_action";
+    else if(!normal || !ceCompleted || !openAttempted) result.Status="normal_completed_choice_and_open_path_not_verified";
+    else if(textUsed!=0 || confirmUsed!=0) result.Status="tutorial_action_budget_already_used";
+    else if(!image || !source) result.Status="pinned_source_or_main_image_not_verified";
+    else if(!result.CompleteLiveSnapshots || dialogs!=1 || !result.OwnedVisibleEnabledOpenDialog) result.Status="unique_complete_owned_open_dialog_not_verified";
+    else if(!result.RelationsVerified) result.Status="exact_documented_filename_and_open_button_not_verified";
+    else { result.PolicyPermitsTextAttempt=true; result.Status="one_pinned_filename_text_attempt_permitted"; }
+    return result;
+  }
+  private class TutorialState {
+    public WindowContext Window=new WindowContext(); public ControlSnapshot Snapshot=new ControlSnapshot();
+    public IntPtr Dialog=IntPtr.Zero,Edit=IntPtr.Zero,Button=IntPtr.Zero;
+    public uint ProcessId; public int Dialogs; public bool Complete=true;
+    public string ClassName="",Title="",Relations="";
+  }
+  private static TutorialState ReadTutorialState(HashSet<uint> pids) {
+    var state=new TutorialState(); var windows=ForPids(pids);
+    if(windows.Length>8) { state.Complete=false; return state; }
+    foreach(var window in windows) {
+      uint pid; GetWindowThreadProcessId(window,out pid);
+      var title=new StringBuilder(2048); GetWindowText(window,title,title.Capacity);
+      if(title.Length>=title.Capacity-1) state.Complete=false;
+      var cls=new StringBuilder(256); if(GetClassName(window,cls,cls.Capacity)==0 || cls.Length>=cls.Capacity-1) state.Complete=false;
+      var owner=GetWindow(window,4);
+      bool dialog=cls.ToString()=="#32770" || (owner!=IntPtr.Zero && !IsWindowEnabled(owner));
+      if(!dialog) continue;
+      state.Dialogs++;
+      if(cls.ToString()!="#32770" || !String.Equals(title.ToString().Trim(),"Open",StringComparison.OrdinalIgnoreCase)) continue;
+      state.Dialog=window; state.ProcessId=pid; state.ClassName=cls.ToString(); state.Title=title.ToString();
+      state.Window=new WindowContext { OwnedProcess=pids.Contains(pid) && GetAncestor(window,2)==window,Visible=IsWindowVisible(window),Enabled=IsWindowEnabled(window),IsDialog=true };
+      state.Snapshot=BoundedControls(window,pids);
+      if(state.Snapshot.Truncated || state.Snapshot.ReadErrors>0) state.Complete=false;
+      var check=AssessTutorialOpen(state.Window,state.Snapshot,window.ToInt64(),state.ClassName,state.Title,true,true,true,true,true,true,0,0,1,state.Complete);
+      if(check.RelationsVerified) {
+        var map=new Dictionary<long,ControlRecord>(); ControlRecord combo=null;
+        foreach(var c in state.Snapshot.Controls) { map[c.Handle]=c; if(EligibleControl(c) && c.ControlId==0x047c && c.ParentHandle==window.ToInt64() && NativeCombo(c)) combo=c; }
+        foreach(var c in state.Snapshot.Controls) if(EligibleControl(c) && c.TopLevelHandle==window.ToInt64()) {
+          if(NativeEdit(c) && ((check.FilenamePattern=="documented_direct_filename_edit" && c.ControlId==0x0480 && c.ParentHandle==window.ToInt64()) || (check.FilenamePattern=="documented_filename_combo_edit" && combo!=null && EditBelowCombo(c,combo,map)))) state.Edit=new IntPtr(c.Handle);
+          if(c.ControlId==1 && c.ParentHandle==window.ToInt64() && String.Equals(c.ClassName,"Button",StringComparison.OrdinalIgnoreCase) && c.IsStandardButton && c.IsPushButton && (c.ButtonType==0 || c.ButtonType==1) && ExactOpenLabel(c.Label)) state.Button=new IntPtr(c.Handle);
+        }
+      }
+      var relations=new StringBuilder();
+      foreach(var c in state.Snapshot.Controls) relations.Append(c.Handle).Append('|').Append(c.ParentHandle).Append('|').Append(c.TopLevelHandle).Append('|').Append(c.ProcessId).Append('|').Append(c.ControlId).Append('|').Append(c.ClassName).Append('|').Append(c.ButtonType).Append('|').Append(c.Visible).Append('|').Append(c.Enabled).Append('|').Append(c.IsWritableNativeEdit).Append(';');
+      state.Relations=relations.ToString();
+    }
+    return state;
+  }
+  private static bool SameTutorialControls(TutorialState first,TutorialState second) { return first.Dialog==second.Dialog && first.Edit==second.Edit && first.Button==second.Button && first.ProcessId==second.ProcessId && first.Relations==second.Relations; }
+  private static bool ExactPinnedTutorial(string path) {
+    if(path.Length>400 || !System.Text.RegularExpressions.Regex.IsMatch(path,@"^[A-Za-z]:\\") || path.IndexOfAny(new char[]{'\0','\r','\n','"','*','?'})>=0 || System.IO.Path.GetFileName(path)!="mf6-solution.gpr") return false;
+    var file=new System.IO.FileInfo(path); if((file.Attributes & System.IO.FileAttributes.ReparsePoint)!=0) return false;
+    for(var directory=file.Directory;directory!=null;directory=directory.Parent) if((directory.Attributes & System.IO.FileAttributes.ReparsePoint)!=0) return false;
+    return VerifyPinnedImage(path,"afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467",3071450);
+  }
+  public static bool FilenameTextMatches(string observed,string expected,bool completed,ulong copied) { return completed && observed!=null && observed.Length>0 && copied==(ulong)observed.Length && copied<511 && String.Equals(observed,expected,StringComparison.Ordinal); }
+  public static bool CanConfirmTutorial(TutorialOpenDecision decision,bool identity,bool controls,bool exactText,int used) { return decision.TextAttempted && decision.TextAttemptBudgetUsed==1 && decision.TextMessageCompleted && decision.TextNativeAccepted && !decision.ConfirmAttempted && used==0 && identity && controls && exactText; }
+  private static bool ExactFilenameReadback(IntPtr edit,string expected) {
+    var text=new StringBuilder(512); UIntPtr copied;
+    bool completed=SendMessageTimeout(edit,13,new UIntPtr(512),text,3,1000,out copied)!=IntPtr.Zero;
+    return FilenameTextMatches(text.ToString(),expected,completed,copied.ToUInt64());
+  }
+  public static TutorialOpenDecision OpenPinnedTutorialOnce(HashSet<uint> pids,string imagePath,string expectedHash,long expectedSize,string tutorial,bool optIn,bool normal,bool ceCompleted,bool openAttempted,int textUsed,int confirmUsed) {
+    var result=new TutorialOpenDecision { ExplicitOptIn=optIn,TextAttemptBudgetUsed=textUsed,ConfirmAttemptBudgetUsed=confirmUsed };
+    if(!optIn || !normal || !ceCompleted || !openAttempted || textUsed!=0 || confirmUsed!=0) return AssessTutorialOpen(new WindowContext(),new ControlSnapshot(),0,"","",optIn,normal,ceCompleted,openAttempted,false,false,textUsed,confirmUsed,0,false);
+    try {
+      string source=System.IO.Path.GetFullPath(tutorial);
+      bool image=VerifyPinnedImage(imagePath,expectedHash,expectedSize),sourceValid=ExactPinnedTutorial(source);
+      var first=ReadTutorialState(pids);
+      result=AssessTutorialOpen(first.Window,first.Snapshot,first.Dialog.ToInt64(),first.ClassName,first.Title,optIn,normal,ceCompleted,openAttempted,image,sourceValid,textUsed,confirmUsed,first.Dialogs,first.Complete);
+      if(!result.PolicyPermitsTextAttempt || first.Edit==IntPtr.Zero || first.Button==IntPtr.Zero) return result;
+      string live=Process.GetProcessById((int)first.ProcessId).MainModule.FileName;
+      if(!String.Equals(System.IO.Path.GetFullPath(live),System.IO.Path.GetFullPath(imagePath),StringComparison.OrdinalIgnoreCase) || !VerifyPinnedImage(live,expectedHash,expectedSize) || !ExactPinnedTutorial(source)) { result.PolicyPermitsTextAttempt=false; result.Status="fresh_process_or_source_identity_failed_no_write"; return result; }
+      var fresh=ReadTutorialState(pids);
+      var check=AssessTutorialOpen(fresh.Window,fresh.Snapshot,fresh.Dialog.ToInt64(),fresh.ClassName,fresh.Title,optIn,normal,ceCompleted,openAttempted,true,true,0,0,fresh.Dialogs,fresh.Complete);
+      result.ConsistentLiveControls=SameTutorialControls(first,fresh);
+      if(!check.PolicyPermitsTextAttempt || !result.ConsistentLiveControls) { result.PolicyPermitsTextAttempt=false; result.Status="fresh_filename_control_layout_changed_no_write"; return result; }
+      // Reserve BEFORE the sole WM_SETTEXT. No CDM/WM_USER pointer messages.
+      result.TextAttempted=true; result.TextAttemptBudgetUsed=1; result.PolicyPermitsTextAttempt=false;
+      UIntPtr accepted;
+      result.TextMessageCompleted=SendNativeTextTimeout(fresh.Edit,12,UIntPtr.Zero,source,3,1000,out accepted)!=IntPtr.Zero;
+      result.TextNativeAccepted=result.TextMessageCompleted && accepted.ToUInt64()!=0;
+      if(!result.TextNativeAccepted) { result.Status="filename_write_timeout_or_rejection_no_retry"; return result; }
+      result.ExactFullPathReadback=ExactFilenameReadback(fresh.Edit,source);
+      if(!result.ExactFullPathReadback) { result.Status="exact_full_path_readback_failed_no_confirmation"; return result; }
+      result.ImageVerified=VerifyPinnedImage(live,expectedHash,expectedSize); result.SourceVerified=ExactPinnedTutorial(source);
+      result.PreconfirmationIdentityVerified=result.ImageVerified && result.SourceVerified;
+      if(!result.PreconfirmationIdentityVerified) { result.Status="source_or_image_changed_after_text_no_confirmation"; return result; }
+      var confirm=ReadTutorialState(pids);
+      var confirmCheck=AssessTutorialOpen(confirm.Window,confirm.Snapshot,confirm.Dialog.ToInt64(),confirm.ClassName,confirm.Title,optIn,normal,ceCompleted,openAttempted,true,true,0,0,confirm.Dialogs,confirm.Complete);
+      result.PreconfirmationControlsVerified=confirmCheck.PolicyPermitsTextAttempt && SameTutorialControls(fresh,confirm);
+      if(!result.PreconfirmationControlsVerified) { result.Status="fresh_confirmation_relations_failed_no_confirmation"; return result; }
+      result.ExactFullPathReadback=ExactFilenameReadback(confirm.Edit,source);
+      if(!CanConfirmTutorial(result,result.PreconfirmationIdentityVerified,result.PreconfirmationControlsVerified,result.ExactFullPathReadback,confirmUsed)) { result.Status="fresh_confirmation_relations_or_text_failed_no_confirmation"; return result; }
+      result.ConfirmAttempted=true; result.ConfirmAttemptBudgetUsed=1;
+      UIntPtr ignored;
+      result.ConfirmMessageCompleted=SendButtonMessageTimeout(confirm.Button,0x00F5,UIntPtr.Zero,IntPtr.Zero,3,1000,out ignored)!=IntPtr.Zero;
+      result.Status=result.ConfirmMessageCompleted ? "single_pinned_tutorial_confirmation_sent_load_unverified" : "single_pinned_tutorial_confirmation_timeout_no_retry_load_unverified";
+    } catch { result.PolicyPermitsTextAttempt=false; result.Status=result.ConfirmAttempted ? "tutorial_confirmation_exception_no_retry" : result.TextAttempted ? "tutorial_text_phase_exception_no_retry" : "tutorial_preflight_failed_no_action"; }
+    return result;
+  }
   public static ControlSnapshot BoundedControls(IntPtr window,HashSet<uint> pids) {
     var snapshot=new ControlSnapshot(); var result=new List<ControlRecord>(); var watch=Stopwatch.StartNew();
     uint windowPid; GetWindowThreadProcessId(window,out windowPid);
@@ -487,17 +659,18 @@ public static class GmsPassiveWindows {
       var text=new StringBuilder(512);
       if(visible && sameOwnedProcess) { UIntPtr ignored; if(SendMessageTimeout(h,13,new UIntPtr(512),text,3,100,out ignored)==IntPtr.Zero || text.Length>=511) snapshot.ReadErrors++; }
       bool standard=String.Equals(nativeClass.ToString(),"Button",StringComparison.OrdinalIgnoreCase);
-      int type=-1;
-      if(standard) {
+      int type=-1; bool writableEdit=false;
+      bool edit=String.Equals(nativeClass.ToString(),"Edit",StringComparison.OrdinalIgnoreCase);
+      if(standard || edit) {
         var info=new WindowInfo { Size=(uint)Marshal.SizeOf(typeof(WindowInfo)) };
-        if(GetWindowInfo(h,ref info)) type=(int)(info.Style & 15);
+        if(GetWindowInfo(h,ref info)) { if(standard) type=(int)(info.Style & 15); if(edit) writableEdit=(info.Style & 0x0820)==0; }
         else snapshot.ReadErrors++;
       }
       result.Add(new ControlRecord { Handle=h.ToInt64(),ParentHandle=parent.ToInt64(),TopLevelHandle=root.ToInt64(),
         ProcessId=pid,ControlId=GetDlgCtrlID(h),ButtonType=type,ClassName=nativeClass.ToString(),Label=text.ToString(),
         Visible=visible,Enabled=IsWindowEnabled(h),OwnedProcess=pids.Contains(pid),SameProcessAsWindow=pid==windowPid,
         ParentRelationVerified=parent!=IntPtr.Zero && IsChild(window,h) && root==window && (parent==window || GetAncestor(parent,2)==window),
-        IsStandardButton=standard,IsPushButton=standard && (type==0 || type==1) });
+        IsStandardButton=standard,IsPushButton=standard && (type==0 || type==1),IsWritableNativeEdit=edit && writableEdit });
       return true;
     },IntPtr.Zero);
     if(watch.ElapsedMilliseconds>=1500) snapshot.Truncated=true;
@@ -568,6 +741,7 @@ public static class GmsPassiveWindows {
     $stopObservation = $false
     $selectionChecked = $false
     $fileOpenChecked = $false
+    $tutorialChecked = $false
     $continueAfterSelection = $false
     while ([DateTime]::UtcNow -lt $deadline) {
         $iteration++
@@ -653,6 +827,24 @@ public static class GmsPassiveWindows {
                         $receipt.post_file_open_dialog_observations += @($openObservation)
                         $entry.post_file_open_dialog_observation=$openObservation
                         if ($openObservation.Status -eq 'fixed_open_title_standard_dialog_observed_effect_unverified') { $receipt.fixed_open_dialog_context_observed=$true }
+                        if ($tutorialPath -and -not $tutorialChecked) {
+                            $tutorialChecked=$true
+                            $ceCompleted=@($receipt.free_community_selection_observations | Where-Object { $_.Attempted -and $_.MessageCompleted }).Count -eq 1
+                            $receipt.probe_phase='verified_native_tutorial_filename_and_confirmation_checks'
+                            $tutorialDecision=[GmsPassiveWindows]::OpenPinnedTutorialOnce($pids,$exe,$ExpectedTargetSha256,$ExpectedTargetSize,$tutorialPath,$true,($receipt.launch_method -eq 'normal_process_start'),$ceCompleted,[bool]$receipt.file_open_command_attempted,[int]$receipt.filename_text_ui_actions,[int]$receipt.file_confirm_ui_actions)
+                            $receipt.tutorial_open_observations += @($tutorialDecision)
+                            $entry.tutorial_open_decision=$tutorialDecision
+                            $receipt.filename_text_ui_actions=[int][bool]$tutorialDecision.TextAttempted
+                            $receipt.file_confirm_ui_actions=[int][bool]$tutorialDecision.ConfirmAttempted
+                            $receipt.target_ui_actions=[int]$receipt.target_ui_actions + $receipt.filename_text_ui_actions + $receipt.file_confirm_ui_actions
+                            if ($tutorialDecision.ConfirmAttempted) {
+                                $receipt.tutorial_confirmation_attempted=$true
+                                $deadline=[DateTime]::UtcNow.AddSeconds(30)
+                                $stopObservation=$false
+                                $continueAfterSelection=$true
+                            }
+                            $receipt.probe_phase='passive_post_tutorial_confirmation_observation'
+                        }
                     }
                 } elseif ($SelectFreeCommunityEdition -and -not $selectionChecked) {
                     $selectionChecked=$true
@@ -693,6 +885,10 @@ public static class GmsPassiveWindows {
                     $continueAfterSelection=$true
                 } else { $stopObservation=$true }
                 $receipt.probe_phase='passive_post_file_open_command_observation'
+            }
+            if ($receipt.tutorial_confirmation_attempted -and -not $isDialog) {
+                $receipt.post_tutorial_window_observed=$true
+                if ($entry.title.IndexOf([IO.Path]::GetFileNameWithoutExtension($tutorialPath),[StringComparison]::OrdinalIgnoreCase) -ge 0) { $receipt.project_basename_title_observed=$true }
             }
             # Capture only this target window's visible rectangle. Any blank or
             # occluded frame remains evidence of that limitation, never a fake UI.
@@ -735,13 +931,27 @@ public static class GmsPassiveWindows {
             if (Get-Process -Id $id -ErrorAction SilentlyContinue) { & taskkill.exe /PID $id /T /F 2>&1 | Out-Null }
         }
     }
+    if ($tutorialPath) {
+        try {
+            $receipt.tutorial_gpr_exists_after=Test-Path -LiteralPath $tutorialPath -PathType Leaf
+            if ($receipt.tutorial_gpr_exists_after) {
+                $receipt.tutorial_gpr_size_after=(Get-Item -LiteralPath $tutorialPath).Length
+                if ($receipt.tutorial_gpr_size_after -le 67108864) {
+                    $receipt.tutorial_gpr_sha256_after=(Get-FileHash -LiteralPath $tutorialPath -Algorithm SHA256).Hash.ToLowerInvariant()
+                    $receipt.tutorial_gpr_changed=($receipt.tutorial_gpr_sha256_after -ne $receipt.tutorial_gpr_sha256_before)
+                    $receipt.tutorial_gpr_observation_status='hashed'
+                } else { $receipt.tutorial_gpr_changed=$true; $receipt.tutorial_gpr_observation_status='post_open_hash_size_limit' }
+            } else { $receipt.tutorial_gpr_changed=$true; $receipt.tutorial_gpr_observation_status='missing_after_observation' }
+        } catch { $receipt.tutorial_gpr_changed=$null; $receipt.tutorial_gpr_observation_status='post_open_identity_unreadable' }
+    }
     $privateJson = Join-Path $private.FullName 'private-observation.json'
     ConvertTo-Json -Depth 12 -InputObject $observations.ToArray() | Set-Content -LiteralPath $privateJson -Encoding utf8
     $receipt.private_observation_sha256 = (Get-FileHash -LiteralPath $privateJson -Algorithm SHA256).Hash.ToLowerInvariant()
     $receipt.finished_utc = [DateTime]::UtcNow.ToString('o')
-    $receipt.target_unchanged = ((Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant() -eq $receipt.target.sha256)
+    try { $receipt.target_unchanged = ((Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant() -eq $receipt.target.sha256) }
+    catch { $receipt.target_unchanged=$null; $receipt.status='probe_incomplete'; $receipt.failure_phase='final_target_identity_unreadable' }
     $receipt | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $PublicReceiptPath -Encoding utf8
 }
-Write-Output ('Probe receipt saved. Status: ' + $receipt.status + '. Numerical runs: 0. Public screenshots: 0.')
+Write-Output ('Probe receipt saved. Status: ' + $receipt.status + '. Probe solver actions: 0. Numerical execution not monitored. Public screenshots: 0.')
 if (-not $receipt.target_unchanged -or $receipt.status -eq 'probe_incomplete') { exit 2 }
 exit 0

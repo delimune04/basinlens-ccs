@@ -164,3 +164,78 @@ and does not reset the earlier Community count. No edition-entitlement or new
 numerical-run claim is made. The opt-in workflow compiles the helper and tests
 pure refusal/metadata-isolation policies before downloading or starting GMS;
 those tests never call the native delivery methods.
+
+## Optional pinned MF6 tutorial load through native controls
+
+The default-off marker `[gms-open-mf6-project-probe]` or workflow boolean
+`open_verified_mf6_project` enables a new phase after normal free Community and
+File/Open actions. It fetches the existing pinned official `mf6_grid.zip`
+(509,175 bytes, SHA256
+`ad5d7684e9c6270a9a2a129430b04cc0c6bd39ba03a73f1c21825e3fa3e87dd4`)
+and passes the one pinned GPR through `VerifiedTutorialPath`, never `ProjectPath`.
+Ordinary document options or the ordinary document marker conflict and are
+refused before download. The GPR is 3,071,450 bytes with SHA256
+`afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467`.
+There is no alternate source, digest or filename override for this phase.
+
+The seventh original probe observed a complete owned standard Open dialog with
+23 native controls, including one Edit and five Buttons, but did not establish
+the filename/confirmation identifiers. This phase must verify the actual native
+layout afresh and refuse before writing unless it matches a documented pattern:
+
+- One writable native Edit directly under the Open dialog with `edt1`, or the
+  sole native Edit under a unique `cmb13` filename ComboBox/ComboBoxEx32 chain.
+  A bounded chain may contain only verified native combo containers.
+- One owned, visible, enabled standard push button directly under that same
+  dialog with `IDOK`, push-button style 0 or 1, and exact normalized label `Open`.
+- Complete snapshots, one visible owned Open dialog, unique documented roles,
+  same target process and verified parent/root relationships. Read-only/password
+  edits, custom classes, ambiguous fields or unknown labels do not qualify.
+
+Microsoft documents [these roles](https://learn.microsoft.com/en-us/windows/win32/dlgbox/open-and-save-as-dialog-boxes#explorer-style-control-identifiers).
+Its SDK defines `edt1=0x0480`, `cmb13=0x047c` in
+[dlgs.h](https://github.com/microsoft/win32metadata/blob/main/generation/WinSDK/RecompiledIdlHeaders/um/dlgs.h),
+and `IDOK=1` in
+[WinUser.h](https://github.com/microsoft/win32metadata/blob/main/generation/WinSDK/RecompiledIdlHeaders/um/WinUser.h).
+These are live eligibility checks, not assumptions inferred from an Open title.
+
+The helper rechecks the pinned source, executable bytes and exact process image,
+then two fresh consistent control snapshots. It reserves one `WM_SETTEXT`
+attempt to the verified filename Edit, with a one-second timeout. Both message
+completion and native TRUE are required. Bounded `WM_GETTEXT` must return the
+exact entire canonical absolute path, including matching native length. The
+source/main bytes and complete control relationships are checked again, and the
+same text is read again immediately before reserving one `BM_CLICK` on that
+exact Open button. Any failure stops without retries or an alternative action.
+The earlier File/Open timeout does not prevent this phase when the actual
+complete Open dialog is independently present; Community message completion
+remains required.
+
+These are system messages below `WM_USER`, documented by
+[WM_SETTEXT](https://learn.microsoft.com/en-us/windows/win32/winmsg/wm-settext),
+[WM_GETTEXT](https://learn.microsoft.com/en-us/windows/win32/winmsg/wm-gettext),
+and [SendMessage](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessagew).
+The CDM messages use pointer arguments above `WM_USER` and cannot be sent from
+this separate observer with local pointers. No CDM message, remote allocation,
+injected hook/bridge, coordinate, keyboard, focus change or unknown-button
+fallback is used. Unsupported Common Item Dialog/custom layouts are refused.
+
+Every reserved write or confirmation attempt is counted even on timeout or an
+exception. Cumulative actions are at most Community 1 + File/Open 1 + filename
+text 1 + confirmation 1 per target. A confirmation attempt starts a passive
+30-second observation window, ending sooner at any later dialog. No warning,
+save or licence dialog is confirmed. An observed project basename in a window
+title is reported separately from `project_load_verified`, which stays false.
+Units, active entitlement and numerical results remain unverified.
+
+After shutdown the source GPR's existence, size and SHA256 are recorded without
+restoring it or saving the project. A replacement above the bounded 64 MiB
+post-observation hash limit is reported changed with its hash unavailable. An
+unreadable post-observation identity remains unknown rather than being asserted
+as a change.
+Public decisions contain only fixed categories, counts, booleans and hashes;
+paths, control identifiers/handles, unknown text and screenshots remain private.
+`probe_solver_actions` is zero and `numerical_execution_monitored` is false:
+this probe issues no solver action and does not establish that the target could
+not perform an automatic numerical action. Pure policy tests and Windows helper
+compilation run before downloads or target execution.
