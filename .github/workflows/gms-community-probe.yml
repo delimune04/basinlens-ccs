@@ -1,0 +1,103 @@
+name: Opt-in normal GMS Community runtime observation
+
+# Explicit dispatch or commit marker only: downloads a 1.99GB vendor installer,
+# installs on a disposable Windows VM and observes startup/document behavior.
+on:
+  workflow_dispatch:
+    inputs:
+      document:
+        description: 'Optional official tutorial document; no solver run or licence UI actions'
+        type: choice
+        options: [none, classic_grid, mf6_grid]
+        default: none
+  push:
+    branches: ["feat/gms-groundwater-workbench"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gms-community-runtime-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  observe-community-startup:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.head_commit.message, '[gms-community-probe]')
+    runs-on: windows-2022
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Download and verify pinned official GMS installer
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $path = Join-Path $env:RUNNER_TEMP 'gms-installer.exe'
+          Invoke-WebRequest -Uri 'https://s3.amazonaws.com/gms.aquaveo.com/gms10.9.7full64bit.exe' -OutFile $path -TimeoutSec 600
+          if ((Get-Item -LiteralPath $path).Length -ne 1992547136) { throw 'Unexpected installer size.' }
+          if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -ne '69fef79023d065d4664e74950e10669c784a7e18fabfaa8ada48b2760f624335') { throw 'Installer digest mismatch.' }
+      - name: Normal documented silent installation without activation
+        shell: pwsh
+        run: |
+          # Aquaveo documents /qn for XMS installers. No registration property,
+          # evaluation request, licence-service patch or bypass flag is supplied.
+          $ErrorActionPreference = 'Stop'
+          $installer = Start-Process -FilePath (Join-Path $env:RUNNER_TEMP 'gms-installer.exe') -ArgumentList '/qn' -PassThru
+          if (-not $installer.WaitForExit(600000)) {
+            & taskkill.exe /PID $installer.Id /T /F 2>&1 | Out-Null
+            throw 'Normal installation exceeded ten minutes.'
+          }
+          if ($installer.ExitCode -notin @(0,3010)) { throw ('Installer exit status ' + $installer.ExitCode) }
+          $roots = @(Get-ChildItem -LiteralPath $env:ProgramFiles -Directory | Where-Object { $_.Name -like 'GMS*' -or $_.Name -like 'Aquaveo*' })
+          $targets = @($roots | Get-ChildItem -Recurse -File -Filter 'gms10_9.exe')
+          if ($targets.Count -ne 1) { throw 'A unique normally installed GMS executable was not found.' }
+          'GMS_RUNTIME_EXE=' + $targets[0].FullName | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Optionally fetch official tutorial privately
+        if: inputs.document != '' && inputs.document != 'none'
+        shell: pwsh
+        env:
+          SELECTED_DOCUMENT: ${{ inputs.document }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $name = if ($env:SELECTED_DOCUMENT -eq 'classic_grid') { 'modfgrid.zip' } else { 'mf6_grid.zip' }
+          $archive = Join-Path $env:RUNNER_TEMP 'official-tutorial.zip'
+          Invoke-WebRequest -Uri ('https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/' + $name) -OutFile $archive -TimeoutSec 120
+          if ((Get-Item -LiteralPath $archive).Length -gt 104857600) { throw 'Tutorial exceeds the bounded 100MiB archive limit.' }
+          $tutorial = Join-Path $env:RUNNER_TEMP 'private-official-tutorial'
+          Expand-Archive -LiteralPath $archive -DestinationPath $tutorial
+          $projects = @(Get-ChildItem -LiteralPath $tutorial -Recurse -File -Filter '*.gpr' | Sort-Object FullName)
+          if ($projects.Count -eq 0) { throw 'No native GMS project found; project opening was not attempted.' }
+          'GMS_RUNTIME_PROJECT=' + $projects[0].FullName | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Observe normal launch passively and stop the owned process tree
+        timeout-minutes: 3
+        shell: pwsh
+        run: |
+          $arguments = @{
+            ExecutablePath = $env:GMS_RUNTIME_EXE
+            PrivateOutputDirectory = (Join-Path $env:RUNNER_TEMP 'gms-runtime-private')
+            PublicReceiptPath = (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json')
+            ObservationSeconds = 30
+            AllowStart = $true
+          }
+          if ($env:GMS_RUNTIME_PROJECT) { $arguments.ProjectPath = $env:GMS_RUNTIME_PROJECT }
+          & ./tools/probe_gms_community.ps1 @arguments
+      - name: Record an unavailable runtime result if installation or observation stopped early
+        if: always()
+        shell: pwsh
+        run: |
+          $path = Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json'
+          if (-not (Test-Path -LiteralPath $path)) {
+            New-Item -ItemType Directory -Force -Path (Split-Path -Parent $path) | Out-Null
+            @{ probe_schema_version=1; status='workflow_stopped_before_runtime_receipt'; target_started=$null; numerical_run_observed=$false; paired_gms_comparisons=0; qualification='No original runtime or numerical result may be inferred; inspect the failed workflow step.' } | ConvertTo-Json | Set-Content -LiteralPath $path -Encoding utf8
+          }
+      - name: Preserve sanitized runtime metadata only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gms-community-runtime-summary
+          path: ${{ runner.temp }}/gms-runtime-public/public-summary.json
+          if-no-files-found: warn
+          retention-days: 30
