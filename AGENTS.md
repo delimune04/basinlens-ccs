@@ -7,8 +7,10 @@ before changing this research software. Claude Code also reads `CLAUDE.md`.
 
 - Keep conceptual capacity, reference flow simulation, observation interpretation,
   and surrogate output separate. Label the engine and validation level in artifacts.
-- Current v0.2.0 implements volumetric screening and CLI bundles only. NVIDIA,
-  OPM, seismic, and enterprise features are planned; never claim they ran.
+- The v0.2 foundation implements volumetric screening and CLI bundles. The
+  optional groundwater module adds bounded confined single-phase MODFLOW 6
+  workflows; see docs/gms/VALIDATION.md for actual synthetic checks. NVIDIA,
+  CO2–brine OPM, seismic, and enterprise features are planned; never claim they ran.
 - Quantities must have explicit units and datum/support where relevant. Missing
   evidence stays unknown; illustrative attention scores are not risk probabilities.
 - Preserve original data and reference cases. Geological changes, retry settings,

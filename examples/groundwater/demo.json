@@ -1,0 +1,87 @@
+{
+  "case_id": "synthetic-confined-3layer",
+  "name": "Synthetic layered confined aquifer",
+  "grid": {
+    "nlay": 3,
+    "nrow": 21,
+    "ncol": 41,
+    "delr_m": 25.0,
+    "delc_m": 25.0,
+    "top_m": 0.0,
+    "layer_bottoms_m": [
+      -10.0,
+      -25.0,
+      -50.0
+    ]
+  },
+  "properties": {
+    "kx_m_per_day": [
+      10.0,
+      0.05,
+      5.0
+    ],
+    "ky_m_per_day": [
+      8.0,
+      0.05,
+      4.0
+    ],
+    "kz_m_per_day": [
+      1.0,
+      0.005,
+      0.5
+    ],
+    "specific_storage_per_m": [
+      1e-05,
+      1e-05,
+      1e-05
+    ]
+  },
+  "boundaries": {
+    "left_head_m": 12.0,
+    "right_head_m": 10.0
+  },
+  "periods": [
+    {
+      "length_days": 1.0,
+      "steps": 1,
+      "transient": false,
+      "wells": []
+    },
+    {
+      "length_days": 30.0,
+      "steps": 12,
+      "transient": true
+    }
+  ],
+  "recharge_m_per_day": 0.0001,
+  "wells": [
+    {
+      "name": "water-injection",
+      "layer": 2,
+      "row": 10,
+      "column": 20,
+      "rate_m3_per_day": 100.0
+    }
+  ],
+  "initial_head_m": null,
+  "provenance": {
+    "source": "BasinLens synthetic demonstration; no field observations",
+    "crs": "local Cartesian metres",
+    "vertical_datum": "local aquifer top = 0 m; elevations increase upward",
+    "assumptions": [
+      "Constant-density single-phase water; all cells confined and active",
+      "No-flow north/south and base; left/right cell centres have fixed head",
+      "Water injection is not CO2 injection; no multiphase transport or geomechanics"
+    ]
+  },
+  "schema_version": 1,
+  "units": {
+    "length": "METERS",
+    "time": "DAYS",
+    "head": "m",
+    "conductivity": "m/day",
+    "well_rate": "m3/day",
+    "recharge": "m/day",
+    "specific_storage": "1/m"
+  }
+}

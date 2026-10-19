@@ -29,3 +29,20 @@ jobs:
           --output build/example --samples 2000 --seed 42
       - name: Verify example bundle
         run: python -m basinlens_ccs.artifacts build/example
+
+  groundwater:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install optional groundwater and UI dependencies
+        run: python -m pip install -e ".[groundwater,app]"
+      - name: Check input contracts, portable export, and UI flows
+        run: python -m unittest discover -s tests -v
+      - name: Export and verify a portable groundwater model
+        run: |
+          python -m basinlens_ccs.groundwater export examples/groundwater/demo.json --output build/groundwater-export
+          python -m basinlens_ccs.groundwater verify build/groundwater-export

@@ -10,7 +10,9 @@ Sleipner observation comparison, and evaluated NVIDIA acceleration.
 See the [한국어 프로젝트 초안](docs/PROJECT_BRIEF.md),
 [architecture](docs/ARCHITECTURE.md), [NVIDIA plan](docs/NVIDIA_INTEGRATION.md),
 [validation gates](docs/VALIDATION_PLAN.md), and [professor review note](docs/PROFESSOR_REVIEW.md).
-Physical simulation, seismic, GPU and industry-pilot modules remain planned.
+An optional **single-phase confined groundwater reference workflow** is now
+implemented with FloPy/MODFLOW 6; see below. CO2–brine multiphase simulation,
+seismic, GPU and industry-pilot modules remain planned.
 
 BasinLens CCS is an early Python prototype that turns uncertain storage-area,
 thickness, porosity, CO2-density, and efficiency assumptions into a
@@ -65,6 +67,34 @@ not evidence of site suitability. Validation errors name the field and, for tabl
 input, its 1-based record position including the header.
 
 ## Quick start
+
+### Optional groundwater modeling workbench
+
+The original GMS-inspired workbench provides a bounded model-building workflow:
+multilayer structured grids, anisotropic hydraulic conductivity, fixed heads,
+recharge, water injection/extraction wells, steady/transient MODFLOW 6 runs,
+2D/3D head plots, project JSON, portable solver inputs and auditable run bundles.
+
+```bash
+python -m pip install -e ".[app,groundwater]"
+python -m streamlit run groundwater_app.py
+```
+
+Install MODFLOW 6 separately and provide its executable path in the app.
+For an explicit optional download:
+
+```bash
+python tools/install_mf6.py --accept-download --destination build/mf6-bin
+```
+
+This is a **constant-density, confined groundwater module** for reference studies,
+not a complete GMS clone or a CO2 multiphase simulator. No native GMS project
+compatibility or numerical equivalence to GMS has been established. Existing
+capacity/attention outputs remain separate. See the [feature matrix](docs/gms/FEATURE_MATRIX.md),
+[run instructions](docs/gms/REPRODUCE.md), [REA findings](docs/gms/REA_FINDINGS.md),
+and [actual numerical checks](docs/gms/VALIDATION.md).
+
+### Capacity screening
 
 ```bash
 git clone https://github.com/delimune04/basinlens-ccs.git
@@ -145,6 +175,7 @@ tests/                unit and reproducibility tests
 examples/             synthetic demonstration inputs
 docs/                 methodology and learning roadmap
 app.py                Streamlit demonstration interface
+groundwater_app.py    optional confined groundwater workbench
 ```
 
 ## Development direction

@@ -27,6 +27,9 @@ app = [
   "plotly>=5.22",
   "streamlit>=1.35",
 ]
+groundwater = [
+  "flopy>=3.9,<4",
+]
 dev = [
   "pytest>=8.0",
 ]
@@ -34,6 +37,7 @@ dev = [
 [project.scripts]
 basinlens = "basinlens_ccs.cli:main"
 basinlens-verify = "basinlens_ccs.artifacts:verify_main"
+basinlens-groundwater = "basinlens_ccs.groundwater.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

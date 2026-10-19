@@ -1,0 +1,63 @@
+{
+  "case_id": "linear-head-benchmark",
+  "name": "Independent linear-head solution",
+  "grid": {
+    "nlay": 1,
+    "nrow": 3,
+    "ncol": 21,
+    "delr_m": 25.0,
+    "delc_m": 25.0,
+    "top_m": 0.0,
+    "layer_bottoms_m": [
+      -10
+    ]
+  },
+  "properties": {
+    "kx_m_per_day": [
+      10.0
+    ],
+    "ky_m_per_day": [
+      10.0
+    ],
+    "kz_m_per_day": [
+      10.0
+    ],
+    "specific_storage_per_m": [
+      1e-05
+    ]
+  },
+  "boundaries": {
+    "left_head_m": 12.0,
+    "right_head_m": 10.0
+  },
+  "periods": [
+    {
+      "length_days": 1,
+      "steps": 1,
+      "transient": false
+    }
+  ],
+  "recharge_m_per_day": 0,
+  "wells": [],
+  "initial_head_m": null,
+  "provenance": {
+    "source": "Synthetic analytical h(x) = h_left + (h_right-h_left)*x/L, fixed heads at cell centres",
+    "crs": "local Cartesian metres",
+    "vertical_datum": "local aquifer top = 0 m; elevations increase upward",
+    "assumptions": [
+      "Constant-density single-phase water; all cells confined and active",
+      "No-flow north/south and base; left/right cell centres have fixed head",
+      "Water injection is not CO2 injection; no multiphase transport or geomechanics"
+    ]
+  },
+  "schema_version": 1,
+  "units": {
+    "length": "METERS",
+    "time": "DAYS",
+    "head": "m",
+    "conductivity": "m/day",
+    "well_rate": "m3/day",
+    "recharge": "m/day",
+    "specific_storage": "1/m"
+  }
+}

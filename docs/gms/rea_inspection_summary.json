@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "investigated_date": "2026-10-19",
+  "rea_version": "6.7.0",
+  "node_version": "24.19.0",
+  "original_installer": {
+    "name": "gms10.9.7full64bit.exe",
+    "source": "https://s3.amazonaws.com/gms.aquaveo.com/gms10.9.7full64bit.exe",
+    "size_bytes": 1992547136,
+    "sha256": "69fef79023d065d4664e74950e10669c784a7e18fabfaa8ada48b2760f624335",
+    "s3_multipart_etag": "3b6bb1dd69e6828fdea909ccc1fe3918-191",
+    "multipart_etag_verified": true
+  },
+  "rea_operation": "inspect-pe-resources",
+  "analysis_subject": "Derived installer bootstrap only; NOT installed GMS application",
+  "derived_bootstrap": {
+    "size_bytes": 2103808,
+    "sha256": "2d6c62a95ffadad32ed37431bf09af460b01f0aaff21640cac070195cf502a0b",
+    "derivation": "Exact original file prefix [0,2103808), end of final PE section; installer overlay excluded"
+  },
+  "observed": {
+    "format": "pe32",
+    "machine": 332,
+    "resource_inventory": {
+      "status": "complete",
+      "examined_entries": 106,
+      "resources": 48
+    }
+  },
+  "evidence_id": "ev_c0073ae26271fa5c4bb7b9f5a229219947d3438ce12b618fc0b25ef38d20ef6c",
+  "private_raw_evidence_sha256": "e089db2f15b06d0123b3f7f928d039eb72bc55b454bb10f12136f5605b4dda55",
+  "target_executed": false,
+  "native_gms_decompiled": false,
+  "gms_behavioral_equivalence_tested": false,
+  "unknown": [
+    "Installed gms10_9.exe could not be extracted and checksum-verified in this environment",
+    "GMS native functions and algorithms were not recovered",
+    "GMS runtime UI and output equivalence remain unobserved"
+  ],
+  "published_payloads": false
+}

@@ -1,5 +1,56 @@
 # Development handoff
 
+## 2026-10-19: optional groundwater workbench and REA investigation
+
+Base: `f17934e` (main); branch `feat/gms-groundwater-workbench`.
+User request: investigate GMS with REA and create a reusable CCS modeling module.
+Implementation plan: inspect official targets and evidence, implement a bounded
+original groundwater workflow with the public MODFLOW engine, validate physical
+and operational behavior independently, and publish a reviewable branch/PR.
+
+Changed files: new `src/basinlens_ccs/groundwater/` schema/adapter/CLI,
+`groundwater_app.py`, two synthetic `examples/groundwater/` cases,
+`tests/test_groundwater.py`, `tests/test_groundwater_ui.py`, optional dependency
+and CLI registration, explicit solver installer, local REA inspection helper,
+`docs/gms/` findings/feature matrix/reproduction/validation, and CI optional job.
+Existing capacity engine and `app.py` calculations were not changed.
+
+- Actual MODFLOW 6.7.0, FloPy 3.11.0, Python 3.12.14: **57 integrated tests
+  passed with zero skips**, including five physical solver tests and a real
+  Streamlit solver/export flow. Independent linear/recharge/Theis checks and
+  the on/off/on near-zero-budget regression passed. Exact environment,
+  fingerprints and demo residuals are in `docs/gms/validation_record.json`.
+- Existing required capacity CLI and artifact verifier passed at 2,000 samples,
+  seed 42. Groundwater CLI demo, input export, run/export verifiers, editable
+  installation, compilation and diff checks passed. Output directories are
+  intentionally immutable; no downloads occur in normal export/run.
+- Independent review identified and fixed malformed/empty manifest acceptance
+  and a near-zero-flow false budget failure. UI now reports absolute residual
+  and explains the combined absolute/relative gate. Raw outputs remain in runs.
+- REA 6.7.0 inspected only an exact prefix of the official GMS 10.9.7 installer
+  bootstrap (48 resources). The main installed GMS executable was not extracted
+  and checksum-verified. Native providers and Windows runtime were unavailable.
+  This is **not recovered GMS modeling logic or proof of GMS equivalence**.
+- Published sources contain no proprietary GMS binary, icons or resource bytes.
+  Model scope is confined single-phase constant-density water. CO2 multiphase,
+  native GMS projects, transport/GIS/calibration, field validation and Windows
+  execution are not implemented/verified. No CCS evidence-level promotion.
+
+Next reproducible commands:
+
+```bash
+python -m pip install -e ".[app,groundwater]"
+python -m streamlit run groundwater_app.py
+# Explicit solver download only if needed:
+python tools/install_mf6.py --accept-download --destination build/mf6-bin
+MF6_EXE=/absolute/path/to/mf6 python -m unittest discover -s tests -v
+```
+
+For further GMS reconstruction, use an installed authorized target in a suitable
+Windows environment and define capability-by-capability behavior fixtures before
+claiming compatibility. For CCS multiphase flow, implement an appropriate engine
+adapter and independent benchmark as specified in the existing project plan.
+
 ## 2026-10-05: T1 input validation and deterministic ties
 
 Baseline: `7ab91398e064bcc2fd323150e869fb521be234be`, rebuilt directly from the
