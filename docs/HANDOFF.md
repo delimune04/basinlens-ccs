@@ -17,8 +17,11 @@ remote CI runs `39215889617` and `39215883507` passed all three jobs. Later
 Windows probe source/check bindings are separate. The required numerical/UI
 CI job now pins the exact public MF6 archive/binary and direct dependencies,
 rejects every skip or incomplete discovery, and retains JSON/log/source identity
-evidence. Its new strict runner passed 265/265 locally in 47.560s; public CI
-results are recorded separately. See [CI_VALIDATION.md](gms/CI_VALIDATION.md).
+evidence. Its new strict runner passed 265/265 locally in 47.560s. Public push `39220409626` and PR `39220417755` then each passed all 265
+tests with zero skips/errors/failures and all three jobs; 85 source hashes matched.
+The durable [CI record](gms/real_mf6_ci_validation_record.json) distinguishes
+feature-head and equivalent PR-merge checkouts. See
+[CI_VALIDATION.md](gms/CI_VALIDATION.md).
 
 Current components:
 

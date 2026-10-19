@@ -177,3 +177,13 @@ owned eight-control dialog. It added no UI action; counts remained4/0 per target
 with unchanged executable/GPR identities. Cause, entitlement and project loading
 remain unknown. See
 [windows_tutorial_diagnostic_receipt.json](windows_tutorial_diagnostic_receipt.json).
+
+
+## Required real-MF6 CI result
+
+Push `39220409626` and PR `39220417755` each passed all 265 tests with zero skips,
+failures, errors or discovery issues under the fixed actual MF6 binary. All 85
+selected source hashes agree with the implementation; both runs passed their
+three jobs. [real_mf6_ci_validation_record.json](real_mf6_ci_validation_record.json)
+binds artifacts, environments, exact checkouts and the equivalent tested tree.
+This does not execute original GMS or close its reconstruction obligations.

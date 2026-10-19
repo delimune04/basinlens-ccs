@@ -610,5 +610,31 @@
       "GenericErrorKeywordsObserved"
     ],
     "diagnostic_cause_inferred": false
+  },
+  "required_real_MF6_CI": {
+    "record": "real_mf6_ci_validation_record.json",
+    "tested_public_commit": "300293996ec246aa279241f632a08f587e19f7e2",
+    "tested_public_tree": "48d124278b8e2908089a4daafa3042e8305a17de",
+    "tests_per_run": 265,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "loader_errors": 0,
+    "all_source_hashes_checked": 85,
+    "runs": [
+      {
+        "run_id": 39220417755,
+        "event": "pull_request",
+        "jobs_passed": 3,
+        "strict_suite_seconds": 35.02635742300001
+      },
+      {
+        "run_id": 39220409626,
+        "event": "push",
+        "jobs_passed": 3,
+        "strict_suite_seconds": 46.822030377000004
+      }
+    ],
+    "qualification": "Some tests are pure/software/UI checks;265 is the full suite count, not 265 distinct physical MF6 cases. Python tests do not compile the separate Windows helper. PR checkout is a GitHub merge commit whose tree matches the published feature tree; push checkout is the feature head. Direct dependency pins and recorded environment are not a complete immutable OS/transitive lock."
   }
 }

@@ -2,7 +2,7 @@
 
 The `groundwater` job in [ci.yml](../../.github/workflows/ci.yml) runs the full
 suite with actual MF6, FloPy, h5py, Streamlit and Plotly. It fails on any skip,
-loader error, missing/duplicate test ID, incomplete execution, expected failure
+loader error, empty discovery, duplicate test IDs, incomplete execution, expected failure
 or test failure. Lightweight Python 3.10/3.12 matrix jobs still cover the base
 package independently and may skip optional dependencies.
 
@@ -54,5 +54,9 @@ python tools/ci_real_mf6.py test
 
 The new strict runner passed 265/265 locally with zero skips/failures/errors in
 47.560s. The local receipt describes working-tree base 872e6be and exact source
-hashes matching candidate 77f0cedc; it is not a public CI result. Public run
-identities and outcomes are recorded separately after execution.
+hashes matching candidate 77f0cedc; it is not a public CI result. Public push run `39220409626` and PR run `39220417755` both passed all three
+jobs. Their strict full suites each ran 265 tests with zero skips/failures/errors
+in 46.822s and 35.026s, respectively. All 85 selected source hashes matched the
+implementation. The PR merge checkout and feature head have the same tested
+tree. [real_mf6_ci_validation_record.json](real_mf6_ci_validation_record.json)
+preserves exact artifact identities, parsed reports and scope qualifications.
