@@ -47,10 +47,14 @@ $receipt = [ordered]@{
     launch_method = 'normal_process_start'; target_started = $false; visible_window_observed = $false
     community_mode_confirmed = $false; numerical_run_observed = $false; paired_gms_comparisons = 0
     startup_classification = 'unknown'; dialog_categories_observed = @(); blocking_dialog_observed = $false
+    reported_mode_category = 'unknown'; possible_community_option_text_observed = $false
+    main_window_enabled_observed = $null; menu_observations = @()
+    standard_menu_items_observed = $false
     classification_basis = 'Conservative passive visible-window and bounded child-control text; original text stays private.'
     activation_requests_initiated_by_probe = 0; licence_ui_actions = 0; target_ui_actions = 0
     target_network_activity_monitored = $false
     observation_seconds = $ObservationSeconds; screenshot_count = 0; private_observation_sha256 = $null
+    probe_phase = 'initializing'
     qualification = 'Passive startup/document-window observation only. Screenshots and UI text are private; no numerical or full-product equivalence claim.'
 }
 $owned = $null
@@ -58,8 +62,10 @@ $ownedIds = [Collections.Generic.HashSet[uint]]::new()
 $observations = [Collections.Generic.List[object]]::new()
 $receipt | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $PublicReceiptPath -Encoding utf8
 try {
+    $receipt.probe_phase='initialize_windows_api'
     Add-Type -AssemblyName System.Drawing
     Add-Type -AssemblyName System.Windows.Forms
+    if (-not ('GmsPassiveWindows' -as [type])) {
     Add-Type @'
 using System;
 using System.Collections.Generic;
@@ -79,6 +85,30 @@ public static class GmsPassiveWindows {
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern IntPtr SendMessageTimeout(IntPtr h,uint m,UIntPtr w,StringBuilder text,uint flags,uint milliseconds,out UIntPtr result);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetWindowText(IntPtr h, StringBuilder text, int count);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetClassName(IntPtr h, StringBuilder text, int count);
+  [DllImport("user32.dll")] public static extern IntPtr GetMenu(IntPtr h);
+  [DllImport("user32.dll")] public static extern int GetMenuItemCount(IntPtr menu);
+  [DllImport("user32.dll", CharSet=CharSet.Unicode, SetLastError=true)] public static extern bool GetMenuItemInfo(IntPtr menu,uint item,bool byPosition,ref MenuInfo info);
+  [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetMenuString(IntPtr menu,uint item,StringBuilder label,int maximum,uint flags);
+  [StructLayout(LayoutKind.Sequential)] public struct MenuInfo {
+    public uint Size,Mask,Type,State,Id;
+    public IntPtr Submenu,CheckedBitmap,UncheckedBitmap;
+    public UIntPtr ItemData;
+    public IntPtr TypeData;
+    public uint Characters;
+    public IntPtr Bitmap;
+  }
+  public class MenuRecord {
+    public string PositionPath,Label;
+    public uint CommandId;
+    public int Depth;
+    public bool Enabled,Checked,Separator,OwnerDrawn;
+  }
+  public class MenuSnapshot {
+    public string Status = "unknown";
+    public bool Truncated;
+    public int ReadErrors;
+    public MenuRecord[] Items = new MenuRecord[0];
+  }
   public static IntPtr[] ForPids(HashSet<uint> pids) {
     var result = new List<IntPtr>();
     EnumWindows((h,l) => { uint p; GetWindowThreadProcessId(h,out p); if(pids.Contains(p) && IsWindowVisible(h)) result.Add(h); return true; },IntPtr.Zero);
@@ -97,8 +127,35 @@ public static class GmsPassiveWindows {
     },IntPtr.Zero);
     return result.ToArray();
   }
+  public static MenuSnapshot MaterializedMenu(IntPtr window) {
+    var snapshot = new MenuSnapshot(); var menu = GetMenu(window);
+    if(menu == IntPtr.Zero) { snapshot.Status = "no_standard_hmenu_custom_or_unavailable_unknown"; return snapshot; }
+    var records = new List<MenuRecord>(); var seen = new HashSet<IntPtr>(); var watch = Stopwatch.StartNew();
+    ReadMenu(menu,"",0,records,seen,watch,snapshot);
+    snapshot.Items = records.ToArray();
+    snapshot.Status = snapshot.ReadErrors > 0 ? "standard_hmenu_partially_read" : "materialized_standard_hmenu_observed";
+    return snapshot;
+  }
+  private static void ReadMenu(IntPtr menu,string prefix,int depth,List<MenuRecord> records,HashSet<IntPtr> seen,Stopwatch watch,MenuSnapshot snapshot) {
+    if(depth > 6 || records.Count >= 400 || watch.ElapsedMilliseconds >= 1500 || !seen.Add(menu)) { snapshot.Truncated=true; return; }
+    int count = GetMenuItemCount(menu);
+    if(count < 0) { snapshot.ReadErrors++; return; }
+    for(uint position=0;position<count;position++) {
+      if(records.Count >= 400 || watch.ElapsedMilliseconds >= 1500) { snapshot.Truncated=true; break; }
+      var info = new MenuInfo { Size=(uint)Marshal.SizeOf(typeof(MenuInfo)), Mask=0x107 };
+      // Metadata only: no bitmap requests and no dereferencing owner-draw data.
+      if(!GetMenuItemInfo(menu,position,true,ref info)) { snapshot.ReadErrors++; continue; }
+      var label = new StringBuilder(512); GetMenuString(menu,position,label,label.Capacity,0x400);
+      string path = prefix + position.ToString();
+      records.Add(new MenuRecord { PositionPath=path,Label=label.ToString(),CommandId=info.Id,Depth=depth,
+        Enabled=(info.State & 3)==0,Checked=(info.State & 8)!=0,Separator=(info.Type & 0x800)!=0,OwnerDrawn=(info.Type & 0x100)!=0 });
+      if(info.Submenu != IntPtr.Zero) ReadMenu(info.Submenu,path+"/",depth+1,records,seen,watch,snapshot);
+    }
+  }
 }
 '@
+    }
+    $receipt.probe_phase='check_desktop_and_document_association'
     $screen = [Windows.Forms.SystemInformation]::VirtualScreen
     if ($screen.Width -le 0 -or $screen.Height -le 0) { throw 'No capturable Windows desktop.' }
     if ($ProjectPath) {
@@ -114,12 +171,15 @@ public static class GmsPassiveWindows {
         }
         $receipt.launch_method = 'installed_gpr_document_association'
         $receipt.project_sha256 = (Get-FileHash -LiteralPath $project -Algorithm SHA256).Hash.ToLowerInvariant()
+        $receipt.probe_phase='normal_document_launch'
         $owned = Start-Process -FilePath $exe -ArgumentList ('"' + $project + '"') -WorkingDirectory ([IO.Path]::GetDirectoryName($exe)) -PassThru
     } else {
+        $receipt.probe_phase='normal_startup_launch'
         $owned = Start-Process -FilePath $exe -WorkingDirectory ([IO.Path]::GetDirectoryName($exe)) -PassThru
     }
     $receipt.target_started = $true
     $receipt.status = 'observing'
+    $receipt.probe_phase='passive_window_observation'
     [void]$ownedIds.Add([uint32]$owned.Id)
     $receipt | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $PublicReceiptPath -Encoding utf8
     $deadline = [DateTime]::UtcNow.AddSeconds($ObservationSeconds)
@@ -150,8 +210,31 @@ public static class GmsPassiveWindows {
             # per-control timeout, 100 text values and a 1.5sec total budget.
             $entry.controls = [GmsPassiveWindows]::VisibleControlText($handle)
             $visibleText = $entry.title + ' ' + ($entry.controls -join ' ')
+            if ($entry.title -match '(?i)\bGMS\b.*\bCommunity\b|\bCommunity\b.*\bGMS\b') {
+                $receipt.reported_mode_category = 'community_text_in_application_title_entitlement_unverified'
+            } elseif ($visibleText -match '(?i)\bcommunity\b' -and $receipt.reported_mode_category -eq 'unknown') {
+                $receipt.reported_mode_category = 'community_text_observed_mode_unverified'
+            }
+            if (@($entry.controls | Where-Object { $_ -match '(?i)\bcommunity\b' }).Count -gt 0) {
+                $receipt.possible_community_option_text_observed=$true
+            }
+            $entry.menu = [GmsPassiveWindows]::MaterializedMenu($handle)
+            if ($entry.menu.Items.Count -gt 0 -or $receipt.menu_observations.Count -lt 4) {
+                $publicItems=@($entry.menu.Items | ForEach-Object {
+                    @{ position_path=$_.PositionPath;command_id=$_.CommandId;depth=$_.Depth;enabled=$_.Enabled;checked=$_.Checked;separator=$_.Separator;owner_drawn=$_.OwnerDrawn }
+                })
+                $summary=@{status=$entry.menu.Status;truncated=$entry.menu.Truncated;read_errors=$entry.menu.ReadErrors;items=$publicItems;
+                    limitation='Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities.'}
+                if ($entry.menu.Items.Count -gt 0) {
+                    $receipt.standard_menu_items_observed=$true
+                    $receipt.menu_observations=@($receipt.menu_observations | Where-Object { $_.items.Count -gt 0 } | Select-Object -Last 3) + @($summary)
+                } else { $receipt.menu_observations += @($summary) }
+            }
             $ownerHandle = [GmsPassiveWindows]::GetWindow($handle,4)
             $isDialog = $entry.class -eq '#32770' -or ($ownerHandle -ne [IntPtr]::Zero -and -not [GmsPassiveWindows]::IsWindowEnabled($ownerHandle))
+            if (-not $isDialog -and $entry.title -match '(?i)\bGMS\b' -and $entry.menu.Items.Count -gt 0) {
+                $receipt.main_window_enabled_observed=[GmsPassiveWindows]::IsWindowEnabled($handle)
+            }
             $category = 'unknown'
             if ($isDialog) {
                 if ($visibleText -match '(?i)evalua|trial.*(expired|licen[cs]e)') { $category = 'evaluation' }
@@ -193,6 +276,8 @@ public static class GmsPassiveWindows {
     # Exception messages, paths and UI strings stay private.
     $observations.Add(@{ error = $_.Exception.Message; type = $_.Exception.GetType().Name })
     $receipt.error_type = $_.Exception.GetType().Name
+    $receipt.error_hresult = $_.Exception.HResult
+    $receipt.failure_phase = $receipt.probe_phase
 } finally {
     if ($owned) {
         # End only this bounded probe's process tree. Do not interact with licence
@@ -208,7 +293,8 @@ public static class GmsPassiveWindows {
     $receipt.private_observation_sha256 = (Get-FileHash -LiteralPath $privateJson -Algorithm SHA256).Hash.ToLowerInvariant()
     $receipt.finished_utc = [DateTime]::UtcNow.ToString('o')
     $receipt.target_unchanged = ((Get-FileHash -LiteralPath $exe -Algorithm SHA256).Hash.ToLowerInvariant() -eq $receipt.target.sha256)
-    $receipt | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath $PublicReceiptPath -Encoding utf8
+    $receipt | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $PublicReceiptPath -Encoding utf8
 }
 Write-Output ('Probe receipt saved. Status: ' + $receipt.status + '. Numerical runs: 0. Public screenshots: 0.')
 if (-not $receipt.target_unchanged -or $receipt.status -eq 'probe_incomplete') { exit 2 }
+exit 0

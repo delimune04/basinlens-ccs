@@ -13,6 +13,7 @@ param(
     [Parameter(Mandatory=$true)][string]$PublicDiagnosticPath,
     [string]$ExpectedSha256 = 'd69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2',
     [long]$ExpectedSize = 145479264,
+    [switch]$EnumerateEquivalentCanonicalTargets,
     [ValidateRange(100,100000)][int]$MaximumEntries = 50000,
     [ValidateRange(10,120)][int]$MaximumSeconds = 90
 )
@@ -41,6 +42,8 @@ $diagnostic = [ordered]@{
     budget_exhausted=$false; registration_present=$false; chosen_from_registered_icon=$false
     document_association_entries=0; app_path_entries=0; gms_shortcut_entries=0
     verified_canonical_candidates=0; chosen_canonical_sources=@()
+    equivalent_canonical_enumeration_requested=[bool]$EnumerateEquivalentCanonicalTargets
+    equivalent_canonical_targets_enumerated=0; no_canonical_preference_selected=$false
     expected_target_sha256=$ExpectedSha256; expected_target_size=$ExpectedSize
     qualification='Discovery metadata only; no original application launch, licence operation or numerical execution.'
 }
@@ -221,16 +224,33 @@ $diagnostic.hash_matching_candidates=$matchesByPath.Count
 $canonicalMatches = @($matchesByPath | Where-Object { $normalTargets.ContainsKey($_) })
 $diagnostic.verified_canonical_candidates=$canonicalMatches.Count
 $chosen = $null
+$enumerated = @()
 if ($canonicalMatches.Count -eq 1) {
     $chosen=$canonicalMatches[0]
     $diagnostic.chosen_canonical_sources=@($normalTargets[$chosen] | Sort-Object)
     $diagnostic.chosen_from_registered_icon=$normalTargets[$chosen].Contains('uninstall_display_icon')
 } elseif ($canonicalMatches.Count -eq 0 -and $matchesByPath.Count -eq 1) { $chosen=@($matchesByPath)[0] }
+if ($EnumerateEquivalentCanonicalTargets -and $canonicalMatches.Count -gt 1 -and $canonicalMatches.Count -le 4) {
+    # These are separately registered ordinary launch targets with identical
+    # verified bytes, not guesses about which installation is canonical. Rehash
+    # immediately before returning every target to the explicit passive loop.
+    $fresh=@()
+    foreach ($candidate in @($canonicalMatches | Sort-Object)) {
+        $item=Get-Item -LiteralPath $candidate
+        if ($item.Length -ne $ExpectedSize -or (Get-FileHash -LiteralPath $candidate -Algorithm SHA256).Hash.ToLowerInvariant() -ne $ExpectedSha256) { throw 'A normal launch target changed during discovery.' }
+        $fresh += @($candidate)
+    }
+    $enumerated=$fresh
+    $diagnostic.equivalent_canonical_targets_enumerated=$enumerated.Count
+    $diagnostic.no_canonical_preference_selected=$true
+}
+if ($chosen) { $enumerated=@($chosen) }
 $diagnostic.status = if ($chosen) { 'verified_installed_runtime_found' } elseif ($matchesByPath.Count -gt 1) { 'ambiguous_verified_installed_runtimes' } else { 'verified_installed_runtime_not_found' }
+if ($diagnostic.no_canonical_preference_selected) { $diagnostic.status='equivalent_verified_normal_launch_targets_enumerated' }
 $diagnostic.finished_utc=[DateTime]::UtcNow.ToString('o')
 $privateAuthorities=@($normalTargets.Keys | ForEach-Object { @{path=$_;sources=@($normalTargets[$_])} })
-@{ schema_version=1; runtime_executable_path=$chosen; matching_executable_paths=@($matchesByPath); canonical_authorities=$privateAuthorities; searched_roots=@($roots) } | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $PrivateResultPath -Encoding utf8
+@{ schema_version=1; runtime_executable_path=$chosen; runtime_executable_paths=$enumerated; matching_executable_paths=@($matchesByPath); canonical_authorities=$privateAuthorities; searched_roots=@($roots) } | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $PrivateResultPath -Encoding utf8
 $diagnostic | ConvertTo-Json -Depth 4 | Set-Content -LiteralPath $PublicDiagnosticPath -Encoding utf8
 Write-Output ('Installed-runtime discovery: ' + $diagnostic.status + '; matching hashes: ' + $matchesByPath.Count + '; GMS registry entries: ' + $diagnostic.registry_gms_entries)
-if (-not $chosen) { exit 2 }
+if ($enumerated.Count -eq 0) { exit 2 }
 exit 0

@@ -24,7 +24,8 @@ jobs:
   observe-community-startup:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      contains(github.event.head_commit.message, '[gms-community-probe]')
+      contains(github.event.head_commit.message, '[gms-community-probe]') ||
+      contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]')
     runs-on: windows-2022
     timeout-minutes: 25
     steps:
@@ -66,40 +67,75 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
           $privateResult = Join-Path $env:RUNNER_TEMP 'gms-discovery-private/result.json'
-          & ./tools/find_gms_runtime.ps1 -PrivateResultPath $privateResult -PublicDiagnosticPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/discovery-summary.json')
+          & ./tools/find_gms_runtime.ps1 -PrivateResultPath $privateResult -PublicDiagnosticPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/discovery-summary.json') -EnumerateEquivalentCanonicalTargets
           if ($LASTEXITCODE -ne 0) { throw 'Verified installed-runtime discovery failed; sanitized counts were recorded.' }
           $result = Get-Content -LiteralPath $privateResult -Raw | ConvertFrom-Json
-          if (-not $result.runtime_executable_path) { throw 'Discovery produced no verified executable.' }
-          'GMS_RUNTIME_EXE=' + $result.runtime_executable_path | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          $targets=@($result.runtime_executable_paths)
+          if ($targets.Count -lt 1 -or $targets.Count -gt 4) { throw 'Discovery must provide one to four exact-identity normal launch targets.' }
+          'GMS_RUNTIME_PRIVATE_RESULT=' + $privateResult | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
       - name: Optionally fetch official tutorial privately
-        if: inputs.document != '' && inputs.document != 'none'
+        if: >-
+          (inputs.document != '' && inputs.document != 'none') ||
+          contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]')
         shell: pwsh
         env:
-          SELECTED_DOCUMENT: ${{ inputs.document }}
+          SELECTED_DOCUMENT: ${{ contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]') && 'mf6_grid' || inputs.document }}
         run: |
           $ErrorActionPreference = 'Stop'
           $name = if ($env:SELECTED_DOCUMENT -eq 'classic_grid') { 'modfgrid.zip' } else { 'mf6_grid.zip' }
           $archive = Join-Path $env:RUNNER_TEMP 'official-tutorial.zip'
           Invoke-WebRequest -Uri ('https://s3.amazonaws.com/gmstutorials-10.9.aquaveo.com/' + $name) -OutFile $archive -TimeoutSec 120
           if ((Get-Item -LiteralPath $archive).Length -gt 104857600) { throw 'Tutorial exceeds the bounded 100MiB archive limit.' }
+          if ($env:SELECTED_DOCUMENT -eq 'mf6_grid') {
+            if ((Get-Item -LiteralPath $archive).Length -ne 509175 -or (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'ad5d7684e9c6270a9a2a129430b04cc0c6bd39ba03a73f1c21825e3fa3e87dd4') { throw 'Pinned official MF6 tutorial archive differs; opening was not attempted.' }
+          }
           $tutorial = Join-Path $env:RUNNER_TEMP 'private-official-tutorial'
           Expand-Archive -LiteralPath $archive -DestinationPath $tutorial
-          $projects = @(Get-ChildItem -LiteralPath $tutorial -Recurse -File -Filter '*.gpr' | Sort-Object FullName)
+          $projects = if ($env:SELECTED_DOCUMENT -eq 'mf6_grid') { @(Get-Item -LiteralPath (Join-Path $tutorial 'mf6_grid/sample/mf6-solution.gpr')) } else { @(Get-ChildItem -LiteralPath $tutorial -Recurse -File -Filter '*.gpr' | Sort-Object FullName) }
           if ($projects.Count -eq 0) { throw 'No native GMS project found; project opening was not attempted.' }
+          if ($env:SELECTED_DOCUMENT -eq 'mf6_grid' -and (Get-FileHash -LiteralPath $projects[0].FullName -Algorithm SHA256).Hash.ToLowerInvariant() -ne 'afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467') { throw 'Pinned MF6 tutorial GPR differs.' }
           'GMS_RUNTIME_PROJECT=' + $projects[0].FullName | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-      - name: Observe normal launch passively and stop the owned process tree
-        timeout-minutes: 3
+      - name: Observe each identical normal launch target passively and stop its process tree
+        timeout-minutes: 6
         shell: pwsh
         run: |
-          $arguments = @{
-            ExecutablePath = $env:GMS_RUNTIME_EXE
-            PrivateOutputDirectory = (Join-Path $env:RUNNER_TEMP 'gms-runtime-private')
-            PublicReceiptPath = (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json')
-            ObservationSeconds = 30
-            AllowStart = $true
+          $ErrorActionPreference='Stop'
+          $result=Get-Content -LiteralPath $env:GMS_RUNTIME_PRIVATE_RESULT -Raw | ConvertFrom-Json
+          $targets=@($result.runtime_executable_paths)
+          if ($targets.Count -lt 1 -or $targets.Count -gt 4) { throw 'Passive target count is outside the reviewed bound.' }
+          $reports=@()
+          $index=0
+          foreach ($target in $targets) {
+            $index++
+            $receiptName=('runtime-' + $index.ToString('D2') + '.json')
+            $receiptPath=Join-Path $env:RUNNER_TEMP ('gms-runtime-public/' + $receiptName)
+            $arguments=@{
+              ExecutablePath=$target
+              PrivateOutputDirectory=(Join-Path $env:RUNNER_TEMP ('gms-runtime-private/probe-' + $index))
+              PublicReceiptPath=$receiptPath
+              ObservationSeconds=30
+              AllowStart=$true
+            }
+            if ($env:GMS_RUNTIME_PROJECT) { $arguments.ProjectPath=$env:GMS_RUNTIME_PROJECT }
+            $code=2
+            try { & ./tools/probe_gms_community.ps1 @arguments; $code=$LASTEXITCODE }
+            catch { $code=2 }
+            $observation=if (Test-Path -LiteralPath $receiptPath) { Get-Content -LiteralPath $receiptPath -Raw | ConvertFrom-Json } else { $null }
+            $reports += @(@{index=$index;receipt=$receiptName;exit_code=$code;status=$observation.status;target_started=$observation.target_started;visible_window_observed=$observation.visible_window_observed})
           }
-          if ($env:GMS_RUNTIME_PROJECT) { $arguments.ProjectPath = $env:GMS_RUNTIME_PROJECT }
-          & ./tools/probe_gms_community.ps1 @arguments
+          $summary=@{
+            probe_schema_version=2
+            status='bounded_equivalent_target_observations_finished'
+            equivalent_normal_launch_target_count=$targets.Count
+            no_canonical_preference_selected=($targets.Count -gt 1)
+            targets_started=@($reports | Where-Object { $_.target_started -eq $true }).Count
+            targets_with_visible_window=@($reports | Where-Object { $_.visible_window_observed -eq $true }).Count
+            numerical_run_observed=$false
+            paired_gms_comparisons=0
+            observations=$reports
+            qualification='Each normal registered target was observed independently after the exact identity gate. No claim that one duplicate installation is canonical, no licence UI actions, and no new solver run.'
+          }
+          $summary | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json') -Encoding utf8
       - name: Record an unavailable runtime result if installation or observation stopped early
         if: always()
         shell: pwsh
@@ -117,5 +153,6 @@ jobs:
           path: |
             ${{ runner.temp }}/gms-runtime-public/public-summary.json
             ${{ runner.temp }}/gms-runtime-public/discovery-summary.json
+            ${{ runner.temp }}/gms-runtime-public/runtime-*.json
           if-no-files-found: warn
           retention-days: 30
