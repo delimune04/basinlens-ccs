@@ -116,7 +116,9 @@ def _build(case, root, exe_name="mf6"):
            for col, head in ((0, b["left_head_m"]), (nc - 1, b["right_head_m"]))]
     flopy.mf6.ModflowGwfchd(gwf, stress_period_data={0: chd}, save_flows=True)
     if case.recharge_m_per_day:
-        # Recharge onto CHD cells would be consumed directly by that boundary.
+        # Make the model's recharge support explicit: exclude CHD columns.
+        # MF6 can skip recharge on fixed-head cells; do not infer a CHD recharge
+        # contribution from the full rectangular top area.
         # Exclude both CHD columns to keep the reported forcing unambiguous.
         recharge = np.full((nr, nc), case.recharge_m_per_day)
         recharge[:, [0, -1]] = 0.0

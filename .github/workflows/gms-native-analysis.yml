@@ -4,6 +4,12 @@ name: Opt-in GMS native REA investigation
 # commit marker opts into the large vendor/tool downloads and native analysis.
 on:
   workflow_dispatch:
+    inputs:
+      analyzer_profile:
+        description: 'Default analysis or measured bounded inventory profile (weaker call semantics)'
+        type: choice
+        options: [default, bounded_inventory]
+        default: default
   push:
     branches: ["feat/gms-groundwater-workbench"]
 
@@ -24,6 +30,10 @@ jobs:
     env:
       GHIDRA_HEADLESS_MAXMEM: 4G
       REA_GHIDRA_STARTUP_TIMEOUT_MS: "1200000"
+      # Measured local default timings: entry disassembly753s, call-fixups298s,
+      # inferred non-return flow124s. Optional profile weakens call/pcode
+      # semantics while retaining entry disassembly; it is not full recovery.
+      REA_GHIDRA_DISABLED_ANALYZERS: ${{ (inputs.analyzer_profile == 'bounded_inventory' || contains(github.event.head_commit.message, '[gms-native-bounded]')) && 'Call-Fixup Installer,Non-Returning Functions - Discovered' || '' }}
     steps:
       - uses: actions/checkout@v4
         with:

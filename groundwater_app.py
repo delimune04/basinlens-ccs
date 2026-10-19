@@ -7,6 +7,7 @@ case contract. It does not reproduce a proprietary application's code or assets.
 from __future__ import annotations
 
 import copy
+from dataclasses import replace
 import hashlib
 import io
 import json
@@ -27,14 +28,22 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 from basinlens_ccs.groundwater import (  # noqa: E402
     GroundwaterCase,
     demo_case,
-    export_case,
     load_case,
-    run_case,
 )
+from basinlens_ccs.subsurface import (  # noqa: E402
+    Modflow6Adapter, SubsurfaceProject, default_registry, load_project,
+    project_from_groundwater, verify_project_bundle,
+)
+from basinlens_ccs.groundwater.native_run import _preflight, run_native_simulation  # noqa: E402
 
 MAX_UPLOAD_BYTES = 2_000_000
 MAX_CELLS = 100_000
 MAX_CELL_TIMES = 2_000_000
+DOMAIN_LABELS = {
+    "groundwater": "지하수 유동",
+    "ccs": "CCS 프로젝트 · 배경 지하수",
+    "oil_exploration": "석유 탐사 프로젝트 · 배경 지하수",
+}
 
 
 def case_bytes(case_dict: dict[str, Any]) -> bytes:
@@ -121,22 +130,88 @@ def validate_ui_case(candidate: dict[str, Any]) -> dict[str, Any]:
     return validated
 
 
-def replace_case(candidate: dict[str, Any], message: str) -> None:
-    """Commit a validated edit and clear all products derived from older inputs."""
-    validated = validate_ui_case(candidate)
-    old = st.session_state.get("gw_case")
-    if old is None or case_fingerprint(old) != case_fingerprint(validated):
+def common_project_for_case(case: dict[str, Any], domain: str,
+                            template: SubsurfaceProject | None = None) -> SubsurfaceProject:
+    """Preserve evidence when editing the native-water subset of a common project."""
+    native = GroundwaterCase.from_dict(case)
+    project = project_from_groundwater(native, domain=domain)
+    if template is None:
+        return project
+    original_case, _ = Modflow6Adapter().prepare(template)
+    old_fields = {field.name: field for field in template.rock_properties}
+    native_names = {
+        "hydraulic_conductivity_x": "kx_m_per_day", "hydraulic_conductivity_y": "ky_m_per_day",
+        "hydraulic_conductivity_z": "kz_m_per_day", "specific_storage": "specific_storage_per_m",
+    }
+    fields, edited_properties = [], False
+    for field in project.rock_properties:
+        old = old_fields[field.name]
+        key = native_names[field.name]
+        if original_case.properties[key] == native.properties[key]:
+            fields.append(old)
+        else:
+            fields.append(replace(field, source_asset_ids=old.source_asset_ids, basis="assumed"))
+            edited_properties = True
+    fields.extend(field for field in template.rock_properties if field.name not in native_names)
+    assumptions = project.provenance.assumptions
+    edit_note = "Hydraulic property values edited in workbench; edited fields are assumptions, not new measurements"
+    if edited_properties and edit_note not in assumptions:
+        assumptions = (*assumptions, edit_note)
+    project = replace(project,
+        spatial_reference=replace(template.spatial_reference,
+            crs=native.provenance["crs"], vertical_datum=native.provenance["vertical_datum"]),
+        geometry=replace(project.geometry, origin_x_m=template.geometry.origin_x_m,
+            origin_y_m=template.geometry.origin_y_m),
+        rock_properties=tuple(fields), assets=template.assets, stratigraphy=template.stratigraphy,
+        observations=template.observations, reference_mesh_asset_ids=template.reference_mesh_asset_ids,
+        provenance=replace(project.provenance, assumptions=assumptions))
+    # Support outside a changed grid fails here instead of dropping evidence.
+    default_registry().validate(project)
+    return project
+
+
+def project_from_upload(payload: bytes) -> SubsurfaceProject:
+    """Strict common JSON import; source asset bytes are checked before export/run."""
+    if len(payload) > MAX_UPLOAD_BYTES:
+        raise ValueError("공통 프로젝트 JSON은 2 MB 이하여야 합니다.")
+    with tempfile.TemporaryDirectory(prefix="basinlens-project-import-") as tmp:
+        path = Path(tmp) / "project.json"
+        path.write_bytes(payload)
+        project = load_project(path, check_assets=False)
+    default_registry().validate(project)
+    return project
+
+
+def replace_common_project(project: SubsurfaceProject, message: str) -> None:
+    project = SubsurfaceProject.from_dict(project.to_dict())
+    default_registry().validate(project)
+    native, _ = Modflow6Adapter().prepare(project)
+    validated = validate_ui_case(native.to_dict())
+    old = st.session_state.get("gw_project")
+    if old is None or case_fingerprint(old) != case_fingerprint(project.to_dict()):
         st.session_state.gw_case = validated
+        st.session_state.gw_project = project.to_dict()
         st.session_state.gw_revision = st.session_state.get("gw_revision", 0) + 1
-        for key in ("gw_result", "gw_input_zip", "gw_csv", "gw_failed_run_zip"):
+        for key in ("gw_result", "gw_input_zip", "gw_project_input_zip", "gw_csv", "gw_failed_run_zip"):
             st.session_state.pop(key, None)
         message += " 이전 입력의 계산 결과는 비웠습니다."
     st.session_state.gw_notice = message
 
 
-def apply_edit(candidate: dict[str, Any], message: str) -> None:
+def replace_case(candidate: dict[str, Any], message: str, *, reset_metadata=False) -> None:
+    validated = validate_ui_case(candidate)
+    stored = st.session_state.get("gw_project")
+    template = SubsurfaceProject.from_dict(stored) if stored is not None else None
+    domain = template.domain if template else "groundwater"
+    project = common_project_for_case(validated, domain, None if reset_metadata else template)
+    replace_common_project(project, message)
+    if reset_metadata:
+        st.session_state.pop("gw_asset_root", None)
+
+
+def apply_edit(candidate: dict[str, Any], message: str, *, reset_metadata=False) -> None:
     try:
-        replace_case(candidate, message)
+        replace_case(candidate, message, reset_metadata=reset_metadata)
     except (ValueError, TypeError, KeyError, OverflowError) as exc:
         st.error(f"입력을 적용하지 못했습니다: {exc}")
     else:
@@ -232,7 +307,42 @@ def sidebar(case: dict[str, Any]) -> None:
     with st.sidebar:
         st.markdown("### BasinLens\n지하수 모델 작업대")
         st.caption("MODFLOW 6 · confined GWF")
-        upload = st.file_uploader("프로젝트 JSON 열기", type=["json"], key="gw_upload")
+        project = SubsurfaceProject.from_dict(st.session_state.gw_project)
+        domains = list(DOMAIN_LABELS)
+        selected = st.selectbox("프로젝트 분야", domains, index=domains.index(project.domain),
+            format_func=DOMAIN_LABELS.get, key=f"gw_domain_selector_{st.session_state.gw_revision}")
+        if selected != project.domain:
+            role = "groundwater_flow" if selected == "groundwater" else "background_water"
+            replace_common_project(replace(project, domain=selected, model=replace(project.model, role=role)), "프로젝트 분야를 적용했습니다.")
+            st.rerun()
+        st.caption("CCS·석유 탐사 분야에서도 현재 엔진의 역할은 배경 지하수 유동입니다.")
+        common_upload = st.file_uploader("공통 지질 프로젝트 JSON 열기", type=["json"], key="gw_common_upload")
+        if st.button("공통 프로젝트 불러오기", disabled=common_upload is None, use_container_width=True):
+            try:
+                imported = project_from_upload(common_upload.getvalue())
+                replace_common_project(imported, "공통 프로젝트와 근거 메타데이터를 불러왔습니다.")
+                st.session_state.gw_asset_root = ""
+                st.rerun()
+            except (ValueError, RuntimeError, TypeError, OSError) as exc:
+                st.error(f"공통 프로젝트를 적용하지 못했습니다: {exc}")
+        st.download_button("공통 프로젝트 JSON 저장", project.to_json().encode("utf-8"),
+            "subsurface_project.json", "application/json", use_container_width=True)
+        if project.assets:
+            st.text_input("원본 자료가 있는 실행 서버 폴더", key="gw_asset_root",
+                help="등록된 상대 경로와 SHA-256을 이 폴더에서 검사합니다. 브라우저가 실행되는 기기의 폴더가 아닌, 앱 서버의 폴더입니다.")
+            st.caption(f"참조 자료 {len(project.assets)}개 · 입력 생성/계산 전에 실제 파일과 해시를 검사합니다.")
+        with st.expander("공통 프로젝트 근거 · 확장 상태"):
+            st.caption(f"역할: {project.model.role} · 관측 {len(project.observations)}개 · 층서 {len(project.stratigraphy)}개")
+            st.caption(f"CRS: {project.spatial_reference.crs} · 원점 ({project.geometry.origin_x_m:g}, {project.geometry.origin_y_m:g}) m")
+            st.caption("관측·메시 참조·추가 암석 물성은 메타데이터로 보존되며 현재 계산에는 자동 동화되지 않습니다.")
+            st.caption("현재 연결: MODFLOW 6 · 단상 피압 물 유동")
+            for engine in default_registry().engines():
+                if engine["implementation_status"] == "NOT_AVAILABLE":
+                    st.button(f"{engine['name']} · 미구현", disabled=True, key=f"gw_unavailable_{engine['engine_id']}", use_container_width=True)
+            st.caption("다상 CO₂·black-oil·지진 해석 어댑터는 아직 구현되지 않았습니다.")
+        st.divider()
+        st.markdown("**기존 지하수 케이스**")
+        upload = st.file_uploader("지하수 케이스 JSON 열기", type=["json"], key="gw_upload")
         if st.button("업로드 파일 불러오기", disabled=upload is None, use_container_width=True):
             if upload is not None:
                 try:
@@ -242,12 +352,12 @@ def sidebar(case: dict[str, Any]) -> None:
                         path = Path(tmp) / "case.json"
                         path.write_bytes(upload.getvalue())
                         candidate = load_case(path).to_dict()
-                    apply_edit(candidate, "프로젝트를 불러왔습니다.")
+                    apply_edit(candidate, "지하수 케이스를 새 공통 프로젝트로 불러왔습니다.", reset_metadata=True)
                 except (ValueError, UnicodeError, TypeError, KeyError, OSError) as exc:
                     st.error(f"프로젝트를 읽지 못했습니다: {exc}")
         if st.button("합성 예제로 새로 시작", use_container_width=True):
-            apply_edit(demo_case().to_dict(), "합성 예제를 열었습니다.")
-        st.download_button("프로젝트 JSON 저장", case_bytes(case), "groundwater_case.json", "application/json", use_container_width=True)
+            apply_edit(demo_case().to_dict(), "합성 예제를 열었습니다.", reset_metadata=True)
+        st.download_button("지하수 케이스 JSON 저장", case_bytes(case), "groundwater_case.json", "application/json", use_container_width=True)
         st.divider()
         st.markdown("**모델 구성**")
         with st.expander("격자와 층", expanded=True):
@@ -376,8 +486,11 @@ def editor(case: dict[str, Any], revision: int) -> None:
 
 def execute(case: dict[str, Any]) -> None:
     st.subheader("계산과 내보내기")
+    project = SubsurfaceProject.from_dict(st.session_state.gw_project)
+    registry = default_registry()
+    asset_root = st.session_state.get("gw_asset_root", "").strip() or None
     a, b = st.columns([3, 1])
-    executable = a.text_input("MODFLOW 6 실행 파일", value="mf6", help="서버에 설치된 mf6 또는 실행 파일의 절대 경로를 입력하세요. 설치·다운로드는 자동으로 수행하지 않습니다.")
+    executable = a.text_input("MODFLOW 6 실행 파일", value="mf6", key="gw_solver_path", help="서버에 설치된 mf6 또는 실행 파일의 절대 경로를 입력하세요. 설치·다운로드는 자동으로 수행하지 않습니다.")
     b.caption("실제 엔진이 필요합니다.")
     run_clicked = b.button("MODFLOW 6 계산", type="primary", use_container_width=True)
     export_clicked = st.button("엔진 없이 MF6 입력 파일 만들기")
@@ -385,8 +498,10 @@ def execute(case: dict[str, Any]) -> None:
         try:
             with tempfile.TemporaryDirectory(prefix="basinlens-gw-input-") as tmp:
                 with st.spinner("검증한 프로젝트를 MF6 입력으로 변환합니다…"):
-                    folder = export_case(GroundwaterCase.from_dict(case), Path(tmp) / "input")
-                    st.session_state.gw_input_zip = zip_directory(Path(folder))
+                    exported = registry.export(project, Path(tmp) / "input", asset_root=asset_root)
+                    verify_project_bundle(exported.workspace)
+                    st.session_state.gw_input_zip = zip_directory(exported.workspace / "engine")
+                    st.session_state.gw_project_input_zip = zip_directory(exported.workspace)
             st.success("MF6 입력 파일을 만들었습니다. 계산은 실행하지 않았습니다.")
         except (ValueError, RuntimeError, OSError) as exc:
             st.error(f"입력 파일 생성 실패: {exc}")
@@ -399,11 +514,15 @@ def execute(case: dict[str, Any]) -> None:
                 output = Path(tmp) / "run"
                 try:
                     with st.spinner("MODFLOW 6에서 실제 지하수 유동을 계산합니다…"):
-                        result = run_case(GroundwaterCase.from_dict(case), output, exe_name=executable.strip() or "mf6")
+                        run = registry.run(project, output, exe_name=executable.strip() or "mf6", asset_root=asset_root)
+                        verify_project_bundle(run.workspace)
+                        result = run.engine_result
                         products = {
                             "fingerprint": case_fingerprint(case), "heads": result.heads,
+                            "project_fingerprint": case_fingerprint(project.to_dict()),
                             "times": result.times_days, "summary": result.summary,
-                            "bundle": zip_directory(output),
+                            "bundle": zip_directory(output / "engine"),
+                            "project_bundle": zip_directory(output), "project_summary": run.summary,
                         }
                 except Exception:
                     if output.exists():
@@ -417,6 +536,9 @@ def execute(case: dict[str, Any]) -> None:
             st.caption("실행 파일 경로와 입력값을 확인하세요. 실패한 계산을 새 결과로 표시하지 않습니다.")
     if "gw_input_zip" in st.session_state:
         st.download_button("MF6 입력 ZIP 다운로드", st.session_state.gw_input_zip, "groundwater_mf6_inputs.zip", "application/zip")
+    if "gw_project_input_zip" in st.session_state:
+        st.download_button("공통 프로젝트 + MF6 입력 ZIP 다운로드", st.session_state.gw_project_input_zip, "subsurface_project_inputs.zip", "application/zip")
+        st.caption("공통 ZIP은 프로젝트·변환 근거·검증 기록을 포함합니다. 참조 원본 자료는 해시와 경로로 보존되며 ZIP에 복사되지 않습니다.")
     if "gw_failed_run_zip" in st.session_state:
         st.download_button("실패한 실행의 진단 파일 다운로드", st.session_state.gw_failed_run_zip, "groundwater_failed_run.zip", "application/zip")
 
@@ -426,9 +548,10 @@ def results(case: dict[str, Any]) -> None:
     if products is None:
         st.subheader("모델 미리보기")
         st.plotly_chart(model_figure(case), use_container_width=True, key="model_preview")
-        st.info("합성 지층과 기본 우물의 위치입니다. 수두 결과를 보려면 MODFLOW 6 계산을 실행하세요.")
+        st.info("입력된 지층과 기본 우물의 위치입니다. 수두 결과를 보려면 MODFLOW 6 계산을 실행하세요.")
         return
-    if products["fingerprint"] != case_fingerprint(case):
+    if (products["fingerprint"] != case_fingerprint(case)
+            or products.get("project_fingerprint") != case_fingerprint(st.session_state.gw_project)):
         st.warning("현재 입력과 다른 계산 결과입니다. 다시 계산하세요.")
         return
     heads, times = products["heads"], products["times"]
@@ -472,6 +595,9 @@ def results(case: dict[str, Any]) -> None:
         st.plotly_chart(fig, use_container_width=True, key="head_series")
     with st.expander("엔진 요약 · 가정 · 검증 한계"):
         st.json(products["summary"])
+        st.json(products["project_summary"])
+    st.caption("도표와 수두 CSV의 x/y는 격자 로컬 좌표입니다. 공통 프로젝트의 원점·CRS·표고 기준은 공통 ZIP의 project.json과 mapping.json에 보존됩니다.")
+    st.download_button("공통 프로젝트 실행 ZIP 다운로드", products["project_bundle"], "subsurface_project_run.zip", "application/zip", use_container_width=True)
     a, b = st.columns(2)
     a.download_button("전체 실행 ZIP 다운로드", products["bundle"], "groundwater_run.zip", "application/zip", use_container_width=True)
     if b.button("모든 시각·층의 수두 CSV 준비", use_container_width=True):
@@ -481,16 +607,97 @@ def results(case: dict[str, Any]) -> None:
         st.download_button("수두 결과 CSV 다운로드", st.session_state.gw_csv, "groundwater_heads.csv", "text/csv")
 
 
+def native_workbench() -> None:
+    """Keep native decks, their units and their execution products separate."""
+    st.subheader("네이티브 MF6 프로젝트 실행")
+    st.caption("아래 경로는 앱이 실행되는 서버의 경로입니다. mfsim.nam 파일 또는 네이티브 입력 폴더를 지정하세요.")
+    st.info("원본 네이티브 단위와 모델 구성을 보존하여 별도 폴더에서 실행합니다. 위의 피압 케이스·CCS 분야 설정으로 변환하지 않습니다. GMS GUI/보조자료의 편집 내용은 네이티브 입력에 동기화하지 않습니다.")
+    with st.form("gw_native_form"):
+        source = st.text_input("네이티브 mfsim.nam 또는 폴더", key="gw_native_source")
+        allowed = st.text_input("네이티브 입력 허용 루트 (선택)", key="gw_native_allowed",
+            help="../Component 같은 참조가 있으면 이들을 포함하는 원본 폴더를 지정하세요. 비워 두면 시뮬레이션 폴더만 허용합니다.")
+        output = st.text_input("네이티브 실행 결과 폴더", value="build/native-mf6-run", key="gw_native_output",
+            help="원본과 분리된 새 폴더를 매번 지정하세요. 기존 폴더는 덮어쓰지 않습니다.")
+        timeout = st.number_input("네이티브 실행 제한 시간 (초)", min_value=1, max_value=600, value=120, step=1)
+        a, b = st.columns(2)
+        inspect_clicked = a.form_submit_button("네이티브 입력 검사")
+        run_clicked = b.form_submit_button("네이티브 MF6 실행")
+    request = {"source": source.strip(), "allowed_root": allowed.strip(), "output": output.strip(),
+        "timeout": timeout, "exe": st.session_state.get("gw_solver_path", "mf6").strip() or "mf6"}
+    request_id = case_fingerprint(request)
+    if st.session_state.get("gw_native_request") != request_id:
+        for key in ("gw_native_report", "gw_native_result", "gw_native_zip"):
+            st.session_state.pop(key, None)
+        st.session_state.gw_native_request = request_id
+    if inspect_clicked or run_clicked:
+        for key in ("gw_native_report", "gw_native_result", "gw_native_zip"):
+            st.session_state.pop(key, None)
+        try:
+            if not request["source"]:
+                raise ValueError("mfsim.nam 또는 네이티브 입력 폴더를 지정하세요.")
+            if Path(request["source"]).suffix.lower() == ".gpr":
+                raise ValueError("이 실행 화면은 .gpr 컨테이너를 변환하지 않습니다. 네이티브 mfsim.nam을 지정하세요.")
+            report, _, _, inputs, sidecars, _, units = _preflight(request["source"], request["allowed_root"] or None)
+            st.session_state.gw_native_report = {
+                "native_inputs_resolved": True, "models": report["models"],
+                "package_types": sorted({r["kind"] for r in report["references"] if r["kind"].endswith("6")}),
+                "native_units": units, "unit_conversion": "none", "input_files": len(inputs),
+                "opaque_sidecars": len(sidecars), "gms_sidecar_native_sync": "not performed",
+                "physics_validation": "not evaluated"}
+            if run_clicked:
+                st.session_state.pop("gw_native_result", None)
+                st.session_state.pop("gw_native_zip", None)
+                if not request["output"]:
+                    raise ValueError("새 네이티브 실행 결과 폴더를 지정하세요.")
+                with st.spinner("원본을 보존하고 네이티브 MODFLOW 6를 실행합니다…"):
+                    result = run_native_simulation(request["source"], request["output"],
+                        allowed_root=request["allowed_root"] or None, exe_name=request["exe"],
+                        timeout_seconds=float(timeout))
+                    from basinlens_ccs.groundwater.native_run import verify_native_run
+                    verified = verify_native_run(result.workspace)
+                    if verified["status"] != "completed":
+                        raise ValueError("완료된 네이티브 실행의 무결성을 확인하지 못했습니다.")
+                    st.session_state.gw_native_result = {"workspace": str(result.workspace),
+                        "summary": result.summary, "verified_status": verified["status"]}
+                    bundle_size = sum(path.stat().st_size for path in result.workspace.rglob("*") if path.is_file())
+                    if bundle_size <= 128 * 1024 * 1024:
+                        st.session_state.gw_native_zip = zip_directory(result.workspace)
+                st.success("네이티브 실행과 파일 무결성 검사를 완료했습니다. 임의 모델의 물리적 정확성은 별도 검증 대상입니다.")
+            else:
+                st.success("네이티브 입력 경로와 참조 그래프를 확인했습니다. 계산은 실행하지 않았습니다.")
+        except (OSError, ValueError, RuntimeError) as exc:
+            st.error(f"네이티브 입력/실행 오류: {exc}")
+    if "gw_native_report" in st.session_state:
+        with st.expander("네이티브 모델 · 패키지 · 원본 단위", expanded=True):
+            st.json(st.session_state.gw_native_report)
+        st.caption("단위 선언이 없는 항목은 미상으로 남습니다. 수두를 절대 압력으로 해석하거나 미터·일 단위를 자동 적용하지 않습니다.")
+    if "gw_native_result" in st.session_state:
+        result = st.session_state.gw_native_result
+        st.json(result["summary"])
+        st.caption("검증한 네이티브 실행 폴더")
+        st.code(result["workspace"], language=None)
+        if "gw_native_zip" in st.session_state:
+            st.download_button("검증한 네이티브 실행 ZIP 다운로드", st.session_state.gw_native_zip,
+                "native_mf6_run.zip", "application/zip", key="gw_native_download")
+        else:
+            st.caption("묶음이 128 MiB를 초과하여 메모리 다운로드를 생략했습니다. 위 서버 폴더에서 전체 파일을 확인하세요.")
+        st.caption("이 결과는 위 피압 케이스의 지도·CSV와 별도로 보존됩니다. GUI/보조자료 상태와 계산 입력의 일치, 물리 검증 및 GMS 동등성은 확인되지 않았습니다.")
+
+
 def main() -> None:
     st.set_page_config(page_title="BasinLens · 지하수 작업대", page_icon="💧", layout="wide")
     if "gw_case" not in st.session_state:
         st.session_state.gw_case = demo_case().to_dict()
         st.session_state.gw_revision = 0
+    if "gw_project" not in st.session_state:
+        st.session_state.gw_project = project_from_groundwater(GroundwaterCase.from_dict(st.session_state.gw_case)).to_dict()
     case = st.session_state.gw_case
     sidebar(case)
     st.title("지하수 모델 작업대")
     st.caption("BasinLens · 구조화 격자 → 조건 설정 → MODFLOW 6 → 수두 검토")
-    st.info("단상·피압 지하수 유동(GWF) 연구용 모듈입니다. CO₂–염수 다상유동, plume, 용해·반응, 지반변형과 현장 안전성은 계산하지 않습니다. 기본 예제는 합성 자료입니다.")
+    project = SubsurfaceProject.from_dict(st.session_state.gw_project)
+    st.caption(f"분야: {DOMAIN_LABELS[project.domain]} · 계산 역할: {project.model.role}")
+    st.info("기본 편집기는 단상·피압 지하수 유동(GWF) 연구용 모듈입니다. CO₂–염수 다상유동, plume, 용해·반응, 지반변형과 현장 안전성은 계산하지 않습니다. 기본 예제는 합성 자료입니다.")
     if "gw_notice" in st.session_state:
         st.success(st.session_state.pop("gw_notice"))
     grid = case["grid"]
@@ -503,6 +710,8 @@ def main() -> None:
     execute(case)
     st.divider()
     results(case)
+    st.divider()
+    native_workbench()
 
 
 if __name__ == "__main__":

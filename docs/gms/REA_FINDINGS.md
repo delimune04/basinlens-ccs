@@ -1,60 +1,100 @@
-# REA investigation: observed, inferred, unknown
+# GMS reconstruction evidence
 
-Investigation date: **2026-10-19**. Tool: official `rea-agents` **6.7.0**,
-Node **24.19.0**, Linux. The compact machine-readable record is
-[`rea_inspection_summary.json`](rea_inspection_summary.json).
+Investigation date: **2026-10-19**. Baseline: official GMS **10.9.7 x64** full
+installer, build 13 October 2026. REA: **6.7.0**. This freezes an artifact, not an
+activated edition or every optional licensed module. The machine-readable
+receipt is [rea_inspection_summary.json](rea_inspection_summary.json).
 
-## Observed
+## Exact shipped target
 
-1. The official Aquaveo download selected was GMS **10.9.7 x64**, build
-   **13 October 2026**. The full installer was downloaded privately: **1,992,547,136
-   bytes**, SHA-256 `69fef79023d065d4664e74950e10669c784a7e18fabfaa8ada48b2760f624335`.
-   The S3 multipart ETag reproduced from 10 MiB MD5 parts exactly matched
-   `3b6bb1dd69e6828fdea909ccc1fe3918-191`. Extraction errors are therefore not
-   evidence of a damaged transfer.
-2. The installer begins with a PE32 x86 Advanced Installer bootstrap. An exact
-   **2,103,808-byte prefix**, ending at the last PE section's raw extent and
-   excluding the installer overlay, was inspected with REA:
+The official installer is 1,992,547,136 bytes, SHA-256
+`69fef79023d065d4664e74950e10669c784a7e18fabfaa8ada48b2760f624335`.
+Its multipart S3 ETag also reproduced exactly. Initial attempts to decompress
+embedded ZIP streams directly failed. Those attempts did not recover the main
+application; the earlier bootstrap-only result is superseded by the following
+successful extraction.
 
-   ```bash
-   rea inspect-pe-resources /private/path/gms-installer-bootstrap.exe --json
-   ```
+`tools/extract_gms_target.py` parses the Advanced Installer footer/table, restores
+the observed outer archive framing, extracts the selected member, and checks the
+fixed installer, archive and target identities. A complete integration check
+against the original download passed. The unchanged main `gms10_9.exe` is
+**145,479,264 bytes**, CRC32 **42447c5d**, SHA-256
+`d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2`.
+Extraction does not install, execute, activate or modify GMS.
 
-   REA successfully returned a complete resource-table inventory for **that
-   bootstrap**: **106 entries, 48 resources**. Evidence ID:
-   `ev_c0073ae26271fa5c4bb7b9f5a229219947d3438ce12b618fc0b25ef38d20ef6c`.
-   The exact derived subject hash is in the JSON record.
-3. Standard ZIP/DEFLATE and Deflate64 attempts did **not** produce a
-   checksum-verified installed `gms10_9.exe`. Candidate archive headers are not
-   treated as recovered files or proof of executing dependencies.
-4. Native analysis providers were unavailable: no configured Hopper/Ghidra/IDA,
-   and the host's `ps` failed REA's Linux owned-process readiness check. The check
-   was not bypassed. Windows GMS was not executed.
+## Actual REA observations
 
-## Inference boundary
+The following operation ran against that main executable:
 
-The successful REA operation establishes **installer resource structure only**.
-It does not recover GMS modeling algorithms, project formats, native functions,
-rendering behavior, or numerical answers. No pseudocode or proprietary resource
-was used as the implementation of this module.
+```bash
+rea inspect-pe-resources /private/path/gms10_9.exe --format json
+```
 
-The workbench implements an independent bounded workflow based on publicly
-documented model-building concepts and the public FloPy/MODFLOW APIs. Its
-scientific tests compare against independent groundwater solutions, **not GMS**.
-Calling this a complete REA-derived GMS clone would be inaccurate.
+Evidence ID:
+`ev_9eb14006478ec9134d3e2f86ea0ec19d033a9d9ae72c155639fed87365417306`.
+REA reported **1,208 resources / 2,431 directory entries**. The independent
+Windows menu-template decoder then used the exact REA ranges and payload hashes:
+**131 menus**, **576 distinct static command IDs**, **429 dialog resources
+inventoried**, zero menu-decoder failures. Dialog layout and command handlers
+were not established by this operation. Static resources can be unused,
+edition-dependent, disabled or dynamically replaced.
 
-## Remaining work for GMS equivalence
+The installer also contains Python interface files. REA imported a private source
+inventory as **historical reference**, with partial inventory authority and zero
+semantic relationships. This establishes neither semantic Python analysis nor
+native modeling algorithms. Separately reading those interfaces established
+specific MF6 folder, sidecar and launch boundaries; original source stays private.
 
-- Supply an installed, authorized GMS target to a suitable Windows environment
-  and a configured native REA analysis provider.
-- Select explicit capabilities and representative native projects; observe
-  inputs, UI actions, file changes, solver invocation and exported results.
-- Write testable behavior specifications and compare the same physical model,
-  boundary placement, discretization, solver tolerances and version.
-- Add project-format import only after actual format evidence and round-trip
-  fixtures exist. Record incompatible/unknown fields explicitly.
+## Native analysis and original runtime
 
-The repository deliberately contains no GMS installer, executable, extracted
-icons, resource payloads or decompiled source. Raw inspection outputs remain
-private because a PE-resource report can carry original resource bytes. The
-published summary is metadata, hashes, status and limitations only.
+The local REA Ghidra provider failed its owned-process readiness guard because
+the process namespace/procfs identities disagree. The guard was not disabled or
+patched. A normal GitHub Actions runner is used for a separate, explicitly
+opted-in native REA probe. Its workflow verifies the official installer and
+Ghidra release, runs the actual doctor/analyze commands, and publishes only a
+sanitized health/count receipt. A launched job or a successful download is not
+reported as a completed native analysis.
+
+A separate conventional Ghidra analysis uses a private project and an owned,
+bounded process group. Findings from that route are labeled **auxiliary Ghidra,
+not REA**. Tool health, import, analysis completion and timeout are separate facts.
+See the separately recorded provider receipts for final status.
+
+No original GMS numerical run has yet been normalized and compared. An activated
+Premium edition, its dependencies and all UI behavior have not been observed.
+The public implementation therefore makes **zero genuine GMS output-match
+claims**. It is an original implementation under reconstruction, not a completed
+replacement or compatibility-certified product.
+
+There is a separate positive interoperability check: the official 10.9 tutorial
+index ships a project whose stored creator metadata is 10.8.2 and whose shipped
+solver listing says MF6 6.4.1. Re-executing its 15 unchanged native input files
+with public USGS MF6 6.7.0 reproduced all 1,125 heads and the full shipped binary
+budget file byte for byte. This was not an original GMS GUI run or translation.
+[TUTORIAL_INTEROPERABILITY.md](TUTORIAL_INTEROPERABILITY.md) preserves the exact
+scope, hashes, independent drain/recharge/well checks and metadata conflicts.
+
+## Product inventory and completion
+
+[capabilities.json](capabilities.json) records **163 research entries** drawn
+from official product, model, edition and tutorial sources. The tutorial index
+provided 132 PDF links. Neither number is a full-product denominator. The
+current 10.9 manual index was identified, but direct retrieval returned 403;
+a complete current manual PDF was not verified. Historical manuals do not prove
+10.9 coverage. Unsupported historical engines and geometry-only integrations
+are explicitly distinguished in the catalogue.
+
+Completion requires reconciling every observed menu, dialog, toolbox tool,
+package and format with a behavior contract; capturing original successful and
+failure workflows; implementing them; and passing numerical, file round-trip,
+UI and operational comparisons. Required physics, geometry, units, datum,
+solver versions and tolerances must agree. Unknown and unlisted features remain
+open. [PARITY.md](PARITY.md) describes the evidence checks.
+
+## Publication boundary
+
+The repository contains original code, synthetic fixtures, public source links,
+hashes and original prose specifications. It contains no GMS installer,
+executable, extracted artwork/resource payloads, native pseudocode or copied
+proprietary source. Raw vendor tutorials, projects and detailed analysis remain
+private pending their redistribution terms. No license bypass is implemented.

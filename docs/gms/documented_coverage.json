@@ -1,0 +1,2628 @@
+{
+  "catalogue_id": "gms-10.9-documented-capabilities-20261019",
+  "catalogue_sha256": "696d8b365a733ff90c97a184612eb67e3cb289a61832b6560f37096a699e9b5e",
+  "complete_gms_inventory": false,
+  "coverage_schema_version": 1,
+  "coverage_sha256": "1a396028303e1035eec01ea08d84f74e3882ec775a6d1747aea3b832362cde85",
+  "denominator": 163,
+  "denominator_meaning": "Features in this supplied catalogue only; not the full GMS product",
+  "features": [
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "workspace.modules",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Object-specific workspaces",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "workspace.project_tree",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Project hierarchy and active objects",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "workspace.graphics_navigation",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "3D navigation and object selection",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "workspace.xyzs_editing",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Coordinate and dataset editing",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "workspace.project_save",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Project save and reopen",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "workspace.projections",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Project coordinate reference",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "workspace.display_presets",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Reusable display configurations",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "conceptual.coverages",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Conceptual model coverages",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "conceptual.points",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Independent points",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "conceptual.arcs",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Connected line geometry",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "conceptual.polygons",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Polygonal regions",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "conceptual.feature_editing",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Feature selection and editing",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "conceptual.grid_frames",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Grid extent frames",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.shapefile_read",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Shapefile display",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.attribute_table",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "GIS attribute inspection",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.to_scatter",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "GIS-to-sample conversion",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.to_features",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "GIS-to-conceptual conversion",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.crs_assignment",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Coordinate-reference assignment",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.mixed_crs",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Mixed-reference data alignment",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.cad_import",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "CAD model context",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.georeferenced_images",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Georeferenced imagery",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.online_background",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Dynamic background maps",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.map_layer_display",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Map layering and transparency",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.map_snapshot",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Offline map snapshots",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "gis.web_image_acquisition",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Web image acquisition",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "raster.import_properties",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Raster import and metadata",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "raster.visualization",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Raster shading",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "raster.resample",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Raster resampling",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "raster.merge_clip",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Raster merge and trimming",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "raster.catalog",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Raster catalogs",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "raster.to_scatter",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Raster/sample conversion",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "raster.interpolate",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Raster-to-model interpolation",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "lidar.import_filter",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Point-cloud import and filtering",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "lidar.display",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Point-cloud rendering controls",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "lidar.trim_export",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Filtered point-cloud export",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "lidar.to_raster",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Lidar-to-raster conversion",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "lidar.to_ugrid",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Lidar-to-grid interpolation",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "lidar.multifile_merge",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Multiple point-cloud sources",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.borehole_import",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Borehole logs",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.borehole_materials",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Borehole material editing",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.borehole_sections",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Borehole cross-sections",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.section_surface_snap",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Section surface constraints",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.section_editor",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Cross-section interpretation",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.horizon_identity",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Horizon correlation identifiers",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.solids_from_horizons",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Stratigraphic solid construction",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.solids_section_constraints",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Section-constrained solids",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.solid_cross_sections",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Solid section visualization",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.horizon_extent",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Horizon extent coverages",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.auto_horizon_coverages",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Automatic horizon coverages",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.tin_construction",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Triangulated surfaces",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.tin_editing",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Surface editing",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geology.tin_smoothing",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Surface refinement and smoothing",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "mesh.horizon_surfaces",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Horizon surfaces from samples",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "mesh.horizon_finite_elements",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Geological finite-element meshing",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "mesh.raster_horizons",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Raster-defined horizons",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "mesh.ugrid_from_rasters",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Unstructured layers from rasters",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "grid.structured_creation",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Structured model grids",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "grid.direct_cell_data",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Direct cell parameter editing",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "grid.initial_boundary_inputs",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Grid-based model controls",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "grid.model_checker",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Model setup checks",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "ugrid.import",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Unstructured geometry import",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "ugrid.creation",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Unstructured geometry generation",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "ugrid.conversions",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Unstructured object conversions",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "ugrid.extrusion",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Layered grid extrusion",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "ugrid.refinement_types",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Alternative unstructured layouts",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "ugrid.quadtree_refinement",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Feature-based quadtree refinement",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.scatter_io",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Spatial sample datasets",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.linear_2d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Two-dimensional linear interpolation",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.idw_2d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Two-dimensional distance weighting",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.kriging_2d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Two-dimensional kriging",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.dataset_math",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Dataset calculations",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.idw_3d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Three-dimensional distance weighting",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.kriging_3d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Three-dimensional kriging",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.vertical_anisotropy",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Interpolation anisotropy",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geostatistics.bounds_truncation",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Interpolation value bounds",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "visualization.isosurfaces",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Volumetric scalar isosurfaces",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "visualization.cross_sections",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Arbitrary volume sections",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "visualization.moving_sections",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Moving-section animation",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "visualization.moving_isosurfaces",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Isovalue animation",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "visualization.clipping_planes",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Spatial clipping planes",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "visualization.scalar_clipping",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Scalar-based volume clipping",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "visualization.cell_visibility",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Explicit cell visibility",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "presentation.annotation_objects",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Report annotations",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "presentation.annotation_io",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Annotation interchange",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "presentation.layout_pages",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Print-layout compositions",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "presentation.layout_io",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Reusable print layouts",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "presentation.image_export",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Graphical export",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "automation.toolbox_execution",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Processing toolbox",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "automation.toolbox_history",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Tool execution history",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "interchange.modflow_native_text",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Native MODFLOW text export",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "interchange.external_arrays",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "External-array model export",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "interchange.modflow6_conversion",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Export classic/USG models to MF6",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "interchange.unsupported_packages",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Preserve unsupported native packages",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "interchange.gpr_container",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "GMS project containers",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "interchange.legacy_gms_formats",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Legacy GMS formats",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "licensing.edition_matrix",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Edition-dependent modules",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "licensing.community_limits",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Community reference limits",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modflow.classic",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW 88 / 96 / 2000 / 2005",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modflow.nwt",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW-NWT",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modflow.lgr",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW-LGR",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modflow.usg",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW-USG",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modflow.usg_transport",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW-USG-Transport",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modflow6.flow",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW 6 flow",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modflow6.transport",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW 6 GWT",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modflow6.energy",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW 6 GWE",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modpath",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODPATH",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modpath3du",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "mod-PATH3DU",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.mt3dms",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MT3DMS",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.mt3d_usgs",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MT3D-USGS",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.rt3d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "RT3D",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.seam3d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "SEAM3D",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.seawat",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "SEAWAT",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.pht3d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "PHT3D",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.hgs",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "HydroGeoSphere interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.femwater",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "FEMWATER",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.modaem",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODAEM",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "engine.seep2d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "SEEP2D",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geometry.feflow",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "FEFLOW geometry",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "geometry.tough2",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "TOUGH2 geometry",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.pest",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "PEST / Parallel PEST",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.mf6_observations",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW 6 PEST observations",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "uncertainty.tprogs",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "T-PROGS",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "solver.samg",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "SAMG / SAMG-MODFLOW+",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "analysis.zonebudget",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "ZONEBUDGET",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "historical.utexas",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "UTEXAS",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "historical.utchem",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "UTCHEM",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.manual",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Manual calibration and observation comparison",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.pest_zonal",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "PEST zonal parameter estimation",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.pilot_points",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "PEST pilot points",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.pilot_points_advanced",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Advanced pilot-point constraints",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.pest_svd",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "PEST truncated SVD",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.pest_svd_assist",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "PEST SVD-Assist",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.pest_parallel",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Parallel PEST workflow",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.parameter_instances_clusters",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW parameter instances and clusters",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.transient_pumping",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Transient pumping-test calibration",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "calibration.transient_data",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Transient calibration data workflow",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "uncertainty.parameter_randomization",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Parameter randomization and sampling",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "uncertainty.transport_threshold",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Ensemble transport threshold analysis",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "uncertainty.indicator_simulations",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Stochastic indicator realizations",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "uncertainty.stochastic_inverse",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Stochastic inverse modeling",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "uncertainty.nsmc_generate",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "PEST Null Space Monte Carlo I",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "uncertainty.nsmc_reuse",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "PEST Null Space Monte Carlo II",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.drt",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW DRT interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.ets",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW ETS interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.gage",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW GAGE interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.lak3",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW LAK3 interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.mnw1",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW MNW1 interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.mnw2",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW MNW2 interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.mnw2_nonvertical",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MNW2 nonvertical wells and pump capacity",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.sfr2",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW SFR1/SFR2 streams",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.str",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW STR streams",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.sub",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW SUB interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.swi2",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW SWI2 interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.classic.uzf",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW UZF interface",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usg.gnc",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW-USG GNC",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usg.cln",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MODFLOW-USG CLN multilayer wells",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usg.cln_shapefile",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "Shapefile to CLN mapping",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usg.cln_observations",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "CLN well observations",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usgt.pfas",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "USG-Transport PFAS inputs",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usgt.mdt_discrete_fracture",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MDT discrete-fracture example",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usgt.mdt_equivalent_porous",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MDT equivalent porous-media example",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usgt.mdt_matrix",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MDT heterogeneous matrix example",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    },
+    {
+      "errors": [],
+      "highest_evidenced_stage": "documented",
+      "id": "package.usgt.mdt_3d",
+      "implementation_commit": null,
+      "matched_reports": [],
+      "name": "MDT field-scale 3D example",
+      "stages": {
+        "documented": true,
+        "implemented": false,
+        "matched": false,
+        "specified": false,
+        "tested": false
+      },
+      "synthetic_reports": []
+    }
+  ],
+  "scope": "Selected documented GMS 10.9 capabilities. This decomposition is a partial investigation catalogue, not an official or exhaustive product feature count.",
+  "stage_counts": {
+    "documented": 163,
+    "implemented": 0,
+    "matched": 0,
+    "specified": 0,
+    "tested": 0
+  },
+  "unknown_unlisted_features": true
+}

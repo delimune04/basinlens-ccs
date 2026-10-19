@@ -30,6 +30,10 @@ app = [
 groundwater = [
   "flopy>=3.9,<4",
 ]
+gms = [
+  "flopy>=3.9,<4",
+  "h5py>=3.8,<4",
+]
 dev = [
   "pytest>=8.0",
 ]
@@ -38,6 +42,9 @@ dev = [
 basinlens = "basinlens_ccs.cli:main"
 basinlens-verify = "basinlens_ccs.artifacts:verify_main"
 basinlens-groundwater = "basinlens_ccs.groundwater.__main__:main"
+basinlens-subsurface = "basinlens_ccs.subsurface.__main__:main"
+basinlens-parity = "basinlens_ccs.parity.__main__:main"
+basinlens-resource-map = "basinlens_ccs.reconstruction.__main__:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

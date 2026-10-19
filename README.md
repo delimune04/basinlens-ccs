@@ -89,10 +89,47 @@ python tools/install_mf6.py --accept-download --destination build/mf6-bin
 
 This is a **constant-density, confined groundwater module** for reference studies,
 not a complete GMS clone or a CO2 multiphase simulator. No native GMS project
-compatibility or numerical equivalence to GMS has been established. Existing
+round-trip compatibility or complete numerical equivalence to GMS has been established. Existing
 capacity/attention outputs remain separate. See the [feature matrix](docs/gms/FEATURE_MATRIX.md),
 [run instructions](docs/gms/REPRODUCE.md), [REA findings](docs/gms/REA_FINDINGS.md),
 and [actual numerical checks](docs/gms/VALIDATION.md).
+
+### GMS reconstruction and CCS / oil extension
+
+The reconstruction baseline is GMS 10.9.7 x64. Actual REA observations are bound
+to the extracted executable's SHA-256. The [capability catalogue](docs/gms/capabilities.json)
+records 163 research entries with official sources and required runtime probes;
+these are a research decomposition, not an official or complete feature count.
+See [the investigation record](docs/gms/REA_FINDINGS.md) for what was observed.
+
+The new `subsurface` package preserves explicit units, CRS, vertical datum,
+structured geometry, stratigraphy, rock properties, wells, observations and
+hashed asset references across domains. Its engine registry currently runs
+MODFLOW 6. CCS and oil projects can use it with the explicit `background_water`
+role. CO2 multiphase, black-oil and seismic adapters are unavailable until their
+implementations and independent benchmarks exist.
+
+```bash
+python -m basinlens_ccs.subsurface engines
+python -m basinlens_ccs.subsurface validate examples/subsurface/ccs_background_water.json
+python -m basinlens_ccs.subsurface run examples/subsurface/ccs_background_water.json --output build/ccs-water --exe /absolute/path/to/mf6
+```
+
+The [comparison harness](docs/gms/PARITY.md) checks geometry, units, support,
+native input hashes, capture provenance and numerical tolerances before accepting
+a declared output match. Synthetic examples test the harness; they cannot count
+as GMS matches. No original GMS runtime result has yet passed this comparison.
+The complete GMS reconstruction remains open.
+
+Experimental [native MF6 import](docs/gms/MF6_NATIVE_IMPORT.md) preserves general
+native packages and units without narrowing them to the confined case schema.
+The [GPR reader](docs/gms/GPR_HDF5_READ.md) inventories HDF5 metadata and reads
+explicitly selected numeric arrays; project writing and geometry decoding are
+unimplemented. Install these optional interfaces with `pip install -e ".[gms]"`.
+An unchanged official tutorial export was re-executed with public USGS MODFLOW:
+all 1,125 heads and external budget outputs matched its shipped binary results.
+The [evidence record](docs/gms/TUTORIAL_INTEROPERABILITY.md) distinguishes this
+historical tutorial interoperability check from a witnessed GMS runtime comparison.
 
 ### Capacity screening
 

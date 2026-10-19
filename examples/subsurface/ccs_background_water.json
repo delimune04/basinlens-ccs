@@ -1,0 +1,216 @@
+{
+  "assets": [
+    {
+      "asset_id": "synthetic-properties",
+      "license": "CC0-1.0",
+      "media_type": "text/csv",
+      "relative_path": "synthetic_layer_properties.csv",
+      "sha256": "a05713c005e9f745e5bf8e9326d8ac25cb123b86cc40c2b19fa429a880969eb2",
+      "source": "Synthetic example created for this repository; no field observations"
+    }
+  ],
+  "domain": "ccs",
+  "geometry": {
+    "delc_m": 25.0,
+    "delr_m": 25.0,
+    "kind": "structured",
+    "layer_bottoms_m": [
+      -10.0,
+      -25.0,
+      -50.0
+    ],
+    "ncol": 41,
+    "nlay": 3,
+    "nrow": 21,
+    "origin_x_m": 0.0,
+    "origin_y_m": 0.0,
+    "top_m": 0.0
+  },
+  "model": {
+    "engine_id": "modflow6",
+    "options": {
+      "boundaries": {
+        "left_head_m": 12.0,
+        "right_head_m": 10.0
+      },
+      "initial_head_m": null,
+      "periods": [
+        {
+          "length_days": 1.0,
+          "steps": 1,
+          "transient": false,
+          "wells": []
+        },
+        {
+          "length_days": 30.0,
+          "steps": 12,
+          "transient": true
+        }
+      ],
+      "recharge_m_per_day": 0.0001
+    },
+    "physics": "single_phase_confined_groundwater",
+    "role": "background_water"
+  },
+  "name": "Synthetic layered confined aquifer",
+  "observations": [],
+  "project_id": "synthetic-confined-3layer",
+  "provenance": {
+    "assumptions": [
+      "Constant-density single-phase water; all cells confined and active",
+      "No-flow north/south and base; left/right cell centres have fixed head",
+      "Water injection is not CO2 injection; no multiphase transport or geomechanics"
+    ],
+    "source": "BasinLens synthetic demonstration; no field observations"
+  },
+  "reference_mesh_asset_ids": [],
+  "rock_properties": [
+    {
+      "basis": "synthetic",
+      "name": "hydraulic_conductivity_x",
+      "quantity": {
+        "unit": "m/day",
+        "value": [
+          10.0,
+          0.05,
+          5.0
+        ]
+      },
+      "source_asset_ids": [
+        "synthetic-properties"
+      ],
+      "support": {
+        "indices": [
+          0,
+          1,
+          2
+        ],
+        "kind": "layer"
+      }
+    },
+    {
+      "basis": "synthetic",
+      "name": "hydraulic_conductivity_y",
+      "quantity": {
+        "unit": "m/day",
+        "value": [
+          8.0,
+          0.05,
+          4.0
+        ]
+      },
+      "source_asset_ids": [
+        "synthetic-properties"
+      ],
+      "support": {
+        "indices": [
+          0,
+          1,
+          2
+        ],
+        "kind": "layer"
+      }
+    },
+    {
+      "basis": "synthetic",
+      "name": "hydraulic_conductivity_z",
+      "quantity": {
+        "unit": "m/day",
+        "value": [
+          1.0,
+          0.005,
+          0.5
+        ]
+      },
+      "source_asset_ids": [
+        "synthetic-properties"
+      ],
+      "support": {
+        "indices": [
+          0,
+          1,
+          2
+        ],
+        "kind": "layer"
+      }
+    },
+    {
+      "basis": "synthetic",
+      "name": "specific_storage",
+      "quantity": {
+        "unit": "1/m",
+        "value": [
+          1e-05,
+          1e-05,
+          1e-05
+        ]
+      },
+      "source_asset_ids": [
+        "synthetic-properties"
+      ],
+      "support": {
+        "indices": [
+          0,
+          1,
+          2
+        ],
+        "kind": "layer"
+      }
+    }
+  ],
+  "schema_version": 1,
+  "spatial_reference": {
+    "crs": "local Cartesian metres",
+    "length_unit": "m",
+    "local_axes": "x increases with column; y increases with row; z increases upward",
+    "time_unit": "day",
+    "vertical_datum": "local aquifer top = 0 m; elevations increase upward"
+  },
+  "stratigraphy": [
+    {
+      "layer_indices": [
+        0
+      ],
+      "name": "Synthetic upper aquifer",
+      "source_asset_ids": [
+        "synthetic-properties"
+      ],
+      "unit_id": "upper"
+    },
+    {
+      "layer_indices": [
+        1
+      ],
+      "name": "Synthetic low-conductivity layer",
+      "source_asset_ids": [
+        "synthetic-properties"
+      ],
+      "unit_id": "middle"
+    },
+    {
+      "layer_indices": [
+        2
+      ],
+      "name": "Synthetic lower aquifer",
+      "source_asset_ids": [
+        "synthetic-properties"
+      ],
+      "unit_id": "lower"
+    }
+  ],
+  "wells": [
+    {
+      "cell": [
+        2,
+        10,
+        20
+      ],
+      "fluid": "water",
+      "name": "water-injection",
+      "rate": {
+        "unit": "m3/day",
+        "value": 100.0
+      }
+    }
+  ]
+}

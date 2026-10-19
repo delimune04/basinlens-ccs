@@ -8,7 +8,7 @@ replacement. It is a separate optional module from conceptual CCS capacity.
 
 | GMS workflow | This implementation | Verification / limitation |
 |---|---|---|
-| Model/project management | Versioned JSON case import, edit, export | Synthetic projects; native `.gpr` not supported |
+| Model/project management | Versioned JSON case import, edit, export | Limited GPR/HDF5 inspection and selected array reads; no native save/reopen round trip |
 | Structured groundwater grid | Uniform horizontal spacing, multiple flat layers | All cells active, confined aquifer only |
 | Hydraulic properties | Per-layer anisotropic K and specific storage | Constant within each layer |
 | Boundary conditions | Left/right constant head; other outside faces no-flow | General GIS boundaries, rivers and drains not implemented |
@@ -18,6 +18,11 @@ replacement. It is a separate optional module from conceptual CCS capacity.
 | Input-file export | Standalone MODFLOW 6 text inputs | Files can be run directly by MODFLOW; GMS import not tested |
 | Results | Layer/time head maps, contours, 3D surfaces, time series | Head surfaces are not CO2 plume surfaces |
 | Reproducibility | Input JSON, solver outputs, budgets, hashes and versions | Synthetic numerical checks; no field validation |
+| Shared subsurface projects | Versioned units/CRS/datum, geometry, properties, strata, wells, observations and asset hashes | Structured geometry; observations retained without assimilation |
+| CCS / oil extension | Capability-gated registry and working MODFLOW background-water adapter | CO2, black-oil and seismic adapters explicitly unavailable |
+| Reference comparison | Hashed CSV/NPZ evidence, strict alignment, tolerance metrics and replay verification | Synthetic harness tests; no genuine GMS runtime matches |
+| REA reconstruction accounting | Exact main executable/resource observation and source-linked capability catalogue | Static structure is distinct from observed behavior |
+| Native MF6 / GPR data | General MF6 reference graph, opaque sidecars, bounded HDF5 metadata/array reads | Actual official tutorial import and native-input rerun; no GMS UI/translation witness |
 | GIS / CAD / boreholes | Not implemented | No shapefile/CAD/CRS transformation claims |
 | Unstructured meshes / solids | Not implemented | No grid refinement or stratigraphic interpolation |
 | Solute transport / particles | Not implemented | No GWT, MT3D or MODPATH adapter yet |

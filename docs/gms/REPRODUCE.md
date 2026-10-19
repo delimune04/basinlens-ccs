@@ -51,6 +51,38 @@ The UI can download an input ZIP or complete run ZIP and head-table CSV.
 - Existing capacity estimates and this flow result remain distinct engines.
   OPM Flow / DuMux integration is future work, not a solver run performed here.
 
+## Shared CCS and oil projects
+
+```bash
+python -m basinlens_ccs.subsurface engines --exe /absolute/path/to/mf6
+python -m basinlens_ccs.subsurface validate examples/subsurface/ccs_background_water.json
+python -m basinlens_ccs.subsurface export examples/subsurface/oil_background_water.json --output build/oil-water-input
+python -m basinlens_ccs.subsurface run examples/subsurface/ccs_background_water.json --output build/ccs-water-run --exe /absolute/path/to/mf6
+python -c 'from basinlens_ccs.subsurface import verify_project_bundle; verify_project_bundle("build/ccs-water-run"); print("verified")'
+```
+
+See [the example contract](../../examples/subsurface/README.md) for units,
+coordinate axes, asset-root rules, supported property fields and trusted Python
+engine registration. Source asset bytes stay at their registered path; the run
+preserves their hashes and exact project/mapping. Selecting an unavailable
+physics adapter fails before producing output. Domain labels do not change the
+fluid formulation. [PARITY.md](PARITY.md) covers original-result comparisons.
+
+## Existing native model data
+
+```bash
+python -m pip install -e ".[gms]"
+python -m basinlens_ccs.groundwater.gms_native /absolute/path/mfsim.nam --allowed-root /absolute/project/root
+python -m basinlens_ccs.groundwater.gpr_hdf5 /absolute/path/project.gpr
+```
+
+The first command inventories native references and GUI sidecars without running
+the engine. The second inventories HDF5 metadata without reading datasets or
+following indirect links. Use the documented Python API for a specifically
+selected bounded numeric array. See [MF6_NATIVE_IMPORT.md](MF6_NATIVE_IMPORT.md)
+and [GPR_HDF5_READ.md](GPR_HDF5_READ.md). Native units stay literal; conflicting
+GPR metadata is not resolved by guessing a conversion.
+
 ## Inspect an installed GMS with REA
 
 Install the official [REA package](https://github.com/morluto/rea) separately, then:
@@ -64,6 +96,20 @@ executing GMS. Keep the output private: PE evidence may include original resourc
 payloads. Do not add it to the repository. `--native-provider ghidra` optionally
 requests actual native static analysis when that engine is already configured.
 Failure records remain failures; installing REA alone does not reconstruct GMS.
+
+For the pinned official installer, `python tools/extract_gms_target.py --help`
+shows the explicit download/extraction interface. This is a roughly 2 GB opt-in
+research operation; it is not part of normal installation or tests. Keep its
+output private. The generic menu observation tool is:
+
+```bash
+python -m basinlens_ccs.reconstruction /private/path/gms10_9.exe --evidence /private/path/rea-resources.json --output /private/path/menu-observations.json
+```
+
+Text labels are excluded by default. Use `--include-labels` only for private
+functional observations. Neither command executes GMS. The native probe in
+`.github/workflows/gms-native-analysis.yml` is explicitly opted in; ordinary CI
+does not download GMS or silently run a native investigation.
 
 ## Verify
 

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "target_sha256": "d69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2",
+  "target_size_bytes": 145479264,
+  "probe_sha256": "a4ebd603ba6399568272a138bbfb7b965e3507e62ca781346cd7d66bd017c94d",
+  "tool_versions": {
+    "rea": "6.7.0",
+    "ghidra": "12.1.4",
+    "jdk": "21.0.12.1"
+  },
+  "provider": "ghidra",
+  "provider_health": "healthy",
+  "doctor": {
+    "status": "passed",
+    "exit_code": 0,
+    "elapsed_seconds": 1.703
+  },
+  "analysis": {
+    "status": "timeout",
+    "exit_code": 1,
+    "elapsed_seconds": 1200.869
+  },
+  "overview": null,
+  "limitations": [
+    "Static analysis only; target code is never executed",
+    "Only aggregate inventory and tool-health metadata are public; raw evidence and snapshots remain private",
+    "Procedure/string counts do not establish algorithmic equivalence or complete reconstruction",
+    "No native pseudocode, native strings, procedure names, paths, or error messages are exported"
+  ]
+}
