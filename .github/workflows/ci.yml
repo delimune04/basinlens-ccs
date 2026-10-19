@@ -57,6 +57,10 @@ jobs:
         run: |
           python -m basinlens_ccs.groundwater export examples/groundwater/demo.json --output build/groundwater-export
           python -m basinlens_ccs.groundwater verify build/groundwater-export
+      - name: Save, relocate and rerun the spatial project roundtrip example
+        run: >-
+          python examples/workflow/run_project_example.py
+          --output build/ci-real-mf6/project-workflow-example --exe "$MF6_EXE"
       - name: Retain real-engine evidence even when a check fails
         if: always()
         run: python tools/ci_real_mf6.py finalize

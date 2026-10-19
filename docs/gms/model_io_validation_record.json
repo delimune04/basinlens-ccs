@@ -1,0 +1,97 @@
+{
+  "code_and_test_sources_unchanged_after_execution": true,
+  "examples": [
+    {
+      "bytes": 6520,
+      "path": "docs/gms/project_workflow_example_record.json",
+      "sha256": "7c230c3800c05ba2d842b23256a2aa5d849be0ed275e0165157ceceb5887527a"
+    },
+    {
+      "bytes": 22058,
+      "path": "docs/gms/workflow_independent_validation_record.json",
+      "sha256": "f4360ffa77287f30392207ae74f2b8ffb22c4c2737e66e2a410fd1d7ed26ace4"
+    }
+  ],
+  "gms_parity_established": false,
+  "integrated_workbench_app_test": {
+    "exceptions": 0,
+    "independent_editor_state_preserved": true,
+    "plot_count": 2,
+    "source_sha256": {
+      "groundwater_app.py": "b7c0bfbeeca8acb776e9971ae785c77c4ea663a39e146a43a3592cfce9d59e93",
+      "model_workspace.py": "35e0f9e8a13d972b66f6ba98bc6b500ddfd32cb24502d9a3d1e5b6e4dd20d13d"
+    },
+    "spatial_model_loaded": true,
+    "status_evidence_valid": true
+  },
+  "recovered_failure": {
+    "cause": "AppTest implicitly chose alphabetical first example after a second example was added; expected layered fixture 12m but selected a different valid 10m case.",
+    "failures": 1,
+    "fix": "Test explicitly selects layered_background_water.json; equations and expected heads unchanged.",
+    "receipt": {
+      "bytes": 47952,
+      "path": "docs/gms/feature_test_record_v3.json",
+      "sha256": "d6a73964e74e83885e460f1ad49004b6f5d1e1a74b8c0672caf5c1dfa9a7694b"
+    },
+    "tests": 336
+  },
+  "remaining_scope": "See implementation_status.json and MODEL_IO_CHECKPOINT.md. Native GPR write, most official features and original numerical comparison remain open.",
+  "required_other_checks": {
+    "actionlint": "passed 1.7.12; shellcheck and pyflakes integrations disabled",
+    "capacity_artifact_verifier": "passed; complete checksums",
+    "capacity_cli_samples": 2000,
+    "capacity_cli_seed": 42,
+    "compileall": "passed",
+    "editable_install": "passed; --no-build-isolation --no-deps, existing dependencies retained",
+    "git_diff_check": "passed"
+  },
+  "schema": "basinlens-model-io-checkpoint-v1",
+  "selected_feature_bootstrap": {
+    "full_suite": false,
+    "receipt": {
+      "bytes": 47826,
+      "path": "docs/gms/feature_test_record_v4.json",
+      "sha256": "eb67ad2e3828ad87e863602d0bea30066dd6f24f8eceddd916de8bba6e4c844a"
+    },
+    "skipped": 0,
+    "tests": 336
+  },
+  "solver": {
+    "bytes": 49182760,
+    "resolved_path": "/workspace/scratch/96bcf7ec787f/research/bin/mf6",
+    "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+    "version": "mf6: 6.7.0 02/05/2026",
+    "version_returncode": 0,
+    "version_stderr": "",
+    "version_stdout": " \nmf6: 6.7.0 02/05/2026\n \n"
+  },
+  "source_binding_count": 107,
+  "source_versions": {
+    "flopy": "3.11.0",
+    "h5py": "3.16.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "plotly": "7.1.0",
+    "streamlit": "1.66.0"
+  },
+  "strict_full_suite": {
+    "duration_seconds": 87.58583384999656,
+    "errors": 0,
+    "failures": 0,
+    "log": {
+      "bytes": 56189,
+      "path": "docs/gms/model_io_full_tests.log",
+      "sha256": "b5e685089ba5ede3b3612d97d8ecd1a9e96ad9659a4d80d19bbcdeba1d244ff2"
+    },
+    "receipt": {
+      "bytes": 48478,
+      "path": "docs/gms/model_io_full_tests.json",
+      "sha256": "8efa1811f379314c7937b8510bb7f86c5428787ee1ade692c001e36e03865db5"
+    },
+    "skipped": 0,
+    "tests": 352
+  },
+  "tested_local_commit": "1459ee75d859871e6618b8afee099551e3ce8777",
+  "tested_local_tree": "9745f822b4a58254f6ef02dcad96609d7a9226d2",
+  "whole_gms_complete": false
+}

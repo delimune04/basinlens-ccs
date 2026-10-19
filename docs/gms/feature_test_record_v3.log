@@ -1,0 +1,3042 @@
+test_exact_input_bytes_and_artifact_integrity (test_artifacts.RunBundleTests.test_exact_input_bytes_and_artifact_integrity) ... ok
+test_existing_run_is_not_overwritten (test_artifacts.RunBundleTests.test_existing_run_is_not_overwritten) ... ok
+test_incomplete_or_unexpected_manifest_is_rejected (test_artifacts.RunBundleTests.test_incomplete_or_unexpected_manifest_is_rejected) ... ok
+test_invalid_input_leaves_no_completed_bundle (test_artifacts.RunBundleTests.test_invalid_input_leaves_no_completed_bundle) ... ok
+test_missing_artifact_fails_verification (test_artifacts.RunBundleTests.test_missing_artifact_fails_verification) ... ok
+test_modified_artifact_fails_verification (test_artifacts.RunBundleTests.test_modified_artifact_fails_verification) ... ok
+test_negative_seed_is_rejected_before_writing (test_artifacts.RunBundleTests.test_negative_seed_is_rejected_before_writing) ... ok
+test_repeated_runs_have_equal_numerical_artifacts (test_artifacts.RunBundleTests.test_repeated_runs_have_equal_numerical_artifacts) ... ok
+test_fixed_scenario_has_fixed_capacity (test_capacity.CapacityTests.test_fixed_scenario_has_fixed_capacity) ... ok
+test_known_volumetric_result (test_capacity.CapacityTests.test_known_volumetric_result) ... ok
+test_simulation_is_reproducible (test_capacity.CapacityTests.test_simulation_is_reproducible) ... ok
+test_bad_creation_data_count_and_truncation (test_dialogs.DialogDecoderTests.test_bad_creation_data_count_and_truncation) ... ok
+test_catalogue_detects_target_or_evidence_change_during_decode (test_dialogs.DialogDecoderTests.test_catalogue_detects_target_or_evidence_change_during_decode) ... ok
+test_catalogue_global_limits_stop_before_further_decode (test_dialogs.DialogDecoderTests.test_catalogue_global_limits_stop_before_further_decode) ... ok
+test_catalogue_pe_binding_no_names_and_explicit_decode_failures (test_dialogs.DialogDecoderTests.test_catalogue_pe_binding_no_names_and_explicit_decode_failures) ... ok
+test_cli_output_is_fresh_and_numeric (test_dialogs.DialogDecoderTests.test_cli_output_is_fresh_and_numeric) ... Static dialogs: 1 decoded; 0 controls; 0 decoding limitations
+Dialog reconstruction error: Output exists; choose a fresh output file
+ok
+test_empty_dialogs_no_font_and_terminal_padding (test_dialogs.DialogDecoderTests.test_empty_dialogs_no_font_and_terminal_padding) ... ok
+test_every_nonpadding_truncation_and_unknown_version_fail (test_dialogs.DialogDecoderTests.test_every_nonpadding_truncation_and_unknown_version_fail) ... ok
+test_extended_dword_ids_help_font_bytes_and_extra_count (test_dialogs.DialogDecoderTests.test_extended_dword_ids_help_font_bytes_and_extra_count) ... ok
+test_inventory_only_mode_skips_unrelated_menus_and_still_hashes_them (test_dialogs.DialogDecoderTests.test_inventory_only_mode_skips_unrelated_menus_and_still_hashes_them) ... ok
+test_phase_hash_size_bound_rejects_growth (test_dialogs.DialogDecoderTests.test_phase_hash_size_bound_rejects_growth) ... ok
+test_standard_signed_coordinates_font_ordinals_and_creation_size (test_dialogs.DialogDecoderTests.test_standard_signed_coordinates_font_ordinals_and_creation_size) ... ok
+test_text_and_creation_bytes_are_absent_from_projection (test_dialogs.DialogDecoderTests.test_text_and_creation_bytes_are_absent_from_projection) ... ok
+test_utf16_validation_string_and_control_limits (test_dialogs.DialogDecoderTests.test_utf16_validation_string_and_control_limits) ... ok
+test_aggregate_input_budget_is_enforced (test_gms_native_import.NativeFolderImportTests.test_aggregate_input_budget_is_enforced) ... ok
+test_discovers_component_layout_and_preserves_sibling_references (test_gms_native_import.NativeFolderImportTests.test_discovers_component_layout_and_preserves_sibling_references) ... ok
+test_discovers_observed_gms_layout_without_parsing_gpr (test_gms_native_import.NativeFolderImportTests.test_discovers_observed_gms_layout_without_parsing_gpr) ... ok
+test_live_wal_is_reported_without_opening_source_database (test_gms_native_import.NativeFolderImportTests.test_live_wal_is_reported_without_opening_source_database) ... ok
+test_malformed_blocks_are_rejected (test_gms_native_import.NativeFolderImportTests.test_malformed_blocks_are_rejected) ... ok
+test_missing_input_blocks_numerical_loading (test_gms_native_import.NativeFolderImportTests.test_missing_input_blocks_numerical_loading) ... ok
+test_nonfinite_json_overflow_is_reported (test_gms_native_import.NativeFolderImportTests.test_nonfinite_json_overflow_is_reported) ... ok
+test_nonfinite_sqlite_value_is_reported (test_gms_native_import.NativeFolderImportTests.test_nonfinite_sqlite_value_is_reported) ... ok
+test_nul_comment_cannot_hide_an_outside_reference (test_gms_native_import.NativeFolderImportTests.test_nul_comment_cannot_hide_an_outside_reference) ... ok
+test_only_declared_binary_arrays_can_skip_text_scanning (test_gms_native_import.NativeFolderImportTests.test_only_declared_binary_arrays_can_skip_text_scanning) ... ok
+test_outside_list_output_is_reported (test_gms_native_import.NativeFolderImportTests.test_outside_list_output_is_reported) ... ok
+test_outside_reference_is_reported_and_not_read (test_gms_native_import.NativeFolderImportTests.test_outside_reference_is_reported_and_not_read) ... ok
+test_preserves_unknown_json_and_period_rows_without_writing (test_gms_native_import.NativeFolderImportTests.test_preserves_unknown_json_and_period_rows_without_writing) ... ok
+test_public_flopy_load_preserves_numerical_arrays (test_gms_native_import.NativeFolderImportTests.test_public_flopy_load_preserves_numerical_arrays) ... Checking model "aquifer"...
+/root/.local/lib/python3.12/site-packages/flopy/utils/check.py:783: DeprecationWarning: The MF6 check mechanism is deprecated pending reimplementation in a future release. While the checks API will remain in place through 3.x, it may be unstable, and will likely change in 4.x.
+  warn(
+/root/.local/lib/python3.12/site-packages/flopy/utils/check.py:783: DeprecationWarning: The MF6 check mechanism is deprecated pending reimplementation in a future release. While the checks API will remain in place through 3.x, it may be unstable, and will likely change in 4.x.
+  warn(
+/root/.local/lib/python3.12/site-packages/flopy/utils/check.py:783: DeprecationWarning: The MF6 check mechanism is deprecated pending reimplementation in a future release. While the checks API will remain in place through 3.x, it may be unstable, and will likely change in 4.x.
+  warn(
+
+aquifer MODEL DATA VALIDATION SUMMARY:
+  No errors or warnings encountered.
+
+  Checks that passed:
+    npf package: zero or negative horizontal hydraulic conductivity values
+    npf package: horizontal hydraulic conductivity values below checker threshold of 1e-11
+    npf package: horizontal hydraulic conductivity values above checker threshold of 100000.0
+    wel_0 package: BC indices valid
+    wel_0 package: not a number (Nan) entries
+    wel_0 package: BC in inactive cells
+
+Checking for missing simulation packages...
+ok
+test_quoted_paths_use_simulation_workspace (test_gms_native_import.NativeFolderImportTests.test_quoted_paths_use_simulation_workspace) ... ok
+test_virtual_period_table_is_rejected (test_gms_native_import.NativeFolderImportTests.test_virtual_period_table_is_rejected) ... ok
+test_all_connectivity_is_checked_before_mapping (test_gpr_geometry.GprGeometryTests.test_all_connectivity_is_checked_before_mapping) ... ok
+test_compressed_bomb_is_stopped_by_declared_output_limit (test_gpr_geometry.GprGeometryTests.test_compressed_bomb_is_stopped_by_declared_output_limit) ... ok
+test_explicit_hdf5_read_is_bound_to_unchanged_source (test_gpr_geometry.GprGeometryTests.test_explicit_hdf5_read_is_bound_to_unchanged_source) ... ok
+test_independent_public_dis_arrays_compare_all_cells (test_gpr_geometry.GprGeometryTests.test_independent_public_dis_arrays_compare_all_cells) ... ok
+test_nonflat_face_corners_do_not_match_only_the_native_mean (test_gpr_geometry.GprGeometryTests.test_nonflat_face_corners_do_not_match_only_the_native_mean) ... ok
+test_physical_geometry_and_all_cell_mapping (test_gpr_geometry.GprGeometryTests.test_physical_geometry_and_all_cell_mapping) ... ok
+test_same_centers_with_different_cell_edges_do_not_match (test_gpr_geometry.GprGeometryTests.test_same_centers_with_different_cell_edges_do_not_match) ... ok
+test_truncated_oversized_and_extra_blocks_fail (test_gpr_geometry.GprGeometryTests.test_truncated_oversized_and_extra_blocks_fail) ... ok
+test_unsupported_orientation_version_origin_and_nonfinite_are_rejected (test_gpr_geometry.GprGeometryTests.test_unsupported_orientation_version_origin_and_nonfinite_are_rejected) ... ok
+test_explicit_numeric_read_has_size_and_type_limits (test_gpr_hdf5.GprHdf5Tests.test_explicit_numeric_read_has_size_and_type_limits) ... ok
+test_external_storage_is_not_read (test_gpr_hdf5.GprHdf5Tests.test_external_storage_is_not_read) ... ok
+test_indirect_explicit_reads_are_rejected (test_gpr_hdf5.GprHdf5Tests.test_indirect_explicit_reads_are_rejected) ... ok
+test_inventory_preserves_link_boundaries_and_reads_no_payloads (test_gpr_hdf5.GprHdf5Tests.test_inventory_preserves_link_boundaries_and_reads_no_payloads) ... ok
+test_unavailable_optional_filter_is_inventoried_but_not_loaded (test_gpr_hdf5.GprHdf5Tests.test_unavailable_optional_filter_is_inventoried_but_not_loaded) ... ok
+test_virtual_data_is_not_loaded (test_gpr_hdf5.GprHdf5Tests.test_virtual_data_is_not_loaded) ... ok
+test_cell_count_mismatch_is_rejected_and_nonfinite_sample_values_are_omitted (test_gpr_mesh_ui.GprQuadtreeUITests.test_cell_count_mismatch_is_rejected_and_nonfinite_sample_values_are_omitted) ... 2026-10-19 11:12:37.012 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:37.569 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:37.583 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:37.588 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:37.628 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.124 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.131 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.135 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.156 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.173 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.372 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.381 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.387 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.420 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.440 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.662 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.678 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.681 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.712 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.734 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:38.785 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_explicit_quadtree_choice_uses_physical_corner_means_and_selected_field_row (test_gpr_mesh_ui.GprQuadtreeUITests.test_explicit_quadtree_choice_uses_physical_corner_means_and_selected_field_row) ... 2026-10-19 11:12:38.806 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:39.167 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.171 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.173 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.187 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.377 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.392 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.398 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.434 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.466 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.619 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.626 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.631 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.667 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.685 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:39.709 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_source_change_after_inventory_is_not_relabelled_as_original_mesh (test_gpr_mesh_ui.GprQuadtreeUITests.test_source_change_after_inventory_is_not_relabelled_as_original_mesh) ... 2026-10-19 11:12:39.732 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:40.197 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.202 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.205 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.221 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.412 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.418 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.422 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.447 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.463 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.656 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.667 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.671 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.704 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:40.729 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_wrong_representation_rejects_without_fallback_or_cached_figure (test_gpr_mesh_ui.GprQuadtreeUITests.test_wrong_representation_rejects_without_fallback_or_cached_figure) ... 2026-10-19 11:12:40.762 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:41.114 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.119 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.125 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.141 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.325 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.335 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.339 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.359 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.374 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.525 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.539 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.545 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.572 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.584 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.845 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.851 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.856 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.874 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.884 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:41.903 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:42.415 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:42.426 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:42.434 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:42.471 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:42.485 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_case_different_uuid_is_not_silently_remapped (test_gpr_project.ProjectHdf5Tests.test_case_different_uuid_is_not_silently_remapped) ... ok
+test_changed_source_is_rejected (test_gpr_project.ProjectHdf5Tests.test_changed_source_is_rejected) ... ok
+test_duplicate_uuid_fanout_is_explicit_and_aggregate_bounded (test_gpr_project.ProjectHdf5Tests.test_duplicate_uuid_fanout_is_explicit_and_aggregate_bounded) ... ok
+test_guid_only_group_is_not_claimed_as_numeric_storage (test_gpr_project.ProjectHdf5Tests.test_guid_only_group_is_not_claimed_as_numeric_storage) ... ok
+test_indirect_hdf5_links_are_never_followed (test_gpr_project.ProjectHdf5Tests.test_indirect_hdf5_links_are_never_followed) ... ok
+test_real_relationships_without_numeric_payload_reads_or_private_projection (test_gpr_project.ProjectHdf5Tests.test_real_relationships_without_numeric_payload_reads_or_private_projection) ... ok
+test_reference_matching_tree_is_not_claimed_as_saved_storage (test_gpr_project.ProjectHdf5Tests.test_reference_matching_tree_is_not_claimed_as_saved_storage) ... ok
+test_vds_external_storage_plugin_vlen_and_wrong_shapes_fail_before_payload (test_gpr_project.ProjectHdf5Tests.test_vds_external_storage_plugin_vlen_and_wrong_shapes_fail_before_payload) ... ok
+test_hierarchy_and_module_envelopes_are_structural (test_gpr_project.ProjectTreeGrammarTests.test_hierarchy_and_module_envelopes_are_structural) ... ok
+test_literal_uuid_text_and_unknown_types_are_preserved_privately (test_gpr_project.ProjectTreeGrammarTests.test_literal_uuid_text_and_unknown_types_are_preserved_privately) ... ok
+test_record_node_depth_and_character_bounds_fail_closed (test_gpr_project.ProjectTreeGrammarTests.test_record_node_depth_and_character_bounds_fail_closed) ... ok
+test_unbalanced_duplicate_unknown_and_executable_records_fail (test_gpr_project.ProjectTreeGrammarTests.test_unbalanced_duplicate_unknown_and_executable_records_fail) ... ok
+test_explicit_tree_load_preserves_private_labels_and_redacts_download (test_gpr_project_ui.GprProjectTreeUITests.test_explicit_tree_load_preserves_private_labels_and_redacts_download) ... 2026-10-19 11:12:42.750 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:43.400 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.410 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.417 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.468 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.659 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.674 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.679 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.721 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.756 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.903 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.909 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.912 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.927 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:43.946 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:44.002 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:44.004 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_malformed_tree_is_visible_and_geometry_remains_independent (test_gpr_project_ui.GprProjectTreeUITests.test_malformed_tree_is_visible_and_geometry_remains_independent) ... 2026-10-19 11:12:44.093 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:45.217 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.229 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.234 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.253 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.497 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.508 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.513 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.549 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.580 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.718 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.728 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.732 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.751 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.761 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.915 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.922 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.925 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.943 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.961 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:45.982 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_tree_read_rejects_source_change_after_inventory (test_gpr_project_ui.GprProjectTreeUITests.test_tree_read_rejects_source_change_after_inventory) ... 2026-10-19 11:12:46.033 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:46.833 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:46.862 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:46.871 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:46.945 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.202 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.213 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.216 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.239 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.274 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.448 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.456 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.459 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.480 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:47.493 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_empty_chunked_array_does_not_expand_empty_cartesian_products (test_gpr_storage.GprStorageTests.test_empty_chunked_array_does_not_expand_empty_cartesian_products) ... ok
+test_filter_skipped_chunk_is_bounded_and_unknown_mask_rejected (test_gpr_storage.GprStorageTests.test_filter_skipped_chunk_is_bounded_and_unknown_mask_rejected) ... ok
+test_multidimensional_deflate_edge_chunks_and_endian_values (test_gpr_storage.GprStorageTests.test_multidimensional_deflate_edge_chunks_and_endian_values) ... ok
+test_noncanonical_integer_file_precision_is_not_silently_reinterpreted (test_gpr_storage.GprStorageTests.test_noncanonical_integer_file_precision_is_not_silently_reinterpreted) ... ok
+test_null_termination_matches_hdf5_and_space_or_interior_nullpad_are_rejected (test_gpr_storage.GprStorageTests.test_null_termination_matches_hdf5_and_space_or_interior_nullpad_are_rejected) ... ok
+test_sparse_chunks_and_unsupported_builtin_filter_pipelines_fail_closed (test_gpr_storage.GprStorageTests.test_sparse_chunks_and_unsupported_builtin_filter_pipelines_fail_closed) ... ok
+test_stored_chunk_count_and_aggregate_expansion_budgets (test_gpr_storage.GprStorageTests.test_stored_chunk_count_and_aggregate_expansion_budgets) ... ok
+test_streamed_32mib_excess_deflate_output_is_rejected_for_tree_and_numeric (test_gpr_storage.GprStorageTests.test_streamed_32mib_excess_deflate_output_is_rejected_for_tree_and_numeric) ... ok
+test_trailing_or_truncated_deflate_streams_are_rejected (test_gpr_storage.GprStorageTests.test_trailing_or_truncated_deflate_streams_are_rejected) ... ok
+test_unallocated_contiguous_fill_policy_is_not_invented (test_gpr_storage.GprStorageTests.test_unallocated_contiguous_fill_policy_is_not_invented) ... ok
+test_large_integer_field_is_not_silently_rounded (test_gpr_ui.GprSavedDataUITests.test_large_integer_field_is_not_silently_rounded) ... 2026-10-19 11:12:47.706 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:48.473 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.486 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.496 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.543 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.692 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.697 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.701 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.719 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.733 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.855 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.862 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.865 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.880 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:48.901 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_saved_geometry_and_explicit_time_row_render_without_unit_inference (test_gpr_ui.GprSavedDataUITests.test_saved_geometry_and_explicit_time_row_render_without_unit_inference) ... 2026-10-19 11:12:48.932 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:49.625 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:49.643 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:49.653 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:49.689 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.302 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.318 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.325 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.352 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.375 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.565 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.573 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.576 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.613 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.636 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:50.666 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_source_change_after_inventory_cannot_mix_geometry_and_field (test_gpr_ui.GprSavedDataUITests.test_source_change_after_inventory_cannot_mix_geometry_and_field) ... 2026-10-19 11:12:50.682 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:51.089 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.094 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.097 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.126 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.440 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.454 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.464 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.496 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.517 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.641 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.647 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.651 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.667 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:51.677 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_unsupported_cell_array_shape_is_visible_and_not_rendered (test_gpr_ui.GprSavedDataUITests.test_unsupported_cell_array_shape_is_visible_and_not_rendered) ... 2026-10-19 11:12:51.698 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:52.021 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.033 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.036 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.061 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.184 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.189 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.192 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.207 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.222 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.325 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.331 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.336 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.359 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.368 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_unsupported_packet_is_rejected_in_ui (test_gpr_ui.GprSavedDataUITests.test_unsupported_packet_is_rejected_in_ui) ... 2026-10-19 11:12:52.393 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:52.704 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.710 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.713 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.727 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.846 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.852 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.855 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.870 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.885 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:52.996 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:53.002 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:53.007 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:53.026 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:53.039 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_cell_centers_do_not_overflow_finite_large_coordinates (test_gpr_ui.GprViewerBoundTests.test_cell_centers_do_not_overflow_finite_large_coordinates) ... ok
+test_hash_rejects_oversize_before_reading (test_gpr_ui.GprViewerBoundTests.test_hash_rejects_oversize_before_reading) ... ok
+test_hash_stops_when_file_grows_after_stat (test_gpr_ui.GprViewerBoundTests.test_hash_stops_when_file_grows_after_stat) ... ok
+test_changed_native_edges_or_declared_offset_are_detected (test_gpr_unstructured.QuadtreePacketTests.test_changed_native_edges_or_declared_offset_are_detected) ... ok
+test_equal_coordinates_with_disconnected_duplicate_nodes_do_not_full_match (test_gpr_unstructured.QuadtreePacketTests.test_equal_coordinates_with_disconnected_duplicate_nodes_do_not_full_match) ... ok
+test_exact_faces_and_opaque_wrapper_without_origin_application (test_gpr_unstructured.QuadtreePacketTests.test_exact_faces_and_opaque_wrapper_without_origin_application) ... ok
+test_explicit_hdf5_packet_and_unchanged_source_binding (test_gpr_unstructured.QuadtreePacketTests.test_explicit_hdf5_packet_and_unchanged_source_binding) ... ok
+test_header_refinement_truncation_and_independent_budgets_fail (test_gpr_unstructured.QuadtreePacketTests.test_header_refinement_truncation_and_independent_budgets_fail) ... ok
+test_invalid_faces_indices_winding_types_and_nonfinite_values_fail (test_gpr_unstructured.QuadtreePacketTests.test_invalid_faces_indices_winding_types_and_nonfinite_values_fail) ... ok
+test_public_native_disv_matches_all_footprints_and_vertices (test_gpr_unstructured.QuadtreePacketTests.test_public_native_disv_matches_all_footprints_and_vertices) ... ok
+test_same_xy_with_different_z_never_receives_full_match (test_gpr_unstructured.QuadtreePacketTests.test_same_xy_with_different_z_never_receives_full_match) ... ok
+test_canonical_roundtrip_and_layer_expansion (test_groundwater.GroundwaterContractTests.test_canonical_roundtrip_and_layer_expansion) ... ok
+test_empty_malformed_manifests_and_cli_fail_cleanly (test_groundwater.GroundwaterContractTests.test_empty_malformed_manifests_and_cli_fail_cleanly) ... ok
+test_export_portable_inputs_and_tamper_detection (test_groundwater.GroundwaterContractTests.test_export_portable_inputs_and_tamper_detection) ... ok
+test_invalid_cases_and_bounds (test_groundwater.GroundwaterContractTests.test_invalid_cases_and_bounds) ... ok
+test_json_duplicate_key_refused (test_groundwater.GroundwaterContractTests.test_json_duplicate_key_refused) ... ok
+test_missing_solver_does_not_create_output (test_groundwater.GroundwaterContractTests.test_missing_solver_does_not_create_output) ... ok
+test_wells_boundary_duplicate_and_schedules (test_groundwater.GroundwaterContractTests.test_wells_boundary_duplicate_and_schedules) ... ok
+test_linear_head_independent_solution (test_groundwater.GroundwaterSolverTests.test_linear_head_independent_solution) ... ok
+test_multilayer_demo_well_schedule_and_finite_fields (test_groundwater.GroundwaterSolverTests.test_multilayer_demo_well_schedule_and_finite_fields) ... ok
+test_on_off_on_well_schedule_zero_flow_budget (test_groundwater.GroundwaterSolverTests.test_on_off_on_well_schedule_zero_flow_budget) ... ok
+test_transient_theis_far_from_boundaries (test_groundwater.GroundwaterSolverTests.test_transient_theis_far_from_boundaries) ... ok
+test_uniform_recharge_independent_discrete_parabola_and_balance (test_groundwater.GroundwaterSolverTests.test_uniform_recharge_independent_discrete_parabola_and_balance) ... ok
+test_committed_input_change_invalidates_old_products (test_groundwater_ui.GroundwaterWorkbenchTests.test_committed_input_change_invalidates_old_products) ... 2026-10-19 11:12:55.793 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:56.103 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.109 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.112 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.134 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.167 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:56.167 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:56.167 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:56.299 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.334 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.339 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.342 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.357 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_common_project_import_is_strict_and_rejects_unavailable_physics (test_groundwater_ui.GroundwaterWorkbenchTests.test_common_project_import_is_strict_and_rejects_unavailable_physics) ... 2026-10-19 11:12:56.371 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:56.746 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.759 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.762 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:56.775 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_demo_render_exposes_model_and_scientific_scope (test_groundwater_ui.GroundwaterWorkbenchTests.test_demo_render_exposes_model_and_scientific_scope) ... 2026-10-19 11:12:56.799 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:57.110 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.115 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.121 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.137 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_domain_change_sets_background_water_and_invalidates_outputs (test_groundwater_ui.GroundwaterWorkbenchTests.test_domain_change_sets_background_water_and_invalidates_outputs) ... 2026-10-19 11:12:57.158 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:57.458 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.466 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.469 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.486 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.502 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:57.502 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:57.603 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.609 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.611 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.626 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.817 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.830 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.840 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:57.872 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_edited_hydraulic_fields_keep_sources_and_become_assumptions (test_groundwater_ui.GroundwaterWorkbenchTests.test_edited_hydraulic_fields_keep_sources_and_become_assumptions) ... 2026-10-19 11:12:57.913 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:58.483 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:58.488 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:58.490 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:58.505 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_export_produces_real_mf6_inputs_without_solver (test_groundwater_ui.GroundwaterWorkbenchTests.test_export_produces_real_mf6_inputs_without_solver) ... 2026-10-19 11:12:58.524 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:58.934 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:58.946 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:58.952 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:58.992 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.138 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.144 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.147 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.284 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_invalid_geometry_retains_last_valid_project (test_groundwater_ui.GroundwaterWorkbenchTests.test_invalid_geometry_retains_last_valid_project) ... 2026-10-19 11:12:59.301 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:12:59.723 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.730 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.735 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.758 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.927 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.937 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.942 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:12:59.967 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_missing_solver_is_visible_without_fake_results (test_groundwater_ui.GroundwaterWorkbenchTests.test_missing_solver_is_visible_without_fake_results) ... 2026-10-19 11:12:59.999 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:00.592 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:00.596 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:00.601 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:00.628 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:00.784 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:00.790 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:00.792 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:00.812 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_native_edit_preserves_common_evidence_and_export_verifies_assets (test_groundwater_ui.GroundwaterWorkbenchTests.test_native_edit_preserves_common_evidence_and_export_verifies_assets) ... 2026-10-19 11:13:00.831 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:01.363 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.370 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.375 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.395 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.422 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:01.422 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:01.423 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:01.564 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.571 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.573 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.592 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.725 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.771 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.777 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.780 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.796 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.912 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.918 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:01.921 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.066 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_real_solver_results_csv_and_bundle (test_groundwater_ui.GroundwaterWorkbenchTests.test_real_solver_results_csv_and_bundle) ... 2026-10-19 11:13:02.081 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:02.505 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.514 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.517 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.549 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.718 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.729 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.735 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.758 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:02.994 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:03.009 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:03.020 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.251 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.285 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.302 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.595 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.608 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.610 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.648 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.666 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:04.676 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_referenced_assets_without_server_root_block_export (test_groundwater_ui.GroundwaterWorkbenchTests.test_referenced_assets_without_server_root_block_export) ... 2026-10-19 11:13:04.872 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:05.220 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.226 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.230 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.252 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.269 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:05.270 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:05.270 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:05.580 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.586 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.590 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.611 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.732 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.739 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.742 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:05.764 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_unsupported_multiphase_engine_controls_are_disabled (test_groundwater_ui.GroundwaterWorkbenchTests.test_unsupported_multiphase_engine_controls_are_disabled) ... 2026-10-19 11:13:05.778 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:06.101 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:06.106 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:06.109 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:06.132 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_bounded_entry_and_prefix_decode (test_installer_extraction.ContainerBoundaryTests.test_bounded_entry_and_prefix_decode) ... ok
+test_rejects_duplicate_embedded_names (test_installer_extraction.ContainerBoundaryTests.test_rejects_duplicate_embedded_names) ... ok
+test_rejects_missing_footer (test_installer_extraction.ContainerBoundaryTests.test_rejects_missing_footer) ... ok
+test_rejects_overlapping_payloads (test_installer_extraction.ContainerBoundaryTests.test_rejects_overlapping_payloads) ... ok
+test_rejects_payload_outside_data_region (test_installer_extraction.ContainerBoundaryTests.test_rejects_payload_outside_data_region) ... ok
+test_rejects_unsafe_filename (test_installer_extraction.ContainerBoundaryTests.test_rejects_unsafe_filename) ... ok
+test_duplicate_site_ids_are_rejected (test_io.InputTests.test_duplicate_site_ids_are_rejected) ... ok
+test_case_json_roundtrip_and_explicit_metadata (test_model_workflow.WorkflowContractTests.test_case_json_roundtrip_and_explicit_metadata) ... ok
+test_cli_numerical_roundtrip_failure_has_nonzero_exit (test_model_workflow.WorkflowContractTests.test_cli_numerical_roundtrip_failure_has_nonzero_exit) ... Workflow numerical roundtrip failed its equality/physical support gates; receipt and outputs retained
+ok
+test_complete_coverage_stratigraphy_material_and_boundary_conflicts (test_model_workflow.WorkflowContractTests.test_complete_coverage_stratigraphy_material_and_boundary_conflicts) ... ok
+test_duplicate_json_large_read_and_bad_cell_rejected (test_model_workflow.WorkflowContractTests.test_duplicate_json_large_read_and_bad_cell_rejected) ... ok
+test_invalid_units_roles_nonfinite_and_unknown_fields_rejected (test_model_workflow.WorkflowContractTests.test_invalid_units_roles_nonfinite_and_unknown_fields_rejected) ... ok
+test_preview_geometry_y_direction_properties_and_unknown_crs (test_model_workflow.WorkflowContractTests.test_preview_geometry_y_direction_properties_and_unknown_crs) ... ok
+test_altered_settings_inputs_extra_symlinks_and_semantics_fail (test_model_workflow.WorkflowExportTests.test_altered_settings_inputs_extra_symlinks_and_semantics_fail) ... ok
+test_deterministic_export_reloads_and_native_roundtrip_preserves_case (test_model_workflow.WorkflowExportTests.test_deterministic_export_reloads_and_native_roundtrip_preserves_case) ... ok
+test_native_rows_property_fields_boundaries_and_explicit_shutoff (test_model_workflow.WorkflowExportTests.test_native_rows_property_fields_boundaries_and_explicit_shutoff) ... ok
+test_roundtrip_failure_retains_exact_rewritten_inputs_and_diagnostics (test_model_workflow.WorkflowExportTests.test_roundtrip_failure_retains_exact_rewritten_inputs_and_diagnostics) ... ok
+test_roundtrip_metadata_mutation_is_detected_and_failed_receipt_retained (test_model_workflow.WorkflowExportTests.test_roundtrip_metadata_mutation_is_detected_and_failed_receipt_retained) ... ok
+test_drain_on_off_and_river_bottom_clipping (test_model_workflow.WorkflowPhysicsTests.test_drain_on_off_and_river_bottom_clipping) ... ok
+test_equal_but_below_top_solution_does_not_pass_numerical_roundtrip (test_model_workflow.WorkflowPhysicsTests.test_equal_but_below_top_solution_does_not_pass_numerical_roundtrip) ... ok
+test_full_layered_roundtrip_executes_two_identical_models (test_model_workflow.WorkflowPhysicsTests.test_full_layered_roundtrip_executes_two_identical_models) ... ok
+test_ghb_recharge_well_signs_and_area_support (test_model_workflow.WorkflowPhysicsTests.test_ghb_recharge_well_signs_and_area_support) ... ok
+test_heterogeneous_harmonic_conductivity_series_solution (test_model_workflow.WorkflowPhysicsTests.test_heterogeneous_harmonic_conductivity_series_solution) ... ok
+test_physical_xy_row_mapping_and_result_binding (test_model_workflow.WorkflowPhysicsTests.test_physical_xy_row_mapping_and_result_binding) ... ok
+test_stress_period_shutoff_and_implicit_storage_limit (test_model_workflow.WorkflowPhysicsTests.test_stress_period_shutoff_and_implicit_storage_limit) ... ok
+test_actual_run_results_are_captured_case_bound_and_downloads_verified (test_model_workspace_ui.ModelWorkspaceUITests.test_actual_run_results_are_captured_case_bound_and_downloads_verified) ... 2026-10-19 11:13:15.380 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:15.791 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.799 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.801 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.806 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.841 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.892 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.893 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.894 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.897 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.909 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.972 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.974 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.979 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:15.984 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.013 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.090 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.093 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.094 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.100 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.675 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.678 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.728 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.730 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.732 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.735 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.748 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:16.751 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+FAIL
+test_initial_load_and_invalid_import_preserve_valid_case_and_diagnostics (test_model_workspace_ui.ModelWorkspaceUITests.test_initial_load_and_invalid_import_preserve_valid_case_and_diagnostics) ... 2026-10-19 11:13:16.762 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:17.085 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.087 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.088 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.092 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.109 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.168 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.169 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.170 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.173 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.185 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.233 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.237 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.239 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.243 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.255 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_invalid_and_unapplied_drafts_block_execution_and_clear_stale_products (test_model_workspace_ui.ModelWorkspaceUITests.test_invalid_and_unapplied_drafts_block_execution_and_clear_stale_products) ... 2026-10-19 11:13:17.260 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:17.560 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.562 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.563 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.566 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.583 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.589 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:17.589 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:17.629 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.631 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.632 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.637 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.653 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.691 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.693 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.694 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.697 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.711 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.760 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.762 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.763 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.767 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.781 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.825 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.829 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.830 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.835 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:17.859 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_native_export_roundtrip_and_missing_engine_retains_valid_case (test_model_workspace_ui.ModelWorkspaceUITests.test_native_export_roundtrip_and_missing_engine_retains_valid_case) ... 2026-10-19 11:13:17.863 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:18.171 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.172 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.173 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.177 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.190 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.245 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.247 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.248 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.252 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.606 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.796 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.798 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.799 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:18.802 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:19.984 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.023 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.025 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.026 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.029 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.218 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_package_save_reopen_preserves_case_view_and_rejects_tampering (test_model_workspace_ui.ModelWorkspaceUITests.test_package_save_reopen_preserves_case_view_and_rejects_tampering) ... 2026-10-19 11:13:20.232 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:20.541 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.544 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.546 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.549 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.562 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.606 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.608 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.610 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.613 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.624 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.668 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.669 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.670 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.674 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.717 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.772 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.775 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.776 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.780 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.794 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.868 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.869 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.872 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.877 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.942 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.944 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.945 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:20.949 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.039 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.041 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.043 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.047 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.118 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.120 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.121 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.126 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.181 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.183 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.184 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.187 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.235 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.237 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.238 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:21.242 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_rejects_negative_fault_distance (test_models.SiteScenarioTests.test_rejects_negative_fault_distance) ... ok
+test_rejects_fraction_above_one (test_models.TriangularEstimateTests.test_rejects_fraction_above_one) ... ok
+test_rejects_reversed_range (test_models.TriangularEstimateTests.test_rejects_reversed_range) ... ok
+test_deleted_owned_logs_still_yield_only_sanitized_facts (test_native_rea_probe.NativeProbeTests.test_deleted_owned_logs_still_yield_only_sanitized_facts) ... ok
+test_dot_prefixed_runtime_ancestor_fails_closed_without_global_search (test_native_rea_probe.NativeProbeTests.test_dot_prefixed_runtime_ancestor_fails_closed_without_global_search) ... ok
+test_json_error_fails_even_with_exit_zero (test_native_rea_probe.NativeProbeTests.test_json_error_fails_even_with_exit_zero) ... ok
+test_malformed_oversized_and_timed_out_outputs_fail (test_native_rea_probe.NativeProbeTests.test_malformed_oversized_and_timed_out_outputs_fail) ... ok
+test_outer_timeout_preserved_for_retained_error_or_success (test_native_rea_probe.NativeProbeTests.test_outer_timeout_preserved_for_retained_error_or_success) ... ok
+test_provider_deadline_unchanged_and_outer_grace_separate (test_native_rea_probe.NativeProbeTests.test_provider_deadline_unchanged_and_outer_grace_separate) ... ok
+test_public_private_paths_cannot_overlap (test_native_rea_probe.NativeProbeTests.test_public_private_paths_cannot_overlap) ... Probe setup failed; fresh, separate output directories are required.
+ok
+test_retained_json_growth_cannot_exceed_read_budget (test_native_rea_probe.NativeProbeTests.test_retained_json_growth_cannot_exceed_read_budget) ... ok
+test_split_log_lines_wait_for_complete_safe_timing (test_native_rea_probe.NativeProbeTests.test_split_log_lines_wait_for_complete_safe_timing) ... ok
+test_success_exports_only_counts_and_metadata (test_native_rea_probe.NativeProbeTests.test_success_exports_only_counts_and_metadata) ... ok
+test_truncated_or_nonfinite_json_never_promotes_timeout (test_native_rea_probe.NativeProbeTests.test_truncated_or_nonfinite_json_never_promotes_timeout) ... ok
+test_untrusted_diagnostics_types_and_unknown_names_are_not_exported (test_native_rea_probe.NativeProbeTests.test_untrusted_diagnostics_types_and_unknown_names_are_not_exported) ... ok
+test_watcher_refuses_symlink_logs_and_runtime_directories (test_native_rea_probe.NativeProbeTests.test_watcher_refuses_symlink_logs_and_runtime_directories) ... ok
+test_native_head_named_like_root_manifest_is_preserved (test_native_run.NativeActualSolverTests.test_native_head_named_like_root_manifest_is_preserved) ... ok
+test_native_solver_failure_retains_diagnostics_and_original_inputs (test_native_run.NativeActualSolverTests.test_native_solver_failure_retains_diagnostics_and_original_inputs) ... ok
+test_unconfined_native_feet_seconds_wells_drains_recharge_and_sidecars (test_native_run.NativeActualSolverTests.test_unconfined_native_feet_seconds_wells_drains_recharge_and_sidecars) ... ok
+test_absolute_and_escaping_fileout_and_listing_paths_are_rejected (test_native_run.NativePreflightTests.test_absolute_and_escaping_fileout_and_listing_paths_are_rejected) ... ok
+test_failed_bundle_verifier_rejects_tamper_extra_missing_and_unsafe_inventory (test_native_run.NativePreflightTests.test_failed_bundle_verifier_rejects_tamper_extra_missing_and_unsafe_inventory) ... ok
+test_invalid_budgets_and_missing_solver_create_no_run (test_native_run.NativePreflightTests.test_invalid_budgets_and_missing_solver_create_no_run) ... ok
+test_nested_manifest_basenames_remain_checksummed (test_native_run.NativePreflightTests.test_nested_manifest_basenames_remain_checksummed) ... ok
+test_source_tree_output_and_existing_output_are_refused (test_native_run.NativePreflightTests.test_source_tree_output_and_existing_output_are_refused) ... ok
+test_symlink_inputs_and_dangling_output_links_are_refused (test_native_run.NativePreflightTests.test_symlink_inputs_and_dangling_output_links_are_refused) ... ok
+test_timeout_and_disk_budget_kill_child_and_keep_logs (test_native_run.NativePreflightTests.test_timeout_and_disk_budget_kill_child_and_keep_logs) ... ok
+test_unresolved_graph_and_input_output_collision_are_rejected (test_native_run.NativePreflightTests.test_unresolved_graph_and_input_output_collision_are_rejected) ... ok
+test_actual_native_run_download_is_verified_and_separate (test_native_ui.NativeWorkbenchUITests.test_actual_native_run_download_is_verified_and_separate) ... 2026-10-19 11:13:25.156 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:25.654 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:25.659 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:25.662 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:25.676 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:25.788 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:25.794 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:25.797 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:25.818 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_native_preflight_preserves_units_and_bounded_case_state (test_native_ui.NativeWorkbenchUITests.test_native_preflight_preserves_units_and_bounded_case_state) ... 2026-10-19 11:13:26.153 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:26.549 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:26.556 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:26.562 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:26.578 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:26.723 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:26.729 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:26.732 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:26.779 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_unsafe_native_fileout_has_visible_error_and_no_run (test_native_ui.NativeWorkbenchUITests.test_unsafe_native_fileout_has_visible_error_and_no_run) ... 2026-10-19 11:13:26.853 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:27.178 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:27.184 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:27.186 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:27.199 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:27.396 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:27.412 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:27.416 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:27.437 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_absolute_and_reference_relative_tolerance_and_metrics (test_parity.ParityTests.test_absolute_and_reference_relative_tolerance_and_metrics) ... ok
+test_actual_non_gms_candidate_capture_is_bound_and_comparable (test_parity.ParityTests.test_actual_non_gms_candidate_capture_is_bound_and_comparable) ... ok
+test_arbitrary_receipts_cannot_relabel_synthetic_as_observed_gms (test_parity.ParityTests.test_arbitrary_receipts_cannot_relabel_synthetic_as_observed_gms) ... ok
+test_candidate_run_also_requires_actual_capture_receipts (test_parity.ParityTests.test_candidate_run_also_requires_actual_capture_receipts) ... ok
+test_capture_cannot_guess_windows_version_or_activate_target (test_parity.ParityTests.test_capture_cannot_guess_windows_version_or_activate_target) ... ok
+test_capture_requires_explicit_successful_past_run_attestation (test_parity.ParityTests.test_capture_requires_explicit_successful_past_run_attestation) ... ok
+test_catalogue_denominator_unknown_and_synthetic_never_matched (test_parity.ParityTests.test_catalogue_denominator_unknown_and_synthetic_never_matched) ... ok
+test_catalogue_empty_forged_and_unrelated_comparisons_do_not_promote (test_parity.ParityTests.test_catalogue_empty_forged_and_unrelated_comparisons_do_not_promote) ... ok
+test_cli_exit_codes_and_immutable_output (test_parity.ParityTests.test_cli_exit_codes_and_immutable_output) ... ok
+test_coverage_rejects_stale_commit_and_overpermissive_tolerance (test_parity.ParityTests.test_coverage_rejects_stale_commit_and_overpermissive_tolerance) ... ok
+test_csv_missing_duplicate_out_of_range_nan_and_column_bypass_refused (test_parity.ParityTests.test_csv_missing_duplicate_out_of_range_nan_and_column_bypass_refused) ... ok
+test_different_array_keys_can_represent_same_quantity (test_parity.ParityTests.test_different_array_keys_can_represent_same_quantity) ... ok
+test_empty_output_evidence_and_input_fingerprints_cannot_bypass (test_parity.ParityTests.test_empty_output_evidence_and_input_fingerprints_cannot_bypass) ... ok
+test_geometry_time_coordinates_units_sign_mismatches_fail (test_parity.ParityTests.test_geometry_time_coordinates_units_sign_mismatches_fail) ... ok
+test_multiple_times_and_face_flux_arrays_compare_without_interpolation (test_parity.ParityTests.test_multiple_times_and_face_flux_arrays_compare_without_interpolation) ... ok
+test_nan_inf_shape_boolean_complex_and_missing_outputs_fail (test_parity.ParityTests.test_nan_inf_shape_boolean_complex_and_missing_outputs_fail) ... ok
+test_native_inputs_can_differ_but_normalized_case_must_agree (test_parity.ParityTests.test_native_inputs_can_differ_but_normalized_case_must_agree) ... ok
+test_observed_reference_without_actual_receipts_is_unverifiable (test_parity.ParityTests.test_observed_reference_without_actual_receipts_is_unverifiable) ... ok
+test_output_semantic_extras_cannot_be_silently_ignored (test_parity.ParityTests.test_output_semantic_extras_cannot_be_silently_ignored) ... ok
+test_rehashed_capture_identity_engine_time_input_output_and_commit_mismatch_refused (test_parity.ParityTests.test_rehashed_capture_identity_engine_time_input_output_and_commit_mismatch_refused) ... ok
+test_report_replay_detects_changes_and_digest_tamper (test_parity.ParityTests.test_report_replay_detects_changes_and_digest_tamper) ... ok
+test_synthetic_csv_npz_pass_is_deterministic_and_never_gms (test_parity.ParityTests.test_synthetic_csv_npz_pass_is_deterministic_and_never_gms) ... ok
+test_tampered_implementation_cannot_be_implemented_or_tested (test_parity.ParityTests.test_tampered_implementation_cannot_be_implemented_or_tested) ... ok
+test_tampered_input_and_output_fixtures_refused (test_parity.ParityTests.test_tampered_input_and_output_fixtures_refused) ... ok
+test_tolerance_validation (test_parity.ParityTests.test_tolerance_validation) ... ok
+test_unsafe_artifact_duplicate_json_and_empty_case_refused (test_parity.ParityTests.test_unsafe_artifact_duplicate_json_and_empty_case_refused) ... ok
+test_alias_registrations_hash_each_restored_payload_once (test_project_package.ProjectPackageTests.test_alias_registrations_hash_each_restored_payload_once) ... ok
+test_asset_change_during_save_blocks_publication (test_project_package.ProjectPackageTests.test_asset_change_during_save_blocks_publication) ... ok
+test_asset_missing_mismatch_duplicate_path_conflict_and_no_root_refused (test_project_package.ProjectPackageTests.test_asset_missing_mismatch_duplicate_path_conflict_and_no_root_refused) ... ok
+test_complete_rebinding_still_revalidates_typed_asset_references (test_project_package.ProjectPackageTests.test_complete_rebinding_still_revalidates_typed_asset_references) ... ok
+test_corrupt_deflate_is_reported_as_validation_error (test_project_package.ProjectPackageTests.test_corrupt_deflate_is_reported_as_validation_error) ... ok
+test_direct_mutable_options_are_revalidated_before_save (test_project_package.ProjectPackageTests.test_direct_mutable_options_are_revalidated_before_save) ... ok
+test_duplicate_json_keys_and_noncanonical_json_refused (test_project_package.ProjectPackageTests.test_duplicate_json_keys_and_noncanonical_json_refused) ... ok
+test_duplicate_zip_members_are_refused (test_project_package.ProjectPackageTests.test_duplicate_zip_members_are_refused) ... ok
+test_existing_destinations_refused_without_overwriting (test_project_package.ProjectPackageTests.test_existing_destinations_refused_without_overwriting) ... ok
+test_failed_open_promotion_cleans_staging_and_can_resume (test_project_package.ProjectPackageTests.test_failed_open_promotion_cleans_staging_and_can_resume) ... ok
+test_fifo_archive_and_asset_refused_without_blocking (test_project_package.ProjectPackageTests.test_fifo_archive_and_asset_refused_without_blocking) ... ok
+test_forged_inventory_cannot_add_unregistered_payloads (test_project_package.ProjectPackageTests.test_forged_inventory_cannot_add_unregistered_payloads) ... ok
+test_ingress_budgets_are_enforced_before_extracting (test_project_package.ProjectPackageTests.test_ingress_budgets_are_enforced_before_extracting) ... ok
+test_interrupted_save_cleans_staging_and_can_resume (test_project_package.ProjectPackageTests.test_interrupted_save_cleans_staging_and_can_resume) ... ok
+test_missing_tampered_and_unknown_members_are_refused (test_project_package.ProjectPackageTests.test_missing_tampered_and_unknown_members_are_refused) ... ok
+test_multiple_registered_assets_can_share_exactly_one_payload (test_project_package.ProjectPackageTests.test_multiple_registered_assets_can_share_exactly_one_payload) ... ok
+test_nonportable_registered_asset_paths_refused_without_read (test_project_package.ProjectPackageTests.test_nonportable_registered_asset_paths_refused_without_read) ... ok
+test_rehashed_tamper_cannot_disagree_with_registered_asset (test_project_package.ProjectPackageTests.test_rehashed_tamper_cannot_disagree_with_registered_asset) ... ok
+test_relocation_preserves_all_project_semantics_and_asset_bytes (test_project_package.ProjectPackageTests.test_relocation_preserves_all_project_semantics_and_asset_bytes) ... ok
+test_restored_metadata_corruption_blocks_directory_publication (test_project_package.ProjectPackageTests.test_restored_metadata_corruption_blocks_directory_publication) ... ok
+test_roundtrip_really_reopens_repackages_and_compares (test_project_package.ProjectPackageTests.test_roundtrip_really_reopens_repackages_and_compares) ... ok
+test_saved_packages_are_deterministic_and_default_view_is_explicit (test_project_package.ProjectPackageTests.test_saved_packages_are_deterministic_and_default_view_is_explicit) ... ok
+test_source_change_during_open_blocks_publication (test_project_package.ProjectPackageTests.test_source_change_during_open_blocks_publication) ... ok
+test_symlink_sources_parents_and_assets_refused (test_project_package.ProjectPackageTests.test_symlink_sources_parents_and_assets_refused) ... ok
+test_unknown_or_boolean_versions_and_forged_semantic_bindings_refused (test_project_package.ProjectPackageTests.test_unknown_or_boolean_versions_and_forged_semantic_bindings_refused) ... ok
+test_unsafe_nonportable_and_colliding_archive_paths_refused (test_project_package.ProjectPackageTests.test_unsafe_nonportable_and_colliding_archive_paths_refused) ... ok
+test_view_state_has_only_bounded_inert_supported_fields (test_project_package.ProjectPackageTests.test_view_state_has_only_bounded_inert_supported_fields) ... ok
+test_wrong_extensions_unrelated_archives_and_nonregular_sources_refused (test_project_package.ProjectPackageTests.test_wrong_extensions_unrelated_archives_and_nonregular_sources_refused) ... ok
+test_zip_encryption_flag_and_prefix_trailing_data_are_refused (test_project_package.ProjectPackageTests.test_zip_encryption_flag_and_prefix_trailing_data_are_refused) ... ok
+test_zip_symlinks_directories_and_unsupported_compression_refused (test_project_package.ProjectPackageTests.test_zip_symlinks_directories_and_unsupported_compression_refused) ... ok
+test_changed_command_or_original_claim_is_rejected (test_rea_ledger.ReaLedgerBoundaryTests.test_changed_command_or_original_claim_is_rejected) ... ok
+test_json_rejects_duplicate_keys_nonfinite_and_symlinks (test_rea_ledger.ReaLedgerBoundaryTests.test_json_rejects_duplicate_keys_nonfinite_and_symlinks) ... ok
+test_malformed_numeric_ids_counts_and_boolean_ids_fail (test_rea_ledger.ReaLedgerBoundaryTests.test_malformed_numeric_ids_counts_and_boolean_ids_fail) ... ok
+test_numeric_projection_ignores_popups_separators_and_deduplicates (test_rea_ledger.ReaLedgerBoundaryTests.test_numeric_projection_ignores_popups_separators_and_deduplicates) ... ok
+test_public_obligations_do_not_include_original_names_or_owners (test_rea_ledger.ReaLedgerBoundaryTests.test_public_obligations_do_not_include_original_names_or_owners) ... ok
+test_claimed_identity_range_and_complete_coverage_are_crosschecked (test_reconstruction.ResourceDecoderTests.test_claimed_identity_range_and_complete_coverage_are_crosschecked) ... ok
+test_evidence_and_target_changes_during_decoding_are_refused (test_reconstruction.ResourceDecoderTests.test_evidence_and_target_changes_during_decoding_are_refused) ... ok
+test_extended_menu_and_alignment (test_reconstruction.ResourceDecoderTests.test_extended_menu_and_alignment) ... ok
+test_invalid_evidence_and_ranges_fail_cleanly (test_reconstruction.ResourceDecoderTests.test_invalid_evidence_and_ranges_fail_cleanly) ... ok
+test_inventory_binding_tamper_and_private_labels (test_reconstruction.ResourceDecoderTests.test_inventory_binding_tamper_and_private_labels) ... ok
+test_non_pe_arbitrary_payload_and_duplicate_json_are_refused (test_reconstruction.ResourceDecoderTests.test_non_pe_arbitrary_payload_and_duplicate_json_are_refused) ... ok
+test_pe32_and_named_resource_types_stay_distinct (test_reconstruction.ResourceDecoderTests.test_pe32_and_named_resource_types_stay_distinct) ... ok
+test_private_labels_require_explicit_boolean_opt_in (test_reconstruction.ResourceDecoderTests.test_private_labels_require_explicit_boolean_opt_in) ... ok
+test_standard_and_extended_separator_ids_are_not_commands (test_reconstruction.ResourceDecoderTests.test_standard_and_extended_separator_ids_are_not_commands) ... ok
+test_standard_nested_commands (test_reconstruction.ResourceDecoderTests.test_standard_nested_commands) ... ok
+test_truncated_unterminated_and_unknown_templates_rejected (test_reconstruction.ResourceDecoderTests.test_truncated_unterminated_and_unknown_templates_rejected) ... ok
+test_good_demo_inputs_have_zero_attention (test_screening.AttentionTests.test_good_demo_inputs_have_zero_attention) ... ok
+test_poor_demo_inputs_have_maximum_attention (test_screening.AttentionTests.test_poor_demo_inputs_have_maximum_attention) ... ok
+test_added_files_and_symbolic_links_are_rejected (test_subsurface.ProjectBundleHardeningTests.test_added_files_and_symbolic_links_are_rejected) ... ok
+test_checksummed_malformed_summary_is_normalized (test_subsurface.ProjectBundleHardeningTests.test_checksummed_malformed_summary_is_normalized) ... ok
+test_checksummed_mapping_cannot_change_physics_or_boolean_version (test_subsurface.ProjectBundleHardeningTests.test_checksummed_mapping_cannot_change_physics_or_boolean_version) ... ok
+test_malformed_manifest_shapes_paths_and_boolean_sizes_are_rejected (test_subsurface.ProjectBundleHardeningTests.test_malformed_manifest_shapes_paths_and_boolean_sizes_are_rejected) ... ok
+test_native_case_must_match_the_preserved_project (test_subsurface.ProjectBundleHardeningTests.test_native_case_must_match_the_preserved_project) ... ok
+test_reopened_project_asset_markers_must_match_registered_hashes (test_subsurface.ProjectBundleHardeningTests.test_reopened_project_asset_markers_must_match_registered_hashes) ... ok
+test_asset_paths_hashes_and_symbolic_links (test_subsurface.SubsurfaceContractTests.test_asset_paths_hashes_and_symbolic_links) ... ok
+test_background_water_role_cannot_masquerade_as_ccs_or_oil_simulation (test_subsurface.SubsurfaceContractTests.test_background_water_role_cannot_masquerade_as_ccs_or_oil_simulation) ... ok
+test_booleans_are_not_numeric_quantities_indices_or_capability_flags (test_subsurface.SubsurfaceContractTests.test_booleans_are_not_numeric_quantities_indices_or_capability_flags) ... ok
+test_cell_properties_and_nonwater_wells_are_not_silently_approximated (test_subsurface.SubsurfaceContractTests.test_cell_properties_and_nonwater_wells_are_not_silently_approximated) ... ok
+test_deterministic_serialization_and_immutable_file_roundtrip (test_subsurface.SubsurfaceContractTests.test_deterministic_serialization_and_immutable_file_roundtrip) ... ok
+test_export_preserves_exact_provenance_and_valid_inner_bundle (test_subsurface.SubsurfaceContractTests.test_export_preserves_exact_provenance_and_valid_inner_bundle) ... ok
+test_missing_solver_and_dependency_do_not_create_result (test_subsurface.SubsurfaceContractTests.test_missing_solver_and_dependency_do_not_create_result) ... ok
+test_native_engine_options_reject_booleans_as_numbers (test_subsurface.SubsurfaceContractTests.test_native_engine_options_reject_booleans_as_numbers) ... ok
+test_observations_and_extra_rock_fields_remain_explicitly_unused (test_subsurface.SubsurfaceContractTests.test_observations_and_extra_rock_fields_remain_explicitly_unused) ... ok
+test_property_layer_order_is_mapped_explicitly (test_subsurface.SubsurfaceContractTests.test_property_layer_order_is_mapped_explicitly) ... ok
+test_registry_invokes_actual_groundwater_engine (test_subsurface.SubsurfaceContractTests.test_registry_invokes_actual_groundwater_engine) ... ok
+test_returned_mapping_cannot_mutate_the_engine_property_contract (test_subsurface.SubsurfaceContractTests.test_returned_mapping_cannot_mutate_the_engine_property_contract) ... ok
+test_unimplemented_descriptors_fail_before_output_creation (test_subsurface.SubsurfaceContractTests.test_unimplemented_descriptors_fail_before_output_creation) ... ok
+test_units_support_and_geological_bounds_are_strict (test_subsurface.SubsurfaceContractTests.test_units_support_and_geological_bounds_are_strict) ... ok
+test_unknown_fields_duplicate_json_keys_and_native_projects_refused (test_subsurface.SubsurfaceContractTests.test_unknown_fields_duplicate_json_keys_and_native_projects_refused) ... ok
+test_unsupported_axis_orientation_is_rejected_and_origin_is_preserved (test_subsurface.SubsurfaceContractTests.test_unsupported_axis_orientation_is_rejected_and_origin_is_preserved) ... ok
+test_asymmetric_labelled_rows_use_project_y_direction (test_subsurface_coordinates.ProjectCoordinateTests.test_asymmetric_labelled_rows_use_project_y_direction) ... ok
+test_every_actual_exported_and_reloaded_cell_maps_to_its_project_label (test_subsurface_coordinates.ProjectCoordinateTests.test_every_actual_exported_and_reloaded_cell_maps_to_its_project_label) ... ok
+test_invalid_points_shapes_axes_and_overflow_are_refused (test_subsurface_coordinates.ProjectCoordinateTests.test_invalid_points_shapes_axes_and_overflow_are_refused) ... ok
+test_duplicate_oversize_nonfinite_views_fail_without_output_then_recover (test_subsurface_package_cli.PackageCliTests.test_duplicate_oversize_nonfinite_views_fail_without_output_then_recover) ... ok
+test_explicit_asset_root_save_relocate_and_repack (test_subsurface_package_cli.PackageCliTests.test_explicit_asset_root_save_relocate_and_repack) ... ok
+test_duplicate_json_overflow_and_large_input_rejected (test_transport.TransportContractTests.test_duplicate_json_overflow_and_large_input_rejected) ... ok
+test_explicit_units_and_exact_fields_round_trip (test_transport.TransportContractTests.test_explicit_units_and_exact_fields_round_trip) ... ok
+test_nonfinite_boolean_negative_and_dimension_bounds (test_transport.TransportContractTests.test_nonfinite_boolean_negative_and_dimension_bounds) ... ok
+test_pore_velocity_dispersion_and_mass_units_hand_calculation (test_transport.TransportContractTests.test_pore_velocity_dispersion_and_mass_units_hand_calculation) ... ok
+test_altered_case_inputs_extra_files_and_symlinks_fail_closed (test_transport.TransportExportTests.test_altered_case_inputs_extra_files_and_symlinks_fail_closed) ... ok
+test_export_is_deterministic_and_case_bound_without_solver (test_transport.TransportExportTests.test_export_is_deterministic_and_case_bound_without_solver) ... ok
+test_closed_diffusion_gaussian_moments_profile_and_refinement (test_transport.TransportPhysicsTests.test_closed_diffusion_gaussian_moments_profile_and_refinement) ... ok
+test_inlet_front_inventory_matches_independent_boundary_mass_integral (test_transport.TransportPhysicsTests.test_inlet_front_inventory_matches_independent_boundary_mass_integral) ... ok
+test_native_run_manifest_and_result_reader_detect_tampering (test_transport.TransportPhysicsTests.test_native_run_manifest_and_result_reader_detect_tampering) ... ok
+test_non_round_uniform_initial_inventory_preserves_double_precision (test_transport.TransportPhysicsTests.test_non_round_uniform_initial_inventory_preserves_double_precision) ... ok
+test_uniform_advective_inlet_preserves_concentration_at_every_step (test_transport.TransportPhysicsTests.test_uniform_advective_inlet_preserves_concentration_at_every_step) ... ok
+test_wrong_captured_case_cannot_relabel_native_results_even_if_rehashed (test_transport.TransportPhysicsTests.test_wrong_captured_case_cannot_relabel_native_results_even_if_rehashed) ... ok
+test_actual_run_captured_case_profiles_mass_downloads_and_gate_visibility (test_transport_ui.TransportWorkbenchUITests.test_actual_run_captured_case_profiles_mass_downloads_and_gate_visibility) ... 2026-10-19 11:13:36.781 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:37.095 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.102 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.107 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.127 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.353 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.357 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.360 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.378 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.497 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.506 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.512 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:37.536 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.245 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.247 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.431 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.437 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.440 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.457 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.477 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.478 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.609 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.617 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.621 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.646 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_initial_view_requires_explicit_case_and_does_not_execute (test_transport_ui.TransportWorkbenchUITests.test_initial_view_requires_explicit_case_and_does_not_execute) ... 2026-10-19 11:13:38.668 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:38.989 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.995 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:38.998 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.013 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.134 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.141 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.144 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.161 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_strict_upload_and_missing_solver_fail_visibly_without_fallback (test_transport_ui.TransportWorkbenchUITests.test_strict_upload_and_missing_solver_fail_visibly_without_fallback) ... 2026-10-19 11:13:39.178 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:39.474 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.479 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.482 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.495 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.606 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.611 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.614 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.640 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.763 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.768 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.770 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.784 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.897 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.902 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.904 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:39.920 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.030 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.041 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.044 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.060 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_verified_native_export_requires_no_engine_and_preserves_input_case (test_transport_ui.TransportWorkbenchUITests.test_verified_native_export_requires_no_engine_and_preserves_input_case) ... 2026-10-19 11:13:40.187 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+2026-10-19 11:13:40.511 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.516 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.519 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.534 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.653 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.660 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.664 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.678 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.790 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.795 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.798 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+2026-10-19 11:13:40.813 Please replace `use_container_width` with `width`.
+
+`use_container_width` will be removed after 2025-12-31.
+
+For `use_container_width=True`, use `width='stretch'`. For `use_container_width=False`, use `width='content'`.
+ok
+test_direct_duplicates_rejected_before_simulation (test_validation.AnalysisValidationTests.test_direct_duplicates_rejected_before_simulation) ... ok
+test_empty_scenario_list_is_rejected (test_validation.AnalysisValidationTests.test_empty_scenario_list_is_rejected) ... ok
+test_summary_ties_are_sorted_by_id (test_validation.AnalysisValidationTests.test_summary_ties_are_sorted_by_id) ... ok
+test_tied_rank_correlation_matches_hand_calculation (test_validation.AnalysisValidationTests.test_tied_rank_correlation_matches_hand_calculation) ... ok
+test_untied_ranks_and_constant_sentinel (test_validation.AnalysisValidationTests.test_untied_ranks_and_constant_sentinel) ... ok
+test_blank_csv_identity_is_rejected (test_validation.IdentityValidationTests.test_blank_csv_identity_is_rejected) ... ok
+test_csv_preserves_numeric_and_na_like_strings (test_validation.IdentityValidationTests.test_csv_preserves_numeric_and_na_like_strings) ... ok
+test_duplicate_canonical_ids_are_rejected_with_row_number (test_validation.IdentityValidationTests.test_duplicate_canonical_ids_are_rejected_with_row_number) ... ok
+test_error_row_uses_position_not_dataframe_index (test_validation.IdentityValidationTests.test_error_row_uses_position_not_dataframe_index) ... ok
+test_identities_are_trimmed_without_losing_leading_zeros (test_validation.IdentityValidationTests.test_identities_are_trimmed_without_losing_leading_zeros) ... ok
+test_invalid_identity_in_mapping_and_direct_construction (test_validation.IdentityValidationTests.test_invalid_identity_in_mapping_and_direct_construction) ... ok
+test_direct_estimate_type_error_names_field (test_validation.PhysicalValidationTests.test_direct_estimate_type_error_names_field) ... ok
+test_direct_fraction_bounds_cannot_be_bypassed (test_validation.PhysicalValidationTests.test_direct_fraction_bounds_cannot_be_bypassed) ... ok
+test_direct_nonnegative_bounds_cannot_be_bypassed (test_validation.PhysicalValidationTests.test_direct_nonnegative_bounds_cannot_be_bypassed) ... ok
+test_direct_screening_errors_name_field (test_validation.PhysicalValidationTests.test_direct_screening_errors_name_field) ... ok
+test_fraction_endpoints_and_zero_physical_inputs_remain_valid (test_validation.PhysicalValidationTests.test_fraction_endpoints_and_zero_physical_inputs_remain_valid) ... ok
+test_invalid_estimate_numbers_and_bounds (test_validation.PhysicalValidationTests.test_invalid_estimate_numbers_and_bounds) ... ok
+test_missing_columns_retain_exact_name (test_validation.PhysicalValidationTests.test_missing_columns_retain_exact_name) ... ok
+test_numeric_field_errors_are_not_relabelled (test_validation.PhysicalValidationTests.test_numeric_field_errors_are_not_relabelled) ... ok
+test_range_errors_preserve_original_reason (test_validation.PhysicalValidationTests.test_range_errors_preserve_original_reason) ... ok
+test_cli_preserves_ids_in_every_bundle_reference (test_validation.ValidationBundleTests.test_cli_preserves_ids_in_every_bundle_reference) ... ok
+test_invalid_cli_input_keeps_field_and_creates_no_output (test_validation.ValidationBundleTests.test_invalid_cli_input_keeps_field_and_creates_no_output) ... ok
+test_actual_relocation_preserves_complete_case_and_view (test_workflow_project.WorkflowProjectTests.test_actual_relocation_preserves_complete_case_and_view) ... ok
+test_asset_must_be_canonical_even_when_generic_hashes_are_consistent (test_workflow_project.WorkflowProjectTests.test_asset_must_be_canonical_even_when_generic_hashes_are_consistent) ... ok
+test_coherently_rehashed_outer_metadata_contradictions_are_rejected (test_workflow_project.WorkflowProjectTests.test_coherently_rehashed_outer_metadata_contradictions_are_rejected) ... ok
+test_existing_destinations_are_preserved_and_refused (test_workflow_project.WorkflowProjectTests.test_existing_destinations_are_preserved_and_refused) ... ok
+test_failed_final_promotion_cleans_staging_and_retry_succeeds (test_workflow_project.WorkflowProjectTests.test_failed_final_promotion_cleans_staging_and_retry_succeeds) ... ok
+test_global_layer_and_cell_fields_retain_exact_support_and_values (test_workflow_project.WorkflowProjectTests.test_global_layer_and_cell_fields_retain_exact_support_and_values) ... ok
+test_invalid_authoritative_case_is_not_accepted_as_opaque_asset (test_workflow_project.WorkflowProjectTests.test_invalid_authoritative_case_is_not_accepted_as_opaque_asset) ... ok
+test_persistence_calls_never_execute_a_solver (test_workflow_project.WorkflowProjectTests.test_persistence_calls_never_execute_a_solver) ... ok
+test_roundtrip_really_opens_repacks_reopens_and_compares (test_workflow_project.WorkflowProjectTests.test_roundtrip_really_opens_repacks_reopens_and_compares) ... ok
+test_source_change_after_generic_open_blocks_final_publication (test_workflow_project.WorkflowProjectTests.test_source_change_after_generic_open_blocks_final_publication) ... ok
+test_undeclared_bridge_asset_and_wrong_engine_options_are_rejected (test_workflow_project.WorkflowProjectTests.test_undeclared_bridge_asset_and_wrong_engine_options_are_rejected) ... ok
+test_wider_compiler_case_is_explicitly_refused_by_shared_geometry (test_workflow_project.WorkflowProjectTests.test_wider_compiler_case_is_explicitly_refused_by_shared_geometry) ... ok
+test_wrong_case_type_and_invalid_view_leave_no_file (test_workflow_project.WorkflowProjectTests.test_wrong_case_type_and_invalid_view_leave_no_file) ... ok
+
+======================================================================
+FAIL: test_actual_run_results_are_captured_case_bound_and_downloads_verified (test_model_workspace_ui.ModelWorkspaceUITests.test_actual_run_results_are_captured_case_bound_and_downloads_verified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/96bcf7ec787f/basinlens-ccs/tests/test_model_workspace_ui.py", line 232, in test_actual_run_results_are_captured_case_bound_and_downloads_verified
+    self.assertAlmostEqual(result.heads_m[0, 0, 0, 0], 12.0)
+AssertionError: np.float64(10.0) != 12.0 within 7 places (np.float64(2.0) difference)
+
+----------------------------------------------------------------------
+Ran 336 tests in 66.614s
+
+FAILED (failures=1)

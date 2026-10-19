@@ -1,5 +1,64 @@
 # Development handoff
 
+## Latest model loading and workflow checkpoint — 2026-10-19
+
+The whole GMS objective remains unfinished. The new integrated model/file scope
+is described in [MODEL_IO_CHECKPOINT.md](gms/MODEL_IO_CHECKPOINT.md); the older
+265-test snapshot below is historical. New code adds bounded portable `.blproj`
+save/relocate/open/re-save checks, a canonical spatial-water project bridge,
+named flat strata and complete cell material assignments, explicit six-kind
+period boundary tables, actual native FloPy rewrite/two-run checks, and an
+integrated model editing/plotting/download workspace. Legacy shared-coordinate
+metadata was corrected with an explicit version-2 Y reflection; the new spatial
+compiler reverses native rows to preserve physical XY.
+
+Official-feature accounting now validates every one of the unchanged 163
+selected investigation rows against exact source/test identities and actual
+executed test IDs. Current counts are **147 NONE / 16 PARTIAL / 0 SCOPED_COMPLETE**;
+three saved-original-file observations and **zero VERIFIED**. The official six
+pages' 223 observed items include 55 UNMAPPED_OPEN items. These are separate
+partial inventories; no whole-product completion percentage exists. The genuine
+REA ledger remains 577 open obligations and zero closures. See
+[IMPLEMENTATION_STATUS.md](gms/IMPLEMENTATION_STATUS.md).
+
+The combined authored synthetic example saved and relocated its project,
+exported/reloaded/rewrote native input and ran both actual MF6 decks: zero head
+and budget-column differences, all three water/boundary/confined-support gates
+passed, 50 cell/time head CSV rows. Six independently authored analytical cases
+on the exact final compiler also passed. General package operations never execute
+a solver. `modflow6_spatial` uses the explicit workflow entry points; it is not
+silently routed through the legacy layer-only shared registry adapter.
+
+The first selected integration run failed one AppTest because the test assumed
+alphabetical example order. Selecting the intended layered fixture fixed it;
+the next selected run passed **336 tests, zero skips**, in 62.303s. Both failed
+v3 and successful v4 receipts/logs are retained; only v4 is positive feature
+evidence. The subsequent strict full suite passed **352 tests, zero skips,
+failures or errors**, in 87.586s using actual MF6 6.7.0. All 107 recorded source
+hashes were rechecked after execution. Exact counts/identities are in
+[model_io_validation_record.json](gms/model_io_validation_record.json).
+Installation, the required 2,000-sample seed-42 capacity example and its
+artifact verifier, compilation, actionlint and diff checks were also run.
+
+Reproduce the prioritized model flow in a fresh output directory:
+
+```bash
+python examples/workflow/run_project_example.py --output build/project-flow --exe /absolute/path/to/mf6
+python -m streamlit run groundwater_app.py
+python -m basinlens_ccs.reconstruction.status validate
+```
+
+Next independent code priority: explicit borehole/log import and portable
+roundtrip, then geological interpretation and grid support mapping. Native GPR
+writing, arbitrary geology/mesh construction, most engines/packages, complete
+object/UI behavior and CO2/oil multiphase physics remain absent. Original GMS
+numerical comparison still needs an authorized applicable module and successful
+observed model loading beyond the already witnessed owned error-classified
+dialog, followed by fresh retained input/solver/output evidence. The native REA
+timeout still needs a supported successful analysis path or useful analyzer
+diagnostics. No licensing/access/provider guard was bypassed. These comparison
+obstacles do not block independent implementation of the remaining features.
+
 ## Expanded 2026-10-19 reconstruction checkpoint
 
 User objective: reconstruct the whole GMS workbench using REA and preserve

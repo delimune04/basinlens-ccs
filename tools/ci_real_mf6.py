@@ -137,7 +137,7 @@ def run_tests(report):
             files = subprocess.check_output(["git", "ls-files", "-z"], cwd=PROJECT).decode().split("\0")
             selected = [p for p in files if p and (p.endswith((".py", ".toml", ".yml", ".json", ".csv")))
                         and (p.startswith(("src/", "tests/", "tools/", "examples/", ".github/workflows/"))
-                             or p in ("groundwater_app.py", "app.py", "pyproject.toml"))]
+                             or p in ("groundwater_app.py", "model_workspace.py", "app.py", "pyproject.toml"))]
             summary["source_sha256"] = {p: sha(PROJECT / p) for p in selected}
             summary["checkout_commit"] = subprocess.check_output(
                 ["git", "rev-parse", "HEAD"], cwd=PROJECT, text=True).strip()

@@ -1,0 +1,932 @@
+{
+  "cases": [
+    {
+      "actual_heads_m": [
+        8.0
+      ],
+      "all_three_physical_support_gates_passed": true,
+      "case": "ghb_well",
+      "checked_budget_m3_day": {
+        "GHB(GHB)_IN": [
+          4.0
+        ],
+        "WEL(WEL)_OUT": [
+          4.0
+        ]
+      },
+      "expected_heads_m": [
+        8.0
+      ],
+      "maximum_absolute_head_error_m": 0.0,
+      "maximum_boundary_rate_error_m3_day": 0.0,
+      "maximum_water_balance_residual_m3_day": 0.0,
+      "passed": true,
+      "source_case_sha256": "17911bf7043c7b68d1f83fbcbddda95c6a8dec354b24cdd7c47e5e306f898d34",
+      "workflow_case": {
+        "assignments": [
+          {
+            "cells": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "material_id": "sand",
+            "stratum_id": "a"
+          }
+        ],
+        "boundaries": [
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "GHB",
+            "label": "GHB_0_0_0",
+            "period": 0,
+            "values": {
+              "conductance_m2_day": 2.0,
+              "head_m": 10.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "WEL",
+            "label": "WEL_0_0_0",
+            "period": 0,
+            "values": {
+              "rate_m3_day": -4.0
+            }
+          }
+        ],
+        "grid": {
+          "dx_m": 10.0,
+          "dy_m": 10.0,
+          "layer_surfaces_m": [
+            0.0,
+            -10.0
+          ],
+          "ncol": 1,
+          "nrow": 1,
+          "rotation_degrees": 0.0,
+          "row_axis": "south_to_north",
+          "x_origin_m": 34567.0,
+          "y_origin_m": 1234567.0
+        },
+        "initial_head_m": [
+          8.0
+        ],
+        "materials": [
+          {
+            "id": "sand",
+            "kx_m_day": 1.0,
+            "ky_m_day": 1.0,
+            "kz_m_day": 1.0,
+            "name": "Synthetic rock",
+            "porosity": 0.3,
+            "ss_per_m": 1e-05
+          }
+        ],
+        "periods": [
+          {
+            "duration_day": 1.0,
+            "nsteps": 1,
+            "steady": true
+          }
+        ],
+        "project": {
+          "crs": "unknown",
+          "domain": "groundwater",
+          "flow_role": "background_water",
+          "id": "review",
+          "name": "Independent reviewer synthetic case",
+          "provenance": [
+            "Own synthetic independent analytic review"
+          ],
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "vertical_datum": "synthetic local datum"
+        },
+        "schema": "basinlens-model-workflow-v1",
+        "strata": [
+          {
+            "id": "a",
+            "layer_indices": [
+              0
+            ],
+            "name": "Synthetic aquifer"
+          }
+        ]
+      }
+    },
+    {
+      "actual_heads_m": [
+        10.1
+      ],
+      "all_three_physical_support_gates_passed": true,
+      "case": "ghb_recharge",
+      "checked_budget_m3_day": {
+        "GHB(GHB)_OUT": [
+          0.1999999999999993
+        ],
+        "RCH(RCH)_IN": [
+          0.2
+        ]
+      },
+      "expected_heads_m": [
+        10.1
+      ],
+      "maximum_absolute_head_error_m": 0.0,
+      "maximum_boundary_rate_error_m3_day": 0.0,
+      "maximum_water_balance_residual_m3_day": 7.216449660063518e-16,
+      "passed": true,
+      "source_case_sha256": "9fe9ebcdaca237543de66a5f475ae3e5d81bff98a6e6b48b86a9da40cdaf445a",
+      "workflow_case": {
+        "assignments": [
+          {
+            "cells": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "material_id": "sand",
+            "stratum_id": "a"
+          }
+        ],
+        "boundaries": [
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "GHB",
+            "label": "GHB_0_0_0",
+            "period": 0,
+            "values": {
+              "conductance_m2_day": 2.0,
+              "head_m": 10.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "RCH",
+            "label": "RCH_0_0_0",
+            "period": 0,
+            "values": {
+              "rate_m_day": 0.002
+            }
+          }
+        ],
+        "grid": {
+          "dx_m": 10.0,
+          "dy_m": 10.0,
+          "layer_surfaces_m": [
+            0.0,
+            -10.0
+          ],
+          "ncol": 1,
+          "nrow": 1,
+          "rotation_degrees": 0.0,
+          "row_axis": "south_to_north",
+          "x_origin_m": 34567.0,
+          "y_origin_m": 1234567.0
+        },
+        "initial_head_m": [
+          8.0
+        ],
+        "materials": [
+          {
+            "id": "sand",
+            "kx_m_day": 1.0,
+            "ky_m_day": 1.0,
+            "kz_m_day": 1.0,
+            "name": "Synthetic rock",
+            "porosity": 0.3,
+            "ss_per_m": 1e-05
+          }
+        ],
+        "periods": [
+          {
+            "duration_day": 1.0,
+            "nsteps": 1,
+            "steady": true
+          }
+        ],
+        "project": {
+          "crs": "unknown",
+          "domain": "groundwater",
+          "flow_role": "background_water",
+          "id": "review",
+          "name": "Independent reviewer synthetic case",
+          "provenance": [
+            "Own synthetic independent analytic review"
+          ],
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "vertical_datum": "synthetic local datum"
+        },
+        "schema": "basinlens-model-workflow-v1",
+        "strata": [
+          {
+            "id": "a",
+            "layer_indices": [
+              0
+            ],
+            "name": "Synthetic aquifer"
+          }
+        ]
+      }
+    },
+    {
+      "actual_heads_m": [
+        10.0,
+        9.666666666666666
+      ],
+      "all_three_physical_support_gates_passed": true,
+      "case": "drain_active",
+      "checked_budget_m3_day": {
+        "DRN(DRN)_OUT": [
+          3.333333333333332
+        ]
+      },
+      "expected_heads_m": [
+        10.0,
+        9.666666666666666
+      ],
+      "maximum_absolute_head_error_m": 0.0,
+      "maximum_boundary_rate_error_m3_day": 0.0,
+      "maximum_water_balance_residual_m3_day": 6.661338147750939e-15,
+      "passed": true,
+      "source_case_sha256": "7364b065d0b1822b36b5cfdbba9b4bb2f4575b2d45714d367e41af5749e152d2",
+      "workflow_case": {
+        "assignments": [
+          {
+            "cells": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "material_id": "sand",
+            "stratum_id": "a"
+          }
+        ],
+        "boundaries": [
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "CHD",
+            "label": "CHD_0_0_0",
+            "period": 0,
+            "values": {
+              "head_m": 10.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              0,
+              1
+            ],
+            "kind": "DRN",
+            "label": "DRN_0_0_1",
+            "period": 0,
+            "values": {
+              "conductance_m2_day": 2.0,
+              "elevation_m": 8.0
+            }
+          }
+        ],
+        "grid": {
+          "dx_m": 10.0,
+          "dy_m": 10.0,
+          "layer_surfaces_m": [
+            0.0,
+            -10.0
+          ],
+          "ncol": 2,
+          "nrow": 1,
+          "rotation_degrees": 0.0,
+          "row_axis": "south_to_north",
+          "x_origin_m": 34567.0,
+          "y_origin_m": 1234567.0
+        },
+        "initial_head_m": [
+          8.0,
+          8.0
+        ],
+        "materials": [
+          {
+            "id": "sand",
+            "kx_m_day": 1.0,
+            "ky_m_day": 1.0,
+            "kz_m_day": 1.0,
+            "name": "Synthetic rock",
+            "porosity": 0.3,
+            "ss_per_m": 1e-05
+          }
+        ],
+        "periods": [
+          {
+            "duration_day": 1.0,
+            "nsteps": 1,
+            "steady": true
+          }
+        ],
+        "project": {
+          "crs": "unknown",
+          "domain": "groundwater",
+          "flow_role": "background_water",
+          "id": "review",
+          "name": "Independent reviewer synthetic case",
+          "provenance": [
+            "Own synthetic independent analytic review"
+          ],
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "vertical_datum": "synthetic local datum"
+        },
+        "schema": "basinlens-model-workflow-v1",
+        "strata": [
+          {
+            "id": "a",
+            "layer_indices": [
+              0
+            ],
+            "name": "Synthetic aquifer"
+          }
+        ]
+      }
+    },
+    {
+      "actual_heads_m": [
+        8.0,
+        8.2
+      ],
+      "all_three_physical_support_gates_passed": true,
+      "case": "river_capped",
+      "checked_budget_m3_day": {
+        "RIV(RIV)_IN": [
+          2.0
+        ]
+      },
+      "expected_heads_m": [
+        8.0,
+        8.2
+      ],
+      "maximum_absolute_head_error_m": 0.0,
+      "maximum_boundary_rate_error_m3_day": 0.0,
+      "maximum_water_balance_residual_m3_day": 7.105427357601002e-15,
+      "passed": true,
+      "source_case_sha256": "2f1bd88ac39959b5ef4dc380cbbb9678a1ab37d619623ecf968fe438a0cf5f3a",
+      "workflow_case": {
+        "assignments": [
+          {
+            "cells": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "material_id": "sand",
+            "stratum_id": "a"
+          }
+        ],
+        "boundaries": [
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "CHD",
+            "label": "CHD_0_0_0",
+            "period": 0,
+            "values": {
+              "head_m": 8.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              0,
+              1
+            ],
+            "kind": "RIV",
+            "label": "RIV_0_0_1",
+            "period": 0,
+            "values": {
+              "bottom_m": 9.0,
+              "conductance_m2_day": 2.0,
+              "stage_m": 10.0
+            }
+          }
+        ],
+        "grid": {
+          "dx_m": 10.0,
+          "dy_m": 10.0,
+          "layer_surfaces_m": [
+            0.0,
+            -10.0
+          ],
+          "ncol": 2,
+          "nrow": 1,
+          "rotation_degrees": 0.0,
+          "row_axis": "south_to_north",
+          "x_origin_m": 34567.0,
+          "y_origin_m": 1234567.0
+        },
+        "initial_head_m": [
+          8.0,
+          8.0
+        ],
+        "materials": [
+          {
+            "id": "sand",
+            "kx_m_day": 1.0,
+            "ky_m_day": 1.0,
+            "kz_m_day": 1.0,
+            "name": "Synthetic rock",
+            "porosity": 0.3,
+            "ss_per_m": 1e-05
+          }
+        ],
+        "periods": [
+          {
+            "duration_day": 1.0,
+            "nsteps": 1,
+            "steady": true
+          }
+        ],
+        "project": {
+          "crs": "unknown",
+          "domain": "groundwater",
+          "flow_role": "background_water",
+          "id": "review",
+          "name": "Independent reviewer synthetic case",
+          "provenance": [
+            "Own synthetic independent analytic review"
+          ],
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "vertical_datum": "synthetic local datum"
+        },
+        "schema": "basinlens-model-workflow-v1",
+        "strata": [
+          {
+            "id": "a",
+            "layer_indices": [
+              0
+            ],
+            "name": "Synthetic aquifer"
+          }
+        ]
+      }
+    },
+    {
+      "actual_heads_m": [
+        8.0,
+        10.0
+      ],
+      "all_three_physical_support_gates_passed": true,
+      "case": "well_shutoff",
+      "checked_budget_m3_day": {
+        "GHB(GHB)_IN": [
+          4.0,
+          0.0
+        ],
+        "WEL(WEL)_OUT": [
+          4.0,
+          0.0
+        ]
+      },
+      "expected_heads_m": [
+        8.0,
+        10.0
+      ],
+      "maximum_absolute_head_error_m": 0.0,
+      "maximum_boundary_rate_error_m3_day": 0.0,
+      "maximum_water_balance_residual_m3_day": 0.0,
+      "passed": true,
+      "source_case_sha256": "5827663e29db706f4bfb63dba56dfa67992797960f32bc205bf7c983983a66d6",
+      "workflow_case": {
+        "assignments": [
+          {
+            "cells": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "material_id": "sand",
+            "stratum_id": "a"
+          }
+        ],
+        "boundaries": [
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "GHB",
+            "label": "GHB_0_0_0",
+            "period": 0,
+            "values": {
+              "conductance_m2_day": 2.0,
+              "head_m": 10.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "GHB",
+            "label": "GHB_1_0_0",
+            "period": 1,
+            "values": {
+              "conductance_m2_day": 2.0,
+              "head_m": 10.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "WEL",
+            "label": "WEL_0_0_0",
+            "period": 0,
+            "values": {
+              "rate_m3_day": -4.0
+            }
+          }
+        ],
+        "grid": {
+          "dx_m": 10.0,
+          "dy_m": 10.0,
+          "layer_surfaces_m": [
+            0.0,
+            -10.0
+          ],
+          "ncol": 1,
+          "nrow": 1,
+          "rotation_degrees": 0.0,
+          "row_axis": "south_to_north",
+          "x_origin_m": 34567.0,
+          "y_origin_m": 1234567.0
+        },
+        "initial_head_m": [
+          8.0
+        ],
+        "materials": [
+          {
+            "id": "sand",
+            "kx_m_day": 1.0,
+            "ky_m_day": 1.0,
+            "kz_m_day": 1.0,
+            "name": "Synthetic rock",
+            "porosity": 0.3,
+            "ss_per_m": 1e-05
+          }
+        ],
+        "periods": [
+          {
+            "duration_day": 1.0,
+            "nsteps": 1,
+            "steady": true
+          },
+          {
+            "duration_day": 1.0,
+            "nsteps": 1,
+            "steady": true
+          }
+        ],
+        "project": {
+          "crs": "unknown",
+          "domain": "groundwater",
+          "flow_role": "background_water",
+          "id": "review",
+          "name": "Independent reviewer synthetic case",
+          "provenance": [
+            "Own synthetic independent analytic review"
+          ],
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "vertical_datum": "synthetic local datum"
+        },
+        "schema": "basinlens-model-workflow-v1",
+        "strata": [
+          {
+            "id": "a",
+            "layer_indices": [
+              0
+            ],
+            "name": "Synthetic aquifer"
+          }
+        ]
+      }
+    },
+    {
+      "actual_heads_m": [
+        8.0,
+        9.0,
+        10.0,
+        12.0,
+        13.0,
+        14.0
+      ],
+      "all_three_physical_support_gates_passed": true,
+      "case": "asymmetric_rows",
+      "checked_budget_m3_day": {},
+      "expected_heads_m": [
+        8.0,
+        9.0,
+        10.0,
+        12.0,
+        13.0,
+        14.0
+      ],
+      "maximum_absolute_head_error_m": 0.0,
+      "maximum_boundary_rate_error_m3_day": 0.0,
+      "maximum_water_balance_residual_m3_day": 0.0,
+      "passed": true,
+      "source_case_sha256": "4b626eaf296b696cb577d094cd2b87a685665267a3285ed607a596a83522fbc6",
+      "workflow_case": {
+        "assignments": [
+          {
+            "cells": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                2
+              ],
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                2
+              ]
+            ],
+            "material_id": "sand",
+            "stratum_id": "a"
+          }
+        ],
+        "boundaries": [
+          {
+            "cell": [
+              0,
+              0,
+              0
+            ],
+            "kind": "CHD",
+            "label": "CHD_0_0_0",
+            "period": 0,
+            "values": {
+              "head_m": 8.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              0,
+              1
+            ],
+            "kind": "CHD",
+            "label": "CHD_0_0_1",
+            "period": 0,
+            "values": {
+              "head_m": 9.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              0,
+              2
+            ],
+            "kind": "CHD",
+            "label": "CHD_0_0_2",
+            "period": 0,
+            "values": {
+              "head_m": 10.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              1,
+              0
+            ],
+            "kind": "CHD",
+            "label": "CHD_0_1_0",
+            "period": 0,
+            "values": {
+              "head_m": 12.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              1,
+              1
+            ],
+            "kind": "CHD",
+            "label": "CHD_0_1_1",
+            "period": 0,
+            "values": {
+              "head_m": 13.0
+            }
+          },
+          {
+            "cell": [
+              0,
+              1,
+              2
+            ],
+            "kind": "CHD",
+            "label": "CHD_0_1_2",
+            "period": 0,
+            "values": {
+              "head_m": 14.0
+            }
+          }
+        ],
+        "grid": {
+          "dx_m": 10.0,
+          "dy_m": 10.0,
+          "layer_surfaces_m": [
+            0.0,
+            -10.0
+          ],
+          "ncol": 3,
+          "nrow": 2,
+          "rotation_degrees": 0.0,
+          "row_axis": "south_to_north",
+          "x_origin_m": 34567.0,
+          "y_origin_m": 1234567.0
+        },
+        "initial_head_m": [
+          8.0,
+          8.0,
+          8.0,
+          8.0,
+          8.0,
+          8.0
+        ],
+        "materials": [
+          {
+            "id": "sand",
+            "kx_m_day": 1.0,
+            "ky_m_day": 1.0,
+            "kz_m_day": 1.0,
+            "name": "Synthetic rock",
+            "porosity": 0.3,
+            "ss_per_m": 1e-05
+          }
+        ],
+        "periods": [
+          {
+            "duration_day": 1.0,
+            "nsteps": 1,
+            "steady": true
+          }
+        ],
+        "project": {
+          "crs": "unknown",
+          "domain": "groundwater",
+          "flow_role": "background_water",
+          "id": "review",
+          "name": "Independent reviewer synthetic case",
+          "provenance": [
+            "Own synthetic independent analytic review"
+          ],
+          "units": {
+            "conductance": "m2/day",
+            "conductivity": "m/day",
+            "head": "m",
+            "length": "m",
+            "porosity": "1",
+            "recharge": "m/day",
+            "specific_storage": "1/m",
+            "time": "day",
+            "water_rate": "m3/day"
+          },
+          "vertical_datum": "synthetic local datum"
+        },
+        "schema": "basinlens-model-workflow-v1",
+        "strata": [
+          {
+            "id": "a",
+            "layer_indices": [
+              0
+            ],
+            "name": "Synthetic aquifer"
+          }
+        ]
+      }
+    }
+  ],
+  "cases_passed": 6,
+  "compiler_sha256": "c64debe5ab7214d91ca4f859abcf68ea0569c285d076a25d97ba2602b98f6fe4",
+  "gms_parity_established": false,
+  "schema": "basinlens-independent-spatial-workflow-review-v1",
+  "scope": "Six authored synthetic analytical MF6 checks; no original GMS numerical comparison or field validation",
+  "solver_sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4"
+}

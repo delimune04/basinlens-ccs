@@ -15,6 +15,7 @@ from .schema import (CANONICAL_AXES, FieldSupport, ModelSpec, ProjectProvenance,
                      Quantity, RockProperty, SpatialReference, StructuredGeometry,
                      SubsurfaceProject, Well, load_project, save_project, verify_assets,
                      _relative_path, _number, _object, _strings, _text)
+from .coordinates import coordinate_contract
 
 SOURCE_ASSET_POLICY = "Source assets are verified at asset_root and referenced by hash; raw files are not copied into the run bundle"
 
@@ -99,7 +100,7 @@ class Modflow6Adapter:
         from basinlens_ccs.groundwater import GroundwaterCase
 
         if project.spatial_reference.local_axes != CANONICAL_AXES:
-            raise UnsupportedPhysicsError("MODFLOW adapter requires x with columns, y with rows and z upward; axis reorientation is not implemented")
+            raise UnsupportedPhysicsError("MODFLOW adapter requires the declared canonical project axes; alternative project axis contracts are not implemented")
         if project.domain in ("ccs", "oil_exploration") and project.model.role != "background_water":
             raise UnsupportedPhysicsError("MODFLOW in CCS/oil projects requires role=background_water; water flow is not CO2 or petroleum physics")
         g = project.geometry
@@ -134,16 +135,14 @@ class Modflow6Adapter:
         case_data["grid"]["layer_bottoms_m"] = list(case_data["grid"]["layer_bottoms_m"])
         case = GroundwaterCase.from_dict(case_data)
         mapping = {
-            "mapping_schema_version": 1, "engine_id": "modflow6", "physics": project.model.physics,
+            "mapping_schema_version": 2, "engine_id": "modflow6", "physics": project.model.physics,
             "domain": project.domain, "role": project.model.role,
             "property_mapping": dict(GROUNDWATER_FIELDS), "unit_conversion": "none",
             "crs_conversion": "none", "datum_conversion": "none",
             "crs_validation": "project-owner declaration; no CRS database lookup or coordinate reprojection",
             "vertical_datum_validation": "project-owner declaration; no geodetic transformation",
             "local_axes": project.spatial_reference.local_axes,
-            "project_grid_origin_m": {"x": g.origin_x_m, "y": g.origin_y_m},
-            "native_grid_origin_m": {"x": 0.0, "y": 0.0},
-            "coordinate_mapping": "project x/y = origin_x/y_m + native cell-centre x/y; elevations unchanged",
+            **coordinate_contract(project),
             "well_rate_convention": "positive water injection, negative water abstraction; m3/day",
             "period_well_overrides": "native groundwater options; all overridden rates are water m3/day",
             "unused_rock_properties": sorted(set(fields) - set(GROUNDWATER_FIELDS)),
@@ -391,7 +390,11 @@ def default_registry() -> EngineRegistry:
 
 
 def project_from_groundwater(case, *, domain="groundwater") -> SubsurfaceProject:
-    """Lift an existing case without changing its values, CRS or datum."""
+    """Preserve values/indices/CRS/datum under the canonical project axis contract.
+
+    Native MF6 local y is reflected when reporting canonical project point
+    coordinates. This does not establish an external geodetic placement.
+    """
     from basinlens_ccs.groundwater import GroundwaterCase
     case = GroundwaterCase.from_dict(case.to_dict())
     g = case.grid

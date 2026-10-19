@@ -1077,6 +1077,21 @@ def main() -> None:
     case = st.session_state.gw_case
     sidebar(case)
     st.title("지하수 모델 작업대")
+    with st.expander("공식 기능별 구현 · 원본 비교 검증 상태", expanded=False):
+        from basinlens_ccs.reconstruction.status import StatusError, validate_registry
+        try:
+            status = validate_registry(PROJECT_ROOT / "docs/gms/implementation_status.json", root=PROJECT_ROOT)
+            st.caption("전체 GMS 구현은 진행 중입니다. 아래 163항목은 일부 조사 목록이며 전체 제품의 완료율이 아닙니다.")
+            st.write({"구현 상태": status["implementation_counts"],
+                      "원본 비교": status["original_comparison_counts"]})
+            st.dataframe(pd.DataFrame([{"기능": feature["id"],
+                "구현": feature["implementation"],
+                "원본 비교": feature["original_comparison"]["state"],
+                "구현 범위": feature["implemented_scope"],
+                "남은 범위": "; ".join(feature["remaining_scope"])} for feature in status["features"]]),
+                hide_index=True, use_container_width=True)
+        except (StatusError, OSError) as error:
+            st.warning(f"기능 상태의 근거 검증 실패 · 상태는 미확인입니다: {error}")
     st.caption("BasinLens · 구조화 격자 → 조건 설정 → MODFLOW 6 → 수두 검토")
     project = SubsurfaceProject.from_dict(st.session_state.gw_project)
     st.caption(f"분야: {DOMAIN_LABELS[project.domain]} · 계산 역할: {project.model.role}")
@@ -1099,6 +1114,9 @@ def main() -> None:
     transport_workbench()
     st.divider()
     gpr_workbench()
+    st.divider()
+    from model_workspace import render_model_workspace
+    render_model_workspace()
 
 
 if __name__ == "__main__":

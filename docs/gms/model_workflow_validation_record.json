@@ -1,0 +1,239 @@
+{
+  "schema": "basinlens-model-workflow-validation-v1",
+  "scope": "Original synthetic confined water only; no GMS/original/field comparison",
+  "python": "3.12.14",
+  "flopy": "3.11.0",
+  "numpy": "2.3.5",
+  "source_sha256": {
+    "src/basinlens_ccs/subsurface/model_workflow.py": "c64debe5ab7214d91ca4f859abcf68ea0569c285d076a25d97ba2602b98f6fe4",
+    "tests/test_model_workflow.py": "f1fab62a8451940edded4db13b6c535cb683adb3ec64e561766fb06dc4704c87",
+    "examples/workflow/layered_background_water.json": "983f753a21a3e14536919419f2077a2bdb4640784a98856037d8d08a2b53f1a3",
+    "examples/workflow/head_dependent_water.json": "f57a5e1fdb4651e35890127ae91734d1b19c0d1dd2df31e73e9e8f801c46e904"
+  },
+  "focused_tests": {
+    "command": "PYTHONPATH=src MF6_EXE=<trusted MF6 6.7.0 executable> python -m unittest discover -s tests -p test_model_workflow.py -v",
+    "tests": 18,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "wall_seconds_reported_by_unittest": 10.31
+  },
+  "example_execution_wall_seconds": 3.667708124005003,
+  "examples": [
+    {
+      "case": "examples/workflow/layered_background_water.json",
+      "case_sha256": "983f753a21a3e14536919419f2077a2bdb4640784a98856037d8d08a2b53f1a3",
+      "preview_shape": [
+        2,
+        1,
+        5
+      ],
+      "summary": {
+        "schema": "basinlens-model-workflow-result-v1",
+        "engine": "MODFLOW 6 GWF",
+        "solver": {
+          "name": "mf6",
+          "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+          "version": "mf6: 6.7.0 02/05/2026"
+        },
+        "units": {
+          "length": "m",
+          "time": "day",
+          "head": "m",
+          "conductivity": "m/day",
+          "specific_storage": "1/m",
+          "porosity": "1",
+          "water_rate": "m3/day",
+          "recharge": "m/day",
+          "conductance": "m2/day"
+        },
+        "shape": [
+          2,
+          1,
+          5
+        ],
+        "saved_steps": 5,
+        "head_min_m": 10.0,
+        "head_max_m": 12.0,
+        "maximum_water_balance_residual_m3_day": 2.802593712658563e-09,
+        "water_balance_passed": true,
+        "boundary_rates_passed": true,
+        "maximum_boundary_rate_error_m3_day": 0.0,
+        "maximum_prescribed_head_error_m": 0.0,
+        "confined_saturation_support_passed": true,
+        "validation_scope": "synthetic confined single-phase water; case-specific analytic tests only",
+        "gms_parity_established": false,
+        "co2_or_multiphase_physics": false,
+        "porosity_role": "preserved geological metadata; not a flow/storage coefficient in confined GWF"
+      },
+      "roundtrip": {
+        "schema": "basinlens-model-workflow-roundtrip-v1",
+        "status": "completed",
+        "case_metadata_preserved": true,
+        "source_native_inputs": {
+          "flow.chd": {
+            "bytes": 490,
+            "sha256": "f53ff9b28461f33ac29c8880fe0bce3db9cfb280b3cfee3f1c4ce290ea9aacd7"
+          },
+          "flow.dis": {
+            "bytes": 750,
+            "sha256": "e0e1aef789d38f3df3473138484dd567e14d9e0b5032628f7f1671aead6c6408"
+          },
+          "flow.ic": {
+            "bytes": 384,
+            "sha256": "a426ca489ced6b0088e3cda0f143ae3a580c5c48684814588b38cbf3cf62ed3f"
+          },
+          "flow.ims": {
+            "bytes": 273,
+            "sha256": "cc615944f771f39ec7e5b7ecda4aeed926f85f37849c89d8d309597aa2dd0460"
+          },
+          "flow.nam": {
+            "bytes": 217,
+            "sha256": "f84de6e7a9383353987197f7cd96ea2af130d60a84e8e44daed276cbb39cfdfa"
+          },
+          "flow.npf": {
+            "bytes": 1063,
+            "sha256": "f0d242e96bf7b6beb66b5e2a286d07df30b1bdc44105e7f0892b92bf3b43919c"
+          },
+          "flow.oc": {
+            "bytes": 188,
+            "sha256": "5e92674f39856826779dedd402f5b98574a9e7218c63a8e5be7d420e8a5b8092"
+          },
+          "flow.sto": {
+            "bytes": 544,
+            "sha256": "01dc0816665c6f2fedca95306395439954eb86b812cd938616efbf7de4f5dcd6"
+          },
+          "flow.wel": {
+            "bytes": 213,
+            "sha256": "3e87bf78d439d7a6062c57bda7237998c49a74c0696c4c5d26272d39e6e6c67e"
+          },
+          "mfsim.nam": {
+            "bytes": 222,
+            "sha256": "7000ad92145020ca02012a9491be81f47f4fc16a69ce5fae4e17b2b47e873702"
+          },
+          "workflow.tdis": {
+            "bytes": 230,
+            "sha256": "9a9ef42bddb7a30af04c859faa78d2858ddb9318c1e929a24909cc487ef29414"
+          }
+        },
+        "source_settings_sha256": "370e76fc33269f35e27ca2c320b4ba37605af511ff45f0598c986f8ce369c3c0",
+        "rewritten_native_inputs": {
+          "flow.chd": {
+            "bytes": 490,
+            "sha256": "f53ff9b28461f33ac29c8880fe0bce3db9cfb280b3cfee3f1c4ce290ea9aacd7"
+          },
+          "flow.dis": {
+            "bytes": 750,
+            "sha256": "e0e1aef789d38f3df3473138484dd567e14d9e0b5032628f7f1671aead6c6408"
+          },
+          "flow.ic": {
+            "bytes": 384,
+            "sha256": "a426ca489ced6b0088e3cda0f143ae3a580c5c48684814588b38cbf3cf62ed3f"
+          },
+          "flow.ims": {
+            "bytes": 273,
+            "sha256": "cc615944f771f39ec7e5b7ecda4aeed926f85f37849c89d8d309597aa2dd0460"
+          },
+          "flow.nam": {
+            "bytes": 217,
+            "sha256": "d12f1848da4482ae9a552b83d27f6ca0a8de7c5f37dd17ef4d8f0e1da69d2445"
+          },
+          "flow.npf": {
+            "bytes": 1063,
+            "sha256": "f0d242e96bf7b6beb66b5e2a286d07df30b1bdc44105e7f0892b92bf3b43919c"
+          },
+          "flow.oc": {
+            "bytes": 188,
+            "sha256": "6696b7732889b685166cd8f4824126906856eb8bf773d666804704a896257df8"
+          },
+          "flow.sto": {
+            "bytes": 544,
+            "sha256": "01dc0816665c6f2fedca95306395439954eb86b812cd938616efbf7de4f5dcd6"
+          },
+          "flow.wel": {
+            "bytes": 213,
+            "sha256": "3e87bf78d439d7a6062c57bda7237998c49a74c0696c4c5d26272d39e6e6c67e"
+          },
+          "mfsim.nam": {
+            "bytes": 222,
+            "sha256": "7000ad92145020ca02012a9491be81f47f4fc16a69ce5fae4e17b2b47e873702"
+          },
+          "workflow.tdis": {
+            "bytes": 230,
+            "sha256": "9a9ef42bddb7a30af04c859faa78d2858ddb9318c1e929a24909cc487ef29414"
+          }
+        },
+        "native_token_semantics_equal": true,
+        "native_token_semantics_sha256": "04f99b4cca1f63265e03991a60761713c9ef4454e536761825d1b5e17bb05008",
+        "flopy_version": "3.11.0",
+        "compiler_sha256": "c64debe5ab7214d91ca4f859abcf68ea0569c285d076a25d97ba2602b98f6fe4",
+        "native_runs_performed": true,
+        "numerical_roundtrip_passed": true,
+        "gms_project_roundtrip": false,
+        "gms_parity_established": false,
+        "native_runs_requested": 2,
+        "native_runs_completed": 2,
+        "maximum_head_difference_m": 0.0,
+        "maximum_budget_column_difference": 0.0,
+        "both_runs_water_balance_passed": true,
+        "both_runs_boundary_rates_passed": true,
+        "both_runs_confined_saturation_support_passed": true,
+        "solver": {
+          "name": "mf6",
+          "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+          "version": "mf6: 6.7.0 02/05/2026"
+        }
+      }
+    },
+    {
+      "case": "examples/workflow/head_dependent_water.json",
+      "case_sha256": "f57a5e1fdb4651e35890127ae91734d1b19c0d1dd2df31e73e9e8f801c46e904",
+      "preview_shape": [
+        1,
+        1,
+        6
+      ],
+      "summary": {
+        "schema": "basinlens-model-workflow-result-v1",
+        "engine": "MODFLOW 6 GWF",
+        "solver": {
+          "name": "mf6",
+          "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+          "version": "mf6: 6.7.0 02/05/2026"
+        },
+        "units": {
+          "length": "m",
+          "time": "day",
+          "head": "m",
+          "conductivity": "m/day",
+          "specific_storage": "1/m",
+          "porosity": "1",
+          "water_rate": "m3/day",
+          "recharge": "m/day",
+          "conductance": "m2/day"
+        },
+        "shape": [
+          1,
+          1,
+          6
+        ],
+        "saved_steps": 1,
+        "head_min_m": 9.323137369033761,
+        "head_max_m": 10.0,
+        "maximum_water_balance_residual_m3_day": 1.2434497875801753e-14,
+        "water_balance_passed": true,
+        "boundary_rates_passed": true,
+        "maximum_boundary_rate_error_m3_day": 2.220446049250313e-16,
+        "maximum_prescribed_head_error_m": 0.0,
+        "confined_saturation_support_passed": true,
+        "validation_scope": "synthetic confined single-phase water; case-specific analytic tests only",
+        "gms_parity_established": false,
+        "co2_or_multiphase_physics": false,
+        "porosity_role": "preserved geological metadata; not a flow/storage coefficient in confined GWF"
+      }
+    }
+  ],
+  "gms_parity_established": false,
+  "gpr_writer_implemented": false,
+  "co2_multiphase_implemented": false
+}
