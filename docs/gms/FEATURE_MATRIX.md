@@ -1,17 +1,19 @@
 # GMS workflow reconstruction: scope and evidence
 
-This is an original BasinLens implementation of a **bounded groundwater modeling
-workflow**, not Aquaveo GMS, a complete GMS clone, or a compatibility-certified
-replacement. It is a separate optional module from conceptual CCS capacity.
+The requested objective is the complete GMS workbench with extensible CCS and
+oil-exploration interfaces. That objective is **unfinished**. The current
+BasinLens implementation contains the working components below, separate from
+conceptual CCS capacity. The [reconstruction plan](RECONSTRUCTION_PLAN.md)
+records the remaining product and evidence work.
 
 ## Feature boundary
 
 | GMS workflow | This implementation | Verification / limitation |
 |---|---|---|
 | Model/project management | Versioned JSON case import, edit, export | Limited GPR/HDF5 inspection and selected array reads; no native save/reopen round trip |
-| Structured groundwater grid | Uniform horizontal spacing, multiple flat layers | All cells active, confined aquifer only |
+| Structured groundwater case builder | Uniform horizontal spacing, multiple flat layers | All cells active, confined aquifer only; native-input execution has a separate, broader contract |
 | Hydraulic properties | Per-layer anisotropic K and specific storage | Constant within each layer |
-| Boundary conditions | Left/right constant head; other outside faces no-flow | General GIS boundaries, rivers and drains not implemented |
+| Case-builder boundary conditions | Left/right constant head; other outside faces no-flow | General GIS boundary editing is absent; existing native packages are retained by the native runner |
 | Stress periods | Steady or transient; optional well overrides | Constant recharge and fixed heads throughout the run |
 | Wells / recharge | Injection/extraction and uniform recharge | Cell-based sources; no wellbore or multiphase model |
 | Numerical engine | Genuine USGS MODFLOW 6 through FloPy | Separately installed executable; no synthetic fallback solver |
@@ -23,6 +25,7 @@ replacement. It is a separate optional module from conceptual CCS capacity.
 | Reference comparison | Hashed CSV/NPZ evidence, strict alignment, tolerance metrics and replay verification | Synthetic harness tests; no genuine GMS runtime matches |
 | REA reconstruction accounting | Exact main executable/resource observation and source-linked capability catalogue | Static structure is distinct from observed behavior |
 | Native MF6 / GPR data | General MF6 reference graph, opaque sidecars, bounded HDF5 metadata/array reads | Actual official tutorial import and native-input rerun; no GMS UI/translation witness |
+| Native GPR geometry | Physical nodes, hexahedra and cell elevations for one verified rectilinear representation | All 1,125 tutorial cell coordinates match native DIS; units/CRS/datum remain unknown, no GPR writing |
 | GIS / CAD / boreholes | Not implemented | No shapefile/CAD/CRS transformation claims |
 | Unstructured meshes / solids | Not implemented | No grid refinement or stratigraphic interpolation |
 | Solute transport / particles | Not implemented | No GWT, MT3D or MODPATH adapter yet |

@@ -83,6 +83,19 @@ selected bounded numeric array. See [MF6_NATIVE_IMPORT.md](MF6_NATIVE_IMPORT.md)
 and [GPR_HDF5_READ.md](GPR_HDF5_READ.md). Native units stay literal; conflicting
 GPR metadata is not resolved by guessing a conversion.
 
+The [geometry API](GPR_GEOMETRY.md),
+`read_gpr_rectilinear(project_path, grid_group)`, supports the explicitly
+documented rectilinear representation. In the app, open the separate read-only
+GPR section, inventory an explicit server path, and choose an observed geometry
+dataset. Select a raw numeric cell field and first-axis index only when needed.
+The view shows saved data with unknown units/CRS/datum and no inferred time
+conversion. It renders at most 20,000 cell centers and reads at most 8 MiB for
+the selected field; it does not run a solver or save a GPR project.
+
+The app's separate native-model section can execute an existing resolved MF6
+model and download its verified bundle. The CLI equivalent and its disjoint
+source/output rule are in [MF6_NATIVE_IMPORT.md](MF6_NATIVE_IMPORT.md).
+
 ## Inspect an installed GMS with REA
 
 Install the official [REA package](https://github.com/morluto/rea) separately, then:

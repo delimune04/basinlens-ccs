@@ -120,12 +120,17 @@ native input hashes, capture provenance and numerical tolerances before acceptin
 a declared output match. Synthetic examples test the harness; they cannot count
 as GMS matches. No original GMS runtime result has yet passed this comparison.
 The complete GMS reconstruction remains open.
+The [reconstruction plan](docs/gms/RECONSTRUCTION_PLAN.md) retains the whole-product
+objective and its remaining evidence gates.
 
 Experimental [native MF6 import](docs/gms/MF6_NATIVE_IMPORT.md) preserves general
 native packages and units without narrowing them to the confined case schema.
 The [GPR reader](docs/gms/GPR_HDF5_READ.md) inventories HDF5 metadata and reads
-explicitly selected numeric arrays; project writing and geometry decoding are
-unimplemented. Install these optional interfaces with `pip install -e ".[gms]"`.
+explicitly selected numeric arrays. A [bounded geometry decoder](docs/gms/GPR_GEOMETRY.md)
+also recovers a verified rectilinear hexahedral representation; its physical
+cell centers and elevations match one official tutorial's native DIS export
+exactly. Project writing and complete format compatibility remain open.
+Install these optional interfaces with `pip install -e ".[gms]"`.
 An unchanged official tutorial export was re-executed with public USGS MODFLOW:
 all 1,125 heads and external budget outputs matched its shipped binary results.
 The [evidence record](docs/gms/TUTORIAL_INTEROPERABILITY.md) distinguishes this

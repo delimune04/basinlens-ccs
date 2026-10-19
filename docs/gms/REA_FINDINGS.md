@@ -60,6 +60,37 @@ bounded process group. Findings from that route are labeled **auxiliary Ghidra,
 not REA**. Tool health, import, analysis completion and timeout are separate facts.
 See the separately recorded provider receipts for final status.
 
+The completed default remote probe is recorded in
+[native_rea_receipt.json](native_rea_receipt.json): provider doctor passed, but
+the native overview reached its 1,200-second deadline and returned no overview.
+The separate [auxiliary receipt](auxiliary_ghidra_receipt.json) reports command
+completion after 1,378.71 seconds with automatic analysis explicitly timed out
+and partial. Its 318,972 reported function entries are database observations,
+not verified production functions or reconstructed features. Selected small
+functions mostly concerned embedded test helpers; raw byte candidates included
+code-byte false positives. Neither establishes production file grammars.
+
+Measured costs were 753.416 seconds for entry-point disassembly, 297.989 seconds
+for call-fixup installation and 123.520 seconds for discovered non-return flow.
+The optional bounded-inventory REA profile retains entry disassembly while
+disabling the latter two analyzers through REA's supported environment setting.
+This weakens call/pcode semantics and is not full semantic analysis. The exact
+requested profile is recorded in the versioned workflow; its result is separate
+from the default timeout. No owned-process guard was changed.
+
+The normal Windows installation/startup probe subsequently completed in
+[run 39205004553](https://github.com/delimune04/basinlens-ccs/actions/runs/39205004553).
+Normal registration identified two byte-identical launch targets; both passed
+the pinned size/SHA gate and were observed independently, without choosing one
+as canonical. Both started and displayed original windows. Both observations
+stopped at an unclassified blocking dialog. One exposed possible Community
+option text, which does not confirm an active edition or permission state.
+No UI actions, activation requests or numerical runs were initiated. No standard
+HMENU state was available; custom menus or an unready UI remain unknown.
+The exact sanitized [Windows receipt](windows_runtime_receipt.json) preserves
+those distinctions. The workflow's successful collection status does not imply
+a usable model session, a license/graphics diagnosis or product equivalence.
+
 No original GMS numerical run has yet been normalized and compared. An activated
 Premium edition, its dependencies and all UI behavior have not been observed.
 The public implementation therefore makes **zero genuine GMS output-match

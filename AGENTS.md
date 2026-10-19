@@ -11,6 +11,11 @@ before changing this research software. Claude Code also reads `CLAUDE.md`.
   optional groundwater module adds bounded confined single-phase MODFLOW 6
   workflows; see docs/gms/VALIDATION.md for actual synthetic checks. NVIDIA,
   CO2–brine OPM, seismic, and enterprise features are planned; never claim they ran.
+- Shared `subsurface` projects and the trusted engine registry preserve domain
+  metadata; CCS/oil MODFLOW use requires the explicit background-water role.
+  Native MF6 execution preserves its declared units/physics separately from the
+  confined schema. GPR/HDF5 inspection is partial and read only. Never promote
+  successful native execution or shipped-tutorial agreement to whole GMS parity.
 - Quantities must have explicit units and datum/support where relevant. Missing
   evidence stays unknown; illustrative attention scores are not risk probabilities.
 - Preserve original data and reference cases. Geological changes, retry settings,

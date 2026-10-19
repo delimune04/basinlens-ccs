@@ -26,6 +26,33 @@ and the import report. This preserves numerical arrays and stress-period data
 without forcing them into BasinLens's smaller confined-aquifer case schema.
 The function does not run the numerical solver.
 
+## Execute an existing native model
+
+The separate native runner copies exact input bytes into a new isolated folder,
+executes a caller-selected USGS MODFLOW 6 binary, checks that source and copied
+inputs remain unchanged, and records native units, logs, outputs and hashes:
+
+```bash
+python -m basinlens_ccs.groundwater.native_run /data/project/model/mfsim.nam --allowed-root /data/project --output /data/runs/native-001 --exe /absolute/path/to/mf6
+python -c 'from basinlens_ccs.groundwater.native_run import verify_native_run; print(verify_native_run("/data/runs/native-001")["status"])'
+```
+
+The output must be fresh and outside the original allowed-root tree. Absolute,
+escaping and input-overwriting output references are refused. Default execution
+limits are 300 seconds and 1 GiB; no solver is downloaded. The Streamlit native
+section exposes inspection, execution and verified ZIP export separately from
+confined-case plots. Its in-memory ZIP download is capped at 128 MiB; larger
+results remain in the displayed server workspace.
+
+Opaque GUI sidecars are archived separately and **never synchronized into solver
+inputs**. A stale editor component and a saved-model export may calculate
+different results even inside the same GMS project. Select the intended
+`mfsim.nam` explicitly and establish export freshness. Normal solver termination
+is operational success; arbitrary model physics, units correctness, conservation,
+CO2 properties and GMS behavior are not independently validated by this runner.
+`verify_native_run` checks inventory and byte integrity, not operator truth or
+scientific validity. Failed runs retain diagnostics with an explicit failed state.
+
 ## Observed sidecar contract
 
 | File | Independent import behavior |

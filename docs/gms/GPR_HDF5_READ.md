@@ -32,7 +32,7 @@ The `File Type` dataset identifies XMDF. The observed top-level groups include
 
 | Observed structure | Storage contract |
 | --- | --- |
-| `UnstructuredGridModule/<grid>/Geometry.xmsgrid` | Compressed signed-byte geometry packet; observed packet labels identify RectilinearGrid3d version 1 and XmUGrid version 2. It remains opaque to this module. |
+| `UnstructuredGridModule/<grid>/Geometry.xmsgrid` | Compressed signed-byte geometry packet. It remains opaque to this storage helper; the separate [geometry decoder](GPR_GEOMETRY.md) supports one verified rectilinear v1/XmUGrid v2 representation. |
 | `<grid>/GridCellProps/Material` | Integer material data by cell. |
 | `<grid>/Datasets/<field>/Values` | Numeric time-by-location array. |
 | `<grid>/Datasets/<field>/Active` | Active-state time-by-location array. |
@@ -53,5 +53,6 @@ not choose a conversion or infer that every metadata context is synchronized.
 The new importer has been exercised on this actual container and on independent
 synthetic HDF5 files. Tests cover link cycles, external storage, virtual datasets,
 unavailable filters, explicit numeric reads, and bounds. No GMS executable ran,
-and project writing, geometry decoding, GUI state reproduction, and GMS runtime
-parity remain unverified.
+and project writing, complete geometry-format coverage, GUI state reproduction,
+and GMS runtime parity remain unverified. The separate geometry decoder has
+synthetic checks and a literal native-DIS comparison for the supported tutorial.

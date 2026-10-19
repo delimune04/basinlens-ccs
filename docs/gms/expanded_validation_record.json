@@ -1,0 +1,198 @@
+{
+  "schema_version": 2,
+  "date": "2026-10-19",
+  "test_result": {
+    "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest.defaultTestLoader.discover(\"tests\"); TextTestRunner verbosity=2 with dedicated log)",
+    "runner": "unittest discovery with dedicated result stream and structured receipt",
+    "tests_run": 190,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": true,
+    "duration_seconds": 22.512,
+    "test_duration_seconds": 21.943
+  },
+  "environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "flopy": "3.11.0",
+    "h5py": "3.16.0",
+    "streamlit": "1.66.0",
+    "plotly": "7.1.0",
+    "python": "3.12.14"
+  },
+  "solver": {
+    "name": "mf6",
+    "sha256": "479185be33167701696604f7bb55acb4f96476f396e9bb015cbe7da52e278ec4",
+    "version": "mf6: 6.7.0 02/05/2026"
+  },
+  "source_sha256": {
+    ".github/workflows/ci.yml": "ffb2f74d374d8f14cde406d1fe49372db83c73015c08503f1a8034e9eb5da010",
+    ".github/workflows/gms-community-probe.yml": "5927b521b957210f973777aa10d4aaba45ce80280921d391169476287aaa78e1",
+    ".github/workflows/gms-native-analysis.yml": "3e3cd3bdfcb35b8fe3b2e04eefc5fa51e2e5825a4d533ba4d9df867c9a5c4860",
+    "app.py": "3ce6008b53d6496369e5241a29237252aaaa42fdd31a578c99b0e29ac5af8e57",
+    "examples/parity/generate_synthetic.py": "eebb0be20f91faf58c321276716c9db9ddb60b17cc0c4e742b99decdf684fb88",
+    "groundwater_app.py": "1dc09d1d74c6c2f4b793626e292298ab4f926bcb21b8fffbeecb21f715c21612",
+    "pyproject.toml": "d39ac5d655232c448fe22e358d2281180b8233e94b2da11d9e447a8f95a7c13b",
+    "src/basinlens_ccs/__init__.py": "b2227353e610a15d222927a336b2bcf4db9a0b25f27e4723aa3b5dadd919eade",
+    "src/basinlens_ccs/analysis.py": "0c8a9a8b11a75149425e4a0dfec6c1185f56e0048d4150b826ef1c950866ded1",
+    "src/basinlens_ccs/artifacts.py": "f81884e3137c9a1102de701ad01af3d3714116b22e8298a540504aa1d0eef508",
+    "src/basinlens_ccs/capacity.py": "9eb858d4a0d39eac18a1bf8c2f8b74caf59c3afa80b295af88b66bdbf1cb66fb",
+    "src/basinlens_ccs/cli.py": "d5f279c826c7dd8212298e62ab20a7ae0025579575bd928bb7361efcb1ca0ad4",
+    "src/basinlens_ccs/groundwater/__init__.py": "ba7e3c820e54da0403e5b0c923b410a9c75c2fe9cc78aa0c9142450e2c5eec35",
+    "src/basinlens_ccs/groundwater/__main__.py": "0aab3fa349e26f650653bbc8c5ca4c49acff412fba8fc258e9ea8c79ed106663",
+    "src/basinlens_ccs/groundwater/adapter.py": "04abf4bcf5a1dbcf669e6aa63430b940ae23d55983bed61903aee6b13fe3baae",
+    "src/basinlens_ccs/groundwater/gms_native.py": "854f7610175c3ce51b82bd60e9f6eac5e6d3f683710af41f26ed36a9e668bcb2",
+    "src/basinlens_ccs/groundwater/gpr_geometry.py": "72c3893bbbf49487c026d7ebd6ddc20ad08994fd584d88acb59b75d6c9afc555",
+    "src/basinlens_ccs/groundwater/gpr_hdf5.py": "fc9b6fd912a19e452ffd88c7b8ac19c7bb37b2e9f7068007d5caec59d687f9f1",
+    "src/basinlens_ccs/groundwater/native_run.py": "6141221cee3dc5988f13c9cfd3c7823faebcc7fe07ab7400bae70b2472245643",
+    "src/basinlens_ccs/groundwater/schema.py": "912341aa0f6f10c84120013e80242adfa67a3ceff66a9b1289f79aefdaba6205",
+    "src/basinlens_ccs/io.py": "2fde1edb648211312f2215f39c4f6cb955a34570632f3e6b07f92271c852a1e2",
+    "src/basinlens_ccs/models.py": "b46320512e7343cf83b84511c98628920e5c7a494d1b4d156b9c92b8b0474b26",
+    "src/basinlens_ccs/parity/__init__.py": "65a558df5ed8529746dfc2d26b90cb3917324dd5e1da0e33e2631ee1bbe72256",
+    "src/basinlens_ccs/parity/__main__.py": "8eebc6735267a363163716f4e6d9e1073e82ef5bebb61001cb4ec9ad5013a848",
+    "src/basinlens_ccs/parity/comparison.py": "ccbf7f0165ccbe2c5272d93acfcf035fd3cb7de91c5641b3356b1dd980c1b2ce",
+    "src/basinlens_ccs/parity/coverage.py": "41090a577be2187a4fb5d025c0bb0cda32aa001ce8e2ab3bce3473daf6849487",
+    "src/basinlens_ccs/parity/dataset.py": "786ef2f5e82135b344794515debc9710f452c91b3a2ebeb0e83a1e7faf41785c",
+    "src/basinlens_ccs/reconstruction/__init__.py": "97eec540506ace7d859132c2681b52fcbceb116d18f4969705040dff2413d164",
+    "src/basinlens_ccs/reconstruction/__main__.py": "2ece34bc53a2390b00b6fc022b068a238fb5a4fca7aba269fe47f1f69cfda150",
+    "src/basinlens_ccs/reconstruction/pe_resources.py": "fbd74af6de6f8de1cfa2a1359262b9d6d8b16303a623eed527a9d4548997ec3a",
+    "src/basinlens_ccs/reconstruction/resources.py": "6dd7778b00f7562972e33b7d16eaeca76c6575b8f73178003bee6323a8022038",
+    "src/basinlens_ccs/screening.py": "58c9c67bc27db716f19bf94f07486fe719921f89e1b24a880b62098565068aec",
+    "src/basinlens_ccs/subsurface/__init__.py": "53971cdce8bddd8f58434a862f2bb804e82e6c4d31b3f123927913d1a1ea3b4a",
+    "src/basinlens_ccs/subsurface/__main__.py": "e63c6efbd273cfa2246595948e8ae70773428c1cfa8f4a26d1d7f9b1e18dcfa7",
+    "src/basinlens_ccs/subsurface/registry.py": "e65e57bc48177801551ad4394f75fab6eec90f2c52bf69fe9ec2678607f045a6",
+    "src/basinlens_ccs/subsurface/schema.py": "72857b4d634c54453f4233fbab64e6c6418fbe8c366e109e76634532496cdd99",
+    "tests/test_artifacts.py": "d505da1b04f844a8a9ce012038f80fe2a8e2a18d746d6230429cee63d2aef24c",
+    "tests/test_capacity.py": "a1757c89acf7c062b5128a67eeaa3d97cbbc4b62a2904f09a07a8c3063f23f66",
+    "tests/test_gms_native_import.py": "7bda57d181064920b06aeb9a25cac48c27945c8a113f03824449faeef5a73225",
+    "tests/test_gpr_geometry.py": "5eb0af979341b9e2f33aee49847f8b487b35a987ad8f5fef4f9c5d8f71463938",
+    "tests/test_gpr_hdf5.py": "44ea1052a75846dbba4a60f5b8e7bcaaa0da45b4cbba6803daa9221542fa64e1",
+    "tests/test_gpr_ui.py": "e45cb09d218c0e5d9ecd4b8658a9af55782847fd26c5b09e88ff027726ae5bcb",
+    "tests/test_groundwater.py": "3f3d949e3929f0524f8b67439a56f5e428d7aa9f6e1631be8fa9a16920b75caa",
+    "tests/test_groundwater_ui.py": "c6e506707b06685c94f16802f7e384efcc0b90ecaa584c758e8ae3bfb4874d6d",
+    "tests/test_installer_extraction.py": "93bc71cf3d22a3b8d5a0b447c56ffd40948005e80176054f47f8209e6de46478",
+    "tests/test_io.py": "e7a04f43938b2ad0cb4a1cdb7ad7258602fd4cb6dee65f1e729f68461da0759e",
+    "tests/test_models.py": "f857143874f304d105507e25d1c6df81b1d1bbf93bf1e637ce5bb31a51b64643",
+    "tests/test_native_rea_probe.py": "180db37023ace874e34c3fd2f0b266670a069f6353ee0d93edabfa2f5dd72545",
+    "tests/test_native_run.py": "c494141fd056af067a858f4a7f2cd949988bdaca09151840feac75b84dc7568c",
+    "tests/test_native_ui.py": "13f39b3ac156b7bb2cc345c9563336d15ebf0fa48d752e2b6049ca3a31395857",
+    "tests/test_parity.py": "4277fda33ba417b3ca6df87495cb0ee85c3c80ae02467b682665feffd3bd6075",
+    "tests/test_rea_ledger.py": "cef04975eb28fc0ef8df413b9b559a78a66394b170e72184b7c4b41b51b23266",
+    "tests/test_reconstruction.py": "1a00db3f63e999a680847b2cea990617be82d161d9c03841576c756a7167d915",
+    "tests/test_screening.py": "73314d6ab4c8cf75d1f01972d6ee45d19a48465bf3f54b39d24e2033aadce4f4",
+    "tests/test_subsurface.py": "6a4ce41b05cd316de5e755395a2a4bd052b8cafc0a178610e50a0062a2e7045d",
+    "tests/test_validation.py": "88ac055786fad48a662f911edc3b37ed8e5b102f71f926de51447ff2926596c6",
+    "tools/build_gms_ledger.mjs": "4b3b7f823ad31065b505446341b714773f7ca7884ccffa454d7984c15f6f431d",
+    "tools/build_gms_ledger.py": "7c43ec0aaf2e9777aa309e12f3e87dedb4d276e285020bbf5cdb3d0808814ba8",
+    "tools/capture_gms_reference.py": "4a404606d05244079a8b5d7f8be7d74f23b57129977c6f8b8d35069500c1691c",
+    "tools/extract_gms_target.py": "1b1d29a365464f651c2fd5031d485357f1e1903c08bf2a5933f82a97c1f18fa0",
+    "tools/find_gms_runtime.ps1": "e8c7e2426fb5c68a3cf97e9166bdc3eb277a03778a716b80117f916acb62558f",
+    "tools/inspect_gms.py": "8b0a5d3b46145f9f76afc43a2c524dc5619bdad618dfa0369dd361ac8be0f8c9",
+    "tools/install_mf6.py": "64e178f8cafbf8fa50c94e773926e5775290b0ef72c4d96e38cb666d71c12ca5",
+    "tools/native_rea_probe.py": "a4ebd603ba6399568272a138bbfb7b965e3507e62ca781346cd7d66bd017c94d",
+    "tools/probe_gms_community.ps1": "a4ff304bad89a35ddffd91378482665e3b5812829a6d3f9f49b411bd4a304b82"
+  },
+  "checks": {
+    "editable_install": "passed",
+    "capacity_cli_2000_samples_seed42": "passed again after geometry/viewer changes",
+    "capacity_artifact_verifier": "passed again after geometry/viewer changes",
+    "native_official_run_and_bundle_verifier": "passed",
+    "shared_ccs_background_water_run_and_bundle_verifier": "passed",
+    "synthetic_parity_compare_and_replay": "passed",
+    "actual_REA_static_menu_and_ledger_replay": "passed",
+    "compilation": "passed",
+    "git_diff_check": "passed",
+    "actionlint": "passed",
+    "actual_saved_tutorial_GPR_viewer": "passed: 1125 cells, no app errors, unchanged source, unknown units retained",
+    "independent_geometry_review": "passed after fixing same-centers/different-footprints and same-mean/sloped-corner false positives"
+  },
+  "native_official_run": {
+    "source_files": 15,
+    "bundle_files": 24,
+    "original_sources_unchanged": true,
+    "native_units": {
+      "length": [
+        {
+          "declared": "FEET",
+          "file": "flow.dis"
+        }
+      ],
+      "time": [
+        {
+          "declared": "SECONDS",
+          "file": "sim.tdis"
+        }
+      ]
+    },
+    "head_sha256": "47ca4ef681d52bcd6a33fad4e1108cd0af7822ed0bff2a5516f5d9adab71dfe1",
+    "budget_sha256": "ce0a0fbe73b80fc302ebc39508d33498ed1b234c69f91a27612552c30cbc44a2",
+    "shipped_head_and_budget_binary_hashes_equal": true,
+    "gms_runtime_witness": false
+  },
+  "ci_scope": "Remote CI on the preceding 173-test snapshot passed; latest source CI will be recorded after publication. The current local 190-test pass used actual MF6 with zero skips.",
+  "equivalence": {
+    "genuine_original_GMS_output_matches": 0,
+    "whole_product_parity": false,
+    "GPR_write_roundtrip": false,
+    "CO2_multiphase_validation": false,
+    "field_validation": false
+  },
+  "publication_boundary": "No original vendor executables, resources, source, tutorial inputs, GPR payloads or native pseudocode are included.",
+  "previous_snapshot": {
+    "tested_public_commit": "26b330a384247a8ffed787808c9927f9d319a475",
+    "tested_public_tree": "a6f0edd1567bbb18293d3c06840b1a41954daafe",
+    "test_result": {
+      "command": "MF6_EXE=/absolute/path/to/mf6 python (unittest.defaultTestLoader.discover(\"tests\"); TextTestRunner verbosity=2, dedicated log and structured result)",
+      "runner": "unittest discovery with dedicated result stream and structured receipt",
+      "tests_run": 173,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": true,
+      "duration_seconds": 19.548,
+      "test_duration_seconds": 18.878
+    },
+    "remote_ci": [
+      {
+        "run_id": 39204176049,
+        "status": "success"
+      },
+      {
+        "run_id": 39204181970,
+        "status": "success"
+      }
+    ]
+  },
+  "tested_local_implementation_commit": "f074042ae94d7e4b73da76bf1cc27eff99537976",
+  "publication_binding": "Exact tested source hashes below; public commit/tree binding added after publication.",
+  "geometry_validation": {
+    "nodes": 1536,
+    "cells": 1125,
+    "xy_nodes_compared": 1536,
+    "face_corner_elevations_compared": 9000,
+    "all_nine_maximum_coordinate_errors": 0.0,
+    "gpr_units_crs_datum": null,
+    "native_vertical_interpretation": "flat-cell face elevations, not uniquely reconstructed shared vertex Z",
+    "record": "geometry_validation_record.json"
+  },
+  "actual_GPR_viewer": {
+    "case": "official historical saved tutorial GPR",
+    "source_sha256": "afb9d3dd71f29d0cbb83dc5eee27c342b1ea75e86a9bd1bec06e860b2c6b4467",
+    "rendered_cells": 1125,
+    "shape_kij": [
+      5,
+      15,
+      15
+    ],
+    "saved_data_only": true,
+    "new_solver_result": false,
+    "input_unchanged": true,
+    "app_errors": 0,
+    "gms_runtime_executed": false,
+    "coordinate_units": null,
+    "field_units": null,
+    "crs": null,
+    "vertical_datum": null
+  }
+}

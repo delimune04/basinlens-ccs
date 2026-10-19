@@ -35,6 +35,8 @@ from basinlens_ccs.subsurface import (  # noqa: E402
     project_from_groundwater, verify_project_bundle,
 )
 from basinlens_ccs.groundwater.native_run import _preflight, run_native_simulation  # noqa: E402
+from basinlens_ccs.groundwater.gpr_hdf5 import MAX_GPR_BYTES, inventory_gpr, read_gpr_numeric_array  # noqa: E402
+from basinlens_ccs.groundwater.gpr_geometry import read_gpr_rectilinear  # noqa: E402
 
 MAX_UPLOAD_BYTES = 2_000_000
 MAX_CELLS = 100_000
@@ -684,6 +686,136 @@ def native_workbench() -> None:
         st.caption("이 결과는 위 피압 케이스의 지도·CSV와 별도로 보존됩니다. GUI/보조자료 상태와 계산 입력의 일치, 물리 검증 및 GMS 동등성은 확인되지 않았습니다.")
 
 
+def _gpr_sha(path: str) -> str:
+    project = Path(path)
+    if not project.is_file() or project.stat().st_size > MAX_GPR_BYTES:
+        raise ValueError(f"GPR 파일은 {MAX_GPR_BYTES}바이트를 초과할 수 없습니다.")
+    digest = hashlib.sha256()
+    total = 0
+    with project.open("rb") as source:
+        while chunk := source.read(min(1024 * 1024, MAX_GPR_BYTES - total + 1)):
+            total += len(chunk)
+            if total > MAX_GPR_BYTES:
+                raise ValueError(f"GPR 파일이 해시 검사 중 {MAX_GPR_BYTES}바이트 제한을 초과했습니다.")
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def gpr_saved_figure(path: str, geometry_path: str, scalar_path: str, axis_index: int,
+                     expected_sha: str) -> tuple[go.Figure, dict]:
+    """Read saved geometry/scalars bound to one unchanged file; render <=20k cells."""
+    geometry = read_gpr_rectilinear(path, geometry_path.rsplit("/", 1)[0])
+    if geometry.source["sha256"] != expected_sha:
+        raise ValueError("GPR 파일이 목록 검사 이후 변경되었습니다. 자료 목록을 다시 여세요.")
+    count = len(geometry.cells)
+    field = None
+    description = None
+    if scalar_path:
+        if _gpr_sha(path) != expected_sha:
+            raise ValueError("기하와 원시 필드의 원본 파일 해시가 다릅니다.")
+        array, description = read_gpr_numeric_array(path, scalar_path, max_bytes=8 * 1024 * 1024)
+        if array.ndim == 1 and array.shape == (count,) and axis_index == 0:
+            field = array
+        elif array.ndim == 2 and array.shape[1] == count and 0 <= axis_index < array.shape[0]:
+            field = array[axis_index]
+        else:
+            raise ValueError(f"지원하지 않는 셀 배열: shape={array.shape}. (셀 수,) 또는 (첫 축, {count}) 배열을 명시적으로 선택하세요.")
+        if field.dtype.kind in "iu" and (int(field.min()) < -(2 ** 53) or int(field.max()) > 2 ** 53):
+            raise ValueError("3D 표시에서 정확히 표현할 수 없는 큰 정수 필드입니다. 원시값을 반올림하여 표시하지 않습니다.")
+        if field.dtype.kind == "f" and field.dtype.itemsize > 8:
+            raise ValueError("3D 표시보다 정밀도가 높은 실수 배열은 지원하지 않습니다.")
+        if _gpr_sha(path) != expected_sha:
+            raise ValueError("원시 필드를 읽는 동안 GPR 파일이 변경되었습니다.")
+    selected = np.linspace(0, count - 1, min(count, 20_000), dtype=np.int64)
+    centers = (geometry.points[geometry.cells[selected]] / 8).sum(axis=1)
+    k, row, col = np.unravel_index(selected, geometry.shape)
+    values = np.asarray(field[selected], dtype=float) if field is not None else k.astype(float)
+    finite = np.isfinite(values)
+    custom = np.column_stack((selected, k, row, col, values))[finite]
+    fig = go.Figure(go.Scatter3d(
+        x=centers[finite, 0], y=centers[finite, 1], z=centers[finite, 2], mode="markers",
+        customdata=custom,
+        marker={"size": 4, "color": values[finite], "colorscale": "Viridis", "opacity": 0.85,
+                "colorbar": {"title": "저장 원시값" if scalar_path else "층 인덱스"}},
+        hovertemplate="셀 %{customdata[0]:.0f} · KIJ (%{customdata[1]:.0f}, %{customdata[2]:.0f}, %{customdata[3]:.0f})<br>X=%{x}<br>Y=%{y}<br>Z=%{z}<br>표시값=%{customdata[4]}<extra>저장 자료</extra>",
+    ))
+    fig.update_layout(height=500, margin={"l": 0, "r": 0, "t": 10, "b": 0},
+        scene={"xaxis_title": "X (저장 좌표, 단위 미상)", "yaxis_title": "Y (저장 좌표, 단위 미상)",
+               "zaxis_title": "Z (저장 꼭짓점 좌표, 단위·기준면 미상)", "aspectmode": "data"})
+    receipt = geometry.receipt()
+    parametric = receipt.pop("parametric_z_axis")
+    receipt["parametric_z_axis_preview"] = parametric[:50]
+    receipt["parametric_z_axis_count"] = len(parametric)
+    receipt.update(saved_data_only=True, new_solver_result=False, scalar_path=scalar_path or None,
+        scalar_storage=description, first_axis_index=axis_index if scalar_path else None,
+        field_units=None, first_axis_meaning=None, time_units=None, rendered_cells=int(finite.sum()),
+        sampled_cells=len(selected), omitted_nonfinite_sample_values=int((~finite).sum()),
+        render_limit=20_000, source_sha256=expected_sha,
+        scalar_index_mapping="raw flat field index to geometry flat KIJ cell index; field semantics/order not independently verified")
+    return fig, receipt
+
+
+def gpr_workbench() -> None:
+    st.subheader("GPR 저장 기하 · 원시 셀 자료 보기")
+    st.caption("읽기 전용입니다. 지원되는 비회전·원점 0 직교 육면체 패킷만 해독하며, 저장 자료를 새 계산 결과로 취급하지 않습니다.")
+    with st.form("gw_gpr_inventory_form"):
+        source = st.text_input("읽기 전용 GPR 파일 (서버 경로)", key="gw_gpr_source")
+        opened = st.form_submit_button("GPR 자료 목록 열기")
+    if st.session_state.get("gw_gpr_open_source") != source.strip():
+        for key in ("gw_gpr_inventory", "gw_gpr_figure", "gw_gpr_receipt"):
+            st.session_state.pop(key, None)
+    if opened:
+        for key in ("gw_gpr_inventory", "gw_gpr_figure", "gw_gpr_receipt"):
+            st.session_state.pop(key, None)
+        try:
+            if not source.strip():
+                raise ValueError("GPR 파일 경로를 지정하세요.")
+            st.session_state.gw_gpr_inventory = inventory_gpr(source.strip(), max_objects=5000)
+            st.session_state.gw_gpr_open_source = source.strip()
+        except (OSError, ValueError) as error:
+            st.error(f"GPR 읽기 오류: {error}")
+    inventory = st.session_state.get("gw_gpr_inventory")
+    if inventory is None:
+        return
+    datasets = [record for record in inventory["objects"] if record["kind"] == "dataset"]
+    grids = [record["path"] for record in datasets if record["path"].endswith("/Geometry.xmsgrid")]
+    st.caption(f"객체 {inventory['object_count']:,}개 · 데이터셋 {len(datasets):,}개 · 원본 SHA-256 {inventory['sha256']}")
+    with st.expander("HDF5 자료 목록 (최대 500행 표시)"):
+        st.dataframe(pd.DataFrame(datasets[:500]), use_container_width=True, hide_index=True)
+    if not grids:
+        st.error("지원되는 Geometry.xmsgrid 데이터셋을 찾지 못했습니다. 다른 패킷이나 격자는 자동 추측하지 않습니다.")
+        return
+    numeric = []
+    for record in datasets:
+        try:
+            supported = np.dtype(record["dtype"]).kind in "biuf"
+        except (TypeError, ValueError):
+            supported = False
+        if supported and record["path"] not in grids:
+            numeric.append(record["path"])
+    with st.form("gw_gpr_view_form"):
+        geometry_path = st.selectbox("관측된 기하 데이터셋", grids)
+        scalar_path = st.selectbox("직접 선택할 원시 셀 필드", ["", *numeric],
+            format_func=lambda value: value or "원시 필드 없이 기하만")
+        axis_index = st.number_input("저장 배열 첫 축 인덱스 (시간/샘플, 0부터)", 0, 10000, 0, step=1)
+        render = st.form_submit_button("선택한 저장 기하·필드 보기")
+    if render:
+        st.session_state.pop("gw_gpr_figure", None)
+        st.session_state.pop("gw_gpr_receipt", None)
+        try:
+            figure, receipt = gpr_saved_figure(source.strip(), geometry_path, scalar_path,
+                int(axis_index), inventory["sha256"])
+            st.session_state.gw_gpr_figure = figure
+            st.session_state.gw_gpr_receipt = receipt
+        except (OSError, ValueError) as error:
+            st.error(f"GPR 기하/원시 배열 오류: {error}")
+    if "gw_gpr_figure" in st.session_state:
+        st.plotly_chart(st.session_state.gw_gpr_figure, use_container_width=True, key="gw_gpr_saved_plot")
+        st.json(st.session_state.gw_gpr_receipt)
+        st.caption("좌표는 실제 꼭짓점의 평균입니다. parametric Z축을 깊이로 사용하지 않습니다. 필드 평탄 인덱스를 기하 KIJ 셀 인덱스에 그대로 대응하며, 필드 의미·순서의 외부 검증은 수행하지 않습니다.")
+        st.caption("좌표·필드·시간의 단위, CRS와 표고 기준면은 미상으로 유지합니다. 저장 메타데이터와 네이티브 모델 단위의 불일치를 추측으로 보정하지 않습니다. 최대 20,000셀을 표시하며 원본은 변경하지 않습니다.")
+
+
 def main() -> None:
     st.set_page_config(page_title="BasinLens · 지하수 작업대", page_icon="💧", layout="wide")
     if "gw_case" not in st.session_state:
@@ -712,6 +844,8 @@ def main() -> None:
     results(case)
     st.divider()
     native_workbench()
+    st.divider()
+    gpr_workbench()
 
 
 if __name__ == "__main__":

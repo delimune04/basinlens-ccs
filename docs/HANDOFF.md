@@ -1,6 +1,82 @@
 # Development handoff
 
-## 2026-10-19: optional groundwater workbench and REA investigation
+## Expanded 2026-10-19 reconstruction checkpoint
+
+User objective: reconstruct the whole GMS workbench using REA and preserve
+extension paths for CCS/oil exploration. **That objective remains unfinished.**
+The smaller confined workflow below is the initial historical snapshot, not the
+current scope or a replacement definition of completion. Public work is in
+[PR #10](https://github.com/delimune04/basinlens-ccs/pull/10), branch
+`feat/gms-groundwater-workbench`; main baseline remains `f17934e`.
+
+The final integrated run passed **190 tests with zero skips** using actual
+MF6 6.7.0, FloPy 3.11.0 and the optional UI/HDF5 dependencies. Required capacity
+CLI/verifier, compilation, diff checks and actionlint also passed.
+
+Current components:
+
+- Typed shared subsurface projects, explicit units/CRS/datum and asset identity,
+  preserved geological/observation metadata, trusted engine registry and a
+  working MODFLOW background-water adapter for groundwater/CCS/oil projects.
+  CO2, black-oil and seismic descriptors explicitly report unavailable.
+- Strict native MF6 input/sidecar discovery, bounded immutable SQLite snapshots,
+  FloPy loading, isolated general-native execution preserving native units and
+  packages, complete hashed run inventories and verification. GUI sidecars are
+  archived; they are not synchronized into solver inputs.
+- Bounded GPR/HDF5 inventory and explicit array reads; a narrow rectilinear
+  geometry decoder with all-cell connectivity/elevation checks and a read-only
+  saved-data viewer. Unknown units/CRS/datum/time semantics stay unknown.
+- A comparison/replay harness separates synthetic fixtures, shipped tutorial
+  output and witnessed original GMS output. No witnessed original GMS numerical
+  comparison has passed. No full GPR writer/round trip or complete UI exists.
+- Actual REA 6.7.0 resource evidence for the exact GMS 10.9.7 main executable,
+  independently checked against PE structure. Actual REA ledger generation has
+  577 open obligations (576 numeric command IDs plus the unknown whole-product
+  reconciliation barrier), zero verified closures. The 163-entry documented
+  catalogue is not a product denominator.
+
+The unchanged official tutorial's 15 native files reproduce its shipped head
+and budget binaries byte for byte using public USGS MF6 6.7.0. The tutorial
+project says GMS 10.8.2 and shipped solver says MF6 6.4.1. Its 1,536 geometry
+nodes/1,125 hexahedra match every native DIS cell center/top/bottom literally;
+GPR unit metadata conflicts with the native feet/seconds declarations. These
+are file interoperability checks, not an original GMS session or full parity.
+The saved-data viewer was also exercised on that private project: all 1,125
+cells rendered, no application errors, source bytes unchanged, unknown units
+retained. No original program, resources, inputs, GPR payloads or pseudocode
+are distributed.
+
+Validation records:
+[VALIDATION.md](gms/VALIDATION.md),
+[expanded_validation_record.json](gms/expanded_validation_record.json),
+[geometry_validation_record.json](gms/geometry_validation_record.json), and
+[TUTORIAL_INTEROPERABILITY.md](gms/TUTORIAL_INTEROPERABILITY.md) bind exact
+source/input/engine identities and distinguish software checks from physics.
+[REA_FINDINGS.md](gms/REA_FINDINGS.md) records default native-analysis timeout,
+auxiliary partial Ghidra work and original-runtime investigation outcomes.
+Normal Windows startup displayed both hash-identical registered GMS targets;
+both stopped at unclassified blocking dialogs. No active edition, standard
+menu state or original numerical run was established. No provider guard or
+licensing mechanism was bypassed.
+
+Reproduction:
+
+```bash
+python -m pip install -e ".[app,groundwater,gms]"
+MF6_EXE=/absolute/path/to/mf6 python -m unittest discover -s tests -v
+python -m streamlit run groundwater_app.py
+python -m basinlens_ccs.subsurface engines
+```
+
+Next work must follow the whole-product evidence contract in
+[RECONSTRUCTION_PLAN.md](gms/RECONSTRUCTION_PLAN.md): establish an original
+runtime corpus, reconcile dynamic UI/package/format inventory, reconstruct
+native project persistence/synchronization, and add capability-specific
+implementations and independent comparisons. Keep code ownership isolated in
+worktrees. Integrity hashes, static IDs, successful MF6 execution and a labelled
+CCS project do not establish original GMS behavior or multiphase physics.
+
+## Initial 2026-10-19 snapshot: confined groundwater workbench (historical)
 
 Base: `f17934e` (main); branch `feat/gms-groundwater-workbench`.
 User request: investigate GMS with REA and create a reusable CCS modeling module.
