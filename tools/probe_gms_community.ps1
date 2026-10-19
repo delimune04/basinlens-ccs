@@ -1,13 +1,15 @@
 #Requires -Version 7.0
 <#
 .SYNOPSIS
-Bounded normal GMS launch, passive capture and optional one free Community choice.
+Bounded GMS capture, optional free Community choice and optional File/Open dialog observation.
 .DESCRIPTION
 Use an already normally installed GMS. Only the process started here and its
 descendants are inspected. Screenshots, titles and UIA text stay private. The
 public receipt contains metadata/counts/hashes only. Default behavior is passive;
 -SelectFreeCommunityEdition permits at most one verified Community Edition button
-click during normal startup. No activation, trial or solver action is performed. A visible window does not
+click during normal startup. -ObserveFileOpenDialog permits one verified menu
+command after that completed choice; it never selects or confirms a file. No
+activation, trial or solver action is performed. A visible window does not
 prove Community entitlement, successful model import, or numerical execution.
 #>
 [CmdletBinding()]
@@ -20,12 +22,14 @@ param(
     [string]$ProjectPath,
     [ValidateRange(10,120)][int]$ObservationSeconds = 30,
     [switch]$AllowStart,
-    [switch]$SelectFreeCommunityEdition
+    [switch]$SelectFreeCommunityEdition,
+    [switch]$ObserveFileOpenDialog
 )
 $ErrorActionPreference = 'Stop'
 if (-not $IsWindows) { throw 'This passive runtime probe requires Windows.' }
 if (-not $AllowStart) { throw 'Normal target execution requires the explicit -AllowStart flag.' }
 if ($SelectFreeCommunityEdition -and $ProjectPath) { throw 'The optional free Community choice is allowed only on normal startup without a project argument.' }
+if ($ObserveFileOpenDialog -and (-not $SelectFreeCommunityEdition -or $ProjectPath)) { throw 'File/Open dialog observation requires the explicit normal-startup free Community path and no project argument.' }
 if ($SelectFreeCommunityEdition -and ($ExpectedTargetSha256 -ne 'd69c77c42212aa8bc90652539e4f4102e47b1676a840d86b5bf9e4ea82f539c2' -or $ExpectedTargetSize -ne 145479264)) { throw 'The optional free Community choice requires the exact originally observed GMS 10.9.7 image identity.' }
 $exe = (Resolve-Path -LiteralPath $ExecutablePath).Path
 if (-not (Test-Path -LiteralPath $exe -PathType Leaf)) { throw 'Select an installed regular GMS executable.' }
@@ -58,13 +62,18 @@ $receipt = [ordered]@{
     free_community_selection_requested = [bool]$SelectFreeCommunityEdition
     free_community_selection_observations = @(); free_community_selection_attempted = $false
     post_selection_dialog_observed = $false; post_selection_window_observed = $false
+    file_open_dialog_probe_requested = [bool]$ObserveFileOpenDialog
+    file_open_command_attempted = $false; file_open_ui_actions = 0
+    file_open_observation_seconds = if ($ObserveFileOpenDialog) { 15 } else { 0 }
+    file_open_observations = @(); post_file_open_dialog_observations = @()
+    post_file_open_dialog_observed = $false; fixed_open_dialog_context_observed = $false
     standard_menu_items_observed = $false
     classification_basis = 'Conservative passive visible-window and bounded child-control text; original text stays private.'
     activation_requests_initiated_by_probe = 0; licence_ui_actions = 0; target_ui_actions = 0
     target_network_activity_monitored = $false
     observation_seconds = $ObservationSeconds; screenshot_count = 0; private_observation_sha256 = $null
     probe_phase = 'initializing'
-    qualification = 'Bounded startup/document observation. Optional explicitly requested single documented free Community choice only; no activation or numerical/full-product equivalence claim. UI text and screenshots stay private.'
+    qualification = 'Bounded startup/document observation. Optional explicit single free Community choice and File/Open dialog command only; no activation or numerical/full-product equivalence claim. UI text and screenshots stay private.'
 }
 $owned = $null
 $ownedIds = [Collections.Generic.HashSet[uint]]::new()
@@ -107,6 +116,13 @@ public static class GmsPassiveWindows {
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetWindowText(IntPtr h, StringBuilder text, int count);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetClassName(IntPtr h, StringBuilder text, int count);
   [DllImport("user32.dll")] public static extern IntPtr GetMenu(IntPtr h);
+  [StructLayout(LayoutKind.Sequential)] private struct MenuStyleInfo {
+    public uint Size,Mask,Style,MaxHeight;
+    public IntPtr Background;
+    public uint ContextHelpId;
+    public UIntPtr MenuData;
+  }
+  [DllImport("user32.dll")] private static extern bool GetMenuInfo(IntPtr menu,ref MenuStyleInfo info);
   [DllImport("user32.dll")] public static extern int GetMenuItemCount(IntPtr menu);
   [DllImport("user32.dll", CharSet=CharSet.Unicode, SetLastError=true)] public static extern bool GetMenuItemInfo(IntPtr menu,uint item,bool byPosition,ref MenuInfo info);
   [DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int GetMenuString(IntPtr menu,uint item,StringBuilder label,int maximum,uint flags);
@@ -122,12 +138,15 @@ public static class GmsPassiveWindows {
     public string PositionPath,Label;
     public uint CommandId;
     public int Depth;
-    public bool Enabled,Checked,Separator,OwnerDrawn;
+    public bool Enabled,Checked,Separator,OwnerDrawn,HasSubmenu,ContainingMenuStyleRead;
+    public uint ContainingMenuStyle;
   }
   public class MenuSnapshot {
     public string Status = "unknown";
     public bool Truncated;
     public int ReadErrors;
+    public bool RootStyleRead;
+    public uint RootStyle;
     public MenuRecord[] Items = new MenuRecord[0];
   }
   public static IntPtr[] ForPids(HashSet<uint> pids) {
@@ -317,6 +336,141 @@ public static class GmsPassiveWindows {
     } catch { selection.PolicyPermitsOneAttempt=false; selection.Status=selection.Attempted ? "single_attempt_exception_no_retry" : "fresh_selection_check_failed_no_action"; }
     return selection;
   }
+  public class FileOpenDecision {
+    public string Policy="observed_file_open_dialog_only_v1",Status="not_checked";
+    public uint CommandId=37447;
+    public string ExpectedPosition="1/2";
+    public bool ExplicitOptIn,NormalStartup,CommunityAttempted,CommunityMessageCompleted,TargetIdentityVerified,LiveImagePathVerified;
+    public bool CompleteLiveSnapshots,WindowOwnedProcess,WindowVisible,WindowEnabled,WindowIsDialog,MenuComplete,EnabledAncestorChainVerified,CommandNotificationStyleVerified;
+    public bool ConsistentWindowMenuSnapshots,PolicyPermitsOneAttempt,Attempted,MessageCompleted;
+    public int VisibleDialogCount,EnabledMenuWindowCount,GlobalCommandCount,ExpectedPositionCommandCount,MenuItemCount,AttemptBudgetUsed;
+    public string Qualification="One File/Open menu delivery only; no file selection, confirmation, model loading, edition entitlement or numerical execution is established.";
+  }
+  public static FileOpenDecision AssessFileOpen(WindowContext window,MenuSnapshot menu,bool optIn,bool normalStartup,bool communityAttempted,bool communityCompleted,bool identity,int used,int dialogs,int mainWindows,int globalCommands,bool complete) {
+    var decision=new FileOpenDecision { ExplicitOptIn=optIn,NormalStartup=normalStartup,CommunityAttempted=communityAttempted,
+      CommunityMessageCompleted=communityCompleted,TargetIdentityVerified=identity,AttemptBudgetUsed=used,VisibleDialogCount=dialogs,
+      EnabledMenuWindowCount=mainWindows,GlobalCommandCount=globalCommands,CompleteLiveSnapshots=complete,
+      WindowOwnedProcess=window.OwnedProcess,WindowVisible=window.Visible,WindowEnabled=window.Enabled,WindowIsDialog=window.IsDialog,
+      MenuComplete=!menu.Truncated && menu.ReadErrors==0 && menu.Status=="materialized_standard_hmenu_observed",MenuItemCount=menu.Items.Length };
+    int enabledAncestors=0,ancestorRecords=0;
+    bool leafStyleVerified=false;
+    foreach(var item in menu.Items) {
+      if(item.PositionPath=="1") {
+        ancestorRecords++;
+        if(item.Enabled && !item.Separator && item.HasSubmenu && item.ContainingMenuStyleRead && (item.ContainingMenuStyle & 0x08000000)==0) enabledAncestors++;
+      }
+      if(item.CommandId==37447 && item.PositionPath=="1/2" && item.Enabled && !item.Separator && !item.HasSubmenu) {
+        decision.ExpectedPositionCommandCount++;
+        leafStyleVerified=item.ContainingMenuStyleRead && (item.ContainingMenuStyle & 0x08000000)==0;
+      }
+    }
+    decision.EnabledAncestorChainVerified=ancestorRecords==1 && enabledAncestors==1;
+    decision.CommandNotificationStyleVerified=menu.RootStyleRead && (menu.RootStyle & 0x08000000)==0 && leafStyleVerified;
+    if(!optIn) decision.Status="passive_default_no_file_open_action";
+    else if(!normalStartup) decision.Status="document_launch_disallows_file_open_probe";
+    else if(!communityAttempted || !communityCompleted) decision.Status="completed_normal_free_choice_not_observed";
+    else if(used!=0) decision.Status="file_open_attempt_budget_already_used";
+    else if(!identity) decision.Status="fresh_exact_image_not_verified";
+    else if(!complete || !decision.MenuComplete) decision.Status="incomplete_live_window_or_menu_snapshot_no_action";
+    else if(!decision.EnabledAncestorChainVerified) decision.Status="enabled_complete_menu_ancestor_chain_not_verified";
+    else if(!decision.CommandNotificationStyleVerified) decision.Status="wm_command_notification_style_not_verified";
+    else if(dialogs!=0) decision.Status="owned_visible_dialog_prevents_file_open";
+    else if(mainWindows!=1 || globalCommands!=1 || decision.ExpectedPositionCommandCount!=1) decision.Status="unique_expected_main_window_menu_command_not_verified";
+    else if(!window.OwnedProcess || !window.Visible || !window.Enabled || window.IsDialog) decision.Status="owned_visible_enabled_main_window_not_verified";
+    else { decision.PolicyPermitsOneAttempt=true; decision.Status="one_observed_file_open_delivery_permitted"; }
+    return decision;
+  }
+  private class FileOpenState {
+    public WindowContext Window=new WindowContext();
+    public MenuSnapshot Menu=new MenuSnapshot();
+    public IntPtr Handle=IntPtr.Zero,MenuHandle=IntPtr.Zero;
+    public uint ProcessId;
+    public int Dialogs,MainWindows,Commands;
+    public bool Complete=true;
+    public string MenuFingerprint="";
+  }
+  private static string NumericMenuFingerprint(MenuSnapshot menu) {
+    var text=new StringBuilder(); text.Append(menu.RootStyleRead).Append('|').Append(menu.RootStyle).Append('\n');
+    foreach(var item in menu.Items) text.Append(item.PositionPath).Append('|').Append(item.CommandId).Append('|').Append(item.Enabled).Append('|').Append(item.Checked).Append('|').Append(item.Separator).Append('|').Append(item.OwnerDrawn).Append('|').Append(item.HasSubmenu).Append('|').Append(item.ContainingMenuStyleRead).Append('|').Append(item.ContainingMenuStyle).Append('\n');
+    using(var sha=System.Security.Cryptography.SHA256.Create()) return BitConverter.ToString(sha.ComputeHash(Encoding.UTF8.GetBytes(text.ToString())));
+  }
+  private static FileOpenState ReadFileOpenState(HashSet<uint> pids) {
+    var state=new FileOpenState(); var windows=ForPids(pids);
+    if(windows.Length>8) { state.Complete=false; return state; }
+    foreach(var window in windows) {
+      uint pid; GetWindowThreadProcessId(window,out pid);
+      var nativeClass=new StringBuilder(256);
+      if(GetClassName(window,nativeClass,nativeClass.Capacity)==0) state.Complete=false;
+      var owner=GetWindow(window,4);
+      bool dialog=nativeClass.ToString()=="#32770" || (owner!=IntPtr.Zero && !IsWindowEnabled(owner));
+      if(dialog) state.Dialogs++;
+      var menuHandle=GetMenu(window);
+      var menu=MaterializedMenu(window);
+      if(menuHandle!=GetMenu(window) || menu.Truncated || menu.ReadErrors>0) state.Complete=false;
+      foreach(var item in menu.Items) if(item.CommandId==37447) state.Commands++;
+      bool enabled=IsWindowEnabled(window),visible=IsWindowVisible(window);
+      if(!dialog && enabled && visible && menu.Items.Length>0) {
+        state.MainWindows++;
+        state.Handle=window; state.MenuHandle=menuHandle; state.ProcessId=pid; state.Menu=menu;
+        state.MenuFingerprint=NumericMenuFingerprint(menu);
+        state.Window=new WindowContext { OwnedProcess=pids.Contains(pid) && GetAncestor(window,2)==window,Visible=visible,Enabled=enabled,IsDialog=dialog };
+      }
+    }
+    return state;
+  }
+  public static FileOpenDecision OpenFileDialogOnce(HashSet<uint> pids,string imagePath,string expectedHash,long expectedSize,bool optIn,bool normalStartup,bool communityAttempted,bool communityCompleted,int used) {
+    var decision=new FileOpenDecision();
+    if(!optIn || !normalStartup || !communityAttempted || !communityCompleted || used!=0)
+      return AssessFileOpen(new WindowContext(),new MenuSnapshot(),optIn,normalStartup,communityAttempted,communityCompleted,false,used,0,0,0,false);
+    try {
+      bool identity=VerifyPinnedImage(imagePath,expectedHash,expectedSize);
+      var first=ReadFileOpenState(pids);
+      decision=AssessFileOpen(first.Window,first.Menu,optIn,normalStartup,communityAttempted,communityCompleted,identity,used,first.Dialogs,first.MainWindows,first.Commands,first.Complete);
+      if(!decision.PolicyPermitsOneAttempt || first.Handle==IntPtr.Zero) return decision;
+      string liveImage=Process.GetProcessById((int)first.ProcessId).MainModule.FileName;
+      bool sameImage=String.Equals(System.IO.Path.GetFullPath(liveImage),System.IO.Path.GetFullPath(imagePath),StringComparison.OrdinalIgnoreCase);
+      decision.LiveImagePathVerified=sameImage;
+      if(!sameImage || !VerifyPinnedImage(liveImage,expectedHash,expectedSize)) { decision.PolicyPermitsOneAttempt=false; decision.Status="live_process_exact_image_not_verified"; return decision; }
+      var fresh=ReadFileOpenState(pids);
+      decision=AssessFileOpen(fresh.Window,fresh.Menu,optIn,normalStartup,communityAttempted,communityCompleted,true,used,fresh.Dialogs,fresh.MainWindows,fresh.Commands,fresh.Complete);
+      decision.LiveImagePathVerified=true;
+      if(!decision.PolicyPermitsOneAttempt || fresh.Handle==IntPtr.Zero) return decision;
+      decision.ConsistentWindowMenuSnapshots=first.Handle==fresh.Handle && first.MenuHandle==fresh.MenuHandle && first.ProcessId==fresh.ProcessId && first.MenuFingerprint==fresh.MenuFingerprint;
+      if(!decision.ConsistentWindowMenuSnapshots) { decision.PolicyPermitsOneAttempt=false; decision.Status="main_window_or_menu_changed_during_checks_no_action"; return decision; }
+      // Reserve the sole File/Open attempt before WM_COMMAND. Timeout may still
+      // mean delivery, so never retry and never confirm/select any file.
+      decision.Attempted=true; decision.AttemptBudgetUsed=1;
+      UIntPtr ignored;
+      decision.MessageCompleted=SendButtonMessageTimeout(fresh.Handle,0x0111,new UIntPtr(37447),IntPtr.Zero,3,1000,out ignored)!=IntPtr.Zero; // WM_COMMAND menu command
+      decision.Status=decision.MessageCompleted ? "single_file_open_command_sent" : "single_file_open_timeout_or_failure_no_retry";
+    } catch { decision.PolicyPermitsOneAttempt=false; decision.Status=decision.Attempted ? "file_open_attempt_exception_no_retry" : "fresh_file_open_check_failed_no_action"; }
+    return decision;
+  }
+  public class OpenDialogObservation {
+    public string Status="post_command_dialog_context_unverified";
+    public bool WindowOwnedProcess,WindowVisible,WindowEnabled,StandardDialogClass,FixedOpenTitleObserved,SnapshotTruncated;
+    public int InspectedControls,SnapshotReadErrors,Buttons,Edits,ComboBoxes,ListViews,DirectUi,StaticControls,OtherControls;
+    public bool FileSelectionOrConfirmationPerformed=false;
+  }
+  public static OpenDialogObservation ObserveOpenDialog(WindowContext window,ControlSnapshot snapshot,string nativeClass,string title) {
+    var result=new OpenDialogObservation { WindowOwnedProcess=window.OwnedProcess,WindowVisible=window.Visible,WindowEnabled=window.Enabled,
+      StandardDialogClass=nativeClass=="#32770",FixedOpenTitleObserved=String.Equals((title ?? "").Trim(),"Open",StringComparison.OrdinalIgnoreCase),
+      SnapshotTruncated=snapshot.Truncated,SnapshotReadErrors=snapshot.ReadErrors,InspectedControls=snapshot.Controls.Length };
+    foreach(var control in snapshot.Controls) {
+      switch((control.ClassName ?? "").ToLowerInvariant()) {
+        case "button": result.Buttons++; break;
+        case "edit": result.Edits++; break;
+        case "combobox": case "comboboxex32": result.ComboBoxes++; break;
+        case "syslistview32": result.ListViews++; break;
+        case "directuihwnd": result.DirectUi++; break;
+        case "static": result.StaticControls++; break;
+        default: result.OtherControls++; break;
+      }
+    }
+    if(result.WindowOwnedProcess && result.WindowVisible && result.StandardDialogClass && result.FixedOpenTitleObserved)
+      result.Status="fixed_open_title_standard_dialog_observed_effect_unverified";
+    return result;
+  }
   public static ControlSnapshot BoundedControls(IntPtr window,HashSet<uint> pids) {
     var snapshot=new ControlSnapshot(); var result=new List<ControlRecord>(); var watch=Stopwatch.StartNew();
     uint windowPid; GetWindowThreadProcessId(window,out windowPid);
@@ -360,6 +514,10 @@ public static class GmsPassiveWindows {
   }
   private static void ReadMenu(IntPtr menu,string prefix,int depth,List<MenuRecord> records,HashSet<IntPtr> seen,Stopwatch watch,MenuSnapshot snapshot) {
     if(depth > 6 || records.Count >= 400 || watch.ElapsedMilliseconds >= 1500 || !seen.Add(menu)) { snapshot.Truncated=true; return; }
+    var style=new MenuStyleInfo { Size=(uint)Marshal.SizeOf(typeof(MenuStyleInfo)),Mask=0x10 }; // MIM_STYLE
+    bool styleRead=GetMenuInfo(menu,ref style);
+    if(!styleRead) snapshot.ReadErrors++;
+    if(depth==0) { snapshot.RootStyleRead=styleRead; snapshot.RootStyle=style.Style; }
     int count = GetMenuItemCount(menu);
     if(count < 0) { snapshot.ReadErrors++; return; }
     for(uint position=0;position<count;position++) {
@@ -370,7 +528,8 @@ public static class GmsPassiveWindows {
       var label = new StringBuilder(512); GetMenuString(menu,position,label,label.Capacity,0x400);
       string path = prefix + position.ToString();
       records.Add(new MenuRecord { PositionPath=path,Label=label.ToString(),CommandId=info.Id,Depth=depth,
-        Enabled=(info.State & 3)==0,Checked=(info.State & 8)!=0,Separator=(info.Type & 0x800)!=0,OwnerDrawn=(info.Type & 0x100)!=0 });
+        Enabled=(info.State & 3)==0,Checked=(info.State & 8)!=0,Separator=(info.Type & 0x800)!=0,OwnerDrawn=(info.Type & 0x100)!=0,
+        HasSubmenu=info.Submenu!=IntPtr.Zero,ContainingMenuStyleRead=styleRead,ContainingMenuStyle=style.Style });
       if(info.Submenu != IntPtr.Zero) ReadMenu(info.Submenu,path+"/",depth+1,records,seen,watch,snapshot);
     }
   }
@@ -408,6 +567,7 @@ public static class GmsPassiveWindows {
     $iteration = 0
     $stopObservation = $false
     $selectionChecked = $false
+    $fileOpenChecked = $false
     $continueAfterSelection = $false
     while ([DateTime]::UtcNow -lt $deadline) {
         $iteration++
@@ -447,10 +607,10 @@ public static class GmsPassiveWindows {
             $entry.menu = [GmsPassiveWindows]::MaterializedMenu($handle)
             if ($entry.menu.Items.Count -gt 0 -or $receipt.menu_observations.Count -lt 4) {
                 $publicItems=@($entry.menu.Items | ForEach-Object {
-                    @{ position_path=$_.PositionPath;command_id=$_.CommandId;depth=$_.Depth;enabled=$_.Enabled;checked=$_.Checked;separator=$_.Separator;owner_drawn=$_.OwnerDrawn }
+                    @{ position_path=$_.PositionPath;command_id=$_.CommandId;depth=$_.Depth;enabled=$_.Enabled;checked=$_.Checked;separator=$_.Separator;owner_drawn=$_.OwnerDrawn;has_submenu=$_.HasSubmenu;containing_menu_style_read=$_.ContainingMenuStyleRead;containing_menu_style=$_.ContainingMenuStyle }
                 })
-                $summary=@{status=$entry.menu.Status;truncated=$entry.menu.Truncated;read_errors=$entry.menu.ReadErrors;items=$publicItems;
-                    limitation='Only materialized standard HMENU state; menus were not opened or invoked. Missing HMENU does not imply absent product capabilities.'}
+                $summary=@{status=$entry.menu.Status;truncated=$entry.menu.Truncated;read_errors=$entry.menu.ReadErrors;root_style_read=$entry.menu.RootStyleRead;root_style=$entry.menu.RootStyle;items=$publicItems;
+                    limitation='Materialized standard HMENU observation; any optional File/Open delivery is counted separately. Missing HMENU does not imply absent product capabilities.'}
                 if ($entry.menu.Items.Count -gt 0) {
                     $receipt.standard_menu_items_observed=$true
                     $receipt.menu_observations=@($receipt.menu_observations | Where-Object { $_.items.Count -gt 0 } | Select-Object -Last 3) + @($summary)
@@ -487,6 +647,13 @@ public static class GmsPassiveWindows {
                 $stopObservation = $true
                 if ($receipt.free_community_selection_attempted) {
                     $receipt.post_selection_dialog_observed=$true
+                    if ($receipt.file_open_command_attempted) {
+                        $receipt.post_file_open_dialog_observed=$true
+                        $openObservation=[GmsPassiveWindows]::ObserveOpenDialog($windowContext,$entry.control_snapshot,$entry.class,$entry.title)
+                        $receipt.post_file_open_dialog_observations += @($openObservation)
+                        $entry.post_file_open_dialog_observation=$openObservation
+                        if ($openObservation.Status -eq 'fixed_open_title_standard_dialog_observed_effect_unverified') { $receipt.fixed_open_dialog_context_observed=$true }
+                    }
                 } elseif ($SelectFreeCommunityEdition -and -not $selectionChecked) {
                     $selectionChecked=$true
                     $receipt.probe_phase='fresh_optional_free_community_choice_checks'
@@ -508,6 +675,24 @@ public static class GmsPassiveWindows {
             }
             if ($receipt.free_community_selection_attempted -and -not $isDialog) {
                 $receipt.post_selection_window_observed=$true
+            }
+            if ($ObserveFileOpenDialog -and -not $fileOpenChecked -and -not $isDialog -and
+                $receipt.free_community_selection_attempted -and $receipt.main_window_enabled_observed -eq $true -and
+                $entry.menu.Items.Count -gt 0 -and [GmsPassiveWindows]::IsWindowEnabled($handle)) {
+                $fileOpenChecked=$true
+                $ceCompleted=@($receipt.free_community_selection_observations | Where-Object { $_.Attempted -and $_.MessageCompleted }).Count -eq 1
+                $receipt.probe_phase='fresh_optional_file_open_dialog_checks'
+                $openDecision=[GmsPassiveWindows]::OpenFileDialogOnce($pids,$exe,$ExpectedTargetSha256,$ExpectedTargetSize,$true,($receipt.launch_method -eq 'normal_process_start'),[bool]$receipt.free_community_selection_attempted,$ceCompleted,[int]$receipt.file_open_ui_actions)
+                $receipt.file_open_observations += @($openDecision)
+                $entry.file_open_decision=$openDecision
+                if ($openDecision.Attempted) {
+                    $receipt.file_open_command_attempted=$true
+                    $receipt.file_open_ui_actions=1
+                    $receipt.target_ui_actions=[int]$receipt.target_ui_actions + 1
+                    $deadline=[DateTime]::UtcNow.AddSeconds($receipt.file_open_observation_seconds)
+                    $continueAfterSelection=$true
+                } else { $stopObservation=$true }
+                $receipt.probe_phase='passive_post_file_open_command_observation'
             }
             # Capture only this target window's visible rectangle. Any blank or
             # occluded frame remains evidence of that limitation, never a fake UI.

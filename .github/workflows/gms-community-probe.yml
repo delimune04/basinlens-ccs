@@ -14,6 +14,10 @@ on:
         description: 'Optional single verified free Community Edition choice during normal startup; no activation or model run'
         type: boolean
         default: false
+      observe_file_open_dialog:
+        description: 'Optional single File/Open dialog observation after the free choice; no filename, confirmation or model run'
+        type: boolean
+        default: false
   push:
     branches: ["feat/gms-groundwater-workbench"]
 
@@ -30,7 +34,8 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       contains(github.event.head_commit.message, '[gms-community-probe]') ||
       contains(github.event.head_commit.message, '[gms-community-mf6-document-probe]') ||
-      contains(github.event.head_commit.message, '[gms-free-community-choice-probe]')
+      contains(github.event.head_commit.message, '[gms-free-community-choice-probe]') ||
+      contains(github.event.head_commit.message, '[gms-open-dialog-probe]')
     runs-on: windows-2022
     timeout-minutes: 25
     steps:
@@ -130,7 +135,57 @@ jobs:
           $decision=[GmsPassiveWindows]::AssessFreeSelection($window,$snapshot,$true,$true,$true,0,1,1,$true)
           $json=$decision | ConvertTo-Json -Depth 8
           if ($json.Contains('Unknown startup wording') -or $json.Contains('Handle') -or $json.Contains('ControlId') -or $json.Contains('ProcessId')) { throw 'Private native metadata leaked into a free-choice policy result.' }
-          Write-Output 'Passive guard and separate opt-in policy cases passed; no target or native selection method was invoked.'
+          # Pure File/Open policy and observation tests; no WM_COMMAND delivery.
+          $window.IsDialog=$false
+          $menu=[GmsPassiveWindows+MenuSnapshot]::new(); $menu.Status='materialized_standard_hmenu_observed'; $menu.RootStyleRead=$true
+          $ancestor=[GmsPassiveWindows+MenuRecord]::new(); $ancestor.PositionPath='1'; $ancestor.Enabled=$true; $ancestor.HasSubmenu=$true; $ancestor.ContainingMenuStyleRead=$true
+          $item=[GmsPassiveWindows+MenuRecord]::new(); $item.CommandId=37447; $item.PositionPath='1/2'; $item.Enabled=$true
+          $item.Label='PRIVATE_NATIVE_MENU_LABEL'; $item.ContainingMenuStyleRead=$true; $menu.Items=@($ancestor,$item)
+          function Assert-FileOpen([bool]$expected,[bool]$optIn=$true,[bool]$normal=$true,[bool]$ceAttempted=$true,[bool]$ceCompleted=$true,[bool]$identity=$true,[int]$used=0,[int]$dialogs=0,[int]$mainWindows=1,[int]$commands=1,[bool]$complete=$true) {
+            $decision=[GmsPassiveWindows]::AssessFileOpen($window,$menu,$optIn,$normal,$ceAttempted,$ceCompleted,$identity,$used,$dialogs,$mainWindows,$commands,$complete)
+            if ($decision.PolicyPermitsOneAttempt -ne $expected -or $decision.Attempted -or $decision.CommandId -ne 37447 -or $decision.ExpectedPosition -ne '1/2') { throw 'File/Open policy regression.' }
+            $json=$decision | ConvertTo-Json -Depth 8
+            if ($json.Contains('PRIVATE_NATIVE') -or $json.Contains('Handle') -or $json.Contains('ProcessId')) { throw 'Private window/menu metadata leaked into a File/Open decision.' }
+          }
+          Assert-FileOpen $true
+          Assert-FileOpen $false $false
+          Assert-FileOpen $false $true $false
+          Assert-FileOpen $false $true $true $false
+          Assert-FileOpen $false $true $true $true $false
+          Assert-FileOpen $false $true $true $true $true $false
+          Assert-FileOpen $false $true $true $true $true $true 1
+          Assert-FileOpen $false $true $true $true $true $true 0 1
+          Assert-FileOpen $false $true $true $true $true $true 0 0 2
+          Assert-FileOpen $false $true $true $true $true $true 0 0 1 2
+          Assert-FileOpen $false $true $true $true $true $true 0 0 1 1 $false
+          foreach ($field in @('OwnedProcess','Visible','Enabled')) { $window.$field=$false; Assert-FileOpen $false; $window.$field=$true }
+          $window.IsDialog=$true; Assert-FileOpen $false; $window.IsDialog=$false
+          $item.CommandId=37448; Assert-FileOpen $false; $item.CommandId=37447
+          $item.PositionPath='1/3'; Assert-FileOpen $false; $item.PositionPath='1/2'
+          $item.Enabled=$false; Assert-FileOpen $false; $item.Enabled=$true
+          $item.Separator=$true; Assert-FileOpen $false; $item.Separator=$false
+          $menu.Truncated=$true; Assert-FileOpen $false; $menu.Truncated=$false
+          $menu.ReadErrors=1; Assert-FileOpen $false; $menu.ReadErrors=0
+          $menu.Status='unknown'; Assert-FileOpen $false; $menu.Status='materialized_standard_hmenu_observed'
+          $menu.Items=@($ancestor,$item,$item); Assert-FileOpen $false; $menu.Items=@($ancestor,$item)
+          $ancestor.Enabled=$false; Assert-FileOpen $false; $ancestor.Enabled=$true
+          $ancestor.Separator=$true; Assert-FileOpen $false; $ancestor.Separator=$false
+          $ancestor.HasSubmenu=$false; Assert-FileOpen $false; $ancestor.HasSubmenu=$true
+          $ancestor.ContainingMenuStyleRead=$false; Assert-FileOpen $false; $ancestor.ContainingMenuStyleRead=$true
+          $menu.Items=@($item); Assert-FileOpen $false; $menu.Items=@($ancestor,$item)
+          $item.HasSubmenu=$true; Assert-FileOpen $false; $item.HasSubmenu=$false
+          $menu.RootStyleRead=$false; Assert-FileOpen $false; $menu.RootStyleRead=$true
+          $menu.RootStyle=0x08000000; Assert-FileOpen $false; $menu.RootStyle=0
+          $item.ContainingMenuStyleRead=$false; Assert-FileOpen $false; $item.ContainingMenuStyleRead=$true
+          $item.ContainingMenuStyle=0x08000000; Assert-FileOpen $false; $item.ContainingMenuStyle=0
+          $window.IsDialog=$true
+          $observation=[GmsPassiveWindows]::ObserveOpenDialog($window,$snapshot,'#32770','Open')
+          if ($observation.Status -ne 'fixed_open_title_standard_dialog_observed_effect_unverified' -or $observation.FileSelectionOrConfirmationPerformed) { throw 'Fixed Open dialog observation regression.' }
+          $observation=[GmsPassiveWindows]::ObserveOpenDialog($window,$snapshot,'PRIVATE_UNKNOWN_CLASS','PRIVATE_UNKNOWN_DIALOG')
+          if ($observation.Status -ne 'post_command_dialog_context_unverified') { throw 'Unknown dialog was promoted to Open.' }
+          $json=$observation | ConvertTo-Json -Depth 8
+          if ($json.Contains('PRIVATE_') -or $json.Contains('Handle') -or $json.Contains('ProcessId')) { throw 'Private dialog metadata leaked into public observation.' }
+          Write-Output 'Passive, free-choice and File/Open pure policy cases passed; no target or native selection method was invoked.'
       - name: Download and verify pinned official GMS installer
         shell: pwsh
         run: |
@@ -189,7 +244,8 @@ jobs:
         timeout-minutes: 6
         shell: pwsh
         env:
-          SELECT_FREE_COMMUNITY: ${{ inputs.select_free_community == true || contains(github.event.head_commit.message, '[gms-free-community-choice-probe]') }}
+          SELECT_FREE_COMMUNITY: ${{ inputs.select_free_community == true || inputs.observe_file_open_dialog == true || contains(github.event.head_commit.message, '[gms-free-community-choice-probe]') || contains(github.event.head_commit.message, '[gms-open-dialog-probe]') }}
+          OBSERVE_FILE_OPEN_DIALOG: ${{ inputs.observe_file_open_dialog == true || contains(github.event.head_commit.message, '[gms-open-dialog-probe]') }}
         run: |
           $ErrorActionPreference='Stop'
           $result=Get-Content -LiteralPath $env:GMS_RUNTIME_PRIVATE_RESULT -Raw | ConvertFrom-Json
@@ -210,11 +266,12 @@ jobs:
             }
             if ($env:GMS_RUNTIME_PROJECT) { $arguments.ProjectPath=$env:GMS_RUNTIME_PROJECT }
             if ($env:SELECT_FREE_COMMUNITY -eq 'true') { $arguments.SelectFreeCommunityEdition=$true }
+            if ($env:OBSERVE_FILE_OPEN_DIALOG -eq 'true') { $arguments.ObserveFileOpenDialog=$true }
             $code=2
             try { & ./tools/probe_gms_community.ps1 @arguments; $code=$LASTEXITCODE }
             catch { $code=2 }
             $observation=if (Test-Path -LiteralPath $receiptPath) { Get-Content -LiteralPath $receiptPath -Raw | ConvertFrom-Json } else { $null }
-            $reports += @(@{index=$index;receipt=$receiptName;exit_code=$code;status=$observation.status;target_started=$observation.target_started;visible_window_observed=$observation.visible_window_observed;target_ui_actions=$observation.target_ui_actions;licence_ui_actions=$observation.licence_ui_actions;free_community_selection_attempted=$observation.free_community_selection_attempted})
+            $reports += @(@{index=$index;receipt=$receiptName;exit_code=$code;status=$observation.status;target_started=$observation.target_started;visible_window_observed=$observation.visible_window_observed;target_ui_actions=$observation.target_ui_actions;licence_ui_actions=$observation.licence_ui_actions;free_community_selection_attempted=$observation.free_community_selection_attempted;file_open_ui_actions=$observation.file_open_ui_actions;file_open_command_attempted=$observation.file_open_command_attempted;post_file_open_dialog_observed=$observation.post_file_open_dialog_observed})
           }
           $summary=@{
             probe_schema_version=2
@@ -226,11 +283,13 @@ jobs:
             numerical_run_observed=$false
             paired_gms_comparisons=0
             free_community_selection_requested=($env:SELECT_FREE_COMMUNITY -eq 'true')
+            file_open_dialog_probe_requested=($env:OBSERVE_FILE_OPEN_DIALOG -eq 'true')
+            file_open_ui_actions=(@($reports | ForEach-Object { [int]$_.file_open_ui_actions }) | Measure-Object -Sum).Sum
             target_ui_actions=(@($reports | ForEach-Object { [int]$_.target_ui_actions }) | Measure-Object -Sum).Sum
             licence_ui_actions=(@($reports | ForEach-Object { [int]$_.licence_ui_actions }) | Measure-Object -Sum).Sum
             activation_requests_initiated_by_probe=0
             observations=$reports
-            qualification='Each normal registered target was observed independently after the exact identity gate. Optional explicit single free Community choice per target only, with actual action counts. No canonical preference, activation or new solver run.'
+            qualification='Each normal registered target was observed independently after the exact identity gate. Optional explicit single free Community choice and one verified File/Open dialog command per target only, with actual cumulative action counts. No canonical preference, activation or new solver run.'
           }
           $summary | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath (Join-Path $env:RUNNER_TEMP 'gms-runtime-public/public-summary.json') -Encoding utf8
       - name: Record an unavailable runtime result if installation or observation stopped early

@@ -137,6 +137,10 @@ also recovers a verified rectilinear hexahedral representation; its physical
 cell centers and elevations match one official tutorial's native DIS export
 exactly. Project writing and complete format compatibility remain open.
 Install these optional interfaces with `pip install -e ".[gms]"`.
+A separate [conservative-solute transport module](docs/gms/TRANSPORT.md) exports
+and runs bounded 1D GWF/GWT cases with explicit kg/m³ units and every-step mass
+balance. Independent Gaussian diffusion, refinement and inlet checks are
+synthetic water/solute benchmarks; they do not supply CO2 or oil physics.
 An unchanged official tutorial export was re-executed with public USGS MODFLOW:
 all 1,125 heads and external budget outputs matched its shipped binary results.
 The [evidence record](docs/gms/TUTORIAL_INTEROPERABILITY.md) distinguishes this

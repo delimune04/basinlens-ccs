@@ -30,7 +30,8 @@ records the remaining product and evidence work.
 | Native GPR geometry | Physical nodes, hexahedra and cell elevations for one verified rectilinear representation | All 1,125 tutorial cell coordinates match native DIS; units/CRS/datum remain unknown, no GPR writing |
 | GIS / CAD / boreholes | Not implemented | No shapefile/CAD/CRS transformation claims |
 | Unstructured meshes / solids | Not implemented | No grid refinement or stratigraphic interpolation |
-| Solute transport / particles | Not implemented | No GWT, MT3D or MODPATH adapter yet |
+| Conservative solute transport | Standalone bounded1D GWF/GWT exporter/runner/result reader | Synthetic uniform/Gaussian/inlet checks and every-step mass balance; no general3D/GMS/field equivalence or shared UI adapter |
+| Particles and other transport | Not implemented | No MODPATH, MT3D, reactions or density-dependent interface |
 | Calibration / uncertainty inversion | Not implemented | Existing volumetric Monte Carlo stays separate |
 | CO2–brine multiphase flow | Not implemented | Requires an appropriate OPM/DuMux-class solver and benchmarks |
 | Native GMS UI / binary behavior | Not reproduced or compared | Static inspection does not prove runtime behavior |

@@ -9,12 +9,17 @@ current scope or a replacement definition of completion. Public work is in
 [PR #10](https://github.com/delimune04/basinlens-ccs/pull/10), branch
 `feat/gms-groundwater-workbench`; main baseline remains `f17934e`.
 
-The latest integrated run passed **237 tests with zero skips** using actual
+The latest integrated run passed **249 tests with zero skips** using actual
 MF6 6.7.0, FloPy 3.11.0 and the optional UI/HDF5 dependencies. Required capacity
 CLI/verifier, compilation, diff checks and actionlint also passed.
 
 Current components:
 
+- Standalone bounded1D saturated GWF/GWT conservative-solute module with
+  deterministic native export, exact captured case/input binding, every-step
+  concentration/mass result reader and existing native executor/verifier reuse.
+  Uniform/Gaussian/refinement/inlet checks passed; no shared UI/registry,
+  GMS comparison, CO2, reactions or density-dependent physics are implied.
 - Typed shared subsurface projects, explicit units/CRS/datum and asset identity,
   preserved geological/observation metadata, trusted engine registry and a
   working MODFLOW background-water adapter for groundwater/CCS/oil projects.

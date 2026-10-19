@@ -108,3 +108,59 @@ window does not prove Community entitlement or successful workspace operation;
 remains private, and public policy decisions contain only fixed categories,
 counts and booleans. Workflow self-tests exercise this separate policy without
 calling its native selection method.
+
+## Optional File/Open dialog observation
+
+`-ObserveFileOpenDialog` is a separate default-off phase and requires
+`-SelectFreeCommunityEdition` with normal startup and no project argument. The
+workflow boolean `observe_file_open_dialog` or marker `[gms-open-dialog-probe]`
+explicitly opts into both phases. Passive startup, the free-choice-only marker,
+and document observation retain their existing behavior.
+
+The sixth original Windows probe (`39211459223`, 2026-10-19) sent one exact free
+Community button message and subsequently observed an enabled main window with
+standard HMENU state. Four complete snapshots contained 134 records and 102
+unique numeric IDs. Of those IDs, 85 matched the 576-ID static catalogue and 17
+remained unclassified; some IDs are Windows/system commands rather than GMS
+application commands. These counts do not measure product completeness. The
+original REA-backed private resource catalogue identified File/Open as command
+37447, and the actual enabled menu record appeared at position `1/2`.
+
+Before one File/Open delivery, the probe requires a completed normal free-choice
+message, a freshly observed enabled main window, and no visible owned dialog.
+It rechecks the pinned executable size and SHA256, exact candidate process image
+path and bytes, and two complete live owned-window/menu snapshots. The snapshots
+must retain the same main-window handle, menu handle, process and complete
+numeric menu-state fingerprint. Exactly one enabled, nonseparator leaf command 37447
+must occupy position `1/2` beneath a unique enabled nonseparator submenu at `1`.
+The top-level and containing menu styles must be readable and must not request
+`MNS_NOTIFYBYPOS`; no alternate notification is sent. Menu styles and submenu
+flags participate in both complete fingerprints. Delivery also requires one
+enabled visible menu-bearing main window and zero visible owned dialogs. Unknown/incomplete state, multiple candidates,
+changed menus and any document argument prevent delivery.
+
+The sole File/Open attempt is reserved before sending `WM_COMMAND`, with the
+menu ID in the low word, zero high word and zero `lParam`, as specified by
+[Microsoft](https://learn.microsoft.com/en-us/windows/win32/menurc/wm-command).
+Its one-second timeout does not prove failure or successful dialog creation;
+a modal handler may still be waiting. The probe never retries or sends an
+alternate message. It does not type a path, pick a file, press Open/OK/Cancel,
+change focus, invoke a solver, or save. It passively records the first later
+observed dialog and stops, or ends after a separate 15-second post-command
+observation budget. That extra phase is reported explicitly and is only enabled
+for this opt-in probe.
+
+Public dialog observations include only owned/visible/enabled flags, a standard
+native-dialog-class flag, an exact fixed `Open` title flag, bounded snapshot
+completeness and counts in known native control-class categories. Every other
+class is counted as `OtherControls`; raw labels/classes/IDs/handles and screenshots
+stay private. A different or localized title remains unknown. A matching fixed
+title/class observation does not establish successful file loading or complete
+Open-dialog behavior. No file is selected or confirmed.
+
+`file_open_ui_actions` is independent of licence UI actions. Any File/Open
+attempt, including a timeout, increments cumulative `target_ui_actions` by one
+and does not reset the earlier Community count. No edition-entitlement or new
+numerical-run claim is made. The opt-in workflow compiles the helper and tests
+pure refusal/metadata-isolation policies before downloading or starting GMS;
+those tests never call the native delivery methods.
